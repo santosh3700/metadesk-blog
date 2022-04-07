@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useState, useContext } from 'react';
 
 const UL = styled.ul`
   list-style: none;
@@ -31,125 +31,123 @@ const Arrow = styled.span`
   color: #3e485d;
 
   &::after {
-    content: "";
+    content: '';
     width: 0;
     height: 0;
     border-left: 4px solid transparent;
     border-right: 4px solid transparent;
     border-top: 4px solid #000;
-    transform: ${(props) => (props.toggle ? "rotate(180deg)" : "rotate(0deg)")};
+    transform: ${(props) => (props.toggle ? 'rotate(180deg)' : 'rotate(0deg)')};
   }
 `;
-import styled from "@emotion/styled";
-import { DrawerToggle } from "./Navbar";
-import { Link } from "@chakra-ui/react";
+import styled from '@emotion/styled';
+import { DrawerToggle } from './Navbar';
+// import { Link } from '@chakra-ui/react';
+import { useColorMode, Box } from '@chakra-ui/react';
+import Link from 'next/link';
 
 const MobileMultiMenus = ({ menus, state, actions, libraries }) => {
-    const [activeMenus, setActiveMenus] = useState([]);
+  const { colorMode, toggleColorMode } = useColorMode();
+  const [activeMenus, setActiveMenus] = useState([]);
 
-    const toggleDrawer = useContext(DrawerToggle);
-    console.log("hellodatasss", toggleDrawer);
+  const toggleDrawer = useContext(DrawerToggle);
 
-    const handleMenuClick = (data) => {
-        console.log(data);
-    };
+  const handleMenuClick = (data) => {};
 
-    const handleArrowClick = (menuName) => {
-        let newActiveMenus = [...activeMenus];
+  const handleArrowClick = (menuName) => {
+    let newActiveMenus = [...activeMenus];
 
-        if (newActiveMenus.includes(menuName)) {
-            var index = newActiveMenus.indexOf(menuName);
-            if (index > -1) {
-                newActiveMenus.splice(index, 1);
-            }
-        } else {
-            newActiveMenus.push(menuName);
-        }
+    if (newActiveMenus.includes(menuName)) {
+      var index = newActiveMenus.indexOf(menuName);
+      if (index > -1) {
+        newActiveMenus.splice(index, 1);
+      }
+    } else {
+      newActiveMenus.push(menuName);
+    }
 
-        setActiveMenus(newActiveMenus);
-    };
+    setActiveMenus(newActiveMenus);
+  };
 
-    const ListMenu = ({ dept, data, hasSubMenu, menuName, menuIndex }) => (
-        <LI id="mobileMenu">
-            <Item dept={dept} >
-                <Link href={data.href}   >
-                    <Label
-                        onClick={() => {
-                            toggleDrawer();
-                            handleMenuClick(data);
-                        }}
-                    >
-                        {data.label}
-                    </Label>
-                </Link>
-                {hasSubMenu && (
-                    <Arrow
-                        onClick={() => handleArrowClick(menuName)}
-                        toggle={activeMenus.includes(menuName)}
-                    />
-                )}
-            </Item>
-            {hasSubMenu && (
-                <SubMenu
-                    dept={dept}
-                    data={data.submenu}
-                    toggle={activeMenus.includes(menuName)}
-                    menuIndex={menuIndex}
-                />
-            )}
-        </LI>
-    );
+  const ListMenu = ({ dept, data, hasSubMenu, menuName, menuIndex }) => (
+    <LI id="mobileMenu">
+      <Item dept={dept}>
+        <Link href={data.href}>
+          <Label
+            onClick={() => {
+              toggleDrawer();
+              handleMenuClick(data);
+            }}
+          >
+            {data.label}
+          </Label>
+        </Link>
+        {hasSubMenu && (
+          <Arrow
+            onClick={() => handleArrowClick(menuName)}
+            toggle={activeMenus.includes(menuName)}
+          />
+        )}
+      </Item>
+      {hasSubMenu && (
+        <SubMenu
+          dept={dept}
+          data={data.submenu}
+          toggle={activeMenus.includes(menuName)}
+          menuIndex={menuIndex}
+        />
+      )}
+    </LI>
+  );
 
-    const SubMenu = ({ dept, data, toggle, menuIndex }) => {
-        if (!toggle) {
-            return null;
-        }
+  const SubMenu = ({ dept, data, toggle, menuIndex }) => {
+    if (!toggle) {
+      return null;
+    }
 
-        dept = dept + 1;
-
-        return (
-            <UL>
-                {data.map((menu, index) => {
-                    const menuName = `submenu-${dept}-${menuIndex}-${index}`;
-
-                    return (
-
-                        <ListMenu
-                            dept={dept}
-                            data={menu}
-                            hasSubMenu={menu.submenu}
-                            menuName={menuName}
-                            key={menuName}
-                            menuIndex={index}
-                        />
-
-                    );
-                })}
-            </UL>
-        );
-    };
+    dept = dept + 1;
 
     return (
-        <UL>
-            {menus.map((menu, index) => {
-                const dept = 1;
-                const menuName = `menu-${dept}-${index}`;
+      <UL>
+        {data.map((menu, index) => {
+          const menuName = `submenu-${dept}-${menuIndex}-${index}`;
 
-                return (
-
-                    <ListMenu
-                        dept={dept}
-                        data={menu}
-                        hasSubMenu={menu.submenu}
-                        menuName={menuName}
-                        key={menuName}
-                        menuIndex={index}
-                    />
-
-                );
-            })}
-        </UL>
+          return (
+            <ListMenu
+              dept={dept}
+              data={menu}
+              hasSubMenu={menu.submenu}
+              menuName={menuName}
+              key={menuName}
+              menuIndex={index}
+            />
+          );
+        })}
+      </UL>
     );
+  };
+
+  return (
+    <Box bg="white">
+      <UL>
+        {menus.map((menu, index) => {
+          const dept = 1;
+          const menuName = `menu-${dept}-${index}`;
+
+          return (
+            <ListMenu
+              dept={dept}
+              data={menu}
+              hasSubMenu={menu.submenu}
+              menuName={menuName}
+              key={menuName}
+              menuIndex={index}
+            />
+          );
+        })}
+      </UL>
+    </Box>
+  );
 };
 
-export default (MobileMultiMenus);
+export default MobileMultiMenus;
