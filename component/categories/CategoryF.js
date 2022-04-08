@@ -21,7 +21,7 @@ import Link from 'next/link';
 // import Editorpicks from '../slider/EditorPicks';
 import VideoSecond from '../slider/VideoSecond';
 
-const CategoryF = () => {
+const CategoryF = (props) => {
   // theming
   const { colorMode, toggleColorMode } = useColorMode();
   const isLightTheme = colorMode == 'light' ? true : false;
@@ -30,7 +30,13 @@ const CategoryF = () => {
   const primaryBgColor = isLightTheme ? 'white' : 'black';
   const secondaryBgColor = isLightTheme ? 'black' : 'white';
 
+  // store data
+  const { data } = props;
+
+  // console.log('categoryF', data);
+
   const tempArr = [1, 2, 3, 4];
+
   return (
     <Box
       px={{ base: '4', lg: '16' }}

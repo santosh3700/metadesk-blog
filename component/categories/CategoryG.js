@@ -14,16 +14,14 @@ import {
   Stack,
   Text,
   useColorMode,
-  VStack,
 } from '@chakra-ui/react';
 import { FaRegClock, FaCircle, FaPlayCircle, FaFacebook } from 'react-icons/fa';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import Link from 'next/link';
-import Carousel from 'react-multi-carousel';
 import { compareAsc, format } from 'date-fns';
-import EditorPicks from '../slider/EditorPicks';
+import Carousel from 'react-multi-carousel';
 
-const CategoryA = (props) => {
+const CategoryG = (props) => {
   // theming
   const { colorMode, toggleColorMode } = useColorMode();
   const isLightTheme = colorMode == 'light' ? true : false;
@@ -52,11 +50,10 @@ const CategoryA = (props) => {
   // store data
   const { data } = props;
 
-  // temp var
-  const tempArr = [1, 2, 3, 4, 5, 6];
-  const tempArrSecond = [1, 2, 3];
+  // console.log('categoryG', data);
 
   // get post  from api
+
   const postArr = [];
   var k = 0;
   for (let i = 0; i < 6; i++) {
@@ -79,10 +76,11 @@ const CategoryA = (props) => {
 
     postArr.push(postObj);
   }
+  // console.log('looptitle', postArr);
 
   return (
-    <>
-      <Box px={{ base: '4', lg: '16' }} mb="20">
+    <Box px={{ base: '4', lg: '16' }} mb="20">
+      {postArr && (
         <Grid
           templateColumns={{ md: '9fr 3fr', sm: 'repeat(2, 1fr)' }}
           textColor="white"
@@ -97,10 +95,10 @@ const CategoryA = (props) => {
                 <Icon as={FaCircle} boxSize={6} mr="4" color={'purple'} />
                 <Box>
                   <Heading as="h4" size={'lg'} color={primaryTextColor}>
-                    {process.env.home.categoryList.CATEGORY_A.NAME}
+                    {process.env.home.categoryList.CATEGORY_G.NAME}
                   </Heading>
                   <Text color={primaryTextColor}>
-                    {process.env.home.categoryList.CATEGORY_A.DESC}
+                    {process.env.home.categoryList.CATEGORY_G.DESC}
                   </Text>
                 </Box>
               </Flex>
@@ -114,25 +112,23 @@ const CategoryA = (props) => {
                   <Icon as={ChevronLeftIcon} boxSize={6} />{' '}
                   <Icon as={ChevronRightIcon} boxSize={6} />
                 </Flex>
-                <Link href="/full-width">
-                  <Button
-                    variant={'outline'}
-                    colorScheme="blue"
-                    rounded={'none'}
-                    size="sm"
-                    fontWeight={'bold'}
-                  >
-                    SEE ALL
-                  </Button>
-                </Link>
+                <Button
+                  variant={'outline'}
+                  colorScheme="blue"
+                  rounded={'none'}
+                  size="sm"
+                  fontWeight={'bold'}
+                >
+                  SEE ALL
+                </Button>
               </Box>
             </Flex>
             <Grid
               templateColumns={{ md: '12fr', sm: 'repeat(2, 1fr)' }}
+              textColor="white"
               gap={4}
               mt={6}
             >
-              {/* loop here */}
               <Carousel responsive={responsive} autoPlay={false}>
                 {postArr &&
                   postArr.map((post, index) => {
@@ -143,6 +139,7 @@ const CategoryA = (props) => {
                         textColor="white"
                         gap={4}
                       >
+                        {/* <Box px="4" borderRight={'1px solid #b3b3b3'}> */}
                         {post &&
                           post.map((item, j) => {
                             return (
@@ -202,19 +199,18 @@ const CategoryA = (props) => {
                               </Link>
                             );
                           })}
+                        {/* </Box> */}
                       </Grid>
                     );
                   })}
               </Carousel>
-              {/* end of loop */}
             </Grid>
           </Box>
-
           <Box h="100%" bg="#ededed"></Box>
         </Grid>
-      </Box>
-    </>
+      )}
+    </Box>
   );
 };
 
-export default CategoryA;
+export default CategoryG;

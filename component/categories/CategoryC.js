@@ -18,10 +18,9 @@ import {
 import { FaRegClock, FaCircle, FaPlayCircle, FaFacebook } from 'react-icons/fa';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import Link from 'next/link';
-// import EditorPicks from '../slider/EditorPicks';
-// import PressSlider from '../slider/PressSlider';
+import { compareAsc, format } from 'date-fns';
 
-const CategoryC = () => {
+const CategoryC = (props) => {
   // theming
   const { colorMode, toggleColorMode } = useColorMode();
   const isLightTheme = colorMode == 'light' ? true : false;
@@ -30,7 +29,14 @@ const CategoryC = () => {
   const primaryBgColor = isLightTheme ? 'white' : 'black';
   const secondaryBgColor = isLightTheme ? 'black' : 'white';
 
+  // store data
+  const { data } = props;
+
+  // console.log('categoryC', data);
+
+  // temp var
   const tempArr = [1, 2, 3];
+
   return (
     <>
       <Box px={{ base: '4', lg: '16' }} mb="20" py={'18'}>
@@ -42,9 +48,9 @@ const CategoryC = () => {
             <Icon as={FaCircle} boxSize={6} mr="4" color={'purple'} />
             <Box>
               <Heading as="h4" size={'lg'}>
-                COINS
+                {process.env.home.categoryList.CATEGORY_C.NAME}
               </Heading>
-              <Text>The latest entertainment news in the world</Text>
+              <Text> {process.env.home.categoryList.CATEGORY_C.DESC}</Text>
             </Box>
           </Flex>
           <Box
@@ -175,92 +181,101 @@ const CategoryC = () => {
           </Box>
 
           <Box px="4">
-            {tempArr.map((image, index) => {
-              return (
-                <Flex py="4" key={index}>
-                  <Box w={'70%'}>
-                    <Button
-                      bg={'#03a9e7'}
-                      color="white"
-                      mb={2}
-                      rounded={'none'}
-                      size="xs"
-                      fontWeight={'bold'}
-                    >
-                      BITCOIN
-                    </Button>
-                    <Text
-                      fontWeight={'bold'}
-                      noOfLines={2}
-                      lineHeight="initial"
-                      paddingRight="2"
-                      color={primaryTextColor}
-                    >
-                      All That We See or Seem is but a Dream Within a Dream
-                      Becomes Her
-                    </Text>
-                    <Flex mt="2" alignItems={'center'}>
-                      <Icon as={FaRegClock} color={primaryTextColor} />
-                      <Text ml={4} color={primaryTextColor}>
-                        Oct 18, 2019
-                      </Text>
-                    </Flex>
-                  </Box>
-                  <Box w={'30%'}>
-                    <Img
-                      h={'100%'}
-                      objectFit={'cover'}
-                      src="https://wptesting.thenwg.xyz/wp-content/uploads/2022/04/editor-pic.jpg"
-                      alt="Woman paying for a purchase"
-                    />
-                  </Box>
-                </Flex>
-              );
-            })}
+            {data.edges &&
+              data.edges.slice(0, 3).map((item, index) => {
+                return (
+                  item &&
+                  item.node && (
+                    <Link href={item.node.slug} key={index}>
+                      <Flex py="4" cursor="pointer">
+                        <Box w={'70%'}>
+                          <Button
+                            bg={'#03a9e7'}
+                            color="white"
+                            mb={2}
+                            rounded={'none'}
+                            size="xs"
+                            fontWeight={'bold'}
+                          >
+                            Bitcoin
+                          </Button>
+                          <Text
+                            fontWeight={'bold'}
+                            noOfLines={2}
+                            lineHeight="initial"
+                            paddingRight="2"
+                            color={primaryTextColor}
+                          >
+                            {item.node.title}
+                          </Text>
+                          <Flex mt="2" alignItems={'center'}>
+                            <Icon as={FaRegClock} color={primaryTextColor} />
+                            <Text ml={4} color={primaryTextColor}>
+                              {format(new Date(item.node.date), 'yyyy-MM-dd')}
+                            </Text>
+                          </Flex>
+                        </Box>
+                        {item.node.featuredImage && (
+                          <Box w={'30%'}>
+                            <Img
+                              h={'100%'}
+                              objectFit={'cover'}
+                              src={item.node.featuredImage.node.sourceUrl}
+                              alt={item.node.title}
+                            />
+                          </Box>
+                        )}
+                      </Flex>
+                    </Link>
+                  )
+                );
+              })}
           </Box>
 
           <Box px="4">
-            {tempArr.map((image, index) => {
-              return (
-                <Flex py="4" key={index}>
-                  <Box w={'70%'}>
-                    <Button
-                      bg={'#03a9e7'}
-                      color="white"
-                      mb={2}
-                      rounded={'none'}
-                      size="xs"
-                      fontWeight={'bold'}
-                    >
-                      {' '}
-                      BITCOIN
-                    </Button>
-                    <Text
-                      fontWeight={'bold'}
-                      noOfLines={2}
-                      lineHeight="initial"
-                      paddingRight="2"
-                      color={isLightTheme ? 'black' : 'white'}
-                    >
-                      All That We See or Seem is but a Dream Within a Dream
-                      Becomes Her
-                    </Text>
-                    <Flex mt="2" alignItems={'center'}>
-                      {' '}
-                      <Icon as={FaRegClock} /> <Text ml={4}>Oct 18, 2019</Text>{' '}
-                    </Flex>
-                  </Box>
-                  <Box w={'30%'}>
-                    <Img
-                      h={'100%'}
-                      objectFit={'cover'}
-                      src="https://wptesting.thenwg.xyz/wp-content/uploads/2022/04/editor-pic.jpg"
-                      alt="Woman paying for a purchase"
-                    />
-                  </Box>
-                </Flex>
-              );
-            })}
+            {data.edges &&
+              data.edges.slice(3, 6).map((item, index) => {
+                return (
+                  <Flex py="4" key={index}>
+                    <Box w={'70%'}>
+                      <Button
+                        bg={'#03a9e7'}
+                        color="white"
+                        mb={2}
+                        rounded={'none'}
+                        size="xs"
+                        fontWeight={'bold'}
+                      >
+                        {' '}
+                        BITCOIN
+                      </Button>
+                      <Text
+                        fontWeight={'bold'}
+                        noOfLines={2}
+                        lineHeight="initial"
+                        paddingRight="2"
+                        color={isLightTheme ? 'black' : 'white'}
+                      >
+                        {item.node.title}
+                      </Text>
+                      <Flex mt="2" alignItems={'center'}>
+                        <Icon as={FaRegClock} />{' '}
+                        <Text ml={4}>
+                          {format(new Date(item.node.date), 'yyyy-MM-dd')}
+                        </Text>{' '}
+                      </Flex>
+                    </Box>
+                    <Box w={'30%'}>
+                      <Img
+                        h={'100%'}
+                        objectFit={'cover'}
+                        src={item.node.featuredImage.node.sourceUrl}
+                        alt={item.node.title}
+                      />
+                    </Box>
+                  </Flex>
+                );
+              })}
           </Box>
         </Grid>
 

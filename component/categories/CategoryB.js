@@ -8,7 +8,7 @@ import {
   Grid,
   Heading,
   Icon,
-  Img,
+  Image,
   Input,
   Select,
   Stack,
@@ -19,6 +19,7 @@ import { FaRegClock, FaCircle, FaPlayCircle, FaFacebook } from 'react-icons/fa';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import Link from 'next/link';
 import Carousel from 'react-multi-carousel';
+import { compareAsc, format } from 'date-fns';
 // import EditorPicks from '../slider/EditorPicks';
 // import PressSlider from '../slider/PressSlider';
 
@@ -37,7 +38,7 @@ const responsive = {
   },
 };
 
-const CategoryB = () => {
+const CategoryB = (props) => {
   // theming
   const { colorMode, toggleColorMode } = useColorMode();
   const isLightTheme = colorMode == 'light' ? true : false;
@@ -46,11 +47,11 @@ const CategoryB = () => {
   const primaryBgColor = isLightTheme ? 'white' : 'black';
   const secondaryBgColor = isLightTheme ? 'black' : 'white';
 
-  const images = [
-    'https://wptesting.thenwg.xyz/wp-content/uploads/2022/04/draw.jpg',
-    'https://wptesting.thenwg.xyz/wp-content/uploads/2022/04/women-img.jpg',
-    'https://wptesting.thenwg.xyz/wp-content/uploads/2022/04/music.jpg',
-  ];
+  // store data
+  const { data } = props;
+
+  // console.log('vategoryB', data);
+
   return (
     <>
       <Box
@@ -67,9 +68,9 @@ const CategoryB = () => {
             <Icon as={FaCircle} boxSize={6} mr="4" color={'purple'} />
             <Box>
               <Heading as="h4" size={'lg'}>
-                PRESS RELEASES
+                {process.env.home.categoryList.CATEGORY_B.NAME}
               </Heading>
-              <Text>The latest entertainment news in the world</Text>
+              <Text> {process.env.home.categoryList.CATEGORY_B.DESC}</Text>
             </Box>
           </Flex>
           <Box
@@ -96,35 +97,50 @@ const CategoryB = () => {
 
         <Box my={6} bg={'white'} p={4}>
           <Carousel responsive={responsive} autoPlay={false}>
-            {images.slice(0, 5).map((image, key) => {
-              return (
-                <Grid
-                  key={key}
-                  templateColumns={{ md: '12fr', sm: 'repeat(2, 1fr)' }}
-                  textColor="white"
-                  gap={4}
-                >
-                  <Box>
-                    <Flex py="4">
-                      <Box w={'50%'}>
-                        <Img objectFit={'cover'} src={image} />
-                      </Box>
-                      <Box w={'70%'} px={4} display={'grid'}>
-                        <Text fontWeight={'medium'} color={'black'}>
-                          I Moved Across the Country and Never Looked Back
-                        </Text>
-                        <Flex mt="2" alignItems={'center'}>
-                          <Icon as={FaRegClock} color={'black'} />
-                          <Text ml={4} color={'black'}>
-                            Oct 18, 2019
-                          </Text>
-                        </Flex>
-                      </Box>
-                    </Flex>
-                  </Box>
-                </Grid>
-              );
-            })}
+            {data.edges &&
+              data.edges.map((item, key) => {
+                return (
+                  item &&
+                  item.node && (
+                    <Link key={key} href={item.node.slug}>
+                      <Grid
+                        cursor={'pointer'}
+                        templateColumns={{ md: '12fr', sm: 'repeat(2, 1fr)' }}
+                        textColor="white"
+                        gap={4}
+                      >
+                        <Box>
+                          <Flex py="4">
+                            <Box w={'50%'}>
+                              {item.node.featuredImage && (
+                                <Image
+                                  objectFit={'cover'}
+                                  src={item.node.featuredImage.node.sourceUrl}
+                                  alt={item.node.title}
+                                />
+                              )}
+                            </Box>
+                            <Box w={'70%'} px={4} display={'grid'}>
+                              <Text fontWeight={'medium'} color={'black'}>
+                                {item.node.title}
+                              </Text>
+                              <Flex mt="2" alignItems={'center'}>
+                                <Icon as={FaRegClock} color={'black'} />
+                                <Text ml={4} color={'black'}>
+                                  {format(
+                                    new Date(item.node.date),
+                                    'yyyy-MM-dd'
+                                  )}
+                                </Text>
+                              </Flex>
+                            </Box>
+                          </Flex>
+                        </Box>
+                      </Grid>
+                    </Link>
+                  )
+                );
+              })}
           </Carousel>
         </Box>
       </Box>

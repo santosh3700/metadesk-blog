@@ -26,36 +26,44 @@ module.exports = {
         },
 
         CATEGORY_A: {
+          DEMO_NAME: 'Entertainment',
           NAME: 'EDITORS PICK',
           DESC: 'The latest editore pick description',
           SLUG: '/category/editor-pick',
         },
         CATEGORY_B: {
-          NAME: 'PRESS RELEASES DEMO',
+          DEMO_NAME: 'Bollywood',
+          NAME: 'PRESS RELEASES ',
           DESC: 'The latest entertainment news in the world',
           SLUG: '/category/bollywood',
         },
         CATEGORY_C: {
+          DEMO_NAME: 'Entertainment',
           NAME: 'COINS',
           DESC: 'The latest entertainment news in the world',
           SLUG: '/category/ipl-2022',
         },
         CATEGORY_D: {
+          DEMO_NAME: 'Social News',
           NAME: 'VIDEO',
           DESC: 'The latest entertainment news in the world',
           SLUG: '/category/social-news',
         },
         CATEGORY_E: {
+          DEMO_NAME: 'Entertainment',
           NAME: 'TOP NEWS',
           DESC: 'The latest entertainment news in the world',
           SLUG: '/category/social-news',
         },
         CATEGORY_F: {
+          DEMO_NAME: 'Social News',
           NAME: 'ACADEMY',
           DESC: 'The latest entertainment news in the world',
           SLUG: '/category/social-news',
         },
-        CATEGORY_E: {
+
+        CATEGORY_G: {
+          DEMO_NAME: 'Social News',
           NAME: 'REVIEWS',
           DESC: 'The latest entertainment news in the world',
           SLUG: '/category/social-news',

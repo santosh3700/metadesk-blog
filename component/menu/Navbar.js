@@ -59,11 +59,7 @@ export default function Navbar() {
 
   return (
     <Box zIndex={'9999'}>
-      <Box
-        // bg={'white'}
-        px={{ base: '4', lg: '16' }}
-        borderBottom={'1px solid #e2e8f0'}
-      >
+      <Box px={{ base: '4', lg: '16' }} borderBottom={'1px solid #e2e8f0'}>
         {/* <Flex
                     color={useColorModeValue('gray.600', 'white')}
                     minH={'60px'}
@@ -144,8 +140,8 @@ export default function Navbar() {
               mr={'4'}
             />
             {/* isDarkModeOn ? <SunIcon /> : <MoonIcon /> */}
-            <Icon as={FaUser} onClick={onOpen} boxSize={6} mr={'4'} />
-            <Icon as={FaSearch} onClick={onOpen} boxSize={6} mr={'4'} />
+            {/* <Icon as={FaUser} onClick={onOpen} boxSize={6} mr={'4'} /> */}
+            {/* <Icon as={FaSearch} onClick={onOpen} boxSize={6} mr={'4'} /> */}
           </Flex>
         </Stack>
 

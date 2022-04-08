@@ -25,20 +25,35 @@ import CategoryC from './categories/CategoryC';
 import CategoryD from './categories/CategoryD';
 import CategoryE from './categories/CategoryE';
 import CategoryF from './categories/CategoryF';
-import CategoryJ from './categories/CategoryJ';
-import CategoryK from './categories/CategoryK';
+import CategoryG from './categories/CategoryG';
+// import CategoryK from './categories/CategoryK';
 import NewsLetter from './NewsLetter';
 import Brandlist from './slider/BrandList';
 import Bulletslider from './slider/BulletSlider';
 
-const Home = () => {
-  // theming
+const Home = (props) => {
+  // theme
   const { colorMode, toggleColorMode } = useColorMode();
   const isLightTheme = colorMode == 'light' ? true : false;
   const primaryTextColor = isLightTheme ? 'black' : 'white';
   const secondaryTextColor = isLightTheme ? 'white' : 'black';
   const primaryBgColor = isLightTheme ? 'white' : 'black';
   const secondaryBgColor = isLightTheme ? 'black' : 'white';
+
+  // data store
+
+  const {
+    post,
+    sideBarData,
+    categoryAData,
+    categoryBData,
+    categoryCData,
+    categoryDData,
+    categoryEData,
+    categoryFData,
+    categoryGData,
+  } = props;
+
   return (
     <>
       {/* 1st section */}
@@ -218,19 +233,19 @@ const Home = () => {
         </Grid>
       </Box>
       {/* 3nd section */}
-      <CategoryA />
+      <CategoryA data={categoryAData} />
       {/* 4th section */}
-      <CategoryB />
+      <CategoryB data={categoryBData} />
       {/* 5th section */}
-      <CategoryC />
+      <CategoryC data={categoryCData} />
       {/* 6th section */}
-      <CategoryD />
+      <CategoryD data={categoryDData} />
       {/* 7th section */}
-      <CategoryE />
+      <CategoryE data={categoryEData} />
       {/* 8th section */}
-      <CategoryF />
+      <CategoryF data={categoryFData} />
       {/* 9th section */}
-      <CategoryJ />
+      <CategoryG data={categoryGData} />
       {/* 10th section */}
       <NewsLetter />
     </>
