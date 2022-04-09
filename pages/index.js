@@ -67,7 +67,7 @@ const Index = ({
 
         {/* <link rel="canonical" href="https://newsctrls.com/" /> */}
       </Head>
-      <Navbar menu={menu} />
+      {/* <Navbar menu={menu} /> */}
 
       <Home
         post={edges}
