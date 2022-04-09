@@ -57,6 +57,8 @@ export default function Navbar() {
 
   const isLightTheme = colorMode == 'light' ? true : false;
 
+  // const menuItems = menu.menuItems.edges;
+
   return (
     <Box zIndex={'9999'}>
       <Box px={{ base: '4', lg: '16' }} borderBottom={'1px solid #e2e8f0'}>

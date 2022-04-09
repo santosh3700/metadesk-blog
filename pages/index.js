@@ -28,6 +28,7 @@ import {
 } from '../lib/api';
 
 import Home from '../component/Home';
+import Navbar from '../component/menu/Navbar';
 
 const Index = ({
   allPosts: { edges },
@@ -64,8 +65,9 @@ const Index = ({
           content="Get the latest news for Bollywood, IPL, Sports and Other Social breaking news"
         />
 
-        <link rel="canonical" href="https://newsctrls.com/" />
+        {/* <link rel="canonical" href="https://newsctrls.com/" /> */}
       </Head>
+      <Navbar menu={menu} />
 
       <Home
         post={edges}
