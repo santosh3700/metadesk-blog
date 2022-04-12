@@ -28,8 +28,8 @@ import CategoryF from './categories/CategoryF';
 import CategoryG from './categories/CategoryG';
 // import CategoryK from './categories/CategoryK';
 import NewsLetter from './NewsLetter';
-import Brandlist from './slider/BrandList';
-import Bulletslider from './slider/BulletSlider';
+// import Brandlist from './slider/BrandList';
+// import Bulletslider from './slider/BulletSlider';
 import HeroSection from './HeroSection';
 
 const Home = (props) => {

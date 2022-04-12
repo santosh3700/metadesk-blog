@@ -109,6 +109,7 @@ module.exports = {
   },
   images: {
     domains: [
+      'https://www.youtube.com',
       'http://13.212.30.117',
       'i0.wp.com',
       'secure.gravatar.com',
