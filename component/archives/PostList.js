@@ -60,7 +60,7 @@ function PostList({ urlType, urlName, data, slug, section }) {
   const breadcrumb = router.asPath.split('/');
 
   const { sectionAData, sectionBData, sectionCData } = section;
-  console.log('checkcat', sectionAData);
+  // console.log('checkcat', sectionAData);
 
   return (
     <>
@@ -78,7 +78,7 @@ function PostList({ urlType, urlName, data, slug, section }) {
           my={6}
         >
           {data.edges.slice(0, 1).map((item, index) => {
-            console.log('catmap', item);
+            // console.log('catmap', item);
             const author = item?.node?.author.node;
             const imagePath = item.node.featuredImage?.node.sourceUrl;
 

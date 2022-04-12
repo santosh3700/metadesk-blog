@@ -7,19 +7,10 @@ import {
   Heading,
   Img,
   Text,
-  useColorMode,
 } from '@chakra-ui/react';
 import React from 'react';
 
 const category = () => {
-  // theming
-  const { colorMode, toggleColorMode } = useColorMode();
-  const isLightTheme = colorMode == 'light' ? true : false;
-  const primaryTextColor = isLightTheme ? 'black' : 'white';
-  const secondaryTextColor = isLightTheme ? 'white' : 'black';
-  const primaryBgColor = isLightTheme ? 'white' : 'black';
-  const secondaryBgColor = isLightTheme ? 'black' : 'white';
-
   const tempArr = [1, 2, 3];
   const tempArrTwo = [1, 2, 3, 4];
 

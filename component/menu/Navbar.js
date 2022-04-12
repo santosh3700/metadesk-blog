@@ -63,7 +63,7 @@ export default function Navbar({ menu }) {
   } = useDisclosure();
 
   const menuItems = menu?.menuItems?.edges;
-  console.log('menucheck=', menuItems);
+  // console.log('menucheck=', menuItems);
   if (menuItems === null || menuItems === undefined) {
     return <div></div>;
   }

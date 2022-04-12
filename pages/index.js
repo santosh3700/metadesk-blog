@@ -57,7 +57,7 @@ const Index = ({
   const morePosts = edges.slice(1);
   // console.log('checkdata', heroSectionData);
   const menuItems = menu;
-  console.log('menucheck=', menu);
+  // console.log('menucheck=', menu);
 
   return (
     <>

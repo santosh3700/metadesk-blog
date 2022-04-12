@@ -47,7 +47,7 @@ function OtherPages(props) {
     const urlType = props.urlType;
     const pageType = props.pageType;
 
-    console.log('checkpagetype', props);
+    // console.log('checkpagetype', props);
 
     //if found any data
     if (props.data && props.data) {

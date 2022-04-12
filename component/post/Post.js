@@ -54,7 +54,7 @@ export function Post({ props }) {
   const imagePath = data.featuredImage?.node.sourceUrl;
   const videoUrl = `https://www.youtube.com/watch?v=${data.youtube.videoId}`;
 
-  console.log('checkpostdata', props);
+  // console.log('checkpostdata', props);
 
   const listdata = [1, 2, 3, 4, 5, 6];
   // const Trending = [1, 2, 3, 4];
