@@ -12,61 +12,59 @@ module.exports = {
     wordpressApiUrl: 'http://13.212.30.117/graphql',
     headerMenuName: 'Main menu',
     text: {
-      MORE: 'More',
+      MORE: 'SEE ALL',
       FOOTER_DESC:
         ' Metadesk provides latest crypto news from all over the world. Get breaking news alerts in field of politics, bollywood, hollywood and other social news by subscribing us.',
     },
 
     home: {
+      heroSection: {
+        NAME: 'News',
+        DESC: 'The latest entertainment news in the world',
+        SLUG: '/category/breaking-news',
+      },
       categoryList: {
         SIDEBAR: {
           SIDEBAR_NAME: 'News',
           SIDEBAR_DESC: 'The latest entertainment news in the world',
-          SIDEBAR_SLUG: '/category/breaking-news',
+          SIDEBAR_SLUG: '/category/news',
         },
 
         CATEGORY_A: {
-          DEMO_NAME: 'News',
           NAME: 'EDITORS PICK',
-          DESC: 'The latest editore pick description',
-          SLUG: '/category/editor-pick',
+          DESC: 'The latest entertainment news in the world',
+          SLUG: '/category/editors-pick',
         },
         CATEGORY_B: {
-          DEMO_NAME: 'News',
-          NAME: 'PRESS RELEASES ',
+          NAME: 'PRESS RELEASES',
           DESC: 'The latest entertainment news in the world',
-          SLUG: '/category/bollywood',
+          SLUG: '/category/press-releases',
         },
         CATEGORY_C: {
-          DEMO_NAME: 'News',
           NAME: 'COINS',
           DESC: 'The latest entertainment news in the world',
-          SLUG: '/category/ipl-2022',
+          SLUG: '/category/coins',
         },
         CATEGORY_D: {
-          DEMO_NAME: 'News',
-          NAME: 'VIDEO',
+          NAME: 'Video',
           DESC: 'The latest entertainment news in the world',
-          SLUG: '/category/social-news',
+          SLUG: '/category/video',
         },
         CATEGORY_E: {
-          DEMO_NAME: 'News',
           NAME: 'TOP NEWS',
           DESC: 'The latest entertainment news in the world',
-          SLUG: '/category/social-news',
+          SLUG: '/category/top-news',
         },
         CATEGORY_F: {
-          DEMO_NAME: 'News',
           NAME: 'ACADEMY',
           DESC: 'The latest entertainment news in the world',
-          SLUG: '/category/social-news',
+          SLUG: '/category/academy',
         },
 
         CATEGORY_G: {
-          DEMO_NAME: 'News',
           NAME: 'REVIEWS',
           DESC: 'The latest entertainment news in the world',
-          SLUG: '/category/social-news',
+          SLUG: '/category/reviews',
         },
 
         // CATEGORY_B: 'Romance',
@@ -75,8 +73,28 @@ module.exports = {
 
     post: {
       TRENDING: {
-        DEMO_NAME: 'VIDEO',
+        DEMO_NAME: 'TRENDING',
         NAME: 'REVIEWS',
+        DESC: 'The latest entertainment news in the world',
+        SLUG: '/category/social-news',
+      },
+    },
+
+    archive: {
+      SECTION_A: {
+        NAME: 'TOP NEWS',
+        DESC: 'The latest entertainment news in the world',
+        SLUG: '/category/social-news',
+      },
+      SECTION_B: {
+        // NAME: 'OPINION',
+        NAME: 'Opinion',
+        DESC: 'The latest entertainment news in the world',
+        SLUG: '/category/social-news',
+      },
+      SECTION_C: {
+        // NAME: 'FEATURES',
+        NAME: 'Features',
         DESC: 'The latest entertainment news in the world',
         SLUG: '/category/social-news',
       },

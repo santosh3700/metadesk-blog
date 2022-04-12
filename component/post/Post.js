@@ -33,6 +33,7 @@ import Link from 'next/link';
 import ClassesPostBody from '../../styles/post-body.module.css';
 
 import Trending from './Trending';
+import ReactPlayer from 'react-player';
 
 export function Post({ props }) {
   // theming
@@ -51,6 +52,7 @@ export function Post({ props }) {
   const author = props.data.post.author.node;
   const date = new Date(data.date);
   const imagePath = data.featuredImage?.node.sourceUrl;
+  const videoUrl = `https://www.youtube.com/watch?v=${data.youtube.videoId}`;
 
   console.log('checkpostdata', props);
 
@@ -74,7 +76,6 @@ export function Post({ props }) {
         <Heading as="h2" size={'lg'}>
           {data.title}
         </Heading>
-
         <Flex mt="2" flexDirection={{ base: 'column', md: 'row' }}>
           <Box mr={'6'}>
             <Text mr={4} fontWeight={'bold'}>
@@ -99,7 +100,6 @@ export function Post({ props }) {
             </Text>
           </Box> */}
         </Flex>
-
         <Box display={{ base: 'block', md: 'none' }} my={6}>
           <HStack position={'sticky'} top="10px" bottom="10px">
             <Icon as={FaFacebookF} boxSize={6} />
@@ -108,10 +108,16 @@ export function Post({ props }) {
             <Icon as={FaLinkedin} boxSize={6} />
           </HStack>
         </Box>
-
         {/* featured image  */}
-        <Img my={6} objectFit={'cover'} src={imagePath} />
-
+        {data.youtube.videoId !== null &&
+        data.youtube.videoId !== undefined &&
+        data.youtube.videoId !== '' ? (
+          <Box textAlign={'center'} my={10}>
+            <ReactPlayer height={'480px'} width="1080px" url={videoUrl} />
+          </Box>
+        ) : (
+          <Img my={6} objectFit={'cover'} src={imagePath} />
+        )}
         <Grid
           templateColumns={{ md: '2fr 8fr 2fr', sm: 'repeat(3, 1fr)' }}
           //   textColor="white"
@@ -162,7 +168,6 @@ export function Post({ props }) {
             )}
           </Box>
         </Grid>
-
         <Trending props={props} />
       </Box>
     </>

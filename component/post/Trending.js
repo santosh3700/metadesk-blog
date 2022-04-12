@@ -37,7 +37,7 @@ const Trending = ({ props }) => {
   const listdata = [1, 2, 3, 4, 5, 6];
   const Trendinglist = [1, 2, 3, 4];
 
-  console.log('checktrending', props.trending);
+  // console.log('checktrending', props.trending);
   // store data
   const { trending } = props;
 
@@ -56,7 +56,7 @@ const Trending = ({ props }) => {
           trending.edges.map((item, index) => {
             const author = item.node.author;
             const imagePath = item.node.featuredImage?.node.sourceUrl;
-            console.log('checktrending', item.node.uri);
+            // console.log('checktrending', item.node.uri);
 
             if (!imagePath) {
               return 'not found';

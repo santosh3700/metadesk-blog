@@ -78,8 +78,10 @@ const DeskMultiMenus = ({ menus }) => {
       <Popover trigger={'hover'} placement={'right-end'}>
         <PopoverTrigger>
           <Item dept={dept}>
-            <Link href={data.href}>
-              <Label onClick={() => handleMenuClick(data)}>{data.label} </Label>
+            <Link href={data.node.path}>
+              <Label onClick={() => handleMenuClick(data)}>
+                {data.node.label.toUpperCase()}
+              </Label>
             </Link>
             {hasSubMenu && (
               <Arrow

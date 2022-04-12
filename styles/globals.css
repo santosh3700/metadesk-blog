@@ -36,3 +36,13 @@ h1,h2,h3,h4,h5,h6,p ,div{
 .chakra-divider{
  background-color: #b3b3b3 !important ;
 }
+
+
+
+@media only screen and (max-width: 500px) {
+
+.sticky-header-div{
+  position: sticky;
+  top: 0;
+}
+}

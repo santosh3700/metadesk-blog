@@ -20,6 +20,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import Link from 'next/link';
 import { compareAsc, format } from 'date-fns';
 import Carousel from 'react-multi-carousel';
+import ReactPlayer from 'react-player';
 import Video from '../slider/Video';
 
 const CategoryD = (props) => {
@@ -82,15 +83,17 @@ const CategoryD = (props) => {
               <Icon as={ChevronLeftIcon} boxSize={6} color={'white'} />{' '}
               <Icon color={'white'} as={ChevronRightIcon} boxSize={6} />
             </Flex>
-            <Button
-              variant={'outline'}
-              colorScheme="blue"
-              rounded={'none'}
-              size="sm"
-              fontWeight={'bold'}
-            >
-              SEE ALL
-            </Button>
+            <Link href={process.env.home.categoryList.CATEGORY_D.SLUG}>
+              <Button
+                variant={'outline'}
+                colorScheme="blue"
+                rounded={'none'}
+                size="sm"
+                fontWeight={'bold'}
+              >
+                {process.env.text.MORE}
+              </Button>
+            </Link>
           </Box>
         </Flex>
 
@@ -98,20 +101,29 @@ const CategoryD = (props) => {
           <Carousel arrows={false} responsive={responsive} autoPlay={false}>
             {data.edges &&
               data.edges.slice(0, 8).map((item, index) => {
-                console.log('chckimage', item);
-                const featuredImage = `https://i1.ytimg.com/vi/FqEC2BN-Zbo/maxresdefault.jpg`;
+                const videoId = item.node.youtube.videoId;
+
+                const featuredImage =
+                  videoId &&
+                  `https://i1.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+                // console.log('catD', featuredImage);
                 return (
-                  <Box key={index} style={{ position: 'relative' }} mx={'2'}>
+                  <Link key={index} href={item.node.slug}>
                     <Box
-                      p={4}
-                      style={{
-                        position: 'absolute',
-                        left: 0,
-                        top: '10px',
-                        color: 'white',
-                      }}
+                      cursor="pointer"
+                      style={{ position: 'relative' }}
+                      mx={'2'}
                     >
-                      {/* <Button
+                      <Box
+                        p={4}
+                        style={{
+                          position: 'absolute',
+                          left: 0,
+                          top: '10px',
+                          color: 'white',
+                        }}
+                      >
+                        {/* <Button
                         bg={'#03a9e7'}
                         color="white"
                         rounded={'none'}
@@ -120,28 +132,32 @@ const CategoryD = (props) => {
                       >
                         METAVERSE
                       </Button> */}
-                    </Box>
+                      </Box>
 
-                    <Box
-                      p={4}
-                      style={{
-                        position: 'absolute',
-                        right: 0,
-                        top: '10px',
-                        color: 'white',
-                      }}
-                    >
-                      <Icon as={FaPlayCircle} boxSize={14} />
-                    </Box>
+                      <Box
+                        p={4}
+                        style={{
+                          position: 'absolute',
+                          right: 0,
+                          top: '10px',
+                          color: 'white',
+                        }}
+                      >
+                        <Icon as={FaPlayCircle} boxSize={14} />
+                      </Box>
 
-                    <Img
-                      draggable={false}
-                      alt="text"
-                      style={{ width: '100%', height: '100%' }}
-                      src={featuredImage}
-                      alyt={item.node.title}
-                    />
-                    {/* <Box
+                      {featuredImage && (
+                        <Img
+                          draggable={false}
+                          style={{ width: '100%', height: '100%' }}
+                          src={featuredImage}
+                          alt={item.node.title}
+                        />
+                      )}
+                      <Heading color={'white'} as="h4" size={'lg'}>
+                        {item.node.title}
+                      </Heading>
+                      {/* <Box
                       p={4}
                       style={{
                         position: 'absolute',
@@ -162,7 +178,8 @@ const CategoryD = (props) => {
                         </Text>{' '}
                       </Flex>
                     </Box> */}
-                  </Box>
+                    </Box>
+                  </Link>
                 );
               })}
           </Carousel>
@@ -180,45 +197,47 @@ const CategoryD = (props) => {
           {data.edges &&
             data.edges.slice(8, 16).map((item, index) => {
               return (
-                <Box key={index}>
-                  <Flex py="4">
-                    <Box w={'40%'}>
-                      <Img
-                        h={'100%'}
-                        objectFit={'cover'}
-                        src={item.node.featuredImage.node.sourceUrl}
-                        alt={item.node.title}
-                      />
-                    </Box>
-                    <Box w={'60%'} px={'4'}>
-                      <Button
-                        colorScheme={'orange'}
-                        color="white"
-                        mb={2}
-                        rounded={'none'}
-                        size="xs"
-                        fontWeight={'bold'}
-                      >
-                        BITCOIN
-                      </Button>
-                      <Text
-                        fontWeight={'medium'}
-                        noOfLines={3}
-                        lineHeight="initial"
-                        paddingRight="2"
-                        color={'white'}
-                      >
-                        {item.node.title}
-                      </Text>
-                      <Flex mt="2" alignItems={'center'}>
-                        <Icon as={FaRegClock} color={'white'} />
-                        <Text color={'white'} ml={4}>
-                          {format(new Date(item.node.date), 'yyyy-MM-dd')}
+                <Link key={index} href={item.node.slug}>
+                  <Box cursor="pointer">
+                    <Flex py="4">
+                      <Box w={'40%'}>
+                        <Img
+                          h={'100%'}
+                          objectFit={'cover'}
+                          src={item.node.featuredImage.node.sourceUrl}
+                          alt={item.node.title}
+                        />
+                      </Box>
+                      <Box w={'60%'} px={'4'}>
+                        <Button
+                          colorScheme={'orange'}
+                          color="white"
+                          mb={2}
+                          rounded={'none'}
+                          size="xs"
+                          fontWeight={'bold'}
+                        >
+                          BITCOIN
+                        </Button>
+                        <Text
+                          fontWeight={'medium'}
+                          noOfLines={3}
+                          lineHeight="initial"
+                          paddingRight="2"
+                          color={'white'}
+                        >
+                          {item.node.title}
                         </Text>
-                      </Flex>
-                    </Box>
-                  </Flex>
-                </Box>
+                        <Flex mt="2" alignItems={'center'}>
+                          <Icon as={FaRegClock} color={'white'} />
+                          <Text color={'white'} ml={4}>
+                            {format(new Date(item.node.date), 'yyyy-MM-dd')}
+                          </Text>
+                        </Flex>
+                      </Box>
+                    </Flex>
+                  </Box>
+                </Link>
               );
             })}
         </Grid>

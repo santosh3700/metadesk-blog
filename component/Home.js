@@ -45,6 +45,7 @@ const Home = (props) => {
 
   const {
     post,
+    heroSectionData,
     sideBarData,
     categoryAData,
     categoryBData,
@@ -60,9 +61,9 @@ const Home = (props) => {
       {/* 1st section */}
 
       {/* 2nd section */}
-      <HeroSection />
+      <HeroSection data={heroSectionData} />
       {/* 3nd section */}
-      {/* <CategoryA data={categoryAData} /> */}
+      <CategoryA data={categoryAData} />
       {/* 4th section */}
       <CategoryB data={categoryBData} />
       {/* 5th section */}
@@ -74,9 +75,8 @@ const Home = (props) => {
       {/* 8th section */}
       <CategoryF data={categoryFData} />
       {/* 9th section */}
-      {/* <CategoryG data={categoryGData} /> */}
+      <CategoryG data={categoryGData} />
       {/* 10th section */}
-      <NewsLetter />
     </>
   );
 };

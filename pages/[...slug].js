@@ -10,8 +10,10 @@ import { useRouter } from 'next/router';
 // import Header from '../components/layout/header';
 // import PageData from '../components/page/page-data';
 // import Post from '../components/post/post';
+import PostList from '../component/archives/PostList';
 import PageData from '../component/page/PageData';
 import Post from '../component/post/Post';
+import Error from './error';
 import {
   getAllPostsWithSlug,
   getCateogryRecentPostbyName,
@@ -21,6 +23,7 @@ import {
   getAllPostsWithUri,
   getAllPostsForHome,
 } from '../lib/api';
+// import VideoPost from '../component/post/VideoPost';
 
 //export const config = { amp: 'hybrid' }
 
@@ -33,9 +36,10 @@ function OtherPages(props) {
 
   if (router.isFallback) {
     return (
-      <>
-        <h1>Loading</h1>
-      </>
+      <Error />
+      // <>
+      //   <h1>Loading</h1>
+      // </>
     );
   } else {
     //console.log(props)
@@ -43,20 +47,20 @@ function OtherPages(props) {
     const urlType = props.urlType;
     const pageType = props.pageType;
 
-    // console.log('checkpagetype', props.data);
+    console.log('checkpagetype', props);
 
     //if found any data
     if (props.data && props.data) {
       //check for category, tag, author
       if (pageType === 'archive') {
         componentToShow = (
-          <h1>post list</h1>
-          // <PostList
-          //   urlType={props.urlType}
-          //   urlName={props.urlName}
-          //   data={props.data}
-          //   slug={props.slug}
-          // />
+          <PostList
+            urlType={props.urlType}
+            urlName={props.urlName}
+            data={props.data}
+            slug={props.slug}
+            section={props.section}
+          />
         );
       } else if (pageType === 'page') {
         //it means it is a page
@@ -76,7 +80,7 @@ function OtherPages(props) {
 
   return (
     <>
-      {/* <Header menu={props.menu} /> */}
+      {/* <Navbar menu={props.menu} /> */}
       {/* <VStack> */}
       <div>
         <main className="mainContent">{componentToShow}</main>
@@ -91,10 +95,23 @@ export async function getStaticProps(context) {
   const { params } = context;
   const { slug } = params;
   const urlType = slug[0];
+
   const postList = await getAllPostsForHome();
-  const sideBarData = await getCateogryRecentPostbyName(
+  var sideBarData = await getCateogryRecentPostbyName(
     'categoryName',
     process.env.home.categoryList.SIDEBAR.SIDEBAR_NAME
+  );
+  var sectionAData = await getCateogryRecentPostbyName(
+    'categoryName',
+    process.env.archive.SECTION_A.NAME
+  );
+  var sectionBData = await getCateogryRecentPostbyName(
+    'categoryName',
+    process.env.archive.SECTION_B.NAME
+  );
+  var sectionCData = await getCateogryRecentPostbyName(
+    'categoryName',
+    process.env.archive.SECTION_C.NAME
   );
 
   //get data
@@ -137,6 +154,7 @@ export async function getStaticProps(context) {
 
   // menu data
   const menuData = await getHeaderMenuByName(process.env.headerMenuName);
+  console.log('pagetype', pageType);
 
   return {
     props: {
@@ -149,6 +167,7 @@ export async function getStaticProps(context) {
       menu: menuData.menu,
       pageType: pageType,
       slug: slug,
+      section: { sectionAData, sectionBData, sectionCData },
     },
     revalidate: 30, //30 minutes
   };

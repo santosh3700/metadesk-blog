@@ -44,10 +44,17 @@ import MobileMultiMenus from './MobileMultiMenus';
 import DeskMultiMenus from './DeskMultiMenus';
 import { FaBell, FaRegMoon, FaUser, FaMoon, FaSearch } from 'react-icons/fa';
 import { SunIcon, MoonIcon } from '@chakra-ui/icons';
+import Headroom from 'react-headroom';
 
-export default function Navbar() {
-  const { colorMode, toggleColorMode } = useColorMode();
+export default function Navbar({ menu }) {
   const { isOpen, onToggle, onOpen, onClose } = useDisclosure();
+  // theming
+  const { colorMode, toggleColorMode } = useColorMode();
+  const isLightTheme = colorMode == 'light' ? true : false;
+  const primaryTextColor = isLightTheme ? 'black' : 'white';
+  const secondaryTextColor = isLightTheme ? 'white' : 'black';
+  const primaryBgColor = isLightTheme ? 'white' : 'black';
+  const secondaryBgColor = isLightTheme ? 'black' : 'white';
 
   const {
     isOpen: isOpendrawer,
@@ -55,14 +62,17 @@ export default function Navbar() {
     onClose: onClosedrawer,
   } = useDisclosure();
 
-  const isLightTheme = colorMode == 'light' ? true : false;
-
-  // const menuItems = menu.menuItems.edges;
-
+  const menuItems = menu?.menuItems?.edges;
+  console.log('menucheck=', menuItems);
+  if (menuItems === null || menuItems === undefined) {
+    return <div></div>;
+  }
   return (
-    <Box zIndex={'9999'}>
-      <Box px={{ base: '4', lg: '16' }} borderBottom={'1px solid #e2e8f0'}>
-        {/* <Flex
+    menuItems && (
+      // <Headroom>
+      <Box zIndex={'9999'} bg={primaryBgColor} className="sticky-header-div">
+        <Box px={{ base: '4', lg: '16' }} borderBottom={'1px solid #e2e8f0'}>
+          {/* <Flex
                     color={useColorModeValue('gray.600', 'white')}
                     minH={'60px'}
                     py={{ base: 2 }}
@@ -87,87 +97,108 @@ export default function Navbar() {
 
                 </Flex> */}
 
-        <Grid
-          templateColumns={{ md: '3fr 9fr ', sm: 'repeat(2, 1fr)' }}
-          textColor="white"
-          gap={4}
-          py={{ base: '6', md: '12' }}
-        >
-          <Box>
-            <Link href="/">
-              <Image
-                color={'red'}
-                objectFit="contain"
-                src="https://wptesting.thenwg.xyz/wp-content/uploads/2022/04/logo-1-4.png"
-                width="100% !important"
-                height="54px !important"
+          <Grid
+            templateColumns={{ md: '12fr ', sm: 'repeat(2, 1fr)' }}
+            textColor="white"
+            gap={4}
+            py={{ base: '6', md: '12' }}
+            display={{ base: 'none', md: 'block' }}
+          >
+            <Box>
+              <Link href="/">
+                <Image
+                  color={'red'}
+                  objectFit="contain"
+                  src="https://wptesting.thenwg.xyz/wp-content/uploads/2022/04/logo-1-4.png"
+                  height="54px !important"
+                />
+              </Link>
+            </Box>
+            {/* <Box bg="#ededed" h={{ base: '100px', md: '100%' }}></Box> */}
+          </Grid>
+
+          <Stack
+            justify={'space-between'}
+            direction={'row'}
+            py={4}
+            alignItems={'center'}
+          >
+            <Flex
+              flex={{ base: 0, md: 'auto' }}
+              ml={{ base: -2 }}
+              display={{ base: 'flex', md: 'none' }}
+            >
+              <IconButton
+                onClick={onOpendrawer}
+                icon={
+                  isOpen ? (
+                    <CloseIcon w={3} h={3} />
+                  ) : (
+                    <HamburgerIcon w={5} h={5} />
+                  )
+                }
+                variant={'ghost'}
+                aria-label={'Toggle Navigation'}
               />
-            </Link>{' '}
-          </Box>
-          <Box bg="#ededed" h={{ base: '100px', md: '100%' }}></Box>
-        </Grid>
+            </Flex>
 
-        <Stack justify={'space-between'} direction={'row'} py={4}>
-          <Flex
-            flex={{ base: 0, md: 'auto' }}
-            ml={{ base: -2 }}
-            display={{ base: 'flex', md: 'none' }}
-          >
-            <IconButton
-              onClick={onOpendrawer}
-              icon={
-                isOpen ? (
-                  <CloseIcon w={3} h={3} />
-                ) : (
-                  <HamburgerIcon w={5} h={5} />
-                )
-              }
-              variant={'ghost'}
-              aria-label={'Toggle Navigation'}
+            <Box display={{ base: 'block', md: 'none' }}>
+              <Link href="/">
+                <Image
+                  color={'red'}
+                  objectFit="contain"
+                  src="https://wptesting.thenwg.xyz/wp-content/uploads/2022/04/logo-1-4.png"
+                  width="100% !important"
+                  height="34px !important"
+                />
+              </Link>
+            </Box>
+
+            <Flex
+              // my={2}
+              display={{ base: 'none', md: 'flex' }}
+              justifyContent="space-around"
+            >
+              <DeskMultiMenus menus={menuItems} />
+            </Flex>
+
+            <Flex>
+              <Icon
+                as={colorMode == 'dark' ? MoonIcon : SunIcon}
+                onClick={toggleColorMode}
+                boxSize={6}
+                mr={'4'}
+              />
+              {/* isDarkModeOn ? <SunIcon /> : <MoonIcon /> */}
+              {/* <Icon as={FaUser} onClick={onOpen} boxSize={6} mr={'4'} /> */}
+              {/* <Icon as={FaSearch} onClick={onOpen} boxSize={6} mr={'4'} /> */}
+            </Flex>
+          </Stack>
+
+          <Modal isOpen={isOpen} onClose={onClose}>
+            <ModalOverlay />
+            <ModalContent>
+              <ModalBody p={'0px'}>
+                <InputGroup>
+                  <InputLeftElement children={<FaSearch />} />
+                  <Input type="text" placeholder="Search" />
+                </InputGroup>
+              </ModalBody>
+            </ModalContent>
+          </Modal>
+
+          <Collapse in={isOpen} animateOpacity>
+            <MobileNav
+              menuItems={menuItems}
+              isOpendrawer={isOpendrawer}
+              onClosedrawer={onClosedrawer}
+              onToggleDrawer
             />
-          </Flex>
-
-          <Flex
-            // my={2}
-            display={{ base: 'none', md: 'flex' }}
-            justifyContent="space-around"
-          >
-            <DeskMultiMenus menus={menus} />
-          </Flex>
-          <Flex>
-            <Icon
-              as={colorMode == 'dark' ? MoonIcon : SunIcon}
-              onClick={toggleColorMode}
-              boxSize={6}
-              mr={'4'}
-            />
-            {/* isDarkModeOn ? <SunIcon /> : <MoonIcon /> */}
-            {/* <Icon as={FaUser} onClick={onOpen} boxSize={6} mr={'4'} /> */}
-            {/* <Icon as={FaSearch} onClick={onOpen} boxSize={6} mr={'4'} /> */}
-          </Flex>
-        </Stack>
-
-        <Modal isOpen={isOpen} onClose={onClose}>
-          <ModalOverlay />
-          <ModalContent>
-            <ModalBody p={'0px'}>
-              <InputGroup>
-                <InputLeftElement children={<FaSearch />} />
-                <Input type="text" placeholder="Search" />
-              </InputGroup>
-            </ModalBody>
-          </ModalContent>
-        </Modal>
-
-        <Collapse in={isOpen} animateOpacity>
-          <MobileNav
-            isOpendrawer={isOpendrawer}
-            onClosedrawer={onClosedrawer}
-            onToggleDrawer
-          />
-        </Collapse>
+          </Collapse>
+        </Box>
       </Box>
-    </Box>
+      // </Headroom>
+    )
   );
 }
 
@@ -178,6 +209,7 @@ export const MobileNav = ({
   onClosedrawer,
   onToggleDrawer,
   state,
+  menuItems,
 }) => {
   var data = 'oka';
 
@@ -192,7 +224,7 @@ export const MobileNav = ({
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader borderBottomWidth="1px">newscntrl Menu</DrawerHeader>
+          <DrawerHeader borderBottomWidth="1px">Metadesk</DrawerHeader>
 
           <DrawerBody>
             <Stack
@@ -200,7 +232,7 @@ export const MobileNav = ({
               p={4}
               display={{ md: 'none' }}
             >
-              <MobileMultiMenus menus={menus} />
+              <MobileMultiMenus menus={menuItems} />
             </Stack>
           </DrawerBody>
         </DrawerContent>

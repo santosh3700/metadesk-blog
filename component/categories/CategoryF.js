@@ -18,10 +18,26 @@ import {
 import { FaRegClock, FaCircle, FaPlayCircle, FaFacebook } from 'react-icons/fa';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import Link from 'next/link';
+import { compareAsc, format } from 'date-fns';
+import Carousel from 'react-multi-carousel';
 // import Editorpicks from '../slider/EditorPicks';
 import VideoSecond from '../slider/VideoSecond';
 
 const CategoryF = (props) => {
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+    },
+  };
   // theming
   const { colorMode, toggleColorMode } = useColorMode();
   const isLightTheme = colorMode == 'light' ? true : false;
@@ -67,20 +83,101 @@ const CategoryF = (props) => {
             <Icon as={ChevronLeftIcon} boxSize={6} />{' '}
             <Icon as={ChevronRightIcon} boxSize={6} />
           </Flex>
-          <Button
-            variant={'outline'}
-            colorScheme="blue"
-            rounded={'none'}
-            size="sm"
-            fontWeight={'bold'}
-          >
-            SEE ALL
-          </Button>
+          <Link href={process.env.home.categoryList.CATEGORY_F.SLUG}>
+            <Button
+              variant={'outline'}
+              colorScheme="blue"
+              rounded={'none'}
+              size="sm"
+              fontWeight={'bold'}
+            >
+              {process.env.text.MORE}
+            </Button>
+          </Link>
         </Box>
       </Flex>
 
       <Box my={'8'}>
-        <VideoSecond />
+        <Carousel arrows={false} responsive={responsive} autoPlay={false}>
+          {data.edges &&
+            data.edges.slice(4, 8).map((item, index) => {
+              const tagName = item?.node?.tags?.edges[0]?.node?.name;
+              const videoId = item.node.youtube.videoId;
+
+              const featuredImage =
+                videoId &&
+                `https://i1.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+              return (
+                <Link key={index} href={item.node.slug}>
+                  <Box
+                    cursor={'pointer'}
+                    style={{ position: 'relative' }}
+                    mx={'2'}
+                  >
+                    <Box
+                      p={4}
+                      style={{
+                        position: 'absolute',
+                        left: 0,
+                        top: '10px',
+                        color: 'white',
+                      }}
+                    >
+                      {tagName && (
+                        <Button
+                          bg={'#03a9e7'}
+                          color="white"
+                          rounded={'none'}
+                          size="xs"
+                          fontWeight={'bold'}
+                        >
+                          {tagName}
+                        </Button>
+                      )}
+                    </Box>
+
+                    <Box
+                      p={4}
+                      style={{
+                        position: 'absolute',
+                        right: 0,
+                        top: '10px',
+                        color: 'white',
+                      }}
+                    >
+                      <Icon as={FaPlayCircle} boxSize={14} />
+                    </Box>
+
+                    <Img
+                      draggable={false}
+                      style={{ width: '100%', height: '100%' }}
+                      src={featuredImage}
+                      alt={item.node.title}
+                    />
+                    {/* <Box
+                    p={4}
+                    style={{
+                      position: 'absolute',
+                      left: 0,
+                      bottom: '10px',
+                      color: 'white',
+                    }}
+                  >
+                    <Heading color={'white'} as="h4" size={'lg'}>
+                      {item.node.title}
+                    </Heading>
+                    <Flex mt="2" alignItems={'center'}>
+                      <Icon as={FaRegClock} color={'white'} />
+                      <Text color={'white'} ml={4}>
+                        {format(new Date(item.node.date), 'yyyy-MM-dd')}
+                      </Text>
+                    </Flex>
+                  </Box> */}
+                  </Box>
+                </Link>
+              );
+            })}
+        </Carousel>
       </Box>
 
       <Divider />
@@ -91,51 +188,60 @@ const CategoryF = (props) => {
         gap={8}
         my={6}
       >
-        {tempArr.slice(0, 5).map((image, index) => {
-          return (
-            <Box key={index}>
-              <Flex py="4">
-                <Box w={'40%'}>
-                  <Img
-                    h={'100%'}
-                    objectFit={'cover'}
-                    src="https://wptesting.thenwg.xyz/wp-content/uploads/2022/04/editor-pic.jpg"
-                    alt="Woman paying for a purchase"
-                  />
-                </Box>
-                <Box w={'60%'} px={'4'}>
-                  <Button
-                    colorScheme={'orange'}
-                    color="white"
-                    mb={2}
-                    rounded={'none'}
-                    size="xs"
-                    fontWeight={'bold'}
-                  >
-                    BITCOIN
-                  </Button>
-                  <Text
-                    fontWeight={'medium'}
-                    noOfLines={3}
-                    lineHeight="initial"
-                    paddingRight="2"
-                    color={primaryTextColor}
-                  >
-                    All That We See or Seem is but a Dream Within a Dream
-                    Becomes Her
-                    {/* {process.env.headerMenuName} */}
-                  </Text>
-                  <Flex mt="2" alignItems={'center'}>
-                    <Icon as={FaRegClock} color={primaryTextColor} />{' '}
-                    <Text ml={4} color={primaryTextColor}>
-                      Oct 18, 2019
-                    </Text>{' '}
-                  </Flex>
-                </Box>
-              </Flex>
-            </Box>
-          );
-        })}
+        {data.edges &&
+          data.edges.slice(4, 8).map((item, index) => {
+            const tagName = item?.node?.tags?.edges[0]?.node?.name;
+
+            return (
+              item &&
+              item.node && (
+                <Link key={index} href={item.node.slug}>
+                  <Box cursor="pointer">
+                    <Flex py="4">
+                      <Box w={'40%'}>
+                        <Img
+                          h={'100%'}
+                          objectFit={'cover'}
+                          src={item.node.featuredImage.node.sourceUrl}
+                          alt={item.node.title}
+                        />
+                      </Box>
+                      <Box w={'60%'} px={'4'}>
+                        {tagName && (
+                          <Button
+                            colorScheme={'orange'}
+                            color="white"
+                            mb={2}
+                            rounded={'none'}
+                            size="xs"
+                            fontWeight={'bold'}
+                          >
+                            {tagName}
+                          </Button>
+                        )}
+                        <Text
+                          fontWeight={'medium'}
+                          noOfLines={3}
+                          lineHeight="initial"
+                          paddingRight="2"
+                          color={primaryTextColor}
+                        >
+                          {item.node.title}
+                          {/* {process.env.headerMenuName} */}
+                        </Text>
+                        <Flex mt="2" alignItems={'center'}>
+                          <Icon as={FaRegClock} color={primaryTextColor} />
+                          <Text ml={4} color={primaryTextColor}>
+                            {format(new Date(item.node.date), 'yyyy-MM-dd')}
+                          </Text>
+                        </Flex>
+                      </Box>
+                    </Flex>
+                  </Box>
+                </Link>
+              )
+            );
+          })}
       </Grid>
     </Box>
   );

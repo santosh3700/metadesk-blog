@@ -34,6 +34,7 @@ const Index = ({
   allPosts: { edges },
   preview,
   menu,
+  heroSectionData,
   sideBarData,
   categoryAData,
   categoryBData,
@@ -54,12 +55,14 @@ const Index = ({
   //  data store
   const heroPost = edges[0]?.node;
   const morePosts = edges.slice(1);
-  // console.log('checkdata', morePosts);
+  // console.log('checkdata', heroSectionData);
+  const menuItems = menu;
+  console.log('menucheck=', menu);
 
   return (
     <>
       <Head>
-        <title data-rh="true">News Control - get the latest news</title>
+        <title data-rh="true">Metadesk - get the latest blockchain news</title>
         <meta
           name="description"
           content="Get the latest news for Bollywood, IPL, Sports and Other Social breaking news"
@@ -71,6 +74,7 @@ const Index = ({
 
       <Home
         post={edges}
+        heroSectionData={heroSectionData}
         sideBarData={sideBarData}
         categoryAData={categoryAData}
         categoryBData={categoryBData}
@@ -89,37 +93,42 @@ export default Index;
 export async function getStaticProps({ preview = false }) {
   const allPosts = await getAllPostsForHome(preview);
   const menuData = await getHeaderMenuByName(process.env.headerMenuName);
+  const heroSectionData = await getAllPostsForHome(preview);
+  // await getCateogryRecentPostbyName(
+  //   'categoryName',
+  //   process.env.home.heroSection.NAME
+  // );
   const sideBarData = await getCateogryRecentPostbyName(
     'categoryName',
     process.env.home.categoryList.SIDEBAR.SIDEBAR_NAME
   );
   const categoryAData = await getCateogryRecentPostbyName(
     'categoryName',
-    process.env.home.categoryList.CATEGORY_A.DEMO_NAME
+    process.env.home.categoryList.CATEGORY_A.NAME
   );
   const categoryBData = await getCateogryRecentPostbyName(
     'categoryName',
-    process.env.home.categoryList.CATEGORY_B.DEMO_NAME
+    process.env.home.categoryList.CATEGORY_B.NAME
   );
   const categoryCData = await getCateogryRecentPostbyName(
     'categoryName',
-    process.env.home.categoryList.CATEGORY_C.DEMO_NAME
+    process.env.home.categoryList.CATEGORY_C.NAME
   );
   const categoryDData = await getCateogryRecentPostbyName(
     'categoryName',
-    process.env.home.categoryList.CATEGORY_D.DEMO_NAME
+    process.env.home.categoryList.CATEGORY_D.NAME
   );
   const categoryEData = await getCateogryRecentPostbyName(
     'categoryName',
-    process.env.home.categoryList.CATEGORY_E.DEMO_NAME
+    process.env.home.categoryList.CATEGORY_E.NAME
   );
   const categoryFData = await getCateogryRecentPostbyName(
     'categoryName',
-    process.env.home.categoryList.CATEGORY_F.DEMO_NAME
+    process.env.home.categoryList.CATEGORY_F.NAME
   );
   const categoryGData = await getCateogryRecentPostbyName(
     'categoryName',
-    process.env.home.categoryList.CATEGORY_G.DEMO_NAME
+    process.env.home.categoryList.CATEGORY_G.NAME
   );
 
   return {
@@ -127,6 +136,7 @@ export async function getStaticProps({ preview = false }) {
       allPosts,
       preview,
       menu: menuData.menu,
+      heroSectionData: heroSectionData,
       sideBarData: sideBarData,
       categoryAData: categoryAData,
       categoryBData: categoryBData,

@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Box,
   Button,
+  Circle,
   Divider,
   Flex,
   FormControl,
@@ -73,6 +74,7 @@ const CategoryE = (props) => {
             >
               {data.edges &&
                 data.edges.slice(0, 9).map((item, index) => {
+                  const tagName = item?.node?.tags?.edges[0]?.node?.name;
                   return (
                     item &&
                     item.node && (
@@ -87,15 +89,17 @@ const CategoryE = (props) => {
                                 color: 'white',
                               }}
                             >
-                              <Button
-                                bg={'#03a9e7'}
-                                color="white"
-                                rounded={'none'}
-                                size="sm"
-                                fontWeight={'bold'}
-                              >
-                                METAVERSE
-                              </Button>
+                              {tagName && (
+                                <Button
+                                  bg={'#03a9e7'}
+                                  color="white"
+                                  rounded={'none'}
+                                  size="sm"
+                                  fontWeight={'bold'}
+                                >
+                                  {tagName}
+                                </Button>
+                              )}
                             </Box>
                             {item.node.featuredImage && (
                               <Img
@@ -177,22 +181,31 @@ const CategoryE = (props) => {
                     <Link key={index} href={item.node.slug}>
                       <Box cursor={'pointer'}>
                         <Flex my={4}>
-                          <Box
+                          {/* <Box
                             h={'30px'}
-                            w={'65px'}
+                            w={'40px'}
                             borderRadius="full"
                             bg={'#03a9e7'}
                             mr={'4'}
+                            p="auto"
+                          > */}
+                          <Circle
+                            size="34px"
+                            bg="tomato"
+                            color="white"
+                            mr={4}
+                            cursor="default"
                           >
                             <Text
-                              textAlign={'center'}
-                              color="white"
-                              fontSize={'lg'}
-                              fontWeight={'bold'}
+
+                            // mx="auto"
+                            // my="auto"
                             >
                               {index + 1}
                             </Text>
-                          </Box>
+                          </Circle>
+
+                          {/* </Box> */}
 
                           <Text
                             lineHeight={'normal'}

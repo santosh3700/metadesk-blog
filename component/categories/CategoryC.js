@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Box,
   Button,
@@ -19,6 +19,8 @@ import { FaRegClock, FaCircle, FaPlayCircle, FaFacebook } from 'react-icons/fa';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import Link from 'next/link';
 import { compareAsc, format } from 'date-fns';
+import { getCateogryRecentPostbyName, getCategoryByName } from '../../lib/api';
+import { Skeleton, SkeletonCircle, SkeletonText } from '@chakra-ui/react';
 
 const CategoryC = (props) => {
   // theming
@@ -30,12 +32,50 @@ const CategoryC = (props) => {
   const secondaryBgColor = isLightTheme ? 'black' : 'white';
 
   // store data
-  const { data } = props;
+  // const { data } = props;
+
+  var [apiUrl, setAPiUrl] = useState(
+    process.env.home.categoryList.CATEGORY_C.NAME
+  );
+
+  const [subcategory, setSubcategory] = useState('');
+  const [catagory, setCatagory] = useState('');
 
   // console.log('categoryC', data);
+  // let subcategory;
+
+  const fetchData = async (catagoryName) => {
+    console.log('apicall', apiUrl);
+    setCatagory('');
+    const subcategory = await getCategoryByName();
+    setSubcategory(subcategory);
+    const catagoryData = await getCateogryRecentPostbyName(
+      'categoryName',
+      catagoryName == ''
+        ? process.env.home.categoryList.CATEGORY_C.NAME
+        : catagoryName
+    );
+    setCatagory(catagoryData);
+    console.log('ueEffectData', catagoryData);
+
+    // subcategory.ma
+  };
+
+  useEffect(() => {
+    fetchData('');
+  }, [setAPiUrl]);
 
   // temp var
   const tempArr = [1, 2, 3];
+
+  if (catagory == '')
+    return (
+      <Stack m={20}>
+        <Skeleton height="20px" />
+        <Skeleton height="20px" />
+        <Skeleton height="20px" />
+      </Stack>
+    );
 
   return (
     <>
@@ -59,47 +99,36 @@ const CategoryC = (props) => {
             justifyContent={{ base: 'flex-end' }}
             mt={{ base: '4', md: '0' }}
           >
-            <Flex mr={'2'} display={{ base: 'none', lg: 'block' }}>
+            <Flex mr={'2'} display={{ base: 'none', md: 'flex' }}>
               <Button
                 variant={'outline'}
                 colorScheme="blue"
                 rounded={'none'}
                 size="sm"
+                onClick={() => {
+                  fetchData('');
+                }}
               >
                 ALL
               </Button>
-              <Button
-                variant={'outline'}
-                colorScheme="blue"
-                rounded={'none'}
-                size="sm"
-              >
-                Bitcoin
-              </Button>
-              <Button
-                variant={'outline'}
-                colorScheme="blue"
-                rounded={'none'}
-                size="sm"
-              >
-                Ethrium
-              </Button>
-              <Button
-                variant={'outline'}
-                colorScheme="blue"
-                rounded={'none'}
-                size="sm"
-              >
-                Binance
-              </Button>
-              <Button
-                variant={'outline'}
-                colorScheme="blue"
-                rounded={'none'}
-                size="sm"
-              >
-                Cardano
-              </Button>
+
+              {subcategory &&
+                subcategory.categories.edges.slice(0, 3).map((item) => {
+                  console.log('cheksub', item);
+                  return (
+                    <Button
+                      variant={'outline'}
+                      colorScheme="blue"
+                      rounded={'none'}
+                      size="sm"
+                      onClick={() => {
+                        fetchData(item.node.name);
+                      }}
+                    >
+                      {item.node.name}
+                    </Button>
+                  );
+                })}
             </Flex>
 
             <Select
@@ -108,176 +137,219 @@ const CategoryC = (props) => {
               display={{ base: 'block', lg: 'none' }}
               size="sm"
             >
-              <option value="option1">ALL</option>
-              <option value="option2">Bitcoin</option>
-              <option value="option3">Ethrium</option>
-              <option value="option3">Binance</option>
-              <option value="option3">Cardano</option>
+              {subcategory &&
+                subcategory.categories.edges.slice(0, 3).map((item) => {
+                  console.log('cheksub', item);
+                  return (
+                    <option
+                      value="option3"
+                      onClick={() => {
+                        fetchData(item.node.name);
+                      }}
+                    >
+                      {item.node.name}
+                    </option>
+                  );
+                })}
             </Select>
 
-            <Button
-              variant={'outline'}
-              colorScheme="blue"
-              rounded={'none'}
-              size="sm"
-              fontWeight={'bold'}
-            >
-              SEE ALL
-            </Button>
+            <Link href={process.env.home.categoryList.CATEGORY_C.SLUG}>
+              <Button
+                variant={'outline'}
+                colorScheme="blue"
+                rounded={'none'}
+                size="sm"
+                fontWeight={'bold'}
+              >
+                {process.env.text.MORE}
+              </Button>
+            </Link>
           </Box>
         </Flex>
 
-        <Grid
-          templateColumns={{ md: '4fr 4fr 4fr', sm: 'repeat(3, 1fr)' }}
-          textColor="white"
-          gap={4}
-          my={6}
-        >
-          <Box style={{ position: 'relative' }}>
-            <Box
-              p={4}
-              style={{
-                position: 'absolute',
-                left: 0,
-                top: '10px',
-                color: 'white',
-              }}
-            >
-              <Button
-                bg={'#03a9e7'}
-                color="white"
-                rounded={'none'}
-                size="xs"
-                fontWeight={'bold'}
-              >
-                METAVERSE
-              </Button>
-            </Box>
-            <Img
-              draggable={false}
-              alt="text"
-              style={{ width: '100%', height: '100%' }}
-              src="https://wptesting.thenwg.xyz/wp-content/uploads/2022/04/coin-banner.jpg"
-            />
-            <Box
-              p={4}
-              style={{
-                position: 'absolute',
-                left: 0,
-                bottom: '10px',
-                color: 'white',
-              }}
-            >
-              <Heading as="h4" size={'lg'} color={'white'}>
-                The Joy of Petty Grievances in Death Becomes Her
-              </Heading>
-              <Flex mt="2" alignItems={'center'}>
-                <Icon as={FaRegClock} color={primaryTextColor} />
-                <Text color={primaryTextColor} ml={4}>
-                  Oct 18, 2019
-                </Text>
-              </Flex>
-            </Box>
+        {catagory.edges.length < 1 ? (
+          <Box m="auto" my={100}>
+            <Heading as="h4" size={'lg'} textAlign="center">
+              No Data Found
+            </Heading>
           </Box>
+        ) : (
+          <Grid
+            templateColumns={{ md: '4fr 4fr 4fr', sm: 'repeat(3, 1fr)' }}
+            textColor="white"
+            gap={4}
+            my={6}
+          >
+            {catagory.edges &&
+              catagory.edges.slice(0, 1).map((item, index) => {
+                const tagName = item?.node?.tags?.edges[0]?.node?.name;
 
-          <Box px="4">
-            {data.edges &&
-              data.edges.slice(0, 3).map((item, index) => {
+                // .edges[0].node?.name
                 return (
-                  item &&
-                  item.node && (
-                    <Link href={item.node.slug} key={index}>
-                      <Flex py="4" cursor="pointer">
-                        <Box w={'70%'}>
+                  <Link href={item.node.slug} key={index}>
+                    <Box cursor="pointer" style={{ position: 'relative' }}>
+                      <Img
+                        draggable={false}
+                        style={{ width: '100%' }}
+                        h={{ base: '300px', md: '100%' }}
+                        src={item.node.featuredImage.node.sourceUrl}
+                        alt={item.node.title}
+                        opacity={'0.7'}
+                      />
+
+                      <Box
+                        p={4}
+                        style={{
+                          position: 'absolute',
+                          left: 0,
+                          top: '10px',
+                        }}
+                      >
+                        {tagName && (
                           <Button
-                            bg={'#03a9e7'}
                             color="white"
-                            mb={2}
+                            bg="blue"
                             rounded={'none'}
                             size="xs"
                             fontWeight={'bold'}
                           >
-                            Bitcoin
+                            {tagName}
                           </Button>
+                        )}
+                      </Box>
+
+                      <Box
+                        p={4}
+                        style={{
+                          position: 'absolute',
+                          left: 0,
+                          bottom: 0,
+                          color: 'white',
+                          background: '#0000005e',
+                        }}
+                      >
+                        <Heading color={'white'} as="h4" size={'lg'}>
+                          {item.node.title}
+                        </Heading>
+                        <Flex mt="2" alignItems={'center'}>
+                          {' '}
+                          <Icon as={FaRegClock} color={'white'} />{' '}
+                          <Text color={'white'} ml={4}>
+                            {format(new Date(item.node.date), 'yyyy-MM-dd')}
+                          </Text>{' '}
+                        </Flex>
+                      </Box>
+                    </Box>
+                  </Link>
+                );
+              })}
+
+            <Box px="4">
+              {catagory.edges &&
+                catagory.edges.slice(1, 4).map((item, index) => {
+                  const tagName = item?.node?.tags?.edges[0]?.node?.name;
+                  return (
+                    item &&
+                    item.node && (
+                      <Link href={item.node.slug} key={index}>
+                        <Flex py="4" cursor="pointer">
+                          <Box w={'70%'}>
+                            {tagName && (
+                              <Button
+                                bg={'#03a9e7'}
+                                color="white"
+                                mb={2}
+                                rounded={'none'}
+                                size="xs"
+                                fontWeight={'bold'}
+                              >
+                                {tagName}
+                              </Button>
+                            )}
+                            <Text
+                              fontWeight={'bold'}
+                              noOfLines={2}
+                              lineHeight="initial"
+                              paddingRight="2"
+                              color={primaryTextColor}
+                            >
+                              {item.node.title}
+                            </Text>
+                            <Flex mt="2" alignItems={'center'}>
+                              <Icon as={FaRegClock} color={primaryTextColor} />
+                              <Text ml={4} color={primaryTextColor}>
+                                {format(new Date(item.node.date), 'yyyy-MM-dd')}
+                              </Text>
+                            </Flex>
+                          </Box>
+                          {item.node.featuredImage && (
+                            <Box w={'30%'}>
+                              <Img
+                                h={'100%'}
+                                objectFit={'cover'}
+                                src={item.node.featuredImage.node.sourceUrl}
+                                alt={item.node.title}
+                              />
+                            </Box>
+                          )}
+                        </Flex>
+                      </Link>
+                    )
+                  );
+                })}
+            </Box>
+
+            <Box px="4">
+              {catagory.edges &&
+                catagory.edges.slice(4, 7).map((item, index) => {
+                  const tagName = item?.node?.tags?.edges[0]?.node?.name;
+                  return (
+                    <Link href={item.node.slug} key={index}>
+                      <Flex py="4" key={index}>
+                        <Box w={'70%'}>
+                          {tagName && (
+                            <Button
+                              bg={'#03a9e7'}
+                              color="white"
+                              mb={2}
+                              rounded={'none'}
+                              size="xs"
+                              fontWeight={'bold'}
+                            >
+                              {tagName}
+                            </Button>
+                          )}
                           <Text
                             fontWeight={'bold'}
                             noOfLines={2}
                             lineHeight="initial"
                             paddingRight="2"
-                            color={primaryTextColor}
+                            color={isLightTheme ? 'black' : 'white'}
                           >
                             {item.node.title}
                           </Text>
                           <Flex mt="2" alignItems={'center'}>
-                            <Icon as={FaRegClock} color={primaryTextColor} />
-                            <Text ml={4} color={primaryTextColor}>
+                            <Icon as={FaRegClock} />{' '}
+                            <Text ml={4}>
                               {format(new Date(item.node.date), 'yyyy-MM-dd')}
-                            </Text>
+                            </Text>{' '}
                           </Flex>
                         </Box>
-                        {item.node.featuredImage && (
-                          <Box w={'30%'}>
-                            <Img
-                              h={'100%'}
-                              objectFit={'cover'}
-                              src={item.node.featuredImage.node.sourceUrl}
-                              alt={item.node.title}
-                            />
-                          </Box>
-                        )}
+                        <Box w={'30%'}>
+                          <Img
+                            h={'100%'}
+                            objectFit={'cover'}
+                            src={item.node.featuredImage.node.sourceUrl}
+                            alt={item.node.title}
+                          />
+                        </Box>
                       </Flex>
                     </Link>
-                  )
-                );
-              })}
-          </Box>
-
-          <Box px="4">
-            {data.edges &&
-              data.edges.slice(3, 6).map((item, index) => {
-                return (
-                  <Flex py="4" key={index}>
-                    <Box w={'70%'}>
-                      <Button
-                        bg={'#03a9e7'}
-                        color="white"
-                        mb={2}
-                        rounded={'none'}
-                        size="xs"
-                        fontWeight={'bold'}
-                      >
-                        {' '}
-                        BITCOIN
-                      </Button>
-                      <Text
-                        fontWeight={'bold'}
-                        noOfLines={2}
-                        lineHeight="initial"
-                        paddingRight="2"
-                        color={isLightTheme ? 'black' : 'white'}
-                      >
-                        {item.node.title}
-                      </Text>
-                      <Flex mt="2" alignItems={'center'}>
-                        <Icon as={FaRegClock} />{' '}
-                        <Text ml={4}>
-                          {format(new Date(item.node.date), 'yyyy-MM-dd')}
-                        </Text>{' '}
-                      </Flex>
-                    </Box>
-                    <Box w={'30%'}>
-                      <Img
-                        h={'100%'}
-                        objectFit={'cover'}
-                        src={item.node.featuredImage.node.sourceUrl}
-                        alt={item.node.title}
-                      />
-                    </Box>
-                  </Flex>
-                );
-              })}
-          </Box>
-        </Grid>
+                  );
+                })}
+            </Box>
+          </Grid>
+        )}
 
         <Box h={150} bg={'#ededed'} my={6}></Box>
       </Box>

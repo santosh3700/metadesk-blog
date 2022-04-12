@@ -83,15 +83,18 @@ const CategoryB = (props) => {
               <Icon as={ChevronLeftIcon} boxSize={6} />{' '}
               <Icon as={ChevronRightIcon} boxSize={6} />
             </Flex>
-            <Button
-              variant={'outline'}
-              colorScheme="blue"
-              rounded={'none'}
-              size="sm"
-              fontWeight={'bold'}
-            >
-              SEE ALL
-            </Button>
+
+            <Link href={process.env.home.categoryList.CATEGORY_B.SLUG}>
+              <Button
+                variant={'outline'}
+                colorScheme="blue"
+                rounded={'none'}
+                size="sm"
+                fontWeight={'bold'}
+              >
+                {process.env.text.MORE}
+              </Button>
+            </Link>
           </Box>
         </Flex>
 
@@ -112,7 +115,7 @@ const CategoryB = (props) => {
                         <Box>
                           <Flex py="4">
                             <Box w={'50%'}>
-                              {item.node.featuredImage && (
+                              {item?.node?.featuredImage && (
                                 <Image
                                   objectFit={'cover'}
                                   src={item.node.featuredImage.node.sourceUrl}

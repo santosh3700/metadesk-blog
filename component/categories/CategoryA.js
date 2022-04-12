@@ -59,18 +59,24 @@ const CategoryA = (props) => {
   // get post  from api
   const postArr = [];
   var k = 0;
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < data.edges.length / 6; i++) {
     var postObj = [];
+    if (i > data.edges.length / 6) {
+      break;
+    }
     for (let j = 0; j < 3; j++) {
       const title = data.edges[k].node.title;
       const featuredImage = data.edges[k].node.featuredImage.node.sourceUrl;
       const date = data.edges[k].node.date;
       const slug = data.edges[k].node.slug;
+      const tag = data.edges[k].node.tags;
+
       const tempObj = {
         title: title,
         featuredImage: featuredImage,
         date: date,
         slug: slug,
+        tag: tag,
       };
 
       postObj.push(tempObj);
@@ -114,7 +120,7 @@ const CategoryA = (props) => {
                   <Icon as={ChevronLeftIcon} boxSize={6} />{' '}
                   <Icon as={ChevronRightIcon} boxSize={6} />
                 </Flex>
-                <Link href="/full-width">
+                <Link href={process.env.home.categoryList.CATEGORY_A.SLUG}>
                   <Button
                     variant={'outline'}
                     colorScheme="blue"
@@ -122,7 +128,7 @@ const CategoryA = (props) => {
                     size="sm"
                     fontWeight={'bold'}
                   >
-                    SEE ALL
+                    {process.env.text.MORE}
                   </Button>
                 </Link>
               </Box>
@@ -145,6 +151,11 @@ const CategoryA = (props) => {
                       >
                         {post &&
                           post.map((item, j) => {
+                            // console.log('catea', item);
+                            const tagName = item?.tag?.edges[0]?.node?.name;
+                            // console.log('catA', tagName);
+                            //  const tagName =
+                            //    item?.node?.tags?.edges[0]?.node?.name;
                             return (
                               <Link key={j} href={item.slug}>
                                 <Box
@@ -157,16 +168,18 @@ const CategoryA = (props) => {
                                     borderBottom={'1px solid #b3b3b3'}
                                   >
                                     <Box w={'70%'}>
-                                      <Button
-                                        bg={'#03a9e7'}
-                                        color="white"
-                                        mb={2}
-                                        rounded={'none'}
-                                        size="xs"
-                                        fontWeight={'bold'}
-                                      >
-                                        BITCOIN
-                                      </Button>
+                                      {tagName && (
+                                        <Button
+                                          bg={'#03a9e7'}
+                                          color="white"
+                                          mb={2}
+                                          rounded={'none'}
+                                          size="xs"
+                                          fontWeight={'bold'}
+                                        >
+                                          {tagName}
+                                        </Button>
+                                      )}
                                       <Text
                                         fontWeight={'bold'}
                                         noOfLines={3}

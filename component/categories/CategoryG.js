@@ -56,18 +56,23 @@ const CategoryG = (props) => {
 
   const postArr = [];
   var k = 0;
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < data.edges.length / 6; i++) {
+    if (i > data.edges.length / 6) {
+      break;
+    }
     var postObj = [];
     for (let j = 0; j < 3; j++) {
       const title = data.edges[k].node.title;
       const featuredImage = data.edges[k].node.featuredImage.node.sourceUrl;
       const date = data.edges[k].node.date;
       const slug = data.edges[k].node.slug;
+      const tag = data.edges[k].node.tags;
       const tempObj = {
         title: title,
         featuredImage: featuredImage,
         date: date,
         slug: slug,
+        tag: tag,
       };
 
       postObj.push(tempObj);
@@ -112,15 +117,17 @@ const CategoryG = (props) => {
                   <Icon as={ChevronLeftIcon} boxSize={6} />{' '}
                   <Icon as={ChevronRightIcon} boxSize={6} />
                 </Flex>
-                <Button
-                  variant={'outline'}
-                  colorScheme="blue"
-                  rounded={'none'}
-                  size="sm"
-                  fontWeight={'bold'}
-                >
-                  SEE ALL
-                </Button>
+                <Link href={process.env.home.categoryList.CATEGORY_G.SLUG}>
+                  <Button
+                    variant={'outline'}
+                    colorScheme="blue"
+                    rounded={'none'}
+                    size="sm"
+                    fontWeight={'bold'}
+                  >
+                    {process.env.text.MORE}
+                  </Button>
+                </Link>
               </Box>
             </Flex>
             <Grid
@@ -142,6 +149,7 @@ const CategoryG = (props) => {
                         {/* <Box px="4" borderRight={'1px solid #b3b3b3'}> */}
                         {post &&
                           post.map((item, j) => {
+                            const tagName = item?.tag?.edges[0]?.node?.name;
                             return (
                               <Link key={j} href={item.slug}>
                                 <Box
@@ -154,16 +162,18 @@ const CategoryG = (props) => {
                                     borderBottom={'1px solid #b3b3b3'}
                                   >
                                     <Box w={'70%'}>
-                                      <Button
-                                        bg={'#03a9e7'}
-                                        color="white"
-                                        mb={2}
-                                        rounded={'none'}
-                                        size="xs"
-                                        fontWeight={'bold'}
-                                      >
-                                        BITCOIN
-                                      </Button>
+                                      {tagName && (
+                                        <Button
+                                          bg={'#03a9e7'}
+                                          color="white"
+                                          mb={2}
+                                          rounded={'none'}
+                                          size="xs"
+                                          fontWeight={'bold'}
+                                        >
+                                          {tagName}
+                                        </Button>
+                                      )}
                                       <Text
                                         fontWeight={'bold'}
                                         noOfLines={3}
