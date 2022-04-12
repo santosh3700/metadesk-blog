@@ -18,7 +18,7 @@ import Head from 'next/head';
 import React from 'react';
 import { FaRegClock, FaCircle, FaPlayCircle, FaFacebook } from 'react-icons/fa';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
-import Videoslider from '../component/slider/Video';
+// import Videoslider from '../component/slider/Video';
 import Link from 'next/link';
 
 import {
