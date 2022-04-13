@@ -51,9 +51,10 @@ const CategoryC = (props) => {
     setSubcategory(subcategory);
     const catagoryData = await getCateogryRecentPostbyName(
       'categoryName',
-      catagoryName == ''
-        ? process.env.home.categoryList.CATEGORY_C.NAME
-        : catagoryName
+      catagoryName
+      // == ''
+      //   ? process.env.home.categoryList.CATEGORY_C.NAME
+      //   : catagoryName
     );
     setCatagory(catagoryData);
     // console.log('ueEffectData', catagoryData);
@@ -62,8 +63,9 @@ const CategoryC = (props) => {
   };
 
   useEffect(() => {
-    fetchData('');
-  }, [setAPiUrl]);
+    // fetchData('');
+    fetchData(process.env.home.categoryList.CATEGORY_C.NAME);
+  }, []);
 
   // temp var
   const tempArr = [1, 2, 3];

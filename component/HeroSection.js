@@ -21,8 +21,8 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import Link from 'next/link';
 import Carousel from 'react-multi-carousel';
 import { compareAsc, format } from 'date-fns';
-import Brandlist from './slider/BrandList';
-import Bulletslider from './slider/BulletSlider';
+import Brandlist from './slider/brand-list';
+// import Bulletslider from './slider/BulletSlider';
 
 const HeroSection = (props) => {
   // responsiveness

@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Box,
   Button,
@@ -8,9 +9,10 @@ import {
   Img,
   Text,
 } from '@chakra-ui/react';
-import React from 'react';
 
 const category = () => {
+  // theming
+
   const tempArr = [1, 2, 3];
   const tempArrTwo = [1, 2, 3, 4];
 
@@ -30,17 +32,17 @@ const category = () => {
           <Img src="https://coindesk-coindesk-prod.cdn.arcpublishing.com/resizer/sJhdZdJGat0hlXq-gMd6gqnPkm8=/1440x1080/filters:format(jpg):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/coindesk/PPOFTJUV7FBS5LXFRJXHMRCW4I.jpg" />
 
           <Box my={'2'}>
-            <Heading as={'h2'} size={'lg'} color={primaryTextColor}>
+            <Heading as={'h2'} size={'lg'} color={'black'}>
               DeFi Lender Inverse Finance Exploited for $15.6M
             </Heading>
-            <Text mt={'2'} color={primaryTextColor}>
+            <Text mt={'2'} color={'black'}>
               All That We See or Seem is but a Dream Within a Dream Becomes Her
             </Text>
             <Flex mt="2" alignItems={'center'}>
-              <Text color={primaryTextColor} fontWeight={'bold'}>
+              <Text color={'black'} fontWeight={'bold'}>
                 By Trisha Mistri
               </Text>
-              <Text color={primaryTextColor} ml={4}>
+              <Text color={'black'} ml={4}>
                 Oct 18, 2019
               </Text>
             </Flex>
@@ -60,19 +62,19 @@ const category = () => {
                 >
                   <Box>
                     {/* <Button bg={'#03a9e7'} color='white' mb={2} rounded={'none'} size='xs' fontWeight={'bold'} > BITCOIN</Button> */}
-                    <Heading as="h4" size={'md'} color={primaryTextColor}>
+                    <Heading as="h4" size={'md'} color={'black'}>
                       Ola Finance Says Attackers Stole $4.7M in
                       &apos;Re-Entrancy&apos; Exploit
                     </Heading>
-                    <Text mt={'2'} color={primaryTextColor}>
+                    <Text mt={'2'} color={'black'}>
                       All That We See or Seem is but a Dream Within a Dream
                       Becomes Her
                     </Text>
                     <Flex mt="2" alignItems={'center'}>
-                      <Text color={primaryTextColor} fontWeight={'bold'}>
+                      <Text color={'black'} fontWeight={'bold'}>
                         By Trisha Mistri
                       </Text>
-                      <Text color={primaryTextColor} ml={4}>
+                      <Text color={'black'} ml={4}>
                         Oct 18, 2019
                       </Text>
                     </Flex>
@@ -97,7 +99,7 @@ const category = () => {
 
       <Divider />
       <Box py={6}>
-        <Heading as="h2" size={'lg'} color={primaryTextColor}>
+        <Heading as="h2" size={'lg'} color={'black'}>
           tempArrTwo in Tech
         </Heading>
         <Grid

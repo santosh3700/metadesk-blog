@@ -21,7 +21,7 @@ import Link from 'next/link';
 import { compareAsc, format } from 'date-fns';
 import Carousel from 'react-multi-carousel';
 import ReactPlayer from 'react-player';
-import Video from '../slider/Video';
+// import Video from '../slider/Video';
 
 const CategoryD = (props) => {
   // theming

@@ -21,7 +21,7 @@ import Link from 'next/link';
 import { compareAsc, format } from 'date-fns';
 import Carousel from 'react-multi-carousel';
 // import Editorpicks from '../slider/EditorPicks';
-import VideoSecond from '../slider/VideoSecond';
+// import VideoSecond from '../slider/VideoSecond';
 
 const CategoryF = (props) => {
   const responsive = {
