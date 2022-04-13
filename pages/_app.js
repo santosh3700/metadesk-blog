@@ -47,7 +47,7 @@ function MyApp({ Component, pageProps, router }) {
     };
   }, []);
 
-  console.log('chakapppae', pageProps.menu);
+  //console.log('chakapppae', pageProps.menu);
 
   return (
     <>

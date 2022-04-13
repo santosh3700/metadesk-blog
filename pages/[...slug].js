@@ -154,7 +154,7 @@ export async function getStaticProps(context) {
 
   // menu data
   const menuData = await getHeaderMenuByName(process.env.headerMenuName);
-  console.log('pagetype', pageType);
+  //console.log('pagetype', pageType);
 
   return {
     props: {
@@ -183,11 +183,13 @@ export async function getStaticPaths() {
   //const mostVisitedUri = ['/fantasy-cricket/dream11-investment-strategy-5-years-of-experience/']
 
   const categoryListUri = [
-    '/category/ipl',
-    '/category/fantasy-cricket',
-    '/category/cricket',
-    '/category/birthday',
-    '/category/fantasy-platform',
+    '/category/coins',
+    '/category/news',
+    '/category/editors-pick',
+    '/category/academy',
+    '/category/reviews',
+    '/category/top-news',
+    '/category/video',
   ];
 
   const postListUri = allPosts.edges.map(({ node }) => `${node.uri}`);
