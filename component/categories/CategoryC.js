@@ -44,31 +44,30 @@ const CategoryC = (props) => {
   // console.log('categoryC', data);
   // let subcategory;
 
+  const fectSubcategoryData = async () => {
+    const res = await getCategoryByName();
+    setSubcategory(res);
+  };
+
   const fetchData = async (catagoryName) => {
-    // console.log('apicall', apiUrl);
-    // setCatagory('');
-    const subcategory = await getCategoryByName();
-    setSubcategory(subcategory);
-    const catagoryData = await getCateogryRecentPostbyName(
+    const res = await getCateogryRecentPostbyName(
       'categoryName',
       catagoryName
       // == ''
       //   ? process.env.home.categoryList.CATEGORY_C.NAME
       //   : catagoryName
     );
-    setCatagory(catagoryData);
-    // console.log('ueEffectData', catagoryData);
-
-    // subcategory.ma
+    setCatagory(res);
   };
 
   useEffect(() => {
     // fetchData('');
+    fectSubcategoryData();
     fetchData('COINS');
   }, []);
 
   // temp var
-  const tempArr = [1, 2, 3];
+  // const tempArr = [1, 2, 3];
   // hide load state
 
   // if (catagory == '')

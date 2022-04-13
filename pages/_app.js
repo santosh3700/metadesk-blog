@@ -58,6 +58,7 @@ function MyApp({ Component, pageProps, router }) {
       <ChakraProvider theme={customTheme}>
         {/* <Layout> */}
         <Navbar menu={pageProps.menu} />
+
         <ScaleFade
           key={router.route}
           animate={{ y: 0, opacity: 1 }}

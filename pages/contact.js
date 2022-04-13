@@ -15,6 +15,8 @@ import {
   Tabs,
   Text,
 } from '@chakra-ui/react';
+import Navbar from '../component/menu/Navbar';
+import { getHeaderMenuByName } from '../lib/api';
 
 const contact = () => {
   const contactdata = ['1', '2', '3', '4', '5', '6'];
@@ -89,5 +91,15 @@ const contact = () => {
     </Box>
   );
 };
+export async function getStaticProps({ preview = false }) {
+  const menuData = await getHeaderMenuByName(process.env.headerMenuName);
+
+  return {
+    props: {
+      menu: menuData.menu,
+    },
+    revalidate: 15, //10 minutes
+  };
+}
 
 export default contact;
