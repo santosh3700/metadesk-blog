@@ -44,7 +44,7 @@ const Trending = ({ props }) => {
   return (
     <Box py={8}>
       <Heading as="h2" size={'lg'}>
-        {process.env.post.TRENDING.DEMO_NAME}
+        {process.env.post.TRENDING.NAME}
       </Heading>
       <Grid
         templateColumns={{ md: '6fr 6fr', sm: 'repeat(2, 1fr)' }}
@@ -56,7 +56,7 @@ const Trending = ({ props }) => {
           trending.edges.map((item, index) => {
             const author = item.node.author;
             const imagePath = item.node.featuredImage?.node.sourceUrl;
-            // console.log('checktrending', item.node.uri);
+            console.log('checktrending', item.node.slug);
 
             if (!imagePath) {
               return 'not found';
@@ -65,7 +65,7 @@ const Trending = ({ props }) => {
             return (
               item &&
               item.node && (
-                <Link href={item.node.uri} key={index}>
+                <Link href={item.node.slug} key={index}>
                   <Grid
                     cursor="pointer"
                     templateColumns={{ md: '9fr 3fr', sm: 'repeat(2, 1fr)' }}
@@ -87,11 +87,11 @@ const Trending = ({ props }) => {
                           <Text color={'green'} fontWeight={'medium'}>
                             Markets
                           </Text>
-                          <Link href="/">
-                            <Heading as="h4" size={'md'}>
-                              {item.node.title}
-                            </Heading>
-                          </Link>
+
+                          <Heading as="h4" size={'md'}>
+                            {item.node.title}
+                          </Heading>
+
                           <Flex mt="2" alignItems={'center'}>
                             <Text>By {author.node.name} </Text>
                             <Text ml={4}>
