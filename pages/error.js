@@ -37,7 +37,7 @@ const Error = () => {
             missing. We do apologise on it is behalf.
           </Text>
           <br></br>
-          <Link href="/">
+          <Link href="/" passHref={true}>
             <Button
               style={{
                 marginTop: 10,

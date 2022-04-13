@@ -171,7 +171,7 @@ const CategoryC = (props) => {
         </Box>
       </Flex>
 
-      {catagory.edges.length < 1 ? (
+      {catagory && catagory.edges && catagory.edges.length < 1 ? (
         <Box m="auto" my={100}>
           <Heading as="h4" size={'lg'} textAlign="center">
             No Data Found
