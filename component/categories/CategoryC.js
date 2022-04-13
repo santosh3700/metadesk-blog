@@ -46,7 +46,7 @@ const CategoryC = (props) => {
 
   const fetchData = async (catagoryName) => {
     // console.log('apicall', apiUrl);
-    setCatagory('');
+    // setCatagory('');
     const subcategory = await getCategoryByName();
     setSubcategory(subcategory);
     const catagoryData = await getCateogryRecentPostbyName(
@@ -64,7 +64,7 @@ const CategoryC = (props) => {
 
   useEffect(() => {
     // fetchData('');
-    fetchData(process.env.home.categoryList.CATEGORY_C.NAME);
+    fetchData('COINS');
   }, []);
 
   // temp var
@@ -108,7 +108,7 @@ const CategoryC = (props) => {
               rounded={'none'}
               size="sm"
               onClick={() => {
-                fetchData(process.env.home.categoryList.CATEGORY_C.NAME);
+                fetchData('COINS');
               }}
             >
               ALL
