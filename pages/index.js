@@ -25,6 +25,7 @@ import {
   getAllPostsForHome,
   getHeaderMenuByName,
   getCateogryRecentPostbyName,
+  getCategoryByName,
 } from '../lib/api';
 
 import Home from '../component/Home';
@@ -43,6 +44,7 @@ const Index = ({
   categoryEData,
   categoryFData,
   categoryGData,
+  subCategoryData,
 }) => {
   // theme
   const { colorMode, toggleColorMode } = useColorMode();
@@ -79,6 +81,7 @@ const Index = ({
         categoryAData={categoryAData}
         categoryBData={categoryBData}
         categoryCData={categoryCData}
+        subCategoryData={subCategoryData}
         categoryDData={categoryDData}
         categoryEData={categoryEData}
         categoryFData={categoryFData}
@@ -131,6 +134,8 @@ export async function getStaticProps({ preview = false }) {
     process.env.home.categoryList.CATEGORY_G.NAME
   );
 
+  const subCategoryData = await getCategoryByName();
+
   return {
     props: {
       allPosts,
@@ -145,6 +150,7 @@ export async function getStaticProps({ preview = false }) {
       categoryEData: categoryEData,
       categoryFData: categoryFData,
       categoryGData: categoryGData,
+      subCategoryData: subCategoryData,
     },
     revalidate: 15, //10 minutes
   };

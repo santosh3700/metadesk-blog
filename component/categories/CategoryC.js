@@ -32,52 +32,39 @@ const CategoryC = (props) => {
   const secondaryBgColor = isLightTheme ? 'black' : 'white';
 
   // store data
-  // const { data } = props;
+  const { data, subCategoryData } = props;
 
   var [apiUrl, setAPiUrl] = useState(
     process.env.home.categoryList.CATEGORY_C.NAME
   );
 
-  const [subcategory, setSubcategory] = useState('');
-  const [catagory, setCatagory] = useState('');
+  const [subcategory, setSubcategory] = useState(subCategoryData);
+  const [catagory, setCatagory] = useState(data.edges);
 
   // console.log('categoryC', data);
   // let subcategory;
 
-  const fectSubcategoryData = async () => {
-    const res = await getCategoryByName();
-    setSubcategory(res);
+  function subCategoryMethod(value) {
+    return catagory.edges[0].node.tags.edges[0].node.name;
+  }
+
+  const filterMethod = (value) => {
+    var tempArr = [];
+
+    data.edges.filter((item) => {
+      item.node.categories.edges.filter((post) => {
+        // console.log('checkDtaa', post.node.name);
+        if (post.node.name == value) {
+          tempArr.push(item);
+        } else {
+        }
+
+        return post.node.name == value;
+      });
+    });
+    // console.log('checkDtaa', tempArr);
+    setCatagory(tempArr);
   };
-
-  const fetchData = async (catagoryName) => {
-    const res = await getCateogryRecentPostbyName(
-      'categoryName',
-      catagoryName
-      // == ''
-      //   ? process.env.home.categoryList.CATEGORY_C.NAME
-      //   : catagoryName
-    );
-    setCatagory(res);
-  };
-
-  useEffect(() => {
-    // fetchData('');
-    fectSubcategoryData();
-    fetchData('COINS');
-  }, []);
-
-  // temp var
-  // const tempArr = [1, 2, 3];
-  // hide load state
-
-  // if (catagory == '')
-  //   return (
-  //     <Stack m={20}>
-  //       <Skeleton height="20px" />
-  //       <Skeleton height="20px" />
-  //       <Skeleton height="20px" />
-  //     </Stack>
-  //   );
 
   return (
     <Box px={{ base: '4', lg: '16' }} mb="20" py={'18'}>
@@ -107,7 +94,7 @@ const CategoryC = (props) => {
               rounded={'none'}
               size="sm"
               onClick={() => {
-                fetchData('COINS');
+                setCatagory(data.edges);
               }}
             >
               ALL
@@ -124,7 +111,7 @@ const CategoryC = (props) => {
                     rounded={'none'}
                     size="sm"
                     onClick={() => {
-                      fetchData(item.node.name);
+                      filterMethod(item.node.name);
                     }}
                   >
                     {item.node.name}
@@ -141,13 +128,14 @@ const CategoryC = (props) => {
           >
             {subcategory &&
               subcategory.categories.edges.slice(0, 3).map((item, index) => {
-                console.log('cheksub', item);
+                // console.log('cheksub', item);
                 return (
                   <option
                     key={index}
                     value="option3"
                     onClick={() => {
-                      fetchData(item.node.name);
+                      filterMethod(item.node.name);
+                      // filterMethod();
                     }}
                   >
                     {item.node.name}
@@ -170,7 +158,7 @@ const CategoryC = (props) => {
         </Box>
       </Flex>
 
-      {catagory && catagory.edges && catagory.edges.length < 1 ? (
+      {catagory && catagory && catagory.length < 1 ? (
         <Box m="auto" my={100}>
           <Heading as="h4" size={'lg'} textAlign="center">
             No Data Found
@@ -183,8 +171,8 @@ const CategoryC = (props) => {
           gap={4}
           my={6}
         >
-          {catagory.edges &&
-            catagory.edges.slice(0, 1).map((item, index) => {
+          {catagory &&
+            catagory.slice(0, 1).map((item, index) => {
               const tagName = item?.node?.tags?.edges[0]?.node?.name;
 
               // .edges[0].node?.name
@@ -247,8 +235,8 @@ const CategoryC = (props) => {
             })}
 
           <Box px="4">
-            {catagory.edges &&
-              catagory.edges.slice(1, 4).map((item, index) => {
+            {catagory &&
+              catagory.slice(1, 4).map((item, index) => {
                 const tagName = item?.node?.tags?.edges[0]?.node?.name;
                 return (
                   item &&
@@ -302,8 +290,8 @@ const CategoryC = (props) => {
           </Box>
 
           <Box px="4">
-            {catagory.edges &&
-              catagory.edges.slice(4, 7).map((item, index) => {
+            {catagory &&
+              catagory.slice(4, 7).map((item, index) => {
                 const tagName = item?.node?.tags?.edges[0]?.node?.name;
                 return (
                   <Link href={item.node.slug} key={index}>

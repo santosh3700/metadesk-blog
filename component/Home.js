@@ -54,6 +54,7 @@ const Home = (props) => {
     categoryEData,
     categoryFData,
     categoryGData,
+    subCategoryData,
   } = props;
 
   return (
@@ -67,7 +68,7 @@ const Home = (props) => {
       {/* 4th section */}
       <CategoryB data={categoryBData} />
       {/* 5th section */}
-      <CategoryC data={categoryCData} />
+      <CategoryC data={categoryCData} subCategoryData={subCategoryData} />
       {/* 6th section */}
       <CategoryD data={categoryDData} />
       {/* 7th section */}
