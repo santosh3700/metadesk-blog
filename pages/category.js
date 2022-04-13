@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Box,
   Button,
@@ -9,8 +10,6 @@ import {
   Text,
   useColorMode,
 } from '@chakra-ui/react';
-import React from 'react';
-
 const category = () => {
   // theming
   const { colorMode, toggleColorMode } = useColorMode();
