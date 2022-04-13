@@ -69,6 +69,7 @@ const CategoryC = (props) => {
 
   // temp var
   const tempArr = [1, 2, 3];
+  // hide load state
 
   // if (catagory == '')
   //   return (
