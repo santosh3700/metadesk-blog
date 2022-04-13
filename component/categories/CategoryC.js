@@ -70,14 +70,14 @@ const CategoryC = (props) => {
   // temp var
   const tempArr = [1, 2, 3];
 
-  if (catagory == '')
-    return (
-      <Stack m={20}>
-        <Skeleton height="20px" />
-        <Skeleton height="20px" />
-        <Skeleton height="20px" />
-      </Stack>
-    );
+  // if (catagory == '')
+  //   return (
+  //     <Stack m={20}>
+  //       <Skeleton height="20px" />
+  //       <Skeleton height="20px" />
+  //       <Skeleton height="20px" />
+  //     </Stack>
+  //   );
 
   return (
     <Box px={{ base: '4', lg: '16' }} mb="20" py={'18'}>
@@ -107,7 +107,7 @@ const CategoryC = (props) => {
               rounded={'none'}
               size="sm"
               onClick={() => {
-                fetchData('');
+                fetchData(process.env.home.categoryList.CATEGORY_C.NAME);
               }}
             >
               ALL
@@ -170,7 +170,13 @@ const CategoryC = (props) => {
         </Box>
       </Flex>
 
-      {catagory.edges.length < 1 ? (
+      {catagory == '' ? (
+        <Stack m={20}>
+          <Skeleton height="20px" />
+          <Skeleton height="20px" />
+          <Skeleton height="20px" />
+        </Stack>
+      ) : catagory.edges.length < 1 ? (
         <Box m="auto" my={100}>
           <Heading as="h4" size={'lg'} textAlign="center">
             No Data Found
@@ -235,7 +241,6 @@ const CategoryC = (props) => {
                         {item.node.title}
                       </Heading>
                       <Flex mt="2" alignItems={'center'}>
-                        {' '}
                         <Icon as={FaRegClock} color={'white'} />{' '}
                         <Text color={'white'} ml={4}>
                           {format(new Date(item.node.date), 'yyyy-MM-dd')}
