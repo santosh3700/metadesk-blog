@@ -97,6 +97,10 @@ export async function getStaticProps(context) {
   const urlType = slug[0];
 
   const postList = await getAllPostsForHome();
+  var trendingData = await getCateogryRecentPostbyName(
+    'categoryName',
+    process.env.post.TRENDING.NAME
+  );
   var sideBarData = await getCateogryRecentPostbyName(
     'categoryName',
     process.env.home.categoryList.SIDEBAR.SIDEBAR_NAME
@@ -158,7 +162,7 @@ export async function getStaticProps(context) {
 
   return {
     props: {
-      trending: sideBarData,
+      trending: trendingData,
       sideBarData: sideBarData,
       postList: postList,
       urlType: urlType,

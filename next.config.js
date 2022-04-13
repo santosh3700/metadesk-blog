@@ -74,7 +74,7 @@ module.exports = {
     post: {
       TRENDING: {
         DEMO_NAME: 'TRENDING',
-        NAME: 'REVIEWS',
+        NAME: 'TRENDING',
         DESC: 'The latest entertainment news in the world',
         SLUG: '/category/social-news',
       },
