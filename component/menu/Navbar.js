@@ -7,7 +7,6 @@ import {
   Stack,
   Collapse,
   Icon,
-  Link,
   Popover,
   PopoverTrigger,
   PopoverContent,
@@ -45,6 +44,7 @@ import DeskMultiMenus from './DeskMultiMenus';
 import { FaBell, FaRegMoon, FaUser, FaMoon, FaSearch } from 'react-icons/fa';
 import { SunIcon, MoonIcon } from '@chakra-ui/icons';
 import Headroom from 'react-headroom';
+import Link from 'next/link';
 
 export default function Navbar({ menu }) {
   const { isOpen, onToggle, onOpen, onClose } = useDisclosure();
@@ -171,7 +171,9 @@ export default function Navbar({ menu }) {
               />
               {/* isDarkModeOn ? <SunIcon /> : <MoonIcon /> */}
               {/* <Icon as={FaUser} onClick={onOpen} boxSize={6} mr={'4'} /> */}
-              {/* <Icon as={FaSearch} onClick={onOpen} boxSize={6} mr={'4'} /> */}
+              <Link href="/search">
+                <Icon as={FaSearch} boxSize={6} mr={'4'} />
+              </Link>
             </Flex>
           </Stack>
 
