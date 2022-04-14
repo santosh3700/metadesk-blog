@@ -65,7 +65,7 @@ const CategoryD = (props) => {
           <Flex alignItems={'baseline'}>
             <Icon as={FaCircle} boxSize={6} mr="4" color={'purple'} />
             <Box>
-              <Heading as="h4" size={'lg'} color={'white'}>
+              <Heading textStyles="h2" color={'white'}>
                 VIDEO
               </Heading>
               <Text color={'white'}>
@@ -154,9 +154,16 @@ const CategoryD = (props) => {
                           alt={item.node.title}
                         />
                       )}
-                      <Heading color={'white'} as="h4" size={'lg'}>
+                      <Heading color={'white'} as="h4" size={'md'} mt={2}>
                         {item.node.title}
                       </Heading>
+                      <Flex mt="2" alignItems={'center'}>
+                        {' '}
+                        <Icon as={FaRegClock} color={'white'} />{' '}
+                        <Text color={'white'} ml={4}>
+                          Oct 18, 2019
+                        </Text>{' '}
+                      </Flex>
                       {/* <Box
                       p={4}
                       style={{

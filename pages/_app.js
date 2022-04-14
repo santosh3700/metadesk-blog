@@ -17,6 +17,7 @@ import { useRouter } from 'next/router';
 import CustomLoader from '../component/CustomLoader';
 import Navbar from '../component/menu/Navbar';
 import NewsLetter from '../component/NewsLetter';
+import Fonts from '../styles/fonts/Font';
 
 function MyApp({ Component, pageProps, router }) {
   const Router = useRouter();
@@ -55,6 +56,7 @@ function MyApp({ Component, pageProps, router }) {
         <meta charSet="UTF-8" />
         <link rel="shortcut icon" href="/favicon/favicon.ico" />
       </Head>
+      <Fonts />
       <ChakraProvider theme={customTheme}>
         {/* <Layout> */}
         <Navbar menu={pageProps.menu} />

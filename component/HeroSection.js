@@ -65,6 +65,7 @@ const HeroSection = (props) => {
           <Brandlist />
         </Box>
       </Box>
+
       <Box px={{ base: '4', lg: '16' }} mb="20" mt={'8'}>
         {/* trisha */}
 
@@ -97,7 +98,8 @@ const HeroSection = (props) => {
                           h={{ base: '300px', md: '500px' }}
                           src={item.node.featuredImage.node.sourceUrl}
                           alt={item.node.title}
-                          opacity={'0.7'}
+                          // opacity={'0.7'}
+                          objectFit={'cover'}
                         />
 
                         <Box
@@ -123,6 +125,7 @@ const HeroSection = (props) => {
 
                         <Box
                           p={4}
+                          w="100%"
                           style={{
                             position: 'absolute',
                             left: 0,
@@ -189,7 +192,8 @@ const HeroSection = (props) => {
                         alt={item.node.title}
                         style={{ width: '100%', height: '100%' }}
                         src={item.node.featuredImage.node.sourceUrl}
-                        opacity={'0.9'}
+                        // opacity={'0.9'}
+                        objectFit={'cover'}
                       />
                       <Box
                         p={4}
@@ -264,7 +268,8 @@ const HeroSection = (props) => {
                             alt={item.node.title}
                             style={{ width: '100%', height: '100%' }}
                             src={item.node.featuredImage.node.sourceUrl}
-                            opacity={'0.7'}
+                            // opacity={'0.7'}
+                            objectFit={'cover'}
                           />
                           <Box
                             p={4}

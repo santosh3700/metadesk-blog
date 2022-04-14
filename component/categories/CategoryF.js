@@ -67,7 +67,7 @@ const CategoryF = (props) => {
         <Flex alignItems={'baseline'}>
           <Icon as={FaCircle} boxSize={6} mr="4" color={'purple'} />
           <Box>
-            <Heading as="h4" size={'lg'} color={primaryTextColor}>
+            <Heading textStyles="h2" color={primaryTextColor}>
               ACADEMY
             </Heading>
             <Text>The latest entertainment news in the world</Text>
@@ -185,7 +185,7 @@ const CategoryF = (props) => {
       <Grid
         templateColumns={{ md: '4fr 4fr 4fr 4fr', sm: 'repeat(4, 1fr)' }}
         textColor="white"
-        gap={8}
+        gap={4}
         my={6}
       >
         {data.edges &&
@@ -197,7 +197,7 @@ const CategoryF = (props) => {
               item.node && (
                 <Link key={index} href={item.node.slug}>
                   <Box cursor="pointer">
-                    <Flex py="4">
+                    <Flex py="4" w={'100%'}>
                       <Box w={'40%'}>
                         <Img
                           h={'100%'}
@@ -220,7 +220,7 @@ const CategoryF = (props) => {
                           </Button>
                         )}
                         <Text
-                          fontWeight={'medium'}
+                          fontWeight={'bold'}
                           noOfLines={3}
                           lineHeight="initial"
                           paddingRight="2"

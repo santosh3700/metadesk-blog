@@ -57,7 +57,7 @@ const CategoryE = (props) => {
               <Flex alignItems={'baseline'}>
                 <Icon as={FaCircle} boxSize={6} mr="4" color={'purple'} />
                 <Box>
-                  <Heading as="h4" size={'lg'} color={primaryTextColor}>
+                  <Heading textStyles="h2" color={primaryTextColor}>
                     {process.env.home.categoryList.CATEGORY_E.NAME}
                   </Heading>
                   <Text color={primaryTextColor}>
@@ -107,6 +107,7 @@ const CategoryE = (props) => {
                                 alt={item.node.title}
                                 objectFit={'cover'}
                                 w={'100%'}
+                                h={'150px'}
                               />
                             )}
                           </Box>
