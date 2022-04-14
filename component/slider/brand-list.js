@@ -1,4 +1,4 @@
-import { Box, Flex, Grid, Heading, Img, Text } from '@chakra-ui/react';
+import { Box, Divider, Flex, Grid, Heading, Img, Stack, Text } from '@chakra-ui/react';
 import React from 'react';
 import Carousel from 'react-multi-carousel';
 const BrandList = () => {
@@ -11,14 +11,17 @@ const BrandList = () => {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
       items: 4,
+
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 3,
+      items: 2,
+      partialVisibilityGutter: 40
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
       items: 1,
+
     },
   };
 
@@ -32,25 +35,30 @@ const BrandList = () => {
       transitionDuration={500}
       autoPlaySpeed={2000}
     >
+
       {brand.map((data, index) => {
         return (
-          <Flex py="3" mx={2} key={index}>
-            <Box display={'flex'} pr="2" borderRight={'1px solid lightgray'}>
+
+
+
+
+          <Flex py="3" key={index}>
+            <Box display={'flex'} w={'100%'} pr="2" borderRight={'1px solid lightgray'}>
               <Img
                 objectFit="contain"
                 mx={'2'}
                 src="https://wptesting.thenwg.xyz/wp-content/uploads/2022/04/bit-coin.jpg"
               />
               <Box mx={'2'}>
-                <Heading as={'h6'} size="sm">
+                <Text fontWeight={'semibold'}>
                   Bitcoin
-                </Heading>
+                </Text>
                 <Text fontSize={'xs'}>BTC (24h)</Text>
               </Box>
               <Img
                 mx={'2'}
                 objectFit="contain"
-                w={'100%'}
+                // w={'100%'}
                 h="auto"
                 src="https://wptesting.thenwg.xyz/wp-content/uploads/2022/04/cardino-chart.png"
               />
@@ -62,6 +70,8 @@ const BrandList = () => {
               </Box>
             </Box>
           </Flex>
+
+
         );
       })}
     </Carousel>

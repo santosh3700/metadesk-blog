@@ -180,7 +180,7 @@ const CategoryF = (props) => {
         </Carousel>
       </Box>
 
-      <Divider />
+      <Divider border={'1px solid gray !important'} />
 
       <Grid
         templateColumns={{ md: '4fr 4fr 4fr 4fr', sm: 'repeat(4, 1fr)' }}

@@ -138,6 +138,7 @@ const HeroSection = (props) => {
                             color={'white'}
                             as="h4"
                             size={{ base: 'sm', md: 'lg' }}
+                            noOfLines={1}
                           >
                             {item.node.title}
                           </Heading>
@@ -209,6 +210,7 @@ const HeroSection = (props) => {
                           color={'white'}
                           as="h4"
                           size={{ base: 'sm', md: 'md' }}
+                          noOfLines={1}
                         >
                           {item.node.title}
                         </Heading>
@@ -285,6 +287,7 @@ const HeroSection = (props) => {
                               as="h4"
                               size={{ base: 'sm', md: 'md' }}
                               color={'white'}
+                              noOfLines={1}
                             >
                               {item.node.title}
                             </Heading>
