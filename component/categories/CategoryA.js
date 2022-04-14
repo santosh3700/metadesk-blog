@@ -147,7 +147,6 @@ const CategoryA = (props) => {
                         key={index}
                         templateColumns={{ md: '12fr', sm: 'repeat(2, 1fr)' }}
                         textColor="white"
-
                       >
                         {post &&
                           post.map((item, j) => {
