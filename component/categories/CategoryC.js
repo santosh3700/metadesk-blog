@@ -75,7 +75,7 @@ const CategoryC = (props) => {
         <Flex alignItems={'baseline'}>
           <Icon as={FaCircle} boxSize={6} mr="4" color={'purple'} />
           <Box>
-            <Heading as="h4" size={'lg'}>
+            <Heading as="h2" size={'lg'}>
               {process.env.home.categoryList.CATEGORY_C.NAME}
             </Heading>
             <Text> {process.env.home.categoryList.CATEGORY_C.DESC}</Text>
@@ -219,7 +219,7 @@ const CategoryC = (props) => {
                         background: '#0000005e',
                       }}
                     >
-                      <Heading color={'white'} as="h4" size={'md'}>
+                      <Heading color={'white'} as="h2" size={'md'} noOfLines={1}>
                         {item.node.title}
                       </Heading>
                       <Flex mt="2" alignItems={'center'}>

@@ -53,7 +53,7 @@ const BrandList = () => {
                 <Text fontWeight={'semibold'}>
                   Bitcoin
                 </Text>
-                <Text fontSize={'xs'}>BTC (24h)</Text>
+                <Text fontSize={'xs'}>BTC(24h)</Text>
               </Box>
               <Img
                 mx={'2'}

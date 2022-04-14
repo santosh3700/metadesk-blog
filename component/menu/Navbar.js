@@ -71,7 +71,7 @@ export default function Navbar({ menu }) {
     menuItems && (
       // <Headroom>
       <Box zIndex={'9999'} bg={primaryBgColor} className="sticky-header-div">
-        <Box px={{ base: '4', lg: '16' }} borderBottom={'1px solid #e2e8f0'}>
+        <Box px={{ base: '4', lg: '16' }} borderBottom={'2px solid black'}>
           {/* <Flex
                     color={useColorModeValue('gray.600', 'white')}
                     minH={'60px'}

@@ -99,7 +99,7 @@ const CategoryG = (props) => {
               <Flex alignItems={'baseline'}>
                 <Icon as={FaCircle} boxSize={6} mr="4" color={'purple'} />
                 <Box>
-                  <Heading textStyles="h2" color={primaryTextColor}>
+                  <Heading as="h2" size={'lg'} color={primaryTextColor}>
                     {process.env.home.categoryList.CATEGORY_G.NAME}
                   </Heading>
                   <Text color={primaryTextColor}>

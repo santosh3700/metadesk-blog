@@ -102,7 +102,7 @@ const CategoryA = (props) => {
               <Flex alignItems={'baseline'}>
                 <Icon as={FaCircle} boxSize={6} mr="4" color={'purple'} />
                 <Box>
-                  <Heading textStyles="h2" color={primaryTextColor}>
+                  <Heading as="h2" size={'lg'} color={primaryTextColor}>
                     {process.env.home.categoryList.CATEGORY_A.NAME}
                   </Heading>
                   <Text color={primaryTextColor}>
@@ -182,7 +182,7 @@ const CategoryA = (props) => {
                                       )}
                                       <Text
                                         fontWeight={'bold'}
-                                        noOfLines={3}
+                                        noOfLines={2}
                                         color={isLightTheme ? 'black' : 'white'}
                                       >
                                         {item.title}

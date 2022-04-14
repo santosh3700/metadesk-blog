@@ -72,7 +72,7 @@ const HeroSection = (props) => {
         <Grid
           templateColumns={{ md: '6fr 3fr 3fr', sm: 'repeat(3, 1fr)' }}
           textColor="white"
-          gap={4}
+          gap={3}
         >
           <>
             <Carousel
@@ -231,7 +231,7 @@ const HeroSection = (props) => {
             <Grid
               templateColumns={{ md: '12fr', sm: 'repeat(1, 1fr)' }}
               textColor="white"
-              gap={4}
+              gap={3}
             >
               {data.edges &&
                 data.edges.slice(6, 8).map((item, index) => {

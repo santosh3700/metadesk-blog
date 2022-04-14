@@ -65,7 +65,7 @@ const CategoryD = (props) => {
           <Flex alignItems={'baseline'}>
             <Icon as={FaCircle} boxSize={6} mr="4" color={'purple'} />
             <Box>
-              <Heading textStyles="h2" color={'white'}>
+              <Heading as="h2" size={'lg'} color={'white'}  >
                 VIDEO
               </Heading>
               <Text color={'white'}>
@@ -195,6 +195,8 @@ const CategoryD = (props) => {
 
         <Divider />
 
+
+
         <Grid
           templateColumns={{ md: '4fr 4fr 4fr 4fr', sm: 'repeat(4, 1fr)' }}
           textColor="white"
@@ -202,7 +204,7 @@ const CategoryD = (props) => {
           my={6}
         >
           {data.edges &&
-            data.edges.slice(8, 16).map((item, index) => {
+            data.edges.slice(0, 8).map((item, index) => {
               return (
                 <Link key={index} href={item.node.slug}>
                   <Box cursor="pointer">
