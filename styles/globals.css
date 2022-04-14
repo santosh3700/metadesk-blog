@@ -35,6 +35,10 @@ a {
  background-color: #b3b3b3 !important ;
 }
 
+*{
+  word-spacing: 2px;
+  line-height: 28px;
+}
 
 
 @media only screen and (max-width: 500px) {

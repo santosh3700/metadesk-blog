@@ -204,7 +204,7 @@ const CategoryD = (props) => {
           my={6}
         >
           {data.edges &&
-            data.edges.slice(0, 8).map((item, index) => {
+            data.edges.slice(8, 16).map((item, index) => {
               return (
                 <Link key={index} href={item.node.slug}>
                   <Box cursor="pointer">
