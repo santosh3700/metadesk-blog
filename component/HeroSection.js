@@ -54,7 +54,7 @@ const HeroSection = (props) => {
   const secondaryBgColor = isLightTheme ? 'black' : 'white';
 
   // store data
-  const { data } = props;
+  const { data, cryptoData } = props;
 
   // console.log('herosection', data);
 
@@ -62,16 +62,17 @@ const HeroSection = (props) => {
     <>
       <Box my={{ base: '2', md: '8' }} px={{ base: '4', lg: '16' }}>
         <Box border={'1px solid '} px={2}>
-          <Brandlist />
+          <Brandlist cryptoData={cryptoData} />
         </Box>
       </Box>
+
       <Box px={{ base: '4', lg: '16' }} mb="20" mt={'8'}>
         {/* trisha */}
 
         <Grid
           templateColumns={{ md: '6fr 3fr 3fr', sm: 'repeat(3, 1fr)' }}
           textColor="white"
-          gap={4}
+          gap={3}
         >
           <>
             <Carousel
@@ -97,7 +98,8 @@ const HeroSection = (props) => {
                           h={{ base: '300px', md: '500px' }}
                           src={item.node.featuredImage.node.sourceUrl}
                           alt={item.node.title}
-                          opacity={'0.7'}
+                          // opacity={'0.7'}
+                          objectFit={'cover'}
                         />
 
                         <Box
@@ -123,6 +125,7 @@ const HeroSection = (props) => {
 
                         <Box
                           p={4}
+                          w="100%"
                           style={{
                             position: 'absolute',
                             left: 0,
@@ -135,6 +138,7 @@ const HeroSection = (props) => {
                             color={'white'}
                             as="h4"
                             size={{ base: 'sm', md: 'lg' }}
+                            noOfLines={1}
                           >
                             {item.node.title}
                           </Heading>
@@ -189,7 +193,8 @@ const HeroSection = (props) => {
                         alt={item.node.title}
                         style={{ width: '100%', height: '100%' }}
                         src={item.node.featuredImage.node.sourceUrl}
-                        opacity={'0.9'}
+                        // opacity={'0.9'}
+                        objectFit={'cover'}
                       />
                       <Box
                         p={4}
@@ -205,6 +210,7 @@ const HeroSection = (props) => {
                           color={'white'}
                           as="h4"
                           size={{ base: 'sm', md: 'md' }}
+                          noOfLines={1}
                         >
                           {item.node.title}
                         </Heading>
@@ -225,7 +231,7 @@ const HeroSection = (props) => {
             <Grid
               templateColumns={{ md: '12fr', sm: 'repeat(1, 1fr)' }}
               textColor="white"
-              gap={4}
+              gap={3}
             >
               {data.edges &&
                 data.edges.slice(6, 8).map((item, index) => {
@@ -264,7 +270,8 @@ const HeroSection = (props) => {
                             alt={item.node.title}
                             style={{ width: '100%', height: '100%' }}
                             src={item.node.featuredImage.node.sourceUrl}
-                            opacity={'0.7'}
+                            // opacity={'0.7'}
+                            objectFit={'cover'}
                           />
                           <Box
                             p={4}
@@ -280,6 +287,7 @@ const HeroSection = (props) => {
                               as="h4"
                               size={{ base: 'sm', md: 'md' }}
                               color={'white'}
+                              noOfLines={1}
                             >
                               {item.node.title}
                             </Heading>

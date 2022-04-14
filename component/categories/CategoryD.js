@@ -20,7 +20,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import Link from 'next/link';
 import { compareAsc, format } from 'date-fns';
 import Carousel from 'react-multi-carousel';
-import ReactPlayer from 'react-player';
+// import ReactPlayer from 'react-player';
 // import Video from '../slider/Video';
 
 const CategoryD = (props) => {
@@ -65,7 +65,7 @@ const CategoryD = (props) => {
           <Flex alignItems={'baseline'}>
             <Icon as={FaCircle} boxSize={6} mr="4" color={'purple'} />
             <Box>
-              <Heading as="h4" size={'lg'} color={'white'}>
+              <Heading as="h2" size={'lg'} color={'white'}  >
                 VIDEO
               </Heading>
               <Text color={'white'}>
@@ -154,9 +154,16 @@ const CategoryD = (props) => {
                           alt={item.node.title}
                         />
                       )}
-                      <Heading color={'white'} as="h4" size={'lg'}>
+                      <Heading color={'white'} as="h4" size={'md'} mt={2}>
                         {item.node.title}
                       </Heading>
+                      <Flex mt="2" alignItems={'center'}>
+                        {' '}
+                        <Icon as={FaRegClock} color={'white'} />{' '}
+                        <Text color={'white'} ml={4}>
+                          Oct 18, 2019
+                        </Text>{' '}
+                      </Flex>
                       {/* <Box
                       p={4}
                       style={{
@@ -188,6 +195,8 @@ const CategoryD = (props) => {
 
         <Divider />
 
+
+
         <Grid
           templateColumns={{ md: '4fr 4fr 4fr 4fr', sm: 'repeat(4, 1fr)' }}
           textColor="white"
@@ -195,7 +204,7 @@ const CategoryD = (props) => {
           my={6}
         >
           {data.edges &&
-            data.edges.slice(8, 16).map((item, index) => {
+            data.edges.slice(0, 8).map((item, index) => {
               return (
                 <Link key={index} href={item.node.slug}>
                   <Box cursor="pointer">

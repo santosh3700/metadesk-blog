@@ -16,6 +16,7 @@ import {
   VStack,
   Icon,
   useColorMode,
+  AspectRatio,
 } from '@chakra-ui/react';
 import {
   FaTwitter,
@@ -33,7 +34,7 @@ import Link from 'next/link';
 import ClassesPostBody from '../../styles/post-body.module.css';
 
 import Trending from './Trending';
-import ReactPlayer from 'react-player';
+// import ReactPlayer from 'react-player';
 
 export function Post({ props }) {
   // theming
@@ -53,6 +54,8 @@ export function Post({ props }) {
   const date = new Date(data.date);
   const imagePath = data.featuredImage?.node.sourceUrl;
   const videoUrl = `https://www.youtube.com/watch?v=${data.youtube.videoId}`;
+
+  const videoLink = `https://www.youtube.com/embed/${data.youtube.videoId}`;
 
   // console.log('checkpostdata', props);
 
@@ -102,20 +105,24 @@ export function Post({ props }) {
         </Flex>
         <Box display={{ base: 'block', md: 'none' }} my={6}>
           <HStack position={'sticky'} top="10px" bottom="10px">
-            <Icon as={FaFacebookF} boxSize={6} />
-            <Icon as={FaTwitter} boxSize={6} />
-            <Icon as={FaInstagram} boxSize={6} />
-            <Icon as={FaLinkedin} boxSize={6} />
+            <SocialShare data={data} />
           </HStack>
         </Box>
         {/* featured image  */}
         {data.youtube.videoId !== null &&
         data.youtube.videoId !== undefined &&
         data.youtube.videoId !== '' ? (
-          <Box textAlign={'center'} my={10}>
-            <ReactPlayer height={'480px'} width="1080px" url={videoUrl} />
+          // <Box textAlign={'center'} my={10}>
+          // <AspectRatio maxW="560px" ratio={1}>
+          //   <ReactPlayer url={videoUrl} />
+          // </AspectRatio>
+          <Box my={8} mx={2}>
+            <AspectRatio ratio={16 / 9}>
+              <iframe title="naruto" src={videoLink} allowFullScreen />
+            </AspectRatio>
           </Box>
         ) : (
+          // </Box>
           <Img my={6} objectFit={'cover'} src={imagePath} />
         )}
         <Grid

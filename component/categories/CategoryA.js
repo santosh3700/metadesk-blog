@@ -102,7 +102,7 @@ const CategoryA = (props) => {
               <Flex alignItems={'baseline'}>
                 <Icon as={FaCircle} boxSize={6} mr="4" color={'purple'} />
                 <Box>
-                  <Heading as="h4" size={'lg'} color={primaryTextColor}>
+                  <Heading as="h2" size={'lg'} color={primaryTextColor}>
                     {process.env.home.categoryList.CATEGORY_A.NAME}
                   </Heading>
                   <Text color={primaryTextColor}>
@@ -147,7 +147,7 @@ const CategoryA = (props) => {
                         key={index}
                         templateColumns={{ md: '12fr', sm: 'repeat(2, 1fr)' }}
                         textColor="white"
-                        gap={4}
+
                       >
                         {post &&
                           post.map((item, j) => {
@@ -182,7 +182,7 @@ const CategoryA = (props) => {
                                       )}
                                       <Text
                                         fontWeight={'bold'}
-                                        noOfLines={3}
+                                        noOfLines={2}
                                         color={isLightTheme ? 'black' : 'white'}
                                       >
                                         {item.title}
@@ -200,7 +200,7 @@ const CategoryA = (props) => {
                                         </Text>
                                       </Flex>
                                     </Box>
-                                    <Box w={'30%'}>
+                                    <Box w={'30%'} ml={2}>
                                       {item.featuredImage && (
                                         <Img
                                           h={'100%'}

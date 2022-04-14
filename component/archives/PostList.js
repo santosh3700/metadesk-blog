@@ -32,7 +32,7 @@ import ArchiveHeroSection from './ArchiveHeroSection';
 import { useRouter } from 'next/router';
 import { compareAsc, format } from 'date-fns';
 import Link from 'next/link';
-import ReactPlayer from 'react-player';
+// import ReactPlayer from 'react-player';
 
 function PostList({ urlType, urlName, data, slug, section }) {
   // theming
@@ -79,32 +79,27 @@ function PostList({ urlType, urlName, data, slug, section }) {
           my={6}
         >
           {data.edges.slice(0, 1).map((item, index) => {
-            console.log('catmap', item.node.youtube.videoId);
+            // console.log('catmap', videoId);
             const author = item?.node?.author.node;
-            const imagePath = item.node.featuredImage?.node.sourceUrl;
+            // const imagePath = item.node.featuredImage?.node.sourceUrl;
             const videoId = item.node.youtube.videoId;
-            const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+
+            // const imagePath =
+            //   videoId !== null && videoId !== ''
+            //     ? `https://i1.ytimg.com/vi/${videoId}/maxresdefault.jpg`
+            //     : item.node.featuredImage?.node?.sourceUrl;
+            // const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
 
             return (
               item &&
               item.node && (
                 <Link key={index} href={item.node.slug}>
                   <Box cursor={'pointer'}>
-                    {videoId !== null && videoId !== undefined ? (
-                      <Box textAlign={'center'} my={10}>
-                        <ReactPlayer
-                          height={'300px'}
-                          width="480px"
-                          url={videoUrl}
-                        />
-                      </Box>
-                    ) : (
-                      item?.node?.featuredImage && (
-                        <Img
-                          src={item.node.featuredImage.node.sourceUrl}
-                          alt={item.node.title}
-                        />
-                      )
+                    {item?.node?.featuredImage && (
+                      <Img
+                        src={item.node.featuredImage.node.sourceUrl}
+                        alt={item.node.title}
+                      />
                     )}
 
                     <Box my={'2'}>
@@ -133,8 +128,6 @@ function PostList({ urlType, urlName, data, slug, section }) {
             {data.edges.slice(1, 5).map((item, index) => {
               const author = item?.node?.author.node;
               const imagePath = item.node.featuredImage?.node.sourceUrl;
-              const videoId = item.node.youtube.videoId;
-              const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
               return (
                 item &&
                 item.node && (
@@ -167,33 +160,14 @@ function PostList({ urlType, urlName, data, slug, section }) {
                           </Flex>
                         </Box>
                         <Box>
-                          {videoId !== null && videoId !== undefined ? (
-                            <Box textAlign={'center'} my={0}>
-                              <ReactPlayer
-                                height={'100%'}
-                                width={'100%'}
-                                url={videoUrl}
-                              />
-                            </Box>
-                          ) : (
-                            item?.node?.featuredImage && (
-                              <Img
-                                h={'100%'}
-                                // w={'100%'}
-                                objectFit={'cover'}
-                                src={item.node.featuredImage.node.sourceUrl}
-                                alt={item.node.title}
-                              />
-                            )
-                          )}
-                          {/* {item?.node?.featuredImage && (
+                          {item?.node?.featuredImage && (
                             <Img
                               h={'100%'}
                               objectFit={'cover'}
                               src={item.node.featuredImage.node.sourceUrl}
                               alt={item.node.title}
                             />
-                          )} */}
+                          )}
                         </Box>
                       </Grid>
                       <Box my={6}>

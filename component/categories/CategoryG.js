@@ -99,7 +99,7 @@ const CategoryG = (props) => {
               <Flex alignItems={'baseline'}>
                 <Icon as={FaCircle} boxSize={6} mr="4" color={'purple'} />
                 <Box>
-                  <Heading as="h4" size={'lg'} color={primaryTextColor}>
+                  <Heading as="h2" size={'lg'} color={primaryTextColor}>
                     {process.env.home.categoryList.CATEGORY_G.NAME}
                   </Heading>
                   <Text color={primaryTextColor}>
@@ -144,7 +144,7 @@ const CategoryG = (props) => {
                         key={index}
                         templateColumns={{ md: '12fr', sm: 'repeat(2, 1fr)' }}
                         textColor="white"
-                        gap={4}
+
                       >
                         {/* <Box px="4" borderRight={'1px solid #b3b3b3'}> */}
                         {post &&

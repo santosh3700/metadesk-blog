@@ -75,7 +75,7 @@ const CategoryC = (props) => {
         <Flex alignItems={'baseline'}>
           <Icon as={FaCircle} boxSize={6} mr="4" color={'purple'} />
           <Box>
-            <Heading as="h4" size={'lg'}>
+            <Heading as="h2" size={'lg'}>
               {process.env.home.categoryList.CATEGORY_C.NAME}
             </Heading>
             <Text> {process.env.home.categoryList.CATEGORY_C.DESC}</Text>
@@ -160,7 +160,7 @@ const CategoryC = (props) => {
 
       {catagory && catagory && catagory.length < 1 ? (
         <Box m="auto" my={100}>
-          <Heading as="h4" size={'lg'} textAlign="center">
+          <Heading textStyles="h2" textAlign="center">
             No Data Found
           </Heading>
         </Box>
@@ -185,7 +185,7 @@ const CategoryC = (props) => {
                       h={{ base: '300px', md: '100%' }}
                       src={item.node.featuredImage.node.sourceUrl}
                       alt={item.node.title}
-                      opacity={'0.7'}
+                      objectFit={'cover'}
                     />
 
                     <Box
@@ -219,7 +219,7 @@ const CategoryC = (props) => {
                         background: '#0000005e',
                       }}
                     >
-                      <Heading color={'white'} as="h4" size={'lg'}>
+                      <Heading color={'white'} as="h2" size={'md'} noOfLines={1}>
                         {item.node.title}
                       </Heading>
                       <Flex mt="2" alignItems={'center'}>

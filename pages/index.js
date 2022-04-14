@@ -26,6 +26,7 @@ import {
   getHeaderMenuByName,
   getCateogryRecentPostbyName,
   getCategoryByName,
+  getCryptoStats,
 } from '../lib/api';
 
 import Home from '../component/Home';
@@ -35,6 +36,7 @@ const Index = ({
   allPosts: { edges },
   preview,
   menu,
+  cryptoData,
   heroSectionData,
   sideBarData,
   categoryAData,
@@ -76,6 +78,7 @@ const Index = ({
 
       <Home
         post={edges}
+        cryptoData={cryptoData}
         heroSectionData={heroSectionData}
         sideBarData={sideBarData}
         categoryAData={categoryAData}
@@ -105,6 +108,7 @@ export async function getStaticProps({ preview = false }) {
     'categoryName',
     process.env.home.categoryList.SIDEBAR.SIDEBAR_NAME
   );
+  const cryptoData = await getCryptoStats();
   const categoryAData = await getCateogryRecentPostbyName(
     'categoryName',
     process.env.home.categoryList.CATEGORY_A.NAME
@@ -141,6 +145,7 @@ export async function getStaticProps({ preview = false }) {
       allPosts,
       preview,
       menu: menuData.menu,
+      cryptoData: cryptoData,
       heroSectionData: heroSectionData,
       sideBarData: sideBarData,
       categoryAData: categoryAData,
