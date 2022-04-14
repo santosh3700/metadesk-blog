@@ -79,16 +79,24 @@ export function Post({ props }) {
         <Heading as="h2" size={'lg'}>
           {data.title}
         </Heading>
-        <Flex mt="2" flexDirection={{ base: 'column', md: 'row' }}>
-          <Box mr={'6'}>
+        <Flex mt="2" flexDirection={{ base: 'column', md: 'row' }} justifyContent={'space-between'}>
+
+          <Text mr={4} fontWeight={'bold'}>
+            By{' '}
+            <b>{`${author.firstName == null ? '' : author.firstName} ${author.lastName == null ? '' : author.lastName
+              }`}</b>
+            {` `} on
+          </Text>
+          <Text><b>{date.toDateString()}</b></Text>
+
+          {/* <Box mr={'6'}>
             <Text mr={4} fontWeight={'bold'}>
               By{' '}
-              <b>{`${author.firstName == null ? '' : author.firstName} ${
-                author.lastName == null ? '' : author.lastName
-              }`}</b>
+              <b>{`${author.firstName == null ? '' : author.firstName} ${author.lastName == null ? '' : author.lastName
+                }`}</b>
               {` `} on <b>{date.toDateString()}</b>
             </Text>
-          </Box>
+          </Box> */}
 
           {/* <Flex alignItems={'center'} mr={'6'}>
             <Icon as={FaRegClock} />
@@ -110,8 +118,8 @@ export function Post({ props }) {
         </Box>
         {/* featured image  */}
         {data.youtube.videoId !== null &&
-        data.youtube.videoId !== undefined &&
-        data.youtube.videoId !== '' ? (
+          data.youtube.videoId !== undefined &&
+          data.youtube.videoId !== '' ? (
           // <Box textAlign={'center'} my={10}>
           // <AspectRatio maxW="560px" ratio={1}>
           //   <ReactPlayer url={videoUrl} />
@@ -141,7 +149,7 @@ export function Post({ props }) {
             </VStack>
           </Box>
           <Box>
-            <Text fontSize={'xl'} fontWeight={'medium'} mb={10}>
+            <Text fontWeight={'medium'} mb={10}>
               <div
                 className={`${ClassesPostBody.content} contentBody`}
                 dangerouslySetInnerHTML={{ __html: data.content }}
