@@ -45,6 +45,7 @@ const Home = (props) => {
 
   const {
     post,
+    cryptoData,
     heroSectionData,
     sideBarData,
     categoryAData,
@@ -57,12 +58,14 @@ const Home = (props) => {
     subCategoryData,
   } = props;
 
+  console.log('crytodata', cryptoData);
+
   return (
     <>
       {/* 1st section */}
 
       {/* 2nd section */}
-      <HeroSection data={heroSectionData} />
+      <HeroSection data={heroSectionData} cryptoData={cryptoData} />
       {/* 3nd section */}
       <CategoryA data={categoryAData} />
       {/* 4th section */}

@@ -30,6 +30,8 @@ import {
 function OtherPages(props) {
   //console.log("original data = ", props)
 
+  console.log('checkslug', props);
+
   const router = useRouter();
 
   let componentToShow;

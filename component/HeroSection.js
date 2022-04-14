@@ -54,7 +54,7 @@ const HeroSection = (props) => {
   const secondaryBgColor = isLightTheme ? 'black' : 'white';
 
   // store data
-  const { data } = props;
+  const { data, cryptoData } = props;
 
   // console.log('herosection', data);
 
@@ -62,7 +62,7 @@ const HeroSection = (props) => {
     <>
       <Box my={{ base: '2', md: '8' }} px={{ base: '4', lg: '16' }}>
         <Box border={'1px solid '} px={2}>
-          <Brandlist />
+          <Brandlist cryptoData={cryptoData} />
         </Box>
       </Box>
 
