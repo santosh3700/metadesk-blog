@@ -46,36 +46,37 @@ const BrandList = (props) => {
       {cryptoData.slice(0, 5).map((item, index) => {
         return (
           item && (
-            <Flex py="3" key={index}>
+            <Flex py="3" key={index} alignItems={'center'}>
               <Box
                 display={'flex'}
                 w={'100%'}
                 pr="2"
                 borderRight={'1px solid lightgray'}
               >
-                <Img
-                  objectFit="contain"
-                  mx={'2'}
-                  h="30px"
-                  w="30px"
-                  src={item.image}
-                  alt={item.name}
-                />
-                <Box mx={'2'}>
+                <Box ml={2}>
+                  <Img
+                    objectFit="contain"
+                    h="30px"
+                    w="30px"
+                    src={item.image}
+                    alt={item.name}
+                  />
+                </Box>
+                <Box mx={'2'} w={'30%'}>
                   <Text fontWeight={'semibold'} fontSize="14px">
-                    {' '}
                     {item.name}
                   </Text>
                   <Text fontSize={'xs'}>{item.symbol.toUpperCase()}(24h)</Text>
                 </Box>
-                <Img
-                  mx={'2'}
-                  objectFit="contain"
-                  // w={'100%'}
-                  h="auto"
-                  src="https://wptesting.thenwg.xyz/wp-content/uploads/2022/04/cardino-chart.png"
-                />
-                <Box mx={'2'}>
+                <Box w={'30%'} mx={'2'}>
+                  <Img
+                    objectFit="contain"
+                    // w={'100%'}
+                    h="auto"
+                    src="https://wptesting.thenwg.xyz/wp-content/uploads/2022/04/cardino-chart.png"
+                  />
+                </Box>
+                <Box mx={'2'} w={'30%'}>
                   <Heading as={'h6'} size="sm">
                     $${item.current_price}
                   </Heading>
