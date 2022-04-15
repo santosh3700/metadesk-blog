@@ -46,6 +46,7 @@ const CategoryB = (props) => {
   const secondaryTextColor = isLightTheme ? 'white' : 'black';
   const primaryBgColor = isLightTheme ? 'white' : 'black';
   const secondaryBgColor = isLightTheme ? 'black' : 'white';
+  const subTitleTextColor = isLightTheme ? 'rgba(34, 34, 34, 0.6)' : 'white';
 
   // store data
   const { data } = props;
@@ -67,10 +68,10 @@ const CategoryB = (props) => {
           <Flex alignItems={'baseline'}>
             <Icon as={FaCircle} boxSize={6} mr="4" color={'purple'} />
             <Box>
-              <Heading as="h2" size={'lg'} >
+              <Heading as="h2" fontSize={'22px'} >
                 {process.env.home.categoryList.CATEGORY_B.NAME}
               </Heading>
-              <Text> {process.env.home.categoryList.CATEGORY_B.DESC}</Text>
+              <Text color={subTitleTextColor}> {process.env.home.categoryList.CATEGORY_B.DESC}</Text>
             </Box>
           </Flex>
           <Box
@@ -130,7 +131,7 @@ const CategoryB = (props) => {
                               </Text>
                               <Flex mt="2" alignItems={'center'}>
                                 <Icon as={FaRegClock} color={'black'} fontSize="sm" />
-                                <Text ml={2} color={'black'} fontSize="sm">
+                                <Text ml={2} fontSize="sm" color={subTitleTextColor}>
                                   {format(
                                     new Date(item.node.date),
                                     'yyyy-MM-dd'

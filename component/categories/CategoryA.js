@@ -28,6 +28,7 @@ const CategoryA = (props) => {
   const { colorMode, toggleColorMode } = useColorMode();
   const isLightTheme = colorMode == 'light' ? true : false;
   const primaryTextColor = isLightTheme ? 'black' : 'white';
+  const subTitleTextColor = isLightTheme ? 'rgba(34, 34, 34, 0.6)' : 'white';
   const secondaryTextColor = isLightTheme ? 'white' : 'black';
   const primaryBgColor = isLightTheme ? 'white' : 'black';
   const secondaryBgColor = isLightTheme ? 'black' : 'white';
@@ -102,10 +103,10 @@ const CategoryA = (props) => {
               <Flex alignItems={'baseline'}>
                 <Icon as={FaCircle} boxSize={6} mr="4" color={'purple'} />
                 <Box>
-                  <Heading textStyle="h2" size={'lg'} color={primaryTextColor}>
+                  <Heading textStyle="h2" fontSize={'22px'} color={primaryTextColor}>
                     {process.env.home.categoryList.CATEGORY_A.NAME}
                   </Heading>
-                  <Text color={primaryTextColor}>
+                  <Text color={subTitleTextColor}>
                     {process.env.home.categoryList.CATEGORY_A.DESC}
                   </Text>
                 </Box>

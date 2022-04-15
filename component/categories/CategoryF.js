@@ -45,6 +45,7 @@ const CategoryF = (props) => {
   const secondaryTextColor = isLightTheme ? 'white' : 'black';
   const primaryBgColor = isLightTheme ? 'white' : 'black';
   const secondaryBgColor = isLightTheme ? 'black' : 'white';
+  const subTitleTextColor = isLightTheme ? 'rgba(34, 34, 34, 0.6)' : 'white';
 
   // store data
   const { data } = props;
@@ -67,7 +68,7 @@ const CategoryF = (props) => {
         <Flex alignItems={'baseline'}>
           <Icon as={FaCircle} boxSize={6} mr="4" color={'purple'} />
           <Box>
-            <Heading as="h2" size={'lg'} color={primaryTextColor}>
+            <Heading as="h2" fontSize={'22px'} color={primaryTextColor}>
               ACADEMY
             </Heading>
             <Text>The latest entertainment news in the world</Text>

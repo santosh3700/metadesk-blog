@@ -80,14 +80,16 @@ export function Post({ props }) {
           {data.title}
         </Heading>
         <Flex mt="2" flexDirection={{ base: 'column', md: 'row' }} justifyContent={'space-between'}>
-
-          <Text mr={4} fontWeight={'bold'}>
-            By{' '}
-            <b>{`${author.firstName == null ? '' : author.firstName} ${author.lastName == null ? '' : author.lastName
-              }`}</b>
-            {` `} on
-          </Text>
-          <Text><b>{date.toDateString()}</b></Text>
+          <Flex>
+            <Text mr={2} fontWeight={'bold'}>
+              By
+            </Text>
+            <Text>
+              {`${author.firstName == null ? '' : author.firstName} ${author.lastName == null ? '' : author.lastName
+                }`}
+            </Text>
+          </Flex>
+          <Text> {date.toDateString()}</Text>
 
           {/* <Box mr={'6'}>
             <Text mr={4} fontWeight={'bold'}>

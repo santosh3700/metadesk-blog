@@ -31,6 +31,7 @@ const CategoryC = (props) => {
   const secondaryTextColor = isLightTheme ? 'white' : 'black';
   const primaryBgColor = isLightTheme ? 'white' : 'black';
   const secondaryBgColor = isLightTheme ? 'black' : 'white';
+  const subTitleTextColor = isLightTheme ? 'rgba(34, 34, 34, 0.6)' : 'white';
 
   // store data
   const { data, subCategoryData } = props;
@@ -76,10 +77,10 @@ const CategoryC = (props) => {
         <Flex alignItems={'baseline'}>
           <Icon as={FaCircle} boxSize={6} mr="4" color={'purple'} />
           <Box>
-            <Heading as="h2" size={'lg'}>
+            <Heading as="h2" fontSize={'22px'}>
               {process.env.home.categoryList.CATEGORY_C.NAME}
             </Heading>
-            <Text> {process.env.home.categoryList.CATEGORY_C.DESC}</Text>
+            <Text color={subTitleTextColor}> {process.env.home.categoryList.CATEGORY_C.DESC}</Text>
           </Box>
         </Flex>
         <Box
@@ -126,18 +127,29 @@ const CategoryC = (props) => {
             mr={'2'}
             display={{ base: 'block', lg: 'none' }}
             size="sm"
-          >
+            // onClick={() => {
+            //   console.log("trisha", value);
+            // }}
+            onChange={(event) => {
+              console.log("trisha", event.target.value);
+              filterMethod(event.target.value);
+
+            }
+
+            }         >
             {subcategory &&
               subcategory.categories.edges.slice(0, 3).map((item, index) => {
                 // console.log('cheksub', item);
                 return (
                   <option
                     key={index}
-                    value="option3"
-                    onClick={() => {
-                      filterMethod(item.node.name);
-                      // filterMethod();
-                    }}
+                    value={item.node.name}
+                  // onClick={() => {
+                  //   console.log("trisha", value);
+                  //   filterMethod(value);
+                  //   // filterMethod();
+                  // }}
+
                   >
                     {item.node.name}
                   </option>
@@ -157,7 +169,7 @@ const CategoryC = (props) => {
             </Button>
           </Link>
         </Box>
-      </Flex>
+      </Flex >
 
       {catagory && catagory && catagory.length < 1 ? (
         <Box m="auto" my={100}>
@@ -362,7 +374,7 @@ const CategoryC = (props) => {
       )}
 
       <Box h={150} bg={'#ededed'} my={6}></Box>
-    </Box>
+    </Box >
   );
 };
 
