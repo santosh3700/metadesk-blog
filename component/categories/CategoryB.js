@@ -68,10 +68,13 @@ const CategoryB = (props) => {
           <Flex alignItems={'baseline'}>
             <Icon as={FaCircle} boxSize={4} mr="2" color={'purple'} />
             <Box>
-              <Heading as="h2" fontSize={'22px'} >
+              <Heading as="h2" fontSize={'22px'}>
                 {process.env.home.categoryList.CATEGORY_B.NAME}
               </Heading>
-              <Text color={subTitleTextColor}> {process.env.home.categoryList.CATEGORY_B.DESC}</Text>
+              <Text color={subTitleTextColor}>
+                {' '}
+                {process.env.home.categoryList.CATEGORY_B.DESC}
+              </Text>
             </Box>
           </Flex>
           <Box
@@ -111,14 +114,15 @@ const CategoryB = (props) => {
                         cursor={'pointer'}
                         templateColumns={{ md: '12fr', sm: 'repeat(2, 1fr)' }}
                         textColor="white"
-
                       >
                         <Box>
                           <Flex py="4" alignItems={'center'}>
-                            <Box  >
+                            <Box>
                               {item?.node?.featuredImage && (
                                 <Image
-                                  h={'100px'} w={'100px'} rounded={'full'}
+                                  h={'100px'}
+                                  w={'100px'}
+                                  rounded={'full'}
                                   objectFit={'cover'}
                                   src={item.node.featuredImage.node.sourceUrl}
                                   alt={item.node.title}
@@ -126,12 +130,20 @@ const CategoryB = (props) => {
                               )}
                             </Box>
                             <Box w={'70%'} px={4} display={'grid'}>
-                              <Text fontWeight={'500'} color={'black'}>
+                              <Text fontWeight={'700'} color={'black'}>
                                 {item.node.title}
                               </Text>
                               <Flex mt="2" alignItems={'center'}>
-                                <Icon as={FaRegClock} color={'black'} fontSize="sm" />
-                                <Text ml={2} fontSize="sm" color={subTitleTextColor}>
+                                <Icon
+                                  as={FaRegClock}
+                                  color={'black'}
+                                  fontSize="sm"
+                                />
+                                <Text
+                                  ml={2}
+                                  fontSize="sm"
+                                  color={subTitleTextColor}
+                                >
                                   {format(
                                     new Date(item.node.date),
                                     'yyyy-MM-dd'

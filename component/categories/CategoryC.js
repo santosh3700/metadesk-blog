@@ -64,8 +64,9 @@ const CategoryC = (props) => {
         return post.node.name == value;
       });
     });
-    // console.log('checkDtaa', tempArr);
+    //
     setCatagory(tempArr);
+    console.log('checkDtaa', catagory.length);
   };
 
   return (
@@ -80,7 +81,10 @@ const CategoryC = (props) => {
             <Heading as="h2" fontSize={'22px'}>
               {process.env.home.categoryList.CATEGORY_C.NAME}
             </Heading>
-            <Text color={subTitleTextColor}> {process.env.home.categoryList.CATEGORY_C.DESC}</Text>
+            <Text color={subTitleTextColor}>
+              {' '}
+              {process.env.home.categoryList.CATEGORY_C.DESC}
+            </Text>
           </Box>
         </Flex>
         <Box
@@ -131,12 +135,10 @@ const CategoryC = (props) => {
             //   console.log("trisha", value);
             // }}
             onChange={(event) => {
-              console.log("trisha", event.target.value);
+              console.log('trisha', event.target.value);
               filterMethod(event.target.value);
-
-            }
-
-            }         >
+            }}
+          >
             {subcategory &&
               subcategory.categories.edges.slice(0, 3).map((item, index) => {
                 // console.log('cheksub', item);
@@ -144,12 +146,11 @@ const CategoryC = (props) => {
                   <option
                     key={index}
                     value={item.node.name}
-                  // onClick={() => {
-                  //   console.log("trisha", value);
-                  //   filterMethod(value);
-                  //   // filterMethod();
-                  // }}
-
+                    // onClick={() => {
+                    //   console.log("trisha", value);
+                    //   filterMethod(value);
+                    //   // filterMethod();
+                    // }}
                   >
                     {item.node.name}
                   </option>
@@ -169,7 +170,7 @@ const CategoryC = (props) => {
             </Button>
           </Link>
         </Box>
-      </Flex >
+      </Flex>
 
       {catagory && catagory && catagory.length < 1 ? (
         <Box m="auto" my={100}>
@@ -192,21 +193,21 @@ const CategoryC = (props) => {
               return (
                 <Link href={item.node.slug} key={index}>
                   <Box cursor="pointer" style={{ position: 'relative' }}>
-
                     <Flex
                       w={'full'}
                       h={{ base: '250px', md: '100%' }}
                       backgroundImage={item.node.featuredImage.node.sourceUrl}
                       backgroundSize={'cover'}
-                      backgroundPosition={'center center'}>
-
+                      backgroundPosition={'center center'}
+                    >
                       <VStack
                         w={'full'}
                         justify={'center'}
-                        bgGradient={'linear-gradient(to bottom, rgb(255 255 255 / 0%), #0f0e0e);'}>
-
+                        bgGradient={
+                          'linear-gradient(to bottom, rgb(255 255 255 / 0%), #0f0e0e);'
+                        }
+                      >
                         <Stack maxW={'2xl'} align={'flex-start'} spacing={6}>
-
                           <Box
                             p={4}
                             style={{
@@ -248,26 +249,26 @@ const CategoryC = (props) => {
                               {item.node.title}
                             </Heading>
                             <Flex mt="2" alignItems={'center'}>
-                              <Icon as={FaRegClock} color={'white'} fontSize="sm" />
+                              <Icon
+                                as={FaRegClock}
+                                color={'white'}
+                                fontSize="sm"
+                              />
                               <Text color={'white'} ml={2} fontSize="sm">
                                 {format(new Date(item.node.date), 'yyyy-MM-dd')}
                               </Text>
                             </Flex>
                           </Box>
                         </Stack>
-
                       </VStack>
                     </Flex>
-
-
-
                   </Box>
                 </Link>
               );
             })}
 
-          <Box >
-            {catagory &&
+          <Box>
+            {catagory && catagory.length > 1 ? (
               catagory.slice(1, 4).map((item, index) => {
                 const tagName = item?.node?.tags?.edges[0]?.node?.name;
                 return (
@@ -298,8 +299,16 @@ const CategoryC = (props) => {
                             {item.node.title}
                           </Text>
                           <Flex mt="2" alignItems={'center'}>
-                            <Icon as={FaRegClock} color={primaryTextColor} fontSize={'sm'} />
-                            <Text ml={2} color={primaryTextColor} fontSize={'sm'}>
+                            <Icon
+                              as={FaRegClock}
+                              color={primaryTextColor}
+                              fontSize={'sm'}
+                            />
+                            <Text
+                              ml={2}
+                              color={primaryTextColor}
+                              fontSize={'sm'}
+                            >
                               {format(new Date(item.node.date), 'yyyy-MM-dd')}
                             </Text>
                           </Flex>
@@ -318,10 +327,13 @@ const CategoryC = (props) => {
                     </Link>
                   )
                 );
-              })}
+              })
+            ) : (
+              <div></div>
+            )}
           </Box>
 
-          <Box >
+          <Box>
             {catagory &&
               catagory.slice(4, 7).map((item, index) => {
                 const tagName = item?.node?.tags?.edges[0]?.node?.name;
@@ -374,7 +386,7 @@ const CategoryC = (props) => {
       )}
 
       <Box h={150} bg={'#ededed'} my={6}></Box>
-    </Box >
+    </Box>
   );
 };
 

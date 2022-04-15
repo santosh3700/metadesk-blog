@@ -121,8 +121,16 @@ const CategoryE = (props) => {
                             {item.node.title}
                           </Text>
                           <Flex mt="2" alignItems={'center'}>
-                            <Icon as={FaRegClock} color={primaryTextColor} fontSize={'sm'} />
-                            <Text ml={2} color={primaryTextColor} fontSize={'sm'}>
+                            <Icon
+                              as={FaRegClock}
+                              color={primaryTextColor}
+                              fontSize={'sm'}
+                            />
+                            <Text
+                              ml={2}
+                              color={primaryTextColor}
+                              fontSize={'sm'}
+                            >
                               {format(new Date(item.node.date), 'yyyy-MM-dd')}
                             </Text>
                           </Flex>

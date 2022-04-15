@@ -66,10 +66,10 @@ const CategoryD = (props) => {
           <Flex alignItems={'baseline'}>
             <Icon as={FaCircle} boxSize={4} mr="2" color={'purple'} />
             <Box>
-              <Heading as="h2" fontSize={'22px'} color={'white'}  >
+              <Heading as="h2" fontSize={'22px'} color={'white'}>
                 VIDEO
               </Heading>
-              <Text color={subTitleTextColor}>
+              <Text color={'white'}>
                 The latest entertainment news in the world
               </Text>
             </Box>
@@ -155,11 +155,16 @@ const CategoryD = (props) => {
                           alt={item.node.title}
                         />
                       )}
-                      <Heading color={'white'} as="h4" size={'md'} mt={2} lineHeight={'normal'}>
+                      <Heading
+                        color={'white'}
+                        as="h4"
+                        size={'md'}
+                        mt={2}
+                        lineHeight={'normal'}
+                      >
                         {item.node.title}
                       </Heading>
                       <Flex mt="2" alignItems={'center'}>
-
                         <Icon as={FaRegClock} color={'white'} fontSize={'sm'} />
                         <Text color={'white'} ml={2} fontSize={'sm'}>
                           Oct 18, 2019
@@ -195,8 +200,6 @@ const CategoryD = (props) => {
         </Box>
 
         <Divider />
-
-
 
         <Grid
           templateColumns={{ md: '4fr 4fr 4fr 4fr', sm: 'repeat(4, 1fr)' }}

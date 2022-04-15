@@ -39,9 +39,9 @@ const BrandList = (props) => {
       partialVisible={true}
       arrows={false}
       infinite={true}
-    // autoPlay={true}
-    // transitionDuration={500}
-    // autoPlaySpeed={2000}
+      autoPlay={true}
+      transitionDuration={500}
+      autoPlaySpeed={2000}
     >
       {cryptoData.slice(0, 5).map((item, index) => {
         return (
@@ -87,7 +87,7 @@ const BrandList = (props) => {
           )
         );
       })}
-    </Carousel >
+    </Carousel>
   );
 };
 
