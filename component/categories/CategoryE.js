@@ -56,7 +56,7 @@ const CategoryE = (props) => {
               flexDirection={{ base: 'column', md: 'row' }}
             >
               <Flex alignItems={'baseline'}>
-                <Icon as={FaCircle} boxSize={6} mr="4" color={'purple'} />
+                <Icon as={FaCircle} boxSize={4} mr="2" color={'purple'} />
                 <Box>
                   <Heading as="h2" fontSize={'22px'} color={primaryTextColor}>
                     {process.env.home.categoryList.CATEGORY_E.NAME}
