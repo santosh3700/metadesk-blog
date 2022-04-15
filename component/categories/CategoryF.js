@@ -55,7 +55,7 @@ const CategoryF = (props) => {
 
   return (
     <Box
-      px={{ base: '4', lg: '16' }}
+      px={{ base: '4', lg: '20' }}
       mb="20"
       py={'20'}
       bg={!isLightTheme ? 'black' : '#ededed'}
@@ -185,7 +185,7 @@ const CategoryF = (props) => {
       <Grid
         templateColumns={{ md: '4fr 4fr 4fr 4fr', sm: 'repeat(4, 1fr)' }}
         textColor="white"
-        gap={4}
+        gap={6}
         my={6}
       >
         {data.edges &&
@@ -230,8 +230,8 @@ const CategoryF = (props) => {
                           {/* {process.env.headerMenuName} */}
                         </Text>
                         <Flex mt="2" alignItems={'center'}>
-                          <Icon as={FaRegClock} color={primaryTextColor} />
-                          <Text ml={4} color={primaryTextColor}>
+                          <Icon as={FaRegClock} color={primaryTextColor} fontSize={'sm'} />
+                          <Text ml={2} color={primaryTextColor} fontSize={'sm'}>
                             {format(new Date(item.node.date), 'yyyy-MM-dd')}
                           </Text>
                         </Flex>

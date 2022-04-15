@@ -55,7 +55,7 @@ const CategoryB = (props) => {
   return (
     <>
       <Box
-        px={{ base: '4', lg: '16' }}
+        px={{ base: '4', lg: '24' }}
         mb="20"
         py={'20'}
         bg={isLightTheme ? '#ededed' : '#000000'}
@@ -110,13 +110,14 @@ const CategoryB = (props) => {
                         cursor={'pointer'}
                         templateColumns={{ md: '12fr', sm: 'repeat(2, 1fr)' }}
                         textColor="white"
-                        gap={4}
+
                       >
                         <Box>
-                          <Flex py="4">
-                            <Box w={'50%'}>
+                          <Flex py="4" alignItems={'center'}>
+                            <Box  >
                               {item?.node?.featuredImage && (
                                 <Image
+                                  h={'100px'} w={'100px'} rounded={'full'}
                                   objectFit={'cover'}
                                   src={item.node.featuredImage.node.sourceUrl}
                                   alt={item.node.title}
@@ -124,12 +125,12 @@ const CategoryB = (props) => {
                               )}
                             </Box>
                             <Box w={'70%'} px={4} display={'grid'}>
-                              <Text fontWeight={'bold'} color={'black'}>
+                              <Text fontWeight={'500'} color={'black'}>
                                 {item.node.title}
                               </Text>
                               <Flex mt="2" alignItems={'center'}>
-                                <Icon as={FaRegClock} color={'black'} />
-                                <Text ml={4} color={'black'}>
+                                <Icon as={FaRegClock} color={'black'} fontSize="sm" />
+                                <Text ml={2} color={'black'} fontSize="sm">
                                   {format(
                                     new Date(item.node.date),
                                     'yyyy-MM-dd'

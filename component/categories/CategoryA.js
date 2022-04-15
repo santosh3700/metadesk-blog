@@ -88,7 +88,7 @@ const CategoryA = (props) => {
 
   return (
     <>
-      <Box px={{ base: '4', lg: '16' }} mb="20">
+      <Box px={{ base: '4', lg: '24' }} mb="20">
         <Grid
           templateColumns={{ md: '9fr 3fr', sm: 'repeat(2, 1fr)' }}
           textColor="white"
@@ -102,7 +102,7 @@ const CategoryA = (props) => {
               <Flex alignItems={'baseline'}>
                 <Icon as={FaCircle} boxSize={6} mr="4" color={'purple'} />
                 <Box>
-                  <Heading as="h2" size={'lg'} color={primaryTextColor}>
+                  <Heading textStyle="h2" size={'lg'} color={primaryTextColor}>
                     {process.env.home.categoryList.CATEGORY_A.NAME}
                   </Heading>
                   <Text color={primaryTextColor}>
@@ -188,10 +188,11 @@ const CategoryA = (props) => {
                                       </Text>
                                       <Flex mt="2" alignItems={'center'}>
                                         <Icon
+                                          fontSize="sm"
                                           as={FaRegClock}
                                           color={primaryTextColor}
                                         />
-                                        <Text ml={4} color={primaryTextColor}>
+                                        <Text ml={2} color={primaryTextColor} fontSize="sm">
                                           {format(
                                             new Date(item.date),
                                             'yyyy-MM-dd'

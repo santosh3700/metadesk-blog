@@ -34,6 +34,22 @@ const styles = {
       color: 'green',
 
     },
+    h3: {
+      fontSize: ['24px', '24px'],
+      // fontWeight: '700',
+      lineHeight: '28px',
+      letterSpacing: '-1%',
+      color: 'blue',
+
+    },
+    h4: {
+      fontSize: ['24px', '24px'],
+      // fontWeight: '700',
+      lineHeight: '28px',
+      letterSpacing: '-1%',
+      color: 'yellow',
+
+    },
   },
 
 

@@ -14,6 +14,7 @@ import {
   Stack,
   Text,
   useColorMode,
+  VStack
 } from '@chakra-ui/react';
 import Head from 'next/head';
 import { FaRegClock, FaCircle, FaPlayCircle, FaFacebook } from 'react-icons/fa';
@@ -60,13 +61,13 @@ const HeroSection = (props) => {
 
   return (
     <>
-      <Box my={{ base: '2', md: '8' }} px={{ base: '4', lg: '16' }}>
+      <Box my={{ base: '2', md: '8' }} px={{ base: '4', lg: '24' }}>
         <Box border={'1px solid '} px={2}>
           <Brandlist cryptoData={cryptoData} />
         </Box>
       </Box>
 
-      <Box px={{ base: '4', lg: '16' }} mb="20" mt={'8'}>
+      <Box px={{ base: '4', lg: '24' }} mb="20" mt={'8'}>
         {/* trisha */}
 
         <Grid
@@ -92,63 +93,71 @@ const HeroSection = (props) => {
                   return (
                     <Link key={index} href={item.node.slug}>
                       <Box cursor="pointer" style={{ position: 'relative' }}>
-                        <Img
-                          draggable={false}
-                          style={{ width: '100%' }}
-                          h={{ base: '300px', md: '500px' }}
-                          src={item.node.featuredImage.node.sourceUrl}
-                          alt={item.node.title}
-                          // opacity={'0.7'}
-                          objectFit={'cover'}
-                        />
+                        <Flex
+                          w={'full'}
+                          h={{ base: '250px', md: '470px' }}
+                          backgroundImage={item.node.featuredImage.node.sourceUrl}
+                          backgroundSize={'cover'}
+                          backgroundPosition={'center center'}>
 
-                        <Box
-                          p={4}
-                          style={{
-                            position: 'absolute',
-                            left: 0,
-                            top: '10px',
-                          }}
-                        >
-                          {tagName && (
-                            <Button
-                              color="white"
-                              bg="blue"
-                              rounded={'none'}
-                              size="xs"
-                              fontWeight={'bold'}
-                            >
-                              {tagName}
-                            </Button>
-                          )}
-                        </Box>
+                          <VStack
+                            w={'full'}
+                            justify={'center'}
+                            bgGradient={'linear-gradient(to bottom, rgb(255 255 255 / 0%), #0f0e0e)'}>
 
-                        <Box
-                          p={4}
-                          w="100%"
-                          style={{
-                            position: 'absolute',
-                            left: 0,
-                            bottom: 0,
-                            color: 'white',
-                            background: '#0000005e',
-                          }}
-                        >
-                          <Heading
-                            color={'white'}
-                            as="h4"
-                            size={{ base: 'sm', md: 'lg' }}
-                            noOfLines={1}
-                          >
-                            {item.node.title}
-                          </Heading>
-                          <Flex mt="2" alignItems={'center'}>
-                            <Icon as={FaRegClock} color={'white'} />
-                            <Text color={'white'} ml={4}>
-                              {format(new Date(item.node.date), 'yyyy-MM-dd')}
-                            </Text>
-                          </Flex>
-                        </Box>
+                            <Stack maxW={'2xl'} align={'flex-start'} spacing={6}>
+
+                              <Box
+                                p={4}
+                                style={{
+                                  position: 'absolute',
+                                  left: 0,
+                                  top: '10px',
+                                }}
+                              >
+                                {tagName && (
+                                  <Button
+                                    color="white"
+                                    bg="blue"
+                                    rounded={'none'}
+                                    size="xs"
+                                    fontWeight={'bold'}
+                                  >
+                                    {tagName}
+                                  </Button>
+                                )}
+                              </Box>
+
+                              <Box
+                                p={4}
+                                w="100%"
+                                style={{
+                                  position: 'absolute',
+                                  left: 0,
+                                  bottom: 0,
+                                  color: 'white',
+                                }}
+                              >
+                                <Heading
+                                  color={'white'}
+                                  as="h4"
+                                  fontSize={{ base: 'sm', md: '2xl' }}
+                                  noOfLines={2}
+                                  lineHeight="normal"
+                                >
+                                  {item.node.title}
+                                </Heading>
+                                <Flex mt="2" alignItems={'center'}>
+                                  <Icon as={FaRegClock} color={'white'} fontSize="sm" />
+                                  <Text color={'white'} ml={2} fontSize="sm">
+                                    {format(new Date(item.node.date), 'yyyy-MM-dd')}
+                                  </Text>
+                                </Flex>
+                              </Box>
+                            </Stack>
+
+                          </VStack>
+                        </Flex>
                       </Box>
                     </Link>
                   );
@@ -162,89 +171,19 @@ const HeroSection = (props) => {
                 item &&
                 item.node && (
                   <Link key={index} href={item.node.slug}>
-                    <Box
-                      style={{ position: 'relative' }}
+                    <Flex
+                      w={'full'}
                       h={{ base: '250px', md: '100%' }}
-                    >
-                      <Box
-                        p={4}
-                        style={{
-                          position: 'absolute',
-                          left: 0,
-                          top: '10px',
-                          color: 'white',
-                        }}
-                      >
-                        {tagName && (
-                          <Button
-                            bg={'#03a9e7'}
-                            color="white"
-                            rounded={'none'}
-                            size="xs"
-                            fontWeight={'bold'}
-                          >
-                            {tagName}
-                          </Button>
-                        )}
-                      </Box>
+                      backgroundImage={item.node.featuredImage.node.sourceUrl}
+                      backgroundSize={'cover'}
+                      backgroundPosition={'center center'}>
 
-                      <Img
-                        draggable={false}
-                        alt={item.node.title}
-                        style={{ width: '100%', height: '100%' }}
-                        src={item.node.featuredImage.node.sourceUrl}
-                        // opacity={'0.9'}
-                        objectFit={'cover'}
-                      />
-                      <Box
-                        p={4}
-                        style={{
-                          position: 'absolute',
-                          left: 0,
-                          bottom: 0,
-                          color: 'white',
-                          background: '#0000005e',
-                        }}
-                      >
-                        <Heading
-                          color={'white'}
-                          as="h4"
-                          size={{ base: 'sm', md: 'md' }}
-                          noOfLines={1}
-                        >
-                          {item.node.title}
-                        </Heading>
-                        <Flex mt="2" alignItems={'center'}>
-                          <Icon as={FaRegClock} color={'white'} />{' '}
-                          <Text color={'white'} ml={4}>
-                            {format(new Date(item.node.date), 'yyyy-MM-dd')}
-                          </Text>
-                        </Flex>
-                      </Box>
-                    </Box>
-                  </Link>
-                )
-              );
-            })}
-
-          <Box display={'grid'}>
-            <Grid
-              templateColumns={{ md: '12fr', sm: 'repeat(1, 1fr)' }}
-              textColor="white"
-              gap={3}
-            >
-              {data.edges &&
-                data.edges.slice(6, 8).map((item, index) => {
-                  const tagName = item?.node?.tags?.edges[0]?.node?.name;
-                  // console.log('checkiteem', item);
-                  return (
-                    item &&
-                    item.node && (
-                      <Link key={index} href={item.node.slug}>
-                        <Box
-                          style={{ position: 'relative' }}
-                          h={{ base: '200px', md: '100%' }}
-                        >
+                      <VStack
+                        style={{ position: 'relative' }}
+                        w={'full'}
+                        justify={'center'}
+                        bgGradient={'linear-gradient(to bottom, rgb(255 255 255 / 0%), #0f0e0e);'}>
+                        <Stack maxW={'2xl'} align={'flex-start'} spacing={6}>
                           <Box
                             p={4}
                             style={{
@@ -266,13 +205,7 @@ const HeroSection = (props) => {
                               </Button>
                             )}
                           </Box>
-                          <Img
-                            alt={item.node.title}
-                            style={{ width: '100%', height: '100%' }}
-                            src={item.node.featuredImage.node.sourceUrl}
-                            // opacity={'0.7'}
-                            objectFit={'cover'}
-                          />
+
                           <Box
                             p={4}
                             style={{
@@ -280,25 +213,114 @@ const HeroSection = (props) => {
                               left: 0,
                               bottom: 0,
                               color: 'white',
-                              background: '#0000005e',
                             }}
                           >
                             <Heading
-                              as="h4"
-                              size={{ base: 'sm', md: 'md' }}
                               color={'white'}
-                              noOfLines={1}
+                              as="h4"
+                              fontSize={{ base: 'sm', md: 'lg' }}
+                              noOfLines={2}
+                              lineHeight="normal"
                             >
                               {item.node.title}
                             </Heading>
                             <Flex mt="2" alignItems={'center'}>
-                              <Icon as={FaRegClock} color={'white'} />{' '}
-                              <Text color={'white'} ml={4}>
+                              <Icon as={FaRegClock} color={'white'} fontSize="sm" />
+                              <Text color={'white'} ml={2} fontSize="sm">
                                 {format(new Date(item.node.date), 'yyyy-MM-dd')}
                               </Text>
                             </Flex>
                           </Box>
-                        </Box>
+                        </Stack>
+
+                      </VStack>
+                    </Flex>
+                  </Link>
+                )
+              );
+            })}
+
+          <Box display={'grid'}>
+            <Grid
+              templateColumns={{ md: '12fr', sm: 'repeat(1, 1fr)' }}
+              textColor="white"
+              gap={3}
+            >
+              {data.edges &&
+                data.edges.slice(6, 8).map((item, index) => {
+                  const tagName = item?.node?.tags?.edges[0]?.node?.name;
+                  // console.log('checkiteem', item);
+                  return (
+                    item &&
+                    item.node && (
+                      <Link key={index} href={item.node.slug}>
+
+                        <Flex
+                          w={'full'}
+                          h={{ base: '250px', md: '100%' }}
+                          backgroundImage={item.node.featuredImage.node.sourceUrl}
+                          backgroundSize={'cover'}
+                          backgroundPosition={'center center'}>
+
+                          <VStack
+                            style={{ position: 'relative' }}
+                            w={'full'}
+                            justify={'center'}
+                            bgGradient={'linear-gradient(to bottom, rgb(255 255 255 / 0%), #0f0e0e);'}>
+                            <Stack maxW={'2xl'} align={'flex-start'} spacing={6}>
+                              <Box
+                                p={4}
+                                style={{
+                                  position: 'absolute',
+                                  left: 0,
+                                  top: '10px',
+                                  color: 'white',
+                                }}
+                              >
+                                {tagName && (
+                                  <Button
+                                    bg={'#03a9e7'}
+                                    color="white"
+                                    rounded={'none'}
+                                    size="xs"
+                                    fontWeight={'bold'}
+                                  >
+                                    {tagName}
+                                  </Button>
+                                )}
+                              </Box>
+
+                              <Box
+                                p={4}
+                                style={{
+                                  position: 'absolute',
+                                  left: 0,
+                                  bottom: 0,
+                                  color: 'white',
+                                }}
+                              >
+                                <Heading
+                                  color={'white'}
+                                  as="h4"
+                                  fontSize={{ base: 'sm', md: 'lg' }}
+                                  noOfLines={2}
+                                  lineHeight="normal"
+                                >
+                                  {item.node.title}
+                                </Heading>
+                                <Flex mt="2" alignItems={'center'}>
+                                  <Icon as={FaRegClock} color={'white'} fontSize="sm" />
+                                  <Text color={'white'} ml={2} fontSize="sm">
+                                    {format(new Date(item.node.date), 'yyyy-MM-dd')}
+                                  </Text>
+                                </Flex>
+                              </Box>
+                            </Stack>
+
+                          </VStack>
+                        </Flex>
+
+
                       </Link>
                     )
                   );

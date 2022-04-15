@@ -57,7 +57,7 @@ const CategoryD = (props) => {
 
   return (
     <>
-      <Box px={{ base: '4', lg: '16' }} mb="20" py={'20'} bg={'black'}>
+      <Box px={{ base: '4', lg: '24' }} mb="20" py={'20'} bg={'black'}>
         <Flex
           justifyContent={'space-between'}
           flexDirection={{ base: 'column', md: 'row' }}
@@ -154,15 +154,15 @@ const CategoryD = (props) => {
                           alt={item.node.title}
                         />
                       )}
-                      <Heading color={'white'} as="h4" size={'md'} mt={2}>
+                      <Heading color={'white'} as="h4" size={'md'} mt={2} lineHeight={'normal'}>
                         {item.node.title}
                       </Heading>
                       <Flex mt="2" alignItems={'center'}>
-                        {' '}
-                        <Icon as={FaRegClock} color={'white'} />{' '}
-                        <Text color={'white'} ml={4}>
+
+                        <Icon as={FaRegClock} color={'white'} fontSize={'sm'} />
+                        <Text color={'white'} ml={2} fontSize={'sm'}>
                           Oct 18, 2019
-                        </Text>{' '}
+                        </Text>
                       </Flex>
                       {/* <Box
                       p={4}

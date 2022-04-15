@@ -84,7 +84,7 @@ const CategoryG = (props) => {
   // console.log('looptitle', postArr);
 
   return (
-    <Box px={{ base: '4', lg: '16' }} mb="20">
+    <Box px={{ base: '4', lg: '24' }} mb="20">
       {postArr && (
         <Grid
           templateColumns={{ md: '9fr 3fr', sm: 'repeat(2, 1fr)' }}
@@ -184,9 +184,9 @@ const CategoryG = (props) => {
                                       <Flex mt="2" alignItems={'center'}>
                                         <Icon
                                           as={FaRegClock}
-                                          color={primaryTextColor}
+                                          color={primaryTextColor} fontSize={'sm'}
                                         />
-                                        <Text ml={4} color={primaryTextColor}>
+                                        <Text ml={2} color={primaryTextColor} fontSize={'sm'}>
                                           {format(
                                             new Date(item.date),
                                             'yyyy-MM-dd'

@@ -43,7 +43,7 @@ const CategoryE = (props) => {
 
   return (
     <>
-      <Box px={{ base: '4', lg: '16' }} mb="20" py={'18'}>
+      <Box px={{ base: '4', lg: '24' }} mb="20" py={'18'}>
         <Grid
           templateColumns={{ md: '9fr 3fr', sm: 'repeat(2, 1fr)' }}
           textColor="white"
@@ -69,7 +69,7 @@ const CategoryE = (props) => {
             <Grid
               templateColumns={{ md: '4fr 4fr 4fr', sm: 'repeat(3, 1fr)' }}
               textColor="white"
-              gap={4}
+              gap={6}
               mt={6}
             >
               {data.edges &&
@@ -120,8 +120,8 @@ const CategoryE = (props) => {
                             {item.node.title}
                           </Text>
                           <Flex mt="2" alignItems={'center'}>
-                            <Icon as={FaRegClock} color={primaryTextColor} />
-                            <Text ml={4} color={primaryTextColor}>
+                            <Icon as={FaRegClock} color={primaryTextColor} fontSize={'sm'} />
+                            <Text ml={2} color={primaryTextColor} fontSize={'sm'}>
                               {format(new Date(item.node.date), 'yyyy-MM-dd')}
                             </Text>
                           </Flex>
@@ -137,7 +137,7 @@ const CategoryE = (props) => {
             <Grid
               templateColumns={{ md: '12fr', sm: 'repeat(1, 1fr)' }}
               textColor="white"
-              gap={4}
+              gap={6}
             >
               {tempArrSecond.map((item, index) => {
                 return (
