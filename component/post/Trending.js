@@ -43,7 +43,7 @@ const Trending = ({ props }) => {
 
   return (
     <Box py={8}>
-      <Heading as="h2" size={'lg'}>
+      <Heading as="h2" fontSize={'22px'}>
         {process.env.post.TRENDING.NAME}
       </Heading>
       <Grid
@@ -88,7 +88,7 @@ const Trending = ({ props }) => {
                             Markets
                           </Text>
 
-                          <Heading as="h4" size={'md'}>
+                          <Heading as="h4" size={'sm'} lineHeight={'normal'}>
                             {item.node.title}
                           </Heading>
 
