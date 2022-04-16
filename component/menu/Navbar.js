@@ -70,7 +70,7 @@ export default function Navbar({ menu }) {
   return (
     menuItems && (
       // <Headroom>
-      <Box zIndex={'9999'} bg={primaryBgColor} className="sticky-header-div">
+      <Box zIndex={'999'} bg={primaryBgColor} className="sticky-header-div">
         <Box px={{ base: '4', lg: '16' }} borderBottom={{ base: '0', md: '2px solid black' }}>
           {/* <Flex
                     color={useColorModeValue('gray.600', 'white')}
@@ -126,7 +126,7 @@ export default function Navbar({ menu }) {
             <Flex
               flex={{ base: 0, md: 'auto' }}
               ml={{ base: -2 }}
-              display={{ base: 'flex', md: 'none' }}
+              display={{ base: 'flex', lg: 'none' }}
             >
               <IconButton
                 onClick={onOpendrawer}
@@ -156,7 +156,7 @@ export default function Navbar({ menu }) {
 
             <Flex
               // my={2}
-              display={{ base: 'none', md: 'flex' }}
+              display={{ base: 'none', lg: 'flex' }}
               justifyContent="space-around"
             >
               <DeskMultiMenus menus={menuItems} />
@@ -232,7 +232,7 @@ export const MobileNav = ({
             <Stack
               bg={useColorModeValue('white', 'white')}
               p={4}
-              display={{ md: 'none' }}
+              display={{ lg: 'none' }}
             >
               <MobileMultiMenus menus={menuItems} />
             </Stack>

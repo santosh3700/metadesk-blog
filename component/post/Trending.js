@@ -88,7 +88,7 @@ const Trending = ({ props }) => {
                             Markets
                           </Text>
 
-                          <Heading as="h4" size={'sm'} lineHeight={'normal'}>
+                          <Heading as="h4" size={'md'} lineHeight={'normal'}>
                             {item.node.title}
                           </Heading>
 
