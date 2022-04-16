@@ -146,11 +146,11 @@ const CategoryC = (props) => {
                   <option
                     key={index}
                     value={item.node.name}
-                    // onClick={() => {
-                    //   console.log("trisha", value);
-                    //   filterMethod(value);
-                    //   // filterMethod();
-                    // }}
+                  // onClick={() => {
+                  //   console.log("trisha", value);
+                  //   filterMethod(value);
+                  //   // filterMethod();
+                  // }}
                   >
                     {item.node.name}
                   </option>
@@ -195,7 +195,7 @@ const CategoryC = (props) => {
                   <Box cursor="pointer" style={{ position: 'relative' }}>
                     <Flex
                       w={'full'}
-                      h={{ base: '250px', md: '100%' }}
+                      h={catagory.length == 1 ? { base: '250px', md: '450px' } : { base: '250px', md: '100%' }}
                       backgroundImage={item.node.featuredImage.node.sourceUrl}
                       backgroundSize={'cover'}
                       backgroundPosition={'center center'}

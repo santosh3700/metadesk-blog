@@ -35,9 +35,10 @@ a {
  background-color: #b3b3b3 !important ;
 }
 
-*{
+p{
   word-spacing: 2px;
   line-height: 28px;
+  word-break: break-word;
 }
 
 

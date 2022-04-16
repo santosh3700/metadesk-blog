@@ -151,7 +151,7 @@ export function Post({ props }) {
             </VStack>
           </Box>
           <Box>
-            <Text fontWeight={'medium'} mb={10}>
+            <Text fontWeight={'medium'} mb={10} mx={2}>
               <div
                 className={`${ClassesPostBody.content} contentBody`}
                 dangerouslySetInnerHTML={{ __html: data.content }}
