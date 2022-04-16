@@ -14,6 +14,7 @@ import {
   Stack,
   Text,
   useColorMode,
+  VStack,
 } from '@chakra-ui/react';
 import { FaRegClock, FaCircle, FaPlayCircle, FaFacebook } from 'react-icons/fa';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
@@ -30,6 +31,7 @@ const CategoryC = (props) => {
   const secondaryTextColor = isLightTheme ? 'white' : 'black';
   const primaryBgColor = isLightTheme ? 'white' : 'black';
   const secondaryBgColor = isLightTheme ? 'black' : 'white';
+  const subTitleTextColor = isLightTheme ? 'rgba(34, 34, 34, 0.6)' : 'white';
 
   // store data
   const { data, subCategoryData } = props;
@@ -62,23 +64,27 @@ const CategoryC = (props) => {
         return post.node.name == value;
       });
     });
-    // console.log('checkDtaa', tempArr);
+    //
     setCatagory(tempArr);
+    console.log('checkDtaa', catagory.length);
   };
 
   return (
-    <Box px={{ base: '4', lg: '16' }} mb="20" py={'18'}>
+    <Box px={{ base: '4', lg: '24' }} mb="20" py={'18'}>
       <Flex
         justifyContent={'space-between'}
         flexDirection={{ base: 'column', md: 'row' }}
       >
         <Flex alignItems={'baseline'}>
-          <Icon as={FaCircle} boxSize={6} mr="4" color={'purple'} />
+          <Icon as={FaCircle} boxSize={4} mr="2" color={'purple'} />
           <Box>
-            <Heading as="h2" size={'lg'}>
+            <Heading as="h2" fontSize={'22px'}>
               {process.env.home.categoryList.CATEGORY_C.NAME}
             </Heading>
-            <Text> {process.env.home.categoryList.CATEGORY_C.DESC}</Text>
+            <Text color={subTitleTextColor}>
+              {' '}
+              {process.env.home.categoryList.CATEGORY_C.DESC}
+            </Text>
           </Box>
         </Flex>
         <Box
@@ -125,6 +131,13 @@ const CategoryC = (props) => {
             mr={'2'}
             display={{ base: 'block', lg: 'none' }}
             size="sm"
+            // onClick={() => {
+            //   console.log("trisha", value);
+            // }}
+            onChange={(event) => {
+              console.log('trisha', event.target.value);
+              filterMethod(event.target.value);
+            }}
           >
             {subcategory &&
               subcategory.categories.edges.slice(0, 3).map((item, index) => {
@@ -132,11 +145,12 @@ const CategoryC = (props) => {
                 return (
                   <option
                     key={index}
-                    value="option3"
-                    onClick={() => {
-                      filterMethod(item.node.name);
-                      // filterMethod();
-                    }}
+                    value={item.node.name}
+                  // onClick={() => {
+                  //   console.log("trisha", value);
+                  //   filterMethod(value);
+                  //   // filterMethod();
+                  // }}
                   >
                     {item.node.name}
                   </option>
@@ -168,7 +182,7 @@ const CategoryC = (props) => {
         <Grid
           templateColumns={{ md: '4fr 4fr 4fr', sm: 'repeat(3, 1fr)' }}
           textColor="white"
-          gap={4}
+          gap={6}
           my={6}
         >
           {catagory &&
@@ -179,63 +193,82 @@ const CategoryC = (props) => {
               return (
                 <Link href={item.node.slug} key={index}>
                   <Box cursor="pointer" style={{ position: 'relative' }}>
-                    <Img
-                      draggable={false}
-                      style={{ width: '100%' }}
-                      h={{ base: '300px', md: '100%' }}
-                      src={item.node.featuredImage.node.sourceUrl}
-                      alt={item.node.title}
-                      objectFit={'cover'}
-                    />
-
-                    <Box
-                      p={4}
-                      style={{
-                        position: 'absolute',
-                        left: 0,
-                        top: '10px',
-                      }}
+                    <Flex
+                      w={'full'}
+                      h={catagory.length == 1 ? { base: '250px', md: '450px' } : { base: '250px', md: '100%' }}
+                      backgroundImage={item.node.featuredImage.node.sourceUrl}
+                      backgroundSize={'cover'}
+                      backgroundPosition={'center center'}
                     >
-                      {tagName && (
-                        <Button
-                          color="white"
-                          bg="blue"
-                          rounded={'none'}
-                          size="xs"
-                          fontWeight={'bold'}
-                        >
-                          {tagName}
-                        </Button>
-                      )}
-                    </Box>
+                      <VStack
+                        w={'full'}
+                        justify={'center'}
+                        bgGradient={
+                          'linear-gradient(to bottom, rgb(255 255 255 / 0%), #0f0e0e);'
+                        }
+                      >
+                        <Stack maxW={'2xl'} align={'flex-start'} spacing={6}>
+                          <Box
+                            p={4}
+                            style={{
+                              position: 'absolute',
+                              left: 0,
+                              top: '10px',
+                            }}
+                          >
+                            {tagName && (
+                              <Button
+                                color="white"
+                                bg="blue"
+                                rounded={'none'}
+                                size="xs"
+                                fontWeight={'bold'}
+                              >
+                                {tagName}
+                              </Button>
+                            )}
+                          </Box>
 
-                    <Box
-                      p={4}
-                      style={{
-                        position: 'absolute',
-                        left: 0,
-                        bottom: 0,
-                        color: 'white',
-                        background: '#0000005e',
-                      }}
-                    >
-                      <Heading color={'white'} as="h2" size={'md'} noOfLines={1}>
-                        {item.node.title}
-                      </Heading>
-                      <Flex mt="2" alignItems={'center'}>
-                        <Icon as={FaRegClock} color={'white'} />{' '}
-                        <Text color={'white'} ml={4}>
-                          {format(new Date(item.node.date), 'yyyy-MM-dd')}
-                        </Text>{' '}
-                      </Flex>
-                    </Box>
+                          <Box
+                            p={4}
+                            w="100%"
+                            style={{
+                              position: 'absolute',
+                              left: 0,
+                              bottom: 0,
+                              color: 'white',
+                            }}
+                          >
+                            <Heading
+                              color={'white'}
+                              as="h4"
+                              fontSize={{ base: 'sm', md: '2xl' }}
+                              noOfLines={2}
+                              lineHeight="normal"
+                            >
+                              {item.node.title}
+                            </Heading>
+                            <Flex mt="2" alignItems={'center'}>
+                              <Icon
+                                as={FaRegClock}
+                                color={'white'}
+                                fontSize="sm"
+                              />
+                              <Text color={'white'} ml={2} fontSize="sm">
+                                {format(new Date(item.node.date), 'yyyy-MM-dd')}
+                              </Text>
+                            </Flex>
+                          </Box>
+                        </Stack>
+                      </VStack>
+                    </Flex>
                   </Box>
                 </Link>
               );
             })}
 
-          <Box px="4">
-            {catagory &&
+          <Box>
+            {catagory && catagory.length > 1 ? (
               catagory.slice(1, 4).map((item, index) => {
                 const tagName = item?.node?.tags?.edges[0]?.node?.name;
                 return (
@@ -266,8 +299,16 @@ const CategoryC = (props) => {
                             {item.node.title}
                           </Text>
                           <Flex mt="2" alignItems={'center'}>
-                            <Icon as={FaRegClock} color={primaryTextColor} />
-                            <Text ml={4} color={primaryTextColor}>
+                            <Icon
+                              as={FaRegClock}
+                              color={primaryTextColor}
+                              fontSize={'sm'}
+                            />
+                            <Text
+                              ml={2}
+                              color={primaryTextColor}
+                              fontSize={'sm'}
+                            >
                               {format(new Date(item.node.date), 'yyyy-MM-dd')}
                             </Text>
                           </Flex>
@@ -286,10 +327,13 @@ const CategoryC = (props) => {
                     </Link>
                   )
                 );
-              })}
+              })
+            ) : (
+              <div></div>
+            )}
           </Box>
 
-          <Box px="4">
+          <Box>
             {catagory &&
               catagory.slice(4, 7).map((item, index) => {
                 const tagName = item?.node?.tags?.edges[0]?.node?.name;
@@ -319,8 +363,8 @@ const CategoryC = (props) => {
                           {item.node.title}
                         </Text>
                         <Flex mt="2" alignItems={'center'}>
-                          <Icon as={FaRegClock} />{' '}
-                          <Text ml={4}>
+                          <Icon as={FaRegClock} fontSize={'sm'} />
+                          <Text ml={2} fontSize={'sm'}>
                             {format(new Date(item.node.date), 'yyyy-MM-dd')}
                           </Text>{' '}
                         </Flex>

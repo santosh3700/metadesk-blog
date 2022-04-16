@@ -28,6 +28,7 @@ const CategoryA = (props) => {
   const { colorMode, toggleColorMode } = useColorMode();
   const isLightTheme = colorMode == 'light' ? true : false;
   const primaryTextColor = isLightTheme ? 'black' : 'white';
+  const subTitleTextColor = isLightTheme ? 'rgba(34, 34, 34, 0.6)' : 'white';
   const secondaryTextColor = isLightTheme ? 'white' : 'black';
   const primaryBgColor = isLightTheme ? 'white' : 'black';
   const secondaryBgColor = isLightTheme ? 'black' : 'white';
@@ -88,7 +89,7 @@ const CategoryA = (props) => {
 
   return (
     <>
-      <Box px={{ base: '4', lg: '16' }} mb="20">
+      <Box px={{ base: '4', lg: '24' }} mb="20">
         <Grid
           templateColumns={{ md: '9fr 3fr', sm: 'repeat(2, 1fr)' }}
           textColor="white"
@@ -100,12 +101,12 @@ const CategoryA = (props) => {
               flexDirection={{ base: 'column', md: 'row' }}
             >
               <Flex alignItems={'baseline'}>
-                <Icon as={FaCircle} boxSize={6} mr="4" color={'purple'} />
+                <Icon as={FaCircle} boxSize={4} mr="2" color={'purple'} />
                 <Box>
-                  <Heading as="h2" size={'lg'} color={primaryTextColor}>
+                  <Heading textStyle="h2" fontSize={'22px'} color={primaryTextColor}>
                     {process.env.home.categoryList.CATEGORY_A.NAME}
                   </Heading>
-                  <Text color={primaryTextColor}>
+                  <Text color={subTitleTextColor}>
                     {process.env.home.categoryList.CATEGORY_A.DESC}
                   </Text>
                 </Box>
@@ -188,10 +189,11 @@ const CategoryA = (props) => {
                                       </Text>
                                       <Flex mt="2" alignItems={'center'}>
                                         <Icon
+                                          fontSize="sm"
                                           as={FaRegClock}
                                           color={primaryTextColor}
                                         />
-                                        <Text ml={4} color={primaryTextColor}>
+                                        <Text ml={2} color={primaryTextColor} fontSize="sm">
                                           {format(
                                             new Date(item.date),
                                             'yyyy-MM-dd'

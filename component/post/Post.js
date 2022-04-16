@@ -80,14 +80,16 @@ export function Post({ props }) {
           {data.title}
         </Heading>
         <Flex mt="2" flexDirection={{ base: 'column', md: 'row' }} justifyContent={'space-between'}>
-
-          <Text mr={4} fontWeight={'bold'}>
-            By{' '}
-            <b>{`${author.firstName == null ? '' : author.firstName} ${author.lastName == null ? '' : author.lastName
-              }`}</b>
-            {` `} on
-          </Text>
-          <Text><b>{date.toDateString()}</b></Text>
+          <Flex>
+            <Text mr={2} fontWeight={'bold'}>
+              By
+            </Text>
+            <Text>
+              {`${author.firstName == null ? '' : author.firstName} ${author.lastName == null ? '' : author.lastName
+                }`}
+            </Text>
+          </Flex>
+          <Text> {date.toDateString()}</Text>
 
           {/* <Box mr={'6'}>
             <Text mr={4} fontWeight={'bold'}>
@@ -149,7 +151,9 @@ export function Post({ props }) {
             </VStack>
           </Box>
           <Box>
-            <Text fontWeight={'medium'} mb={10}>
+            <Text className='subheading' fontWeight={'medium'} mb={10} mx={2} wordSpacing={'2px'}
+              lineHeight='28px'
+              wordBreak={'break-word'}  >
               <div
                 className={`${ClassesPostBody.content} contentBody`}
                 dangerouslySetInnerHTML={{ __html: data.content }}

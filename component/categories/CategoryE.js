@@ -29,6 +29,7 @@ const CategoryE = (props) => {
   const secondaryTextColor = isLightTheme ? 'white' : 'black';
   const primaryBgColor = isLightTheme ? 'white' : 'black';
   const secondaryBgColor = isLightTheme ? 'black' : 'white';
+  const subTitleTextColor = isLightTheme ? 'rgba(34, 34, 34, 0.6)' : 'white';
 
   // store data
   const { data } = props;
@@ -43,7 +44,7 @@ const CategoryE = (props) => {
 
   return (
     <>
-      <Box px={{ base: '4', lg: '16' }} mb="20" py={'18'}>
+      <Box px={{ base: '4', lg: '24' }} mb="20" py={'18'}>
         <Grid
           templateColumns={{ md: '9fr 3fr', sm: 'repeat(2, 1fr)' }}
           textColor="white"
@@ -55,12 +56,12 @@ const CategoryE = (props) => {
               flexDirection={{ base: 'column', md: 'row' }}
             >
               <Flex alignItems={'baseline'}>
-                <Icon as={FaCircle} boxSize={6} mr="4" color={'purple'} />
+                <Icon as={FaCircle} boxSize={4} mr="2" color={'purple'} />
                 <Box>
-                  <Heading as="h2" size={'lg'} color={primaryTextColor}>
+                  <Heading as="h2" fontSize={'22px'} color={primaryTextColor}>
                     {process.env.home.categoryList.CATEGORY_E.NAME}
                   </Heading>
-                  <Text color={primaryTextColor}>
+                  <Text color={subTitleTextColor}>
                     {process.env.home.categoryList.CATEGORY_E.DESC}
                   </Text>
                 </Box>
@@ -69,7 +70,7 @@ const CategoryE = (props) => {
             <Grid
               templateColumns={{ md: '4fr 4fr 4fr', sm: 'repeat(3, 1fr)' }}
               textColor="white"
-              gap={4}
+              gap={6}
               mt={6}
             >
               {data.edges &&
@@ -120,8 +121,16 @@ const CategoryE = (props) => {
                             {item.node.title}
                           </Text>
                           <Flex mt="2" alignItems={'center'}>
-                            <Icon as={FaRegClock} color={primaryTextColor} />
-                            <Text ml={4} color={primaryTextColor}>
+                            <Icon
+                              as={FaRegClock}
+                              color={primaryTextColor}
+                              fontSize={'sm'}
+                            />
+                            <Text
+                              ml={2}
+                              color={primaryTextColor}
+                              fontSize={'sm'}
+                            >
                               {format(new Date(item.node.date), 'yyyy-MM-dd')}
                             </Text>
                           </Flex>
@@ -137,7 +146,7 @@ const CategoryE = (props) => {
             <Grid
               templateColumns={{ md: '12fr', sm: 'repeat(1, 1fr)' }}
               textColor="white"
-              gap={4}
+              gap={6}
             >
               {tempArrSecond.map((item, index) => {
                 return (

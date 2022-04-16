@@ -45,6 +45,7 @@ const CategoryF = (props) => {
   const secondaryTextColor = isLightTheme ? 'white' : 'black';
   const primaryBgColor = isLightTheme ? 'white' : 'black';
   const secondaryBgColor = isLightTheme ? 'black' : 'white';
+  const subTitleTextColor = isLightTheme ? 'rgba(34, 34, 34, 0.6)' : 'white';
 
   // store data
   const { data } = props;
@@ -55,7 +56,7 @@ const CategoryF = (props) => {
 
   return (
     <Box
-      px={{ base: '4', lg: '16' }}
+      px={{ base: '4', lg: '20' }}
       mb="20"
       py={'20'}
       bg={!isLightTheme ? 'black' : '#ededed'}
@@ -65,9 +66,9 @@ const CategoryF = (props) => {
         flexDirection={{ base: 'column', md: 'row' }}
       >
         <Flex alignItems={'baseline'}>
-          <Icon as={FaCircle} boxSize={6} mr="4" color={'purple'} />
+          <Icon as={FaCircle} boxSize={4} mr="2" color={'purple'} />
           <Box>
-            <Heading as="h2" size={'lg'} color={primaryTextColor}>
+            <Heading as="h2" fontSize={'22px'} color={primaryTextColor}>
               ACADEMY
             </Heading>
             <Text>The latest entertainment news in the world</Text>
@@ -185,7 +186,7 @@ const CategoryF = (props) => {
       <Grid
         templateColumns={{ md: '4fr 4fr 4fr 4fr', sm: 'repeat(4, 1fr)' }}
         textColor="white"
-        gap={4}
+        gap={6}
         my={6}
       >
         {data.edges &&
@@ -230,8 +231,8 @@ const CategoryF = (props) => {
                           {/* {process.env.headerMenuName} */}
                         </Text>
                         <Flex mt="2" alignItems={'center'}>
-                          <Icon as={FaRegClock} color={primaryTextColor} />
-                          <Text ml={4} color={primaryTextColor}>
+                          <Icon as={FaRegClock} color={primaryTextColor} fontSize={'sm'} />
+                          <Text ml={2} color={primaryTextColor} fontSize={'sm'}>
                             {format(new Date(item.node.date), 'yyyy-MM-dd')}
                           </Text>
                         </Flex>

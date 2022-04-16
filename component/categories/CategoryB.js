@@ -46,6 +46,7 @@ const CategoryB = (props) => {
   const secondaryTextColor = isLightTheme ? 'white' : 'black';
   const primaryBgColor = isLightTheme ? 'white' : 'black';
   const secondaryBgColor = isLightTheme ? 'black' : 'white';
+  const subTitleTextColor = isLightTheme ? 'rgba(34, 34, 34, 0.6)' : 'white';
 
   // store data
   const { data } = props;
@@ -55,7 +56,7 @@ const CategoryB = (props) => {
   return (
     <>
       <Box
-        px={{ base: '4', lg: '16' }}
+        px={{ base: '4', lg: '24' }}
         mb="20"
         py={'20'}
         bg={isLightTheme ? '#ededed' : '#000000'}
@@ -65,12 +66,15 @@ const CategoryB = (props) => {
           flexDirection={{ base: 'column', md: 'row' }}
         >
           <Flex alignItems={'baseline'}>
-            <Icon as={FaCircle} boxSize={6} mr="4" color={'purple'} />
+            <Icon as={FaCircle} boxSize={4} mr="2" color={'purple'} />
             <Box>
-              <Heading as="h2" size={'lg'} >
+              <Heading as="h2" fontSize={'22px'}>
                 {process.env.home.categoryList.CATEGORY_B.NAME}
               </Heading>
-              <Text> {process.env.home.categoryList.CATEGORY_B.DESC}</Text>
+              <Text color={subTitleTextColor}>
+                {' '}
+                {process.env.home.categoryList.CATEGORY_B.DESC}
+              </Text>
             </Box>
           </Flex>
           <Box
@@ -110,13 +114,15 @@ const CategoryB = (props) => {
                         cursor={'pointer'}
                         templateColumns={{ md: '12fr', sm: 'repeat(2, 1fr)' }}
                         textColor="white"
-                        gap={4}
                       >
                         <Box>
-                          <Flex py="4">
-                            <Box w={'50%'}>
+                          <Flex py="4" alignItems={'center'}>
+                            <Box>
                               {item?.node?.featuredImage && (
                                 <Image
+                                  h={'100px'}
+                                  w={'100px'}
+                                  rounded={'full'}
                                   objectFit={'cover'}
                                   src={item.node.featuredImage.node.sourceUrl}
                                   alt={item.node.title}
@@ -124,12 +130,20 @@ const CategoryB = (props) => {
                               )}
                             </Box>
                             <Box w={'70%'} px={4} display={'grid'}>
-                              <Text fontWeight={'bold'} color={'black'}>
+                              <Text fontWeight={'700'} color={'black'}>
                                 {item.node.title}
                               </Text>
                               <Flex mt="2" alignItems={'center'}>
-                                <Icon as={FaRegClock} color={'black'} />
-                                <Text ml={4} color={'black'}>
+                                <Icon
+                                  as={FaRegClock}
+                                  color={'black'}
+                                  fontSize="sm"
+                                />
+                                <Text
+                                  ml={2}
+                                  fontSize="sm"
+                                  color={subTitleTextColor}
+                                >
                                   {format(
                                     new Date(item.node.date),
                                     'yyyy-MM-dd'

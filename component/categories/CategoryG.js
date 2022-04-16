@@ -29,6 +29,7 @@ const CategoryG = (props) => {
   const secondaryTextColor = isLightTheme ? 'white' : 'black';
   const primaryBgColor = isLightTheme ? 'white' : 'black';
   const secondaryBgColor = isLightTheme ? 'black' : 'white';
+  const subTitleTextColor = isLightTheme ? 'rgba(34, 34, 34, 0.6)' : 'white';
 
   // responsiveness of carousel
 
@@ -84,7 +85,7 @@ const CategoryG = (props) => {
   // console.log('looptitle', postArr);
 
   return (
-    <Box px={{ base: '4', lg: '16' }} mb="20">
+    <Box px={{ base: '4', lg: '24' }} mb="20">
       {postArr && (
         <Grid
           templateColumns={{ md: '9fr 3fr', sm: 'repeat(2, 1fr)' }}
@@ -97,12 +98,12 @@ const CategoryG = (props) => {
               flexDirection={{ base: 'column', md: 'row' }}
             >
               <Flex alignItems={'baseline'}>
-                <Icon as={FaCircle} boxSize={6} mr="4" color={'purple'} />
+                <Icon as={FaCircle} boxSize={4} mr="2" color={'purple'} />
                 <Box>
-                  <Heading as="h2" size={'lg'} color={primaryTextColor}>
+                  <Heading as="h2" fontSize={'22px'} color={primaryTextColor}>
                     {process.env.home.categoryList.CATEGORY_G.NAME}
                   </Heading>
-                  <Text color={primaryTextColor}>
+                  <Text color={subTitleTextColor}>
                     {process.env.home.categoryList.CATEGORY_G.DESC}
                   </Text>
                 </Box>
@@ -184,9 +185,9 @@ const CategoryG = (props) => {
                                       <Flex mt="2" alignItems={'center'}>
                                         <Icon
                                           as={FaRegClock}
-                                          color={primaryTextColor}
+                                          color={primaryTextColor} fontSize={'sm'}
                                         />
-                                        <Text ml={4} color={primaryTextColor}>
+                                        <Text ml={2} color={primaryTextColor} fontSize={'sm'}>
                                           {format(
                                             new Date(item.date),
                                             'yyyy-MM-dd'

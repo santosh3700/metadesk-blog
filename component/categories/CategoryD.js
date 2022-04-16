@@ -31,6 +31,7 @@ const CategoryD = (props) => {
   const secondaryTextColor = isLightTheme ? 'white' : 'black';
   const primaryBgColor = isLightTheme ? 'white' : 'black';
   const secondaryBgColor = isLightTheme ? 'black' : 'white';
+  const subTitleTextColor = isLightTheme ? 'rgba(34, 34, 34, 0.6)' : 'white';
 
   // responsiveness
 
@@ -57,15 +58,15 @@ const CategoryD = (props) => {
 
   return (
     <>
-      <Box px={{ base: '4', lg: '16' }} mb="20" py={'20'} bg={'black'}>
+      <Box px={{ base: '4', lg: '24' }} mb="20" py={'20'} bg={'black'}>
         <Flex
           justifyContent={'space-between'}
           flexDirection={{ base: 'column', md: 'row' }}
         >
           <Flex alignItems={'baseline'}>
-            <Icon as={FaCircle} boxSize={6} mr="4" color={'purple'} />
+            <Icon as={FaCircle} boxSize={4} mr="2" color={'purple'} />
             <Box>
-              <Heading as="h2" size={'lg'} color={'white'}  >
+              <Heading as="h2" fontSize={'22px'} color={'white'}>
                 VIDEO
               </Heading>
               <Text color={'white'}>
@@ -154,15 +155,20 @@ const CategoryD = (props) => {
                           alt={item.node.title}
                         />
                       )}
-                      <Heading color={'white'} as="h4" size={'md'} mt={2}>
+                      <Heading
+                        color={'white'}
+                        as="h4"
+                        size={'md'}
+                        mt={2}
+                        lineHeight={'normal'}
+                      >
                         {item.node.title}
                       </Heading>
                       <Flex mt="2" alignItems={'center'}>
-                        {' '}
-                        <Icon as={FaRegClock} color={'white'} />{' '}
-                        <Text color={'white'} ml={4}>
+                        <Icon as={FaRegClock} color={'white'} fontSize={'sm'} />
+                        <Text color={'white'} ml={2} fontSize={'sm'}>
                           Oct 18, 2019
-                        </Text>{' '}
+                        </Text>
                       </Flex>
                       {/* <Box
                       p={4}
@@ -194,8 +200,6 @@ const CategoryD = (props) => {
         </Box>
 
         <Divider />
-
-
 
         <Grid
           templateColumns={{ md: '4fr 4fr 4fr 4fr', sm: 'repeat(4, 1fr)' }}
