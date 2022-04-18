@@ -81,8 +81,7 @@ const CategoryC = (props) => {
             <Heading as="h2" fontSize={'22px'}>
               {process.env.home.categoryList.CATEGORY_C.NAME}
             </Heading>
-            <Text color={subTitleTextColor}>
-              {' '}
+            <Text color={subTitleTextColor}> 
               {process.env.home.categoryList.CATEGORY_C.DESC}
             </Text>
           </Box>
