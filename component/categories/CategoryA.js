@@ -91,7 +91,7 @@ const CategoryA = (props) => {
     <>
       <Box px={{ base: '4', lg: '24' }} mb="20">
         <Grid
-          templateColumns={{ md: '9fr 3fr', sm: 'repeat(2, 1fr)' }}
+          templateColumns={{ md: '12fr ', lg: '9fr 3fr', sm: 'repeat(2, 1fr)' }}
           textColor="white"
           gap={4}
         >
@@ -101,9 +101,9 @@ const CategoryA = (props) => {
               flexDirection={{ base: 'column', md: 'row' }}
             >
               <Flex alignItems={'baseline'}>
-                <Icon as={FaCircle} boxSize={4} mr="2" color={'purple'} />
+                <Icon as={FaCircle} boxSize={5} mr="2" color={'#ab20ef'} />
                 <Box>
-                  <Heading textStyle="h2" fontSize={'22px'} color={primaryTextColor}>
+                  <Heading textStyle="h2" fontSize={'24px'} mb="10px" color={primaryTextColor}>
                     {process.env.home.categoryList.CATEGORY_A.NAME}
                   </Heading>
                   <Text color={subTitleTextColor}>
@@ -128,6 +128,11 @@ const CategoryA = (props) => {
                     rounded={'none'}
                     size="sm"
                     fontWeight={'bold'}
+                    padding='6px 13px'
+                    border='2px solid #166cf8'
+                    color='#166cf8'
+                    fontSize={'14px'}
+                    lineHeight={'14px'}
                   >
                     {process.env.text.MORE}
                   </Button>
@@ -172,7 +177,11 @@ const CategoryA = (props) => {
                                         <Button
                                           bg={'#03a9e7'}
                                           color="white"
+                                          background="#03a9e7"
+                                          padding=' 7px 12px'
                                           mb={2}
+                                          fontSize="14px"
+                                          lineHeight={"14px"}
                                           rounded={'none'}
                                           size="xs"
                                           fontWeight={'bold'}
@@ -181,8 +190,10 @@ const CategoryA = (props) => {
                                         </Button>
                                       )}
                                       <Text
-                                        fontWeight={'bold'}
+                                        fontWeight={'700'}
                                         noOfLines={2}
+                                        lineHeight={'16px'}
+                                        fontSize={'16px'}
                                         color={isLightTheme ? 'black' : 'white'}
                                       >
                                         {item.title}
@@ -224,7 +235,7 @@ const CategoryA = (props) => {
             </Grid>
           </Box>
 
-          <Box h="100%" bg="#ededed"></Box>
+          <Box h={{ base: "100px", lg: "100%" }} bg="#ededed"></Box>
         </Grid>
       </Box>
     </>

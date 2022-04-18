@@ -64,9 +64,9 @@ const CategoryD = (props) => {
           flexDirection={{ base: 'column', md: 'row' }}
         >
           <Flex alignItems={'baseline'}>
-            <Icon as={FaCircle} boxSize={4} mr="2" color={'purple'} />
+            <Icon as={FaCircle} boxSize={5} mr="2" color={'#ab20ef'} />
             <Box>
-              <Heading as="h2" fontSize={'22px'} color={'white'}>
+              <Heading as="h2" fontSize={'24px'} color={'white'} mb="10px">
                 VIDEO
               </Heading>
               <Text color={'white'}>
@@ -91,6 +91,11 @@ const CategoryD = (props) => {
                 rounded={'none'}
                 size="sm"
                 fontWeight={'bold'}
+                padding='6px 13px'
+                border='2px solid #166cf8'
+                color='#166cf8'
+                fontSize={'14px'}
+                lineHeight={'14px'}
               >
                 {process.env.text.MORE}
               </Button>
@@ -160,7 +165,9 @@ const CategoryD = (props) => {
                         as="h4"
                         size={'md'}
                         mt={2}
-                        lineHeight={'normal'}
+                        mb={'38px'}
+                        font-size='24px'
+                        line-height='24px'
                       >
                         {item.node.title}
                       </Heading>
