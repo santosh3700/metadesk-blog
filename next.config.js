@@ -9,7 +9,7 @@
 
 module.exports = {
   env: {
-    wordpressApiUrl: 'http://13.212.30.117/graphql',
+    wordpressApiUrl: 'https://metadesk.thenwg.xyz/graphql',
     headerMenuName: 'Main menu',
     text: {
       MORE: 'SEE ALL',
@@ -109,8 +109,8 @@ module.exports = {
   },
   images: {
     domains: [
+      'https://metadesk.thenwg.xyz',
       'https://www.youtube.com',
-      'http://13.212.30.117',
       'i0.wp.com',
       'secure.gravatar.com',
       'babacricnews.s3.ap-south-1.amazonaws.com',
