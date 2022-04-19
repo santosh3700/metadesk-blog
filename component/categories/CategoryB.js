@@ -66,9 +66,9 @@ const CategoryB = (props) => {
           flexDirection={{ base: 'column', md: 'row' }}
         >
           <Flex alignItems={'baseline'}>
-            <Icon as={FaCircle} boxSize={4} mr="2" color={'purple'} />
+            <Icon as={FaCircle} boxSize={5} mr="2" color={'#ab20ef'} />
             <Box>
-              <Heading as="h2" fontSize={'22px'}>
+              <Heading as="h2" fontSize={'24px'} mb="10px">
                 {process.env.home.categoryList.CATEGORY_B.NAME}
               </Heading>
               <Text color={subTitleTextColor}>
@@ -95,6 +95,11 @@ const CategoryB = (props) => {
                 rounded={'none'}
                 size="sm"
                 fontWeight={'bold'}
+                padding='6px 13px'
+                border='2px solid #166cf8'
+                color='#166cf8'
+                fontSize={'14px'}
+                lineHeight={'14px'}
               >
                 {process.env.text.MORE}
               </Button>
@@ -130,18 +135,17 @@ const CategoryB = (props) => {
                               )}
                             </Box>
                             <Box w={'70%'} px={4} display={'grid'}>
-                              <Text fontWeight={'700'} color={'black'}>
+                              <Text fontWeight={'600'} color={'black'} fontSize="16px" lineHeight={'20px'}>
                                 {item.node.title}
                               </Text>
                               <Flex mt="2" alignItems={'center'}>
                                 <Icon
                                   as={FaRegClock}
-                                  color={'black'}
+                                  color={subTitleTextColor}
                                   fontSize="sm"
                                 />
                                 <Text
                                   ml={2}
-                                  fontSize="sm"
                                   color={subTitleTextColor}
                                 >
                                   {format(

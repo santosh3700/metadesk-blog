@@ -76,13 +76,12 @@ const CategoryC = (props) => {
         flexDirection={{ base: 'column', md: 'row' }}
       >
         <Flex alignItems={'baseline'}>
-          <Icon as={FaCircle} boxSize={4} mr="2" color={'purple'} />
+          <Icon as={FaCircle} boxSize={5} mr="2" color={'#ab20ef'} mb="10px" />
           <Box>
-            <Heading as="h2" fontSize={'22px'}>
+            <Heading as="h2" fontSize={'24px'}>
               {process.env.home.categoryList.CATEGORY_C.NAME}
             </Heading>
             <Text color={subTitleTextColor}>
-              {' '}
               {process.env.home.categoryList.CATEGORY_C.DESC}
             </Text>
           </Box>
@@ -129,7 +128,7 @@ const CategoryC = (props) => {
           <Select
             placeholder="Select option"
             mr={'2'}
-            display={{ base: 'block', lg: 'none' }}
+            display={{ base: 'block', md: 'none' }}
             size="sm"
             // onClick={() => {
             //   console.log("trisha", value);
@@ -165,6 +164,11 @@ const CategoryC = (props) => {
               rounded={'none'}
               size="sm"
               fontWeight={'bold'}
+              padding='6px 13px'
+              border='2px solid #166cf8'
+              color='#166cf8'
+              fontSize={'14px'}
+              lineHeight={'14px'}
             >
               {process.env.text.MORE}
             </Button>
@@ -242,9 +246,10 @@ const CategoryC = (props) => {
                             <Heading
                               color={'white'}
                               as="h4"
-                              fontSize={{ base: 'sm', md: '2xl' }}
+                              fontSize='24px'
                               noOfLines={2}
-                              lineHeight="normal"
+                              lineHeight="24px"
+                              mb={'38px'}
                             >
                               {item.node.title}
                             </Heading>
@@ -282,6 +287,8 @@ const CategoryC = (props) => {
                               bg={'#03a9e7'}
                               color="white"
                               mb={2}
+                              fontSize='14px'
+                              lineHeight={'14px'}
                               rounded={'none'}
                               size="xs"
                               fontWeight={'bold'}
@@ -292,7 +299,8 @@ const CategoryC = (props) => {
                           <Text
                             fontWeight={'bold'}
                             noOfLines={2}
-                            lineHeight="initial"
+                            fontSize='16px'
+                            lineHeight={'16px'}
                             paddingRight="2"
                             color={primaryTextColor}
                           >
@@ -343,9 +351,11 @@ const CategoryC = (props) => {
                       <Box w={'70%'}>
                         {tagName && (
                           <Button
-                            bg={'#03a9e7'}
+                            bg={'#fb7c00'}
                             color="white"
                             mb={2}
+                            fontSize='14px'
+                            lineHeight={'14px'}
                             rounded={'none'}
                             size="xs"
                             fontWeight={'bold'}
@@ -355,8 +365,9 @@ const CategoryC = (props) => {
                         )}
                         <Text
                           fontWeight={'bold'}
+                          fontSize='14px'
+                          lineHeight={'14px'}
                           noOfLines={2}
-                          lineHeight="initial"
                           paddingRight="2"
                           color={isLightTheme ? 'black' : 'white'}
                         >

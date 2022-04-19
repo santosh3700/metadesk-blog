@@ -88,7 +88,7 @@ const CategoryG = (props) => {
     <Box px={{ base: '4', lg: '24' }} mb="20">
       {postArr && (
         <Grid
-          templateColumns={{ md: '9fr 3fr', sm: 'repeat(2, 1fr)' }}
+          templateColumns={{ md: '12fr ', lg: '9fr 3fr', sm: 'repeat(2, 1fr)' }}
           textColor="white"
           gap={4}
         >
@@ -98,9 +98,9 @@ const CategoryG = (props) => {
               flexDirection={{ base: 'column', md: 'row' }}
             >
               <Flex alignItems={'baseline'}>
-                <Icon as={FaCircle} boxSize={4} mr="2" color={'purple'} />
+                <Icon as={FaCircle} boxSize={5} mr="2" color={'#ab20ef'} />
                 <Box>
-                  <Heading as="h2" fontSize={'22px'} color={primaryTextColor}>
+                  <Heading as="h2" fontSize={'24px'} mb="10px" color={primaryTextColor}>
                     {process.env.home.categoryList.CATEGORY_G.NAME}
                   </Heading>
                   <Text color={subTitleTextColor}>
@@ -125,6 +125,11 @@ const CategoryG = (props) => {
                     rounded={'none'}
                     size="sm"
                     fontWeight={'bold'}
+                    padding='6px 13px'
+                    border='2px solid #166cf8'
+                    color='#166cf8'
+                    fontSize={'14px'}
+                    lineHeight={'14px'}
                   >
                     {process.env.text.MORE}
                   </Button>
@@ -162,7 +167,7 @@ const CategoryG = (props) => {
                                     py="4"
                                     borderBottom={'1px solid #b3b3b3'}
                                   >
-                                    <Box w={'70%'}>
+                                    <Box w={'70%'} pr="2">
                                       {tagName && (
                                         <Button
                                           bg={'#03a9e7'}
@@ -176,9 +181,12 @@ const CategoryG = (props) => {
                                         </Button>
                                       )}
                                       <Text
+                                        fontSize={'16px'}
+                                        lineHeight='16px'
                                         fontWeight={'bold'}
                                         noOfLines={3}
                                         color={isLightTheme ? 'black' : 'white'}
+                                        mb={'20px'}
                                       >
                                         {item.title}
                                       </Text>
@@ -217,10 +225,10 @@ const CategoryG = (props) => {
               </Carousel>
             </Grid>
           </Box>
-          <Box h="100%" bg="#ededed"></Box>
-        </Grid>
+          <Box h={{ base: '100px', lg: "100%" }} bg="#ededed"></Box>
+        </Grid >
       )}
-    </Box>
+    </Box >
   );
 };
 

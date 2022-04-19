@@ -66,9 +66,9 @@ const CategoryF = (props) => {
         flexDirection={{ base: 'column', md: 'row' }}
       >
         <Flex alignItems={'baseline'}>
-          <Icon as={FaCircle} boxSize={4} mr="2" color={'purple'} />
+          <Icon as={FaCircle} boxSize={5} mr="2" color={'#ab20ef'} />
           <Box>
-            <Heading as="h2" fontSize={'22px'} color={primaryTextColor}>
+            <Heading as="h2" fontSize={'24px'} mb="10px" color={primaryTextColor}>
               ACADEMY
             </Heading>
             <Text>The latest entertainment news in the world</Text>
@@ -91,6 +91,11 @@ const CategoryF = (props) => {
               rounded={'none'}
               size="sm"
               fontWeight={'bold'}
+              padding='6px 13px'
+              border='2px solid #166cf8'
+              color='#166cf8'
+              fontSize={'14px'}
+              lineHeight={'14px'}
             >
               {process.env.text.MORE}
             </Button>

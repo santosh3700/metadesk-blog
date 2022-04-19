@@ -143,7 +143,8 @@ const HeroSection = (props) => {
                                   as="h4"
                                   fontSize={{ base: 'sm', md: '2xl' }}
                                   noOfLines={2}
-                                  lineHeight="normal"
+                                  lineHeight="24px"
+                                  mb={'37px'}
                                 >
                                   {item.node.title}
                                 </Heading>
@@ -220,7 +221,8 @@ const HeroSection = (props) => {
                               as="h4"
                               fontSize={{ base: 'sm', md: 'lg' }}
                               noOfLines={2}
-                              lineHeight="normal"
+                              lineHeight="22px"
+                              mb={'37px'}
                             >
                               {item.node.title}
                             </Heading>
@@ -304,7 +306,8 @@ const HeroSection = (props) => {
                                   as="h4"
                                   fontSize={{ base: 'sm', md: 'lg' }}
                                   noOfLines={2}
-                                  lineHeight="normal"
+                                  lineHeight="22px"
+                                  mb={'37px'}
                                 >
                                   {item.node.title}
                                 </Heading>

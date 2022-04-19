@@ -56,9 +56,9 @@ const CategoryE = (props) => {
               flexDirection={{ base: 'column', md: 'row' }}
             >
               <Flex alignItems={'baseline'}>
-                <Icon as={FaCircle} boxSize={4} mr="2" color={'purple'} />
+                <Icon as={FaCircle} boxSize={5} mr="2" color={'#ab20ef'} />
                 <Box>
-                  <Heading as="h2" fontSize={'22px'} color={primaryTextColor}>
+                  <Heading as="h2" fontSize={'24px'} mb="10px" color={primaryTextColor}>
                     {process.env.home.categoryList.CATEGORY_E.NAME}
                   </Heading>
                   <Text color={subTitleTextColor}>
@@ -96,6 +96,8 @@ const CategoryE = (props) => {
                                   color="white"
                                   rounded={'none'}
                                   size="sm"
+                                  fontSize={'16px'}
+                                  lineHeight="16px"
                                   fontWeight={'bold'}
                                 >
                                   {tagName}
@@ -108,14 +110,15 @@ const CategoryE = (props) => {
                                 alt={item.node.title}
                                 objectFit={'cover'}
                                 w={'100%'}
-                                h={'150px'}
+                                h={'162px'}
                               />
                             )}
                           </Box>
                           <Text
-                            fontWeight={'bold'}
-                            lineHeight={'normal'}
+                            fontWeight={'600'}
                             my={'4'}
+                            fontSize="16px"
+                            lineHeight='16px'
                             color={primaryTextColor}
                           >
                             {item.node.title}
@@ -146,7 +149,7 @@ const CategoryE = (props) => {
             <Grid
               templateColumns={{ md: '12fr', sm: 'repeat(1, 1fr)' }}
               textColor="white"
-              gap={6}
+              gap={1}
             >
               {tempArrSecond.map((item, index) => {
                 return (
@@ -164,7 +167,7 @@ const CategoryE = (props) => {
                           color={'white'}
                           mr={4}
                         />
-                        <Divider orientation="vertical" />
+                        <Divider orientation="vertical" borderColor={'1px solid gray'} />
                       </Stack>
                       <Flex justifyContent={'space-around'} w={'100%'}>
                         <Text color={'white'}>0</Text>
