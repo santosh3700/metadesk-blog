@@ -21,9 +21,9 @@ import { getHeaderMenuByName } from '../lib/api';
 const contact = () => {
   const contactdata = ['1', '2', '3', '4', '5', '6'];
   return (
-    <Box px={{ base: '4', lg: '16' }} mb="20">
+    <Box px={{ base: '4', lg: '24', xl: '58' }} mb="20">
       <Grid
-        templateColumns={{ md: '6fr 6fr  ', sm: 'repeat(2, 1fr)' }}
+        templateColumns={{ md: '6fr 6fr  ', sm: 'repeat(1, 1fr)' }}
         // textColor="white"
         py={{ base: '0', md: '8' }}
         gap={4}
@@ -48,7 +48,7 @@ const contact = () => {
       </Grid>
 
       <Grid
-        templateColumns={{ md: '6fr 6fr  ', sm: 'repeat(2, 1fr)' }}
+        templateColumns={{ md: '6fr 6fr  ', sm: 'repeat(1, 1fr)' }}
         // textColor="white"
         py={{ base: '4', md: '8' }}
         gap={{ base: '2', md: '4' }}
@@ -66,7 +66,7 @@ const contact = () => {
             Asia-Pacific
           </Heading>
           <Grid
-            templateColumns={{ md: '6fr 6fr  ', sm: 'repeat(2, 1fr)' }}
+            templateColumns={{ md: '6fr 6fr  ', sm: 'repeat(1, 1fr)' }}
             // textColor="white"
             py={{ base: '0', md: '8' }}
             gap={4}

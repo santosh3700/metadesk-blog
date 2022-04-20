@@ -69,14 +69,44 @@ const CategoryC = (props) => {
     console.log('checkDtaa', catagory.length);
   };
 
+  // color
+
+
+  const switchColor = (index) => {
+    switch (index) {
+      case 0: "#fb7c00 "
+
+        break;
+      case 1: "#fb7c00 "
+
+        break;
+      case 2: "#fb7c00 "
+
+        break;
+      case 3: "#fb7c00 "
+
+        break;
+      case 4: "#fb7c00 "
+
+        break;
+      case 4: "#fb7c00 "
+
+        break;
+
+      default:
+        break;
+    }
+
+  }
+
   return (
-    <Box px={{ base: '4', lg: '24' }} mb="20" py={'18'}>
+    <Box px={{ base: '4', lg: '24', xl: '58' }} mb="20" py={'18'}>
       <Flex
         justifyContent={'space-between'}
         flexDirection={{ base: 'column', md: 'row' }}
       >
         <Flex alignItems={'baseline'}>
-          <Icon as={FaCircle} boxSize={5} mr="2" color={'#ab20ef'} mb="10px" />
+          <Icon as={FaCircle} boxSize={5} mr="6" color={'#ab20ef'} mb="10px" />
           <Box>
             <Heading as="h2" fontSize={'24px'}>
               {process.env.home.categoryList.CATEGORY_C.NAME}
@@ -184,7 +214,7 @@ const CategoryC = (props) => {
         </Box>
       ) : (
         <Grid
-          templateColumns={{ md: '4fr 4fr 4fr', sm: 'repeat(3, 1fr)' }}
+          templateColumns={{ md: '4fr 4fr 4fr', sm: 'repeat(1, 1fr)' }}
           textColor="white"
           gap={6}
           my={6}
@@ -223,7 +253,8 @@ const CategoryC = (props) => {
                             {tagName && (
                               <Button
                                 color="white"
-                                bg="blue"
+                                bg={index == 0 ? "#fb7c00" : index == 1 ? "#dd03eb" : "#fb7c00"}
+                                // bg={switchColor}
                                 rounded={'none'}
                                 size="xs"
                                 fontWeight={'bold'}
@@ -249,7 +280,7 @@ const CategoryC = (props) => {
                               fontSize='24px'
                               noOfLines={2}
                               lineHeight="24px"
-                              mb={'38px'}
+                              mb={{ base: '12px', md: '37px' }}
                             >
                               {item.node.title}
                             </Heading>
@@ -284,7 +315,8 @@ const CategoryC = (props) => {
                         <Box w={'70%'}>
                           {tagName && (
                             <Button
-                              bg={'#03a9e7'}
+                              // bg={'#03a9e7'}
+                              bg={index == 0 ? "#fb7c00" : index == 1 ? "#dd03eb" : "#fb7c00"}
                               color="white"
                               mb={2}
                               fontSize='14px'
@@ -351,7 +383,7 @@ const CategoryC = (props) => {
                       <Box w={'70%'}>
                         {tagName && (
                           <Button
-                            bg={'#fb7c00'}
+                            bg={index == 0 || index == 1 ? "#fb7c00" : '#ecbd02'}
                             color="white"
                             mb={2}
                             fontSize='14px'

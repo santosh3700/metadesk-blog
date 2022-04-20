@@ -56,7 +56,7 @@ const Search = (props) => {
 
   return (
     <>
-      <Box px={{ base: '4', lg: '16' }}>
+      <Box px={{ base: '4', lg: '24', xl: '58' }}>
         <Box textAlign={'center'} py={10}>
           <FormControl>
             <Flex

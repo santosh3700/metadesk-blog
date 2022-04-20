@@ -89,9 +89,9 @@ const CategoryA = (props) => {
 
   return (
     <>
-      <Box px={{ base: '4', lg: '24' }} mb="20">
+      <Box px={{ base: '4', lg: '24', xl: '58' }} mb="20">
         <Grid
-          templateColumns={{ md: '12fr ', lg: '9fr 3fr', sm: 'repeat(2, 1fr)' }}
+          templateColumns={{ md: '12fr ', lg: '9fr 3fr', sm: 'repeat(1, 1fr)' }}
           textColor="white"
           gap={4}
         >
@@ -101,7 +101,7 @@ const CategoryA = (props) => {
               flexDirection={{ base: 'column', md: 'row' }}
             >
               <Flex alignItems={'baseline'}>
-                <Icon as={FaCircle} boxSize={5} mr="2" color={'#ab20ef'} />
+                <Icon as={FaCircle} boxSize={5} mr="6" color={'#ab20ef'} />
                 <Box>
                   <Heading textStyle="h2" fontSize={'24px'} mb="10px" color={primaryTextColor}>
                     {process.env.home.categoryList.CATEGORY_A.NAME}
@@ -140,7 +140,7 @@ const CategoryA = (props) => {
               </Box>
             </Flex>
             <Grid
-              templateColumns={{ md: '12fr', sm: 'repeat(2, 1fr)' }}
+              templateColumns={{ md: '12fr', sm: 'repeat(1, 1fr)' }}
               gap={4}
               mt={6}
             >
@@ -151,7 +151,7 @@ const CategoryA = (props) => {
                     return (
                       <Grid
                         key={index}
-                        templateColumns={{ md: '12fr', sm: 'repeat(2, 1fr)' }}
+                        templateColumns={{ md: '12fr', sm: 'repeat(1, 1fr)' }}
                         textColor="white"
                       >
                         {post &&
@@ -175,9 +175,9 @@ const CategoryA = (props) => {
                                     <Box w={'70%'}>
                                       {tagName && (
                                         <Button
-                                          bg={'#03a9e7'}
+                                          bg={'#91b7e7'}
                                           color="white"
-                                          background="#03a9e7"
+                                          // background="#03a9e7"
                                           padding=' 7px 12px'
                                           mb={2}
                                           fontSize="14px"
@@ -198,7 +198,7 @@ const CategoryA = (props) => {
                                       >
                                         {item.title}
                                       </Text>
-                                      <Flex mt="2" alignItems={'center'}>
+                                      <Flex mt="4" alignItems={'center'}>
                                         <Icon
                                           fontSize="sm"
                                           as={FaRegClock}

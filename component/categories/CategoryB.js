@@ -56,7 +56,7 @@ const CategoryB = (props) => {
   return (
     <>
       <Box
-        px={{ base: '4', lg: '24' }}
+        px={{ base: '4', lg: '24', xl: '58' }}
         mb="20"
         py={'20'}
         bg={isLightTheme ? '#ededed' : '#000000'}
@@ -66,7 +66,7 @@ const CategoryB = (props) => {
           flexDirection={{ base: 'column', md: 'row' }}
         >
           <Flex alignItems={'baseline'}>
-            <Icon as={FaCircle} boxSize={5} mr="2" color={'#ab20ef'} />
+            <Icon as={FaCircle} boxSize={5} mr="6" color={'#ab20ef'} />
             <Box>
               <Heading as="h2" fontSize={'24px'} mb="10px">
                 {process.env.home.categoryList.CATEGORY_B.NAME}
@@ -117,7 +117,7 @@ const CategoryB = (props) => {
                     <Link key={key} href={item.node.slug}>
                       <Grid
                         cursor={'pointer'}
-                        templateColumns={{ md: '12fr', sm: 'repeat(2, 1fr)' }}
+                        templateColumns={{ md: '12fr', sm: 'repeat(1, 1fr)' }}
                         textColor="white"
                       >
                         <Box>

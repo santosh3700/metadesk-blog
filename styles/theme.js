@@ -9,6 +9,15 @@ const config = {
   useSystemColorMode: false,
 };
 
+const breakpoints = {
+  sm: '320px',
+  md: '768px',
+  lg: '1280px',
+  xl: '1400px',
+  '2xl': '1536px',
+  '3xl': '2100px',
+}
+
 const fonts = {
   heading: "Poppins, sans-serif",
   body: "Poppins, sans-serif",
@@ -56,6 +65,6 @@ const styles = {
 };
 
 // 3. extend the theme
-const theme = extendTheme({ config, styles, fonts });
+const theme = extendTheme({ config, styles, fonts, breakpoints });
 
 export default theme;

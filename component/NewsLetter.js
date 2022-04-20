@@ -30,9 +30,9 @@ const NewsLetter = () => {
 
   return (
     <>
-      <Box px={{ base: '4', lg: '16' }} bg={'#166cf8'}>
+      <Box px={{ base: '4', lg: '24', xl: '64' }} bg={'#166cf8'}>
         <Grid
-          templateColumns={{ md: '3fr 6fr 3fr', sm: 'repeat(2, 1fr)' }}
+          templateColumns={{ md: '3fr 6fr 3fr', sm: 'repeat(1, 1fr)' }}
           textColor="white"
           gap={4}
           py={'12'}
