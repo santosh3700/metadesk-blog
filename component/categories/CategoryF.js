@@ -56,7 +56,7 @@ const CategoryF = (props) => {
 
   return (
     <Box
-      px={{ base: '4', lg: '20' }}
+      px={{ base: '4', lg: '24', xl: '58' }}
       mb="20"
       py={'20'}
       bg={!isLightTheme ? 'black' : '#ededed'}
@@ -66,7 +66,7 @@ const CategoryF = (props) => {
         flexDirection={{ base: 'column', md: 'row' }}
       >
         <Flex alignItems={'baseline'}>
-          <Icon as={FaCircle} boxSize={5} mr="2" color={'#ab20ef'} />
+          <Icon as={FaCircle} boxSize={5} mr="6" color={'#ab20ef'} />
           <Box>
             <Heading as="h2" fontSize={'24px'} mb="10px" color={primaryTextColor}>
               ACADEMY
@@ -131,7 +131,7 @@ const CategoryF = (props) => {
                     >
                       {tagName && (
                         <Button
-                          bg={'#03a9e7'}
+                          bg={'#91b7e7'}
                           color="white"
                           rounded={'none'}
                           size="xs"
@@ -189,7 +189,7 @@ const CategoryF = (props) => {
       <Divider border={'1px solid gray !important'} />
 
       <Grid
-        templateColumns={{ md: '4fr 4fr 4fr 4fr', sm: 'repeat(4, 1fr)' }}
+        templateColumns={{ md: '4fr 4fr 4fr 4fr', sm: 'repeat(1, 1fr)' }}
         textColor="white"
         gap={6}
         my={6}
@@ -215,7 +215,8 @@ const CategoryF = (props) => {
                       <Box w={'60%'} px={'4'}>
                         {tagName && (
                           <Button
-                            colorScheme={'orange'}
+                            // colorScheme={'#fb7c00'}
+                            bg={'#fb7c00'}
                             color="white"
                             mb={2}
                             rounded={'none'}

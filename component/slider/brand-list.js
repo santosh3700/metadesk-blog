@@ -46,7 +46,7 @@ const BrandList = (props) => {
       {cryptoData.slice(0, 5).map((item, index) => {
         return (
           item && (
-            <Flex py="1" key={index} alignItems={'center'}>
+            <Flex py="2" key={index} alignItems={'center'}>
               <Box
                 display={'flex'}
                 w={'100%'}

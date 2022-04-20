@@ -44,9 +44,9 @@ const CategoryE = (props) => {
 
   return (
     <>
-      <Box px={{ base: '4', lg: '24' }} mb="20" py={'18'}>
+      <Box px={{ base: '4', lg: '24', xl: '58' }} mb="20" py={'18'}>
         <Grid
-          templateColumns={{ md: '9fr 3fr', sm: 'repeat(2, 1fr)' }}
+          templateColumns={{ md: '9fr 3fr', sm: 'repeat(1, 1fr)' }}
           textColor="white"
           gap={6}
         >
@@ -56,7 +56,7 @@ const CategoryE = (props) => {
               flexDirection={{ base: 'column', md: 'row' }}
             >
               <Flex alignItems={'baseline'}>
-                <Icon as={FaCircle} boxSize={5} mr="2" color={'#ab20ef'} />
+                <Icon as={FaCircle} boxSize={5} mr="6" color={'#ab20ef'} />
                 <Box>
                   <Heading as="h2" fontSize={'24px'} mb="10px" color={primaryTextColor}>
                     {process.env.home.categoryList.CATEGORY_E.NAME}
@@ -68,7 +68,7 @@ const CategoryE = (props) => {
               </Flex>
             </Flex>
             <Grid
-              templateColumns={{ md: '4fr 4fr 4fr', sm: 'repeat(3, 1fr)' }}
+              templateColumns={{ md: '4fr 4fr 4fr', sm: 'repeat(1, 1fr)' }}
               textColor="white"
               gap={6}
               mt={6}
@@ -92,7 +92,7 @@ const CategoryE = (props) => {
                             >
                               {tagName && (
                                 <Button
-                                  bg={'#03a9e7'}
+                                  bg={'#91b7e7'}
                                   color="white"
                                   rounded={'none'}
                                   size="sm"

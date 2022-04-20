@@ -59,19 +59,22 @@ const HeroSection = (props) => {
 
   // console.log('herosection', data);
 
+
+
+
   return (
     <>
-      <Box my={{ base: '2', md: '8' }} px={{ base: '4', lg: '24' }}>
+      <Box my={{ base: '2', md: '8' }} px={{ base: '4', lg: '24', xl: '58' }}>
         <Box border={'1px solid '} px={2}>
           <Brandlist cryptoData={cryptoData} />
         </Box>
       </Box>
 
-      <Box px={{ base: '4', lg: '24' }} mb="20" mt={'8'}>
+      <Box px={{ base: '4', lg: '24', xl: '58' }} mb="20" mt={'8'}>
         {/* trisha */}
 
         <Grid
-          templateColumns={{ md: '6fr 3fr 3fr', sm: 'repeat(3, 1fr)' }}
+          templateColumns={{ md: '6fr 3fr 3fr', sm: 'repeat(1, 1fr)' }}
           textColor="white"
           gap={3}
         >
@@ -89,7 +92,7 @@ const HeroSection = (props) => {
               {data.edges &&
                 data.edges.slice(0, 5).map((item, index) => {
                   const tagName = item?.node?.tags?.edges[0]?.node?.name;
-                  // console.log('checktag', item.node);
+                  {/* console.log('checktaghero', item); */ }
                   return (
                     <Link key={index} href={item.node.slug}>
                       <Box cursor="pointer" style={{ position: 'relative' }}>
@@ -118,7 +121,7 @@ const HeroSection = (props) => {
                                 {tagName && (
                                   <Button
                                     color="white"
-                                    bg="blue"
+                                    bg="#03a9e7"
                                     rounded={'none'}
                                     size="xs"
                                     fontWeight={'bold'}
@@ -144,7 +147,7 @@ const HeroSection = (props) => {
                                   fontSize={{ base: 'sm', md: '2xl' }}
                                   noOfLines={2}
                                   lineHeight="24px"
-                                  mb={'37px'}
+                                  mb={{ base: '12px', md: '37px' }}
                                 >
                                   {item.node.title}
                                 </Heading>
@@ -196,7 +199,7 @@ const HeroSection = (props) => {
                           >
                             {tagName && (
                               <Button
-                                bg={'#03a9e7'}
+                                bg={'#fb7c00'}
                                 color="white"
                                 rounded={'none'}
                                 size="xs"
@@ -222,7 +225,7 @@ const HeroSection = (props) => {
                               fontSize={{ base: 'sm', md: 'lg' }}
                               noOfLines={2}
                               lineHeight="22px"
-                              mb={'37px'}
+                              mb={{ base: '12px', md: '37px' }}
                             >
                               {item.node.title}
                             </Heading>
@@ -281,7 +284,7 @@ const HeroSection = (props) => {
                               >
                                 {tagName && (
                                   <Button
-                                    bg={'#03a9e7'}
+                                    bg={index == 0 ? "#dd03eb" : "#ecbd02"}
                                     color="white"
                                     rounded={'none'}
                                     size="xs"
@@ -307,7 +310,7 @@ const HeroSection = (props) => {
                                   fontSize={{ base: 'sm', md: 'lg' }}
                                   noOfLines={2}
                                   lineHeight="22px"
-                                  mb={'37px'}
+                                  mb={{ base: '12px', md: '37px' }}
                                 >
                                   {item.node.title}
                                 </Heading>

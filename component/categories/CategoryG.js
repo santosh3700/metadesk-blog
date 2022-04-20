@@ -85,10 +85,10 @@ const CategoryG = (props) => {
   // console.log('looptitle', postArr);
 
   return (
-    <Box px={{ base: '4', lg: '24' }} mb="20">
+    <Box px={{ base: '4', lg: '24', xl: '58' }} mb="20">
       {postArr && (
         <Grid
-          templateColumns={{ md: '12fr ', lg: '9fr 3fr', sm: 'repeat(2, 1fr)' }}
+          templateColumns={{ md: '12fr ', lg: '9fr 3fr', sm: 'repeat(1, 1fr)' }}
           textColor="white"
           gap={4}
         >
@@ -98,7 +98,7 @@ const CategoryG = (props) => {
               flexDirection={{ base: 'column', md: 'row' }}
             >
               <Flex alignItems={'baseline'}>
-                <Icon as={FaCircle} boxSize={5} mr="2" color={'#ab20ef'} />
+                <Icon as={FaCircle} boxSize={5} mr="6" color={'#ab20ef'} />
                 <Box>
                   <Heading as="h2" fontSize={'24px'} mb="10px" color={primaryTextColor}>
                     {process.env.home.categoryList.CATEGORY_G.NAME}
@@ -137,7 +137,7 @@ const CategoryG = (props) => {
               </Box>
             </Flex>
             <Grid
-              templateColumns={{ md: '12fr', sm: 'repeat(2, 1fr)' }}
+              templateColumns={{ md: '12fr', sm: 'repeat(1, 1fr)' }}
               textColor="white"
               gap={4}
               mt={6}
@@ -148,7 +148,7 @@ const CategoryG = (props) => {
                     return (
                       <Grid
                         key={index}
-                        templateColumns={{ md: '12fr', sm: 'repeat(2, 1fr)' }}
+                        templateColumns={{ md: '12fr', sm: 'repeat(1, 1fr)' }}
                         textColor="white"
 
                       >
@@ -168,7 +168,7 @@ const CategoryG = (props) => {
                                     borderBottom={'1px solid #b3b3b3'}
                                   >
                                     <Box w={'70%'} pr="2">
-                                      {tagName && (
+                                      {/* {tagName && (
                                         <Button
                                           bg={'#03a9e7'}
                                           color="white"
@@ -179,12 +179,12 @@ const CategoryG = (props) => {
                                         >
                                           {tagName}
                                         </Button>
-                                      )}
+                                      )} */}
                                       <Text
                                         fontSize={'16px'}
                                         lineHeight='16px'
                                         fontWeight={'bold'}
-                                        noOfLines={3}
+                                        noOfLines={2}
                                         color={isLightTheme ? 'black' : 'white'}
                                         mb={'20px'}
                                       >
@@ -226,9 +226,9 @@ const CategoryG = (props) => {
             </Grid>
           </Box>
           <Box h={{ base: '100px', lg: "100%" }} bg="#ededed"></Box>
-        </Grid >
+        </Grid>
       )}
-    </Box >
+    </Box>
   );
 };
 

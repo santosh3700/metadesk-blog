@@ -4,7 +4,7 @@ import React from 'react'
 const Fullwidth = () => {
     return (
         <>
-            <Box px={{ base: "4", lg: "16" }} my='10'  >
+            <Box px={{ base: '4', lg: '24', xl: '58' }} my='10'  >
 
                 <Heading as={'h2'} size={'lg'} textAlign={'center'} mb={'4'}>Full Width</Heading>
                 <Text>

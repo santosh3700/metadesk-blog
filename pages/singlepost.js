@@ -38,7 +38,7 @@ const Singlepost = () => {
   const Trending = [1, 2, 3, 4];
 
   return (
-    <Box my={8} px={{ base: '4', lg: '16' }}>
+    <Box my={8} px={{ base: '4', lg: '24', xl: '58' }}>
       <Link href="#">
         <Heading as="h2" size={'lg'} color={'green'}>
           Policy

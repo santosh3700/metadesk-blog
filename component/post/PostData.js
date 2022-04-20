@@ -54,13 +54,13 @@ function PostData({ data }) {
       <div className="tagContainer">
         {tags
           ? tags.map((tag) => {
-              //console.log(tag.node)
-              return (
-                <Tag key={tag.node.name} className="tagBox">
-                  <Link href={tag.node.uri}>{`#${tag.node.name}`}</Link>
-                </Tag>
-              );
-            })
+            //console.log(tag.node)
+            return (
+              <Tag key={tag.node.name} className="tagBox">
+                <Link href={tag.node.uri}>{`#${tag.node.name}`}</Link>
+              </Tag>
+            );
+          })
           : null}
       </div>
 
@@ -72,7 +72,7 @@ function PostData({ data }) {
         data-ad-client="ca-pub-7076157039576041"
         data-ad-slot={3184082831}
       />
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({ });</script>
     </Box>
   );
 }

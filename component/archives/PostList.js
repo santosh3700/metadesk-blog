@@ -32,9 +32,12 @@ import ArchiveHeroSection from './ArchiveHeroSection';
 import { useRouter } from 'next/router';
 import { compareAsc, format } from 'date-fns';
 import Link from 'next/link';
+import { FaRegClock, FaCircle, FaPlayCircle, FaFacebook } from 'react-icons/fa';
 // import ReactPlayer from 'react-player';
 
 function PostList({ urlType, urlName, data, slug, section }) {
+
+
   // theming
   const { colorMode, toggleColorMode } = useColorMode();
   const isLightTheme = colorMode == 'light' ? true : false;
@@ -67,18 +70,193 @@ function PostList({ urlType, urlName, data, slug, section }) {
     <>
       <ArchiveSeo data={data} pageType={pageType} pageName={pageName} />
 
-      <Box my={8} px={{ base: '4', lg: '16' }}>
+      <Box my={8} px={{ base: '4', lg: '24', xl: '58' }}>
         <Heading as="h2" size={'lg'}>
           {typeName}
         </Heading>
 
         <Grid
-          templateColumns={{ md: '6fr 6fr', sm: 'repeat(2, 1fr)' }}
+          templateColumns={{ md: '8fr 4fr', sm: 'repeat(1, 1fr)' }}
           textColor="white"
-          gap={6}
+          gap={3}
           my={6}
         >
-          {data.edges.slice(0, 1).map((item, index) => {
+
+          {data.edges &&
+            data.edges.slice(0, 1).map((item, index) => {
+              const tagName = item?.node?.tags?.edges[0]?.node?.name;
+              return (
+                item &&
+                item.node && (
+                  <Link key={index} href={item.node.slug}>
+                    <Flex
+                      w={'full'}
+                      h={{ base: '250px', md: '500px' }}
+                      backgroundImage={item.node.featuredImage.node.sourceUrl}
+                      backgroundSize={'cover'}
+                      backgroundPosition={'center center'}>
+
+                      <VStack
+                        style={{ position: 'relative' }}
+                        w={'full'}
+                        justify={'center'}
+                        bgGradient={'linear-gradient(to bottom, rgb(255 255 255 / 0%), #0f0e0e);'}>
+                        <Stack maxW={'2xl'} align={'flex-start'} spacing={6}>
+                          <Box
+                            p={4}
+                            style={{
+                              position: 'absolute',
+                              left: 0,
+                              top: '10px',
+                              color: 'white',
+                            }}
+                          >
+                            {tagName && (
+                              <Button
+                                bg={'#fc4a00 '}
+                                color="white"
+                                rounded={'none'}
+                                size="xs"
+                                fontWeight={'bold'}
+                              >
+                                {tagName}
+                              </Button>
+                            )}
+                          </Box>
+
+                          <Box
+                            p={4}
+                            style={{
+                              position: 'absolute',
+                              left: 0,
+                              bottom: 0,
+                              color: 'white',
+                            }}
+                          >
+                            <Heading
+                              color={'white'}
+                              as="h4"
+                              fontSize={{ base: 'sm', md: 'lg' }}
+                              noOfLines={2}
+                              lineHeight="22px"
+                              mb={{ base: '12px', md: '37px' }}
+                            >
+                              {item.node.title}
+                            </Heading>
+                            <Flex mt="2" alignItems={'center'}>
+                              <Icon as={FaRegClock} color={'white'} fontSize="sm" />
+                              <Text color={'white'} ml={2} fontSize="sm">
+                                {format(new Date(item.node.date), 'yyyy-MM-dd')}
+                              </Text>
+                            </Flex>
+                          </Box>
+                        </Stack>
+
+                      </VStack>
+                    </Flex>
+                  </Link>
+                )
+              );
+            })}
+
+          <Box display={'grid'}>
+            <Grid
+              templateColumns={{ md: '12fr', sm: 'repeat(1, 1fr)' }}
+              textColor="white"
+              gap={3}
+            >
+              {data.edges &&
+                data.edges.slice(1, 3).map((item, index) => {
+                  const tagName = item?.node?.tags?.edges[0]?.node?.name;
+                  // console.log('checkiteem', item);
+                  return (
+                    item &&
+                    item.node && (
+                      <Link key={index} href={item.node.slug}>
+
+                        <Flex
+                          w={'full'}
+                          h={{ base: '250px', md: '100%' }}
+                          backgroundImage={item.node.featuredImage.node.sourceUrl}
+                          backgroundSize={'cover'}
+                          backgroundPosition={'center center'}>
+
+                          <VStack
+                            style={{ position: 'relative' }}
+                            w={'full'}
+                            justify={'center'}
+                            bgGradient={'linear-gradient(to bottom, rgb(255 255 255 / 0%), #0f0e0e);'}>
+                            <Stack maxW={'2xl'} align={'flex-start'} spacing={6}>
+                              <Box
+                                p={4}
+                                style={{
+                                  position: 'absolute',
+                                  left: 0,
+                                  top: '10px',
+                                  color: 'white',
+                                }}
+                              >
+                                {tagName && (
+                                  <Button
+                                    bg={'#fc4a00 '}
+                                    color="white"
+                                    rounded={'none'}
+                                    size="xs"
+                                    fontWeight={'bold'}
+                                  >
+                                    {tagName}
+                                  </Button>
+                                )}
+                              </Box>
+
+                              <Box
+                                p={4}
+                                style={{
+                                  position: 'absolute',
+                                  left: 0,
+                                  bottom: 0,
+                                  color: 'white',
+                                }}
+                              >
+                                <Heading
+                                  color={'white'}
+                                  as="h4"
+                                  fontSize={{ base: 'sm', md: 'lg' }}
+                                  noOfLines={2}
+                                  lineHeight="22px"
+                                  mb={{ base: '12px', md: '37px' }}
+                                >
+                                  {item.node.title}
+                                </Heading>
+                                <Flex mt="2" alignItems={'center'}>
+                                  <Icon as={FaRegClock} color={'white'} fontSize="sm" />
+                                  <Text color={'white'} ml={2} fontSize="sm">
+                                    {format(new Date(item.node.date), 'yyyy-MM-dd')}
+                                  </Text>
+                                </Flex>
+                              </Box>
+                            </Stack>
+
+                          </VStack>
+                        </Flex>
+
+
+                      </Link>
+                    )
+                  );
+                })}
+            </Grid>
+          </Box>
+        </Grid>
+
+
+        <Grid
+          templateColumns={{ md: '6fr 6fr', sm: 'repeat(1, 1fr)' }}
+          textColor="white"
+          gap={6}
+          my={20}
+        >
+          {data.edges.slice(3, 4).map((item, index) => {
             // console.log('catmap', videoId);
             const author = item?.node?.author.node;
             // const imagePath = item.node.featuredImage?.node.sourceUrl;
@@ -125,7 +303,7 @@ function PostList({ urlType, urlName, data, slug, section }) {
             );
           })}
           <Box>
-            {data.edges.slice(1, 5).map((item, index) => {
+            {data.edges.slice(4, 7).map((item, index) => {
               const author = item?.node?.author.node;
               const imagePath = item.node.featuredImage?.node.sourceUrl;
               return (
@@ -136,7 +314,7 @@ function PostList({ urlType, urlName, data, slug, section }) {
                       <Grid
                         templateColumns={{
                           md: '9fr 3fr',
-                          sm: 'repeat(2, 1fr)',
+                          sm: 'repeat(1, 1fr)',
                         }}
                         textColor="white"
                         gap={6}
@@ -187,7 +365,7 @@ function PostList({ urlType, urlName, data, slug, section }) {
             {process.env.archive.SECTION_A.NAME}
           </Heading>
           <Grid
-            templateColumns={{ md: '6fr 6fr', sm: 'repeat(2, 1fr)' }}
+            templateColumns={{ md: '6fr 6fr', sm: 'repeat(1, 1fr)' }}
             // textColor="white"
             gap={6}
             my={6}
@@ -201,7 +379,7 @@ function PostList({ urlType, urlName, data, slug, section }) {
                   <Link key={index} href={item.node.slug}>
                     <Grid
                       cursor={'pointer'}
-                      templateColumns={{ md: '9fr 3fr', sm: 'repeat(2, 1fr)' }}
+                      templateColumns={{ md: '9fr 3fr', sm: 'repeat(1, 1fr)' }}
                       // textColor="white"
                       gap={2}
                     >
@@ -250,7 +428,7 @@ function PostList({ urlType, urlName, data, slug, section }) {
         <Divider />
         <Box py={6}>
           <Grid
-            templateColumns={{ md: '6fr 6fr', sm: 'repeat(2, 1fr)' }}
+            templateColumns={{ md: '6fr 6fr', sm: 'repeat(1, 1fr)' }}
             // textColor="white"
             gap={6}
             my={6}
@@ -271,7 +449,7 @@ function PostList({ urlType, urlName, data, slug, section }) {
                         <Grid
                           templateColumns={{
                             md: '3fr 9fr',
-                            sm: 'repeat(2, 1fr)',
+                            sm: 'repeat(1, 1fr)',
                           }}
                           // textColor="white"
                           gap={6}

@@ -58,13 +58,13 @@ const CategoryD = (props) => {
 
   return (
     <>
-      <Box px={{ base: '4', lg: '24' }} mb="20" py={'20'} bg={'black'}>
+      <Box px={{ base: '4', lg: '24', xl: '58' }} mb="20" py={'20'} bg={'black'}>
         <Flex
           justifyContent={'space-between'}
           flexDirection={{ base: 'column', md: 'row' }}
         >
           <Flex alignItems={'baseline'}>
-            <Icon as={FaCircle} boxSize={5} mr="2" color={'#ab20ef'} />
+            <Icon as={FaCircle} boxSize={5} mr="6" color={'#ab20ef'} />
             <Box>
               <Heading as="h2" fontSize={'24px'} color={'white'} mb="10px">
                 VIDEO
@@ -108,11 +108,12 @@ const CategoryD = (props) => {
             {data.edges &&
               data.edges.slice(0, 8).map((item, index) => {
                 const videoId = item.node.youtube.videoId;
+                const tagName = item?.tag?.edges[0]?.node?.name;
 
                 const featuredImage =
                   videoId &&
                   `https://i1.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
-                // console.log('catD', featuredImage);
+                {/* console.log('catD', tagName); */ }
                 return (
                   <Link key={index} href={item.node.slug}>
                     <Box
@@ -129,15 +130,15 @@ const CategoryD = (props) => {
                           color: 'white',
                         }}
                       >
-                        {/* <Button
-                        bg={'#03a9e7'}
-                        color="white"
-                        rounded={'none'}
-                        size="xs"
-                        fontWeight={'bold'}
-                      >
-                        METAVERSE
-                      </Button> */}
+                        {tagName && <Button
+                          bg={'#91b7e7'}
+                          color="white"
+                          rounded={'none'}
+                          size="xs"
+                          fontWeight={'bold'}
+                        >
+                          {tagName}
+                        </Button>}
                       </Box>
 
                       <Box
@@ -209,7 +210,7 @@ const CategoryD = (props) => {
         <Divider />
 
         <Grid
-          templateColumns={{ md: '4fr 4fr 4fr 4fr', sm: 'repeat(4, 1fr)' }}
+          templateColumns={{ md: '4fr 4fr 4fr 4fr', sm: 'repeat(1, 1fr)' }}
           textColor="white"
           gap={8}
           my={6}
@@ -242,15 +243,16 @@ const CategoryD = (props) => {
                         <Text
                           fontWeight={'medium'}
                           noOfLines={3}
-                          lineHeight="initial"
+                          lineHeight="16px"
                           paddingRight="2"
                           color={'white'}
+                          fontSize="16px"
                         >
                           {item.node.title}
                         </Text>
                         <Flex mt="2" alignItems={'center'}>
                           <Icon as={FaRegClock} color={'white'} />
-                          <Text color={'white'} ml={4}>
+                          <Text color={'white'} ml={4} fontSize={'14px'}>
                             {format(new Date(item.node.date), 'yyyy-MM-dd')}
                           </Text>
                         </Flex>

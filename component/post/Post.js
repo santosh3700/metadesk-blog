@@ -47,7 +47,7 @@ export function Post({ props }) {
 
   // store data
   const data = props.data.post;
-  const tags = data.tags.edges;
+  // const tags = data?.tags?.edges;
   const post = props.postList.edges;
 
   const author = props.data.post.author.node;
@@ -70,13 +70,33 @@ export function Post({ props }) {
   return (
     <>
       <PostSeo data={data} />
-      <Box my={8} px={{ base: '4', lg: '16' }}>
+      {/* featured image  */}
+      {data.youtube.videoId !== null &&
+        data.youtube.videoId !== undefined &&
+        data.youtube.videoId !== '' ? (
+        // <Box textAlign={'center'} my={10}>
+        // <AspectRatio maxW="560px" ratio={1}>
+        //   <ReactPlayer url={videoUrl} />
+        // </AspectRatio>
+        <Box>
+          <AspectRatio ratio={16 / 9}>
+            <iframe title="naruto" src={videoLink} allowFullScreen />
+          </AspectRatio>
+        </Box>
+      ) : (
+        // </Box>
+        <Img objectFit={'cover'} src={imagePath} w={'100%'} />
+      )}
+
+
+
+      <Box my={8} px={{ base: '4', lg: '24', xl: '58' }}>
         {/* <Link href="/">
           <Heading as="h2" size={'lg'} color={'green'}>
             Policy
           </Heading>
         </Link> */}
-        <Heading as="h2" size={'lg'}>
+        {/* <Heading as="h2" size={'lg'}>
           {data.title}
         </Heading>
         <Flex mt="2" flexDirection={{ base: 'column', md: 'row' }} justifyContent={'space-between'}>
@@ -89,9 +109,9 @@ export function Post({ props }) {
                 }`}
             </Text>
           </Flex>
-          <Text> {date.toDateString()}</Text>
+          <Text> {date.toDateString()}</Text> */}
 
-          {/* <Box mr={'6'}>
+        {/* <Box mr={'6'}>
             <Text mr={4} fontWeight={'bold'}>
               By{' '}
               <b>{`${author.firstName == null ? '' : author.firstName} ${author.lastName == null ? '' : author.lastName
@@ -100,43 +120,28 @@ export function Post({ props }) {
             </Text>
           </Box> */}
 
-          {/* <Flex alignItems={'center'} mr={'6'}>
+        {/* <Flex alignItems={'center'} mr={'6'}>
             <Icon as={FaRegClock} />
             <Text fontWeight={'medium'} ml={2}>
               {date.toDateString()}
             </Text>
           </Flex> */}
 
-          {/* <Box mr={'6'}>
+        {/* <Box mr={'6'}>
             <Text mr={4} fontWeight={'medium'}>
               Updated Apr 1, 2022 at 8:39 a.m.
             </Text>
           </Box> */}
-        </Flex>
+        {/* </Flex> */}
         <Box display={{ base: 'block', md: 'none' }} my={6}>
           <HStack position={'sticky'} top="10px" bottom="10px">
             <SocialShare data={data} />
           </HStack>
         </Box>
-        {/* featured image  */}
-        {data.youtube.videoId !== null &&
-          data.youtube.videoId !== undefined &&
-          data.youtube.videoId !== '' ? (
-          // <Box textAlign={'center'} my={10}>
-          // <AspectRatio maxW="560px" ratio={1}>
-          //   <ReactPlayer url={videoUrl} />
-          // </AspectRatio>
-          <Box my={8} mx={2}>
-            <AspectRatio ratio={16 / 9}>
-              <iframe title="naruto" src={videoLink} allowFullScreen />
-            </AspectRatio>
-          </Box>
-        ) : (
-          // </Box>
-          <Img my={6} objectFit={'cover'} src={imagePath} />
-        )}
+
+
         <Grid
-          templateColumns={{ md: '2fr 8fr 2fr', sm: 'repeat(3, 1fr)' }}
+          templateColumns={{ md: '2fr 8fr 2fr', sm: 'repeat(1, 1fr)' }}
           //   textColor="white"
           gap={6}
           position={'relative'}
@@ -154,6 +159,25 @@ export function Post({ props }) {
             <Text className='subheading' fontWeight={'medium'} mb={10} mx={2} wordSpacing={'2px'}
               lineHeight='28px'
               wordBreak={'break-word'}  >
+
+              <Box mb={'6'}>
+                <Heading as="h2" size={'lg'} mb={4}>
+                  {data.title}
+                </Heading>
+                <Flex mt="2" flexDirection={{ base: 'column', md: 'row' }} justifyContent={'space-between'}>
+                  <Flex>
+                    <Text mr={2} fontWeight={'bold'}>
+                      By
+                    </Text>
+                    <Text>
+                      {`${author.firstName == null ? '' : author.firstName} ${author.lastName == null ? '' : author.lastName
+                        }`}
+                    </Text>
+                  </Flex>
+                  <Text> {date.toDateString()}</Text>
+                </Flex>
+              </Box>
+
               <div
                 className={`${ClassesPostBody.content} contentBody`}
                 dangerouslySetInnerHTML={{ __html: data.content }}
@@ -165,7 +189,7 @@ export function Post({ props }) {
             {author && (
               <Box p={'6'} bg={isLightTheme ? '#ededed' : 'black'}>
                 <Grid
-                  templateColumns={{ md: '2fr 10fr', sm: 'repeat(2, 1fr)' }}
+                  templateColumns={{ md: '2fr 10fr', sm: 'repeat(1, 1fr)' }}
                   // textColor="white"
                   gap={2}
                 >

@@ -47,7 +47,7 @@ const Trending = ({ props }) => {
         {process.env.post.TRENDING.NAME}
       </Heading>
       <Grid
-        templateColumns={{ md: '6fr 6fr', sm: 'repeat(2, 1fr)' }}
+        templateColumns={{ md: '6fr 6fr', sm: 'repeat(1, 1fr)' }}
         // textColor="white"
         gap={6}
         my={6}
@@ -68,7 +68,7 @@ const Trending = ({ props }) => {
                 <Link href={item.node.slug} key={index}>
                   <Grid
                     cursor="pointer"
-                    templateColumns={{ md: '9fr 3fr', sm: 'repeat(2, 1fr)' }}
+                    templateColumns={{ md: '9fr 3fr', sm: 'repeat(1, 1fr)' }}
                     // textColor="white"
                     gap={2}
                   >
