@@ -72,14 +72,14 @@ const MobileMultiMenus = ({ menus, state, actions, libraries }) => {
   const ListMenu = ({ dept, data, hasSubMenu, menuName, menuIndex }) => (
     <LI id="mobileMenu">
       <Item dept={dept}>
-        <Link href={data.node.path}>
+        <Link href={data.href}>
           <Label
             onClick={() => {
               toggleDrawer();
               handleMenuClick(data);
             }}
           >
-            {data.node.label.toUpperCase()}
+            {data.label}
           </Label>
         </Link>
         {hasSubMenu && (
