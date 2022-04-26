@@ -70,6 +70,81 @@ export function Post({ props }) {
   return (
     <>
       <PostSeo data={data} />
+
+      {/* Post Section */}
+
+      {/* 1st post design
+
+      <Box my={8} px={{ base: '4', lg: '24', xl: '58' }}>
+        <Box mb={'6'}>
+          <Heading as="h2" size={'lg'} mb={4}>
+            {data.title}
+          </Heading>
+          <Flex mt="2" flexDirection={{ base: 'column', md: 'row' }} justifyContent={'space-between'}>
+            <Flex>
+              <Text mr={2} fontWeight={'bold'}>
+                By
+              </Text>
+              <Text>
+                {`${author.firstName == null ? '' : author.firstName} ${author.lastName == null ? '' : author.lastName
+                  }`}
+              </Text>
+            </Flex>
+            <Text> {date.toDateString()}</Text>
+          </Flex>
+        </Box>
+        <Box>
+          <Img objectFit={'cover'} src={imagePath} w={'100%'} />
+        </Box>
+
+      </Box>
+
+      2nd post design
+
+      <Flex
+        w={'full'}
+        h={{ base: '60vh', md: '80vh' }}
+        backgroundImage={imagePath}
+        backgroundSize={'cover'}
+        backgroundPosition={'center center'}>
+        <VStack
+          w={'full'}
+          justify={'flex-end'}
+          px={{ base: 4, md: 6 }}
+          pb={10}
+          bgGradient={'linear-gradient(to top, rgb(0 0 0 / 70%), transparent)'}>
+          <Stack align={'flex-start'} spacing={6} >
+            <Heading as="h2" size={'lg'} color={'white'}>
+              {data.title}
+            </Heading>
+
+            <Flex flexDirection={{ base: 'column', md: 'row' }} justifyContent={'space-between'} color={'white'} >
+              <Flex mr={2}>
+                <Avatar w={'30px'} h={'30px'} name='Dan Abrahmov' src='https://bit.ly/dan-abramov' mr={2} />
+                <Text mr={2} fontWeight={'bold'}>
+                  By
+                </Text>
+                <Text>
+                  {`${author.firstName == null ? '' : author.firstName} ${author.lastName == null ? '' : author.lastName
+                    }`}
+                </Text>
+              </Flex>
+              <Text> on {date.toDateString()}</Text>
+            </Flex>
+
+
+          </Stack>
+        </VStack>
+      </Flex>
+
+
+      3rd post design */}
+
+
+
+
+      {/* end Post Section */}
+
       {/* featured image  */}
       {data.youtube.videoId !== null &&
         data.youtube.videoId !== undefined &&
