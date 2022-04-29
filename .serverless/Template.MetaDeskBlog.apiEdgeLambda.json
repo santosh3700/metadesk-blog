@@ -1,10 +1,10 @@
 {
   "name": "c1tqr7c-jvezk7a",
-  "hash": "y7G1dosi40anx63eyyimgPHGUTlnl4DgYHn70/qIroU=",
+  "hash": "iT+E1/Qms9OZoDls2kcfg6XftB1j8W+njpvoysDVsag=",
   "description": "API Lambda@Edge for Next CloudFront distribution",
   "memory": 512,
   "timeout": 10,
-  "code": "/media/santosh/92B43D33B43D1B65/ProjectsNWG/metadesk-blog/.serverless_nextjs/api-lambda",
+  "code": "/media/santosh/92B43D33B43D1B65/ProjectsNWG/meta-new/metadesk-blog/.serverless_nextjs/api-lambda",
   "shims": [],
   "handler": "index.handler",
   "runtime": "nodejs14.x",

@@ -1,10 +1,10 @@
 {
   "name": "c1tqr7c-ne65zpa",
-  "hash": "MIpNyS0ndGtG4AAnqC3uwcZSZ+1cLKRCwRrVfHakDss=",
+  "hash": "EcDtKqtg7boJvMDmrSiM0LLSAPUXZf8FBlERVNGm2e0=",
   "description": "Image Lambda@Edge for Next CloudFront distribution",
   "memory": 512,
   "timeout": 10,
-  "code": "/media/santosh/92B43D33B43D1B65/ProjectsNWG/metadesk-blog/.serverless_nextjs/image-lambda",
+  "code": "/media/santosh/92B43D33B43D1B65/ProjectsNWG/meta-new/metadesk-blog/.serverless_nextjs/image-lambda",
   "shims": [],
   "handler": "index.handler",
   "runtime": "nodejs14.x",

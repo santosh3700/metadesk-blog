@@ -9,6 +9,1418 @@ exports.modules = {
 
 /***/ }),
 
+/***/ 48461:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.TRACE_OUTPUT_VERSION = exports.STATIC_STATUS_PAGES = exports.OPTIMIZED_FONT_PROVIDERS = exports.GOOGLE_FONT_PROVIDER = exports.FLIGHT_PROPS_ID = exports.SERVER_PROPS_ID = exports.STATIC_PROPS_ID = exports.PERMANENT_REDIRECT_STATUS = exports.TEMPORARY_REDIRECT_STATUS = exports.MIDDLEWARE_RUNTIME_WEBPACK = exports.MIDDLEWARE_SSR_RUNTIME_WEBPACK = exports.CLIENT_STATIC_FILES_RUNTIME_POLYFILLS_SYMBOL = exports.CLIENT_STATIC_FILES_RUNTIME_WEBPACK = exports.CLIENT_STATIC_FILES_RUNTIME_AMP = exports.CLIENT_STATIC_FILES_RUNTIME_REACT_REFRESH = exports.CLIENT_STATIC_FILES_RUNTIME_MAIN = exports.MIDDLEWARE_REACT_LOADABLE_MANIFEST = exports.MIDDLEWARE_BUILD_MANIFEST = exports.MIDDLEWARE_FLIGHT_MANIFEST = exports.STRING_LITERAL_DROP_BUNDLE = exports.CLIENT_STATIC_FILES_RUNTIME = exports.CLIENT_STATIC_FILES_PATH = exports.CLIENT_PUBLIC_FILES_PATH = exports.BLOCKED_PAGES = exports.BUILD_ID_FILE = exports.CONFIG_FILES = exports.SERVERLESS_DIRECTORY = exports.SERVER_DIRECTORY = exports.FONT_MANIFEST = exports.REACT_LOADABLE_MANIFEST = exports.DEV_MIDDLEWARE_MANIFEST = exports.MIDDLEWARE_MANIFEST = exports.FUNCTIONS_MANIFEST = exports.DEV_CLIENT_PAGES_MANIFEST = exports.SERVER_FILES_MANIFEST = exports.IMAGES_MANIFEST = exports.ROUTES_MANIFEST = exports.PRERENDER_MANIFEST = exports.EXPORT_DETAIL = exports.EXPORT_MARKER = exports.BUILD_MANIFEST = exports.PAGES_MANIFEST = exports.PHASE_TEST = exports.PHASE_DEVELOPMENT_SERVER = exports.PHASE_PRODUCTION_SERVER = exports.PHASE_PRODUCTION_BUILD = exports.PHASE_EXPORT = void 0;
+const PHASE_EXPORT = 'phase-export';
+exports.PHASE_EXPORT = PHASE_EXPORT;
+const PHASE_PRODUCTION_BUILD = 'phase-production-build';
+exports.PHASE_PRODUCTION_BUILD = PHASE_PRODUCTION_BUILD;
+const PHASE_PRODUCTION_SERVER = 'phase-production-server';
+exports.PHASE_PRODUCTION_SERVER = PHASE_PRODUCTION_SERVER;
+const PHASE_DEVELOPMENT_SERVER = 'phase-development-server';
+exports.PHASE_DEVELOPMENT_SERVER = PHASE_DEVELOPMENT_SERVER;
+const PHASE_TEST = 'phase-test';
+exports.PHASE_TEST = PHASE_TEST;
+const PAGES_MANIFEST = 'pages-manifest.json';
+exports.PAGES_MANIFEST = PAGES_MANIFEST;
+const BUILD_MANIFEST = 'build-manifest.json';
+exports.BUILD_MANIFEST = BUILD_MANIFEST;
+const EXPORT_MARKER = 'export-marker.json';
+exports.EXPORT_MARKER = EXPORT_MARKER;
+const EXPORT_DETAIL = 'export-detail.json';
+exports.EXPORT_DETAIL = EXPORT_DETAIL;
+const PRERENDER_MANIFEST = 'prerender-manifest.json';
+exports.PRERENDER_MANIFEST = PRERENDER_MANIFEST;
+const ROUTES_MANIFEST = 'routes-manifest.json';
+exports.ROUTES_MANIFEST = ROUTES_MANIFEST;
+const IMAGES_MANIFEST = 'images-manifest.json';
+exports.IMAGES_MANIFEST = IMAGES_MANIFEST;
+const SERVER_FILES_MANIFEST = 'required-server-files.json';
+exports.SERVER_FILES_MANIFEST = SERVER_FILES_MANIFEST;
+const DEV_CLIENT_PAGES_MANIFEST = '_devPagesManifest.json';
+exports.DEV_CLIENT_PAGES_MANIFEST = DEV_CLIENT_PAGES_MANIFEST;
+const FUNCTIONS_MANIFEST = 'functions-manifest.json';
+exports.FUNCTIONS_MANIFEST = FUNCTIONS_MANIFEST;
+const MIDDLEWARE_MANIFEST = 'middleware-manifest.json';
+exports.MIDDLEWARE_MANIFEST = MIDDLEWARE_MANIFEST;
+const DEV_MIDDLEWARE_MANIFEST = '_devMiddlewareManifest.json';
+exports.DEV_MIDDLEWARE_MANIFEST = DEV_MIDDLEWARE_MANIFEST;
+const REACT_LOADABLE_MANIFEST = 'react-loadable-manifest.json';
+exports.REACT_LOADABLE_MANIFEST = REACT_LOADABLE_MANIFEST;
+const FONT_MANIFEST = 'font-manifest.json';
+exports.FONT_MANIFEST = FONT_MANIFEST;
+const SERVER_DIRECTORY = 'server';
+exports.SERVER_DIRECTORY = SERVER_DIRECTORY;
+const SERVERLESS_DIRECTORY = 'serverless';
+exports.SERVERLESS_DIRECTORY = SERVERLESS_DIRECTORY;
+const CONFIG_FILES = ['next.config.js', 'next.config.mjs'];
+exports.CONFIG_FILES = CONFIG_FILES;
+const BUILD_ID_FILE = 'BUILD_ID';
+exports.BUILD_ID_FILE = BUILD_ID_FILE;
+const BLOCKED_PAGES = ['/_document', '/_app', '/_error'];
+exports.BLOCKED_PAGES = BLOCKED_PAGES;
+const CLIENT_PUBLIC_FILES_PATH = 'public';
+exports.CLIENT_PUBLIC_FILES_PATH = CLIENT_PUBLIC_FILES_PATH;
+const CLIENT_STATIC_FILES_PATH = 'static';
+exports.CLIENT_STATIC_FILES_PATH = CLIENT_STATIC_FILES_PATH;
+const CLIENT_STATIC_FILES_RUNTIME = 'runtime';
+exports.CLIENT_STATIC_FILES_RUNTIME = CLIENT_STATIC_FILES_RUNTIME;
+const STRING_LITERAL_DROP_BUNDLE = '__NEXT_DROP_CLIENT_FILE__';
+exports.STRING_LITERAL_DROP_BUNDLE = STRING_LITERAL_DROP_BUNDLE;
+const MIDDLEWARE_FLIGHT_MANIFEST = 'middleware-flight-manifest';
+exports.MIDDLEWARE_FLIGHT_MANIFEST = MIDDLEWARE_FLIGHT_MANIFEST;
+const MIDDLEWARE_BUILD_MANIFEST = 'middleware-build-manifest';
+exports.MIDDLEWARE_BUILD_MANIFEST = MIDDLEWARE_BUILD_MANIFEST;
+const MIDDLEWARE_REACT_LOADABLE_MANIFEST = 'middleware-react-loadable-manifest';
+exports.MIDDLEWARE_REACT_LOADABLE_MANIFEST = MIDDLEWARE_REACT_LOADABLE_MANIFEST;
+const CLIENT_STATIC_FILES_RUNTIME_MAIN = `main`;
+exports.CLIENT_STATIC_FILES_RUNTIME_MAIN = CLIENT_STATIC_FILES_RUNTIME_MAIN;
+const CLIENT_STATIC_FILES_RUNTIME_REACT_REFRESH = `react-refresh`;
+exports.CLIENT_STATIC_FILES_RUNTIME_REACT_REFRESH = CLIENT_STATIC_FILES_RUNTIME_REACT_REFRESH;
+const CLIENT_STATIC_FILES_RUNTIME_AMP = `amp`;
+exports.CLIENT_STATIC_FILES_RUNTIME_AMP = CLIENT_STATIC_FILES_RUNTIME_AMP;
+const CLIENT_STATIC_FILES_RUNTIME_WEBPACK = `webpack`;
+exports.CLIENT_STATIC_FILES_RUNTIME_WEBPACK = CLIENT_STATIC_FILES_RUNTIME_WEBPACK;
+const CLIENT_STATIC_FILES_RUNTIME_POLYFILLS_SYMBOL = Symbol(`polyfills`);
+exports.CLIENT_STATIC_FILES_RUNTIME_POLYFILLS_SYMBOL = CLIENT_STATIC_FILES_RUNTIME_POLYFILLS_SYMBOL;
+const MIDDLEWARE_SSR_RUNTIME_WEBPACK = 'middleware-ssr-runtime';
+exports.MIDDLEWARE_SSR_RUNTIME_WEBPACK = MIDDLEWARE_SSR_RUNTIME_WEBPACK;
+const MIDDLEWARE_RUNTIME_WEBPACK = 'middleware-runtime';
+exports.MIDDLEWARE_RUNTIME_WEBPACK = MIDDLEWARE_RUNTIME_WEBPACK;
+const TEMPORARY_REDIRECT_STATUS = 307;
+exports.TEMPORARY_REDIRECT_STATUS = TEMPORARY_REDIRECT_STATUS;
+const PERMANENT_REDIRECT_STATUS = 308;
+exports.PERMANENT_REDIRECT_STATUS = PERMANENT_REDIRECT_STATUS;
+const STATIC_PROPS_ID = '__N_SSG';
+exports.STATIC_PROPS_ID = STATIC_PROPS_ID;
+const SERVER_PROPS_ID = '__N_SSP';
+exports.SERVER_PROPS_ID = SERVER_PROPS_ID;
+const FLIGHT_PROPS_ID = '__N_RSC';
+exports.FLIGHT_PROPS_ID = FLIGHT_PROPS_ID;
+const GOOGLE_FONT_PROVIDER = 'https://fonts.googleapis.com/';
+exports.GOOGLE_FONT_PROVIDER = GOOGLE_FONT_PROVIDER;
+const OPTIMIZED_FONT_PROVIDERS = [{
+  url: GOOGLE_FONT_PROVIDER,
+  preconnect: 'https://fonts.gstatic.com'
+}, {
+  url: 'https://use.typekit.net',
+  preconnect: 'https://use.typekit.net'
+}];
+exports.OPTIMIZED_FONT_PROVIDERS = OPTIMIZED_FONT_PROVIDERS;
+const STATIC_STATUS_PAGES = ['/500'];
+exports.STATIC_STATUS_PAGES = STATIC_STATUS_PAGES;
+const TRACE_OUTPUT_VERSION = 1;
+exports.TRACE_OUTPUT_VERSION = TRACE_OUTPUT_VERSION;
+
+/***/ }),
+
+/***/ 90908:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.escapeStringRegexp = escapeStringRegexp;
+
+function escapeStringRegexp(str) {
+  return str.replace(/[|\\{}()[\]^$+*?.-]/g, '\\$&');
+}
+
+/***/ }),
+
+/***/ 75241:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.detectDomainLocale = detectDomainLocale;
+
+function detectDomainLocale(domainItems, hostname, detectedLocale) {
+  let domainItem;
+
+  if (domainItems) {
+    if (detectedLocale) {
+      detectedLocale = detectedLocale.toLowerCase();
+    }
+
+    for (const item of domainItems) {
+      var ref, ref1; // remove port if present
+
+      const domainHostname = (ref = item.domain) === null || ref === void 0 ? void 0 : ref.split(':')[0].toLowerCase();
+
+      if (hostname === domainHostname || detectedLocale === item.defaultLocale.toLowerCase() || ((ref1 = item.locales) === null || ref1 === void 0 ? void 0 : ref1.some(locale => locale.toLowerCase() === detectedLocale))) {
+        domainItem = item;
+        break;
+      }
+    }
+  }
+
+  return domainItem;
+}
+
+/***/ }),
+
+/***/ 3263:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.detectLocaleCookie = detectLocaleCookie;
+
+function detectLocaleCookie(req, locales) {
+  const {
+    NEXT_LOCALE
+  } = req.cookies || {};
+  return NEXT_LOCALE ? locales.find(locale => NEXT_LOCALE.toLowerCase() === locale.toLowerCase()) : undefined;
+}
+
+/***/ }),
+
+/***/ 6124:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.normalizeLocalePath = normalizeLocalePath;
+
+function normalizeLocalePath(pathname, locales) {
+  let detectedLocale; // first item will be empty string from splitting at first char
+
+  const pathnameParts = pathname.split('/');
+  (locales || []).some(locale => {
+    if (pathnameParts[1] && pathnameParts[1].toLowerCase() === locale.toLowerCase()) {
+      detectedLocale = locale;
+      pathnameParts.splice(1, 1);
+      pathname = pathnameParts.join('/') || '/';
+      return true;
+    }
+
+    return false;
+  });
+  return {
+    pathname,
+    detectedLocale
+  };
+}
+
+/***/ }),
+
+/***/ 80078:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.getObjectClassLabel = getObjectClassLabel;
+exports.isPlainObject = isPlainObject;
+
+function getObjectClassLabel(value) {
+  return Object.prototype.toString.call(value);
+}
+
+function isPlainObject(value) {
+  if (getObjectClassLabel(value) !== '[object Object]') {
+    return false;
+  }
+
+  const prototype = Object.getPrototypeOf(value);
+  return prototype === null || prototype === Object.prototype;
+}
+
+/***/ }),
+
+/***/ 27952:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.getMiddlewareRegex = getMiddlewareRegex;
+
+var _routeRegex = __webpack_require__(11672); // Identify ^/[param]/ in route string
+
+
+const FIRST_SEGMENT_DYNAMIC = /^\/\[[^/]+?\](?=\/|$)/;
+const NOT_API_ROUTE = '(?!/api(?:/|$))';
+
+function getMiddlewareRegex(normalizedRoute, catchAll = true) {
+  const result = (0, _routeRegex).getParametrizedRoute(normalizedRoute);
+  const notApiRegex = FIRST_SEGMENT_DYNAMIC.test(normalizedRoute) ? NOT_API_ROUTE : '';
+  let catchAllRegex = catchAll ? '(?!_next($|/)).*' : '';
+  let catchAllGroupedRegex = catchAll ? '(?:(/.*)?)' : '';
+
+  if ('routeKeys' in result) {
+    if (result.parameterizedRoute === '/') {
+      return {
+        groups: {},
+        namedRegex: `^/${catchAllRegex}$`,
+        re: new RegExp(`^/${catchAllRegex}$`),
+        routeKeys: {}
+      };
+    }
+
+    return {
+      groups: result.groups,
+      namedRegex: `^${notApiRegex}${result.namedParameterizedRoute}${catchAllGroupedRegex}$`,
+      re: new RegExp(`^${notApiRegex}${result.parameterizedRoute}${catchAllGroupedRegex}$`),
+      routeKeys: result.routeKeys
+    };
+  }
+
+  if (result.parameterizedRoute === '/') {
+    return {
+      groups: {},
+      re: new RegExp(`^/${catchAllRegex}$`)
+    };
+  }
+
+  return {
+    groups: {},
+    re: new RegExp(`^${notApiRegex}${result.parameterizedRoute}${catchAllGroupedRegex}$`)
+  };
+}
+
+/***/ }),
+
+/***/ 95052:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+Object.defineProperty(exports, "getMiddlewareRegex", ({
+  enumerable: true,
+  get: function () {
+    return _getMiddlewareRegex.getMiddlewareRegex;
+  }
+}));
+Object.defineProperty(exports, "getRouteMatcher", ({
+  enumerable: true,
+  get: function () {
+    return _routeMatcher.getRouteMatcher;
+  }
+}));
+Object.defineProperty(exports, "getRouteRegex", ({
+  enumerable: true,
+  get: function () {
+    return _routeRegex.getRouteRegex;
+  }
+}));
+Object.defineProperty(exports, "getRoutingItems", ({
+  enumerable: true,
+  get: function () {
+    return _routingItems.getRoutingItems;
+  }
+}));
+Object.defineProperty(exports, "RoutingItem", ({
+  enumerable: true,
+  get: function () {
+    return _routingItems.RoutingItem;
+  }
+}));
+Object.defineProperty(exports, "getSortedRoutes", ({
+  enumerable: true,
+  get: function () {
+    return _sortedRoutes.getSortedRoutes;
+  }
+}));
+Object.defineProperty(exports, "isDynamicRoute", ({
+  enumerable: true,
+  get: function () {
+    return _isDynamic.isDynamicRoute;
+  }
+}));
+
+var _getMiddlewareRegex = __webpack_require__(27952);
+
+var _routeMatcher = __webpack_require__(81864);
+
+var _routeRegex = __webpack_require__(11672);
+
+var _routingItems = __webpack_require__(66595);
+
+var _sortedRoutes = __webpack_require__(66532);
+
+var _isDynamic = __webpack_require__(88356);
+
+/***/ }),
+
+/***/ 88356:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.isDynamicRoute = isDynamicRoute; // Identify /[param]/ in route string
+
+const TEST_ROUTE = /\/\[[^/]+?\](?=\/|$)/;
+
+function isDynamicRoute(route) {
+  return TEST_ROUTE.test(route);
+}
+
+/***/ }),
+
+/***/ 36481:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.parseRelativeUrl = parseRelativeUrl;
+
+var _utils = __webpack_require__(61716);
+
+var _querystring = __webpack_require__(30567);
+
+function parseRelativeUrl(url, base) {
+  const globalBase = new URL( true ? 'http://n' : 0);
+  const resolvedBase = base ? new URL(base, globalBase) : globalBase;
+  const {
+    pathname,
+    searchParams,
+    search,
+    hash,
+    href,
+    origin
+  } = new URL(url, resolvedBase);
+
+  if (origin !== globalBase.origin) {
+    throw new Error(`invariant: invalid relative URL, router received ${url}`);
+  }
+
+  return {
+    pathname,
+    query: (0, _querystring).searchParamsToUrlQuery(searchParams),
+    search,
+    hash,
+    href: href.slice(globalBase.origin.length)
+  };
+}
+
+/***/ }),
+
+/***/ 41157:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.parseUrl = parseUrl;
+
+var _querystring = __webpack_require__(30567);
+
+var _parseRelativeUrl = __webpack_require__(36481);
+
+function parseUrl(url) {
+  if (url.startsWith('/')) {
+    return (0, _parseRelativeUrl).parseRelativeUrl(url);
+  }
+
+  const parsedURL = new URL(url);
+  return {
+    hash: parsedURL.hash,
+    hostname: parsedURL.hostname,
+    href: parsedURL.href,
+    pathname: parsedURL.pathname,
+    port: parsedURL.port,
+    protocol: parsedURL.protocol,
+    query: (0, _querystring).searchParamsToUrlQuery(parsedURL.searchParams),
+    search: parsedURL.search
+  };
+}
+
+/***/ }),
+
+/***/ 8350:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = exports.customRouteMatcherOptions = exports.matcherOptions = exports.pathToRegexp = void 0;
+
+var pathToRegexp = _interopRequireWildcard(__webpack_require__(75229));
+
+exports.pathToRegexp = pathToRegexp;
+
+function _interopRequireWildcard(obj) {
+  if (obj && obj.__esModule) {
+    return obj;
+  } else {
+    var newObj = {};
+
+    if (obj != null) {
+      for (var key in obj) {
+        if (Object.prototype.hasOwnProperty.call(obj, key)) {
+          var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {};
+
+          if (desc.get || desc.set) {
+            Object.defineProperty(newObj, key, desc);
+          } else {
+            newObj[key] = obj[key];
+          }
+        }
+      }
+    }
+
+    newObj.default = obj;
+    return newObj;
+  }
+}
+
+const matcherOptions = {
+  sensitive: false,
+  delimiter: '/'
+};
+exports.matcherOptions = matcherOptions;
+
+const customRouteMatcherOptions = _objectSpread(_objectSpread({}, matcherOptions), {}, {
+  strict: true
+});
+
+exports.customRouteMatcherOptions = customRouteMatcherOptions;
+
+var _default = (customRoute = false) => {
+  return (path, regexModifier) => {
+    const keys = [];
+    let matcherRegex = pathToRegexp.pathToRegexp(path, keys, customRoute ? customRouteMatcherOptions : matcherOptions);
+
+    if (regexModifier) {
+      const regexSource = regexModifier(matcherRegex.source);
+      matcherRegex = new RegExp(regexSource, matcherRegex.flags);
+    }
+
+    const matcher = pathToRegexp.regexpToFunction(matcherRegex, keys);
+    return (pathname, params) => {
+      const res = pathname == null ? false : matcher(pathname);
+
+      if (!res) {
+        return false;
+      }
+
+      if (customRoute) {
+        for (const key of keys) {
+          // unnamed params should be removed as they
+          // are not allowed to be used in the destination
+          if (typeof key.name === 'number') {
+            delete res.params[key.name];
+          }
+        }
+      }
+
+      return _objectSpread(_objectSpread({}, params), res.params);
+    };
+  };
+};
+
+exports["default"] = _default;
+
+/***/ }),
+
+/***/ 8362:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.matchHas = matchHas;
+exports.compileNonPath = compileNonPath;
+exports.prepareDestination = prepareDestination;
+
+var _pathToRegexp = __webpack_require__(75229);
+
+var _escapeRegexp = __webpack_require__(90908);
+
+var _parseUrl = __webpack_require__(41157);
+
+function matchHas(req, has, query) {
+  const params = {};
+  const allMatch = has.every(hasItem => {
+    let value;
+    let key = hasItem.key;
+
+    switch (hasItem.type) {
+      case 'header':
+        {
+          key = key.toLowerCase();
+          value = req.headers[key];
+          break;
+        }
+
+      case 'cookie':
+        {
+          value = req.cookies[hasItem.key];
+          break;
+        }
+
+      case 'query':
+        {
+          value = query[key];
+          break;
+        }
+
+      case 'host':
+        {
+          const {
+            host
+          } = (req === null || req === void 0 ? void 0 : req.headers) || {}; // remove port from host if present
+
+          const hostname = host === null || host === void 0 ? void 0 : host.split(':')[0].toLowerCase();
+          value = hostname;
+          break;
+        }
+
+      default:
+        {
+          break;
+        }
+    }
+
+    if (!hasItem.value && value) {
+      params[getSafeParamName(key)] = value;
+      return true;
+    } else if (value) {
+      const matcher = new RegExp(`^${hasItem.value}$`);
+      const matches = Array.isArray(value) ? value.slice(-1)[0].match(matcher) : value.match(matcher);
+
+      if (matches) {
+        if (Array.isArray(matches)) {
+          if (matches.groups) {
+            Object.keys(matches.groups).forEach(groupKey => {
+              params[groupKey] = matches.groups[groupKey];
+            });
+          } else if (hasItem.type === 'host' && matches[0]) {
+            params.host = matches[0];
+          }
+        }
+
+        return true;
+      }
+    }
+
+    return false;
+  });
+
+  if (allMatch) {
+    return params;
+  }
+
+  return false;
+}
+
+function compileNonPath(value, params) {
+  if (!value.includes(':')) {
+    return value;
+  }
+
+  for (const key of Object.keys(params)) {
+    if (value.includes(`:${key}`)) {
+      value = value.replace(new RegExp(`:${key}\\*`, 'g'), `:${key}--ESCAPED_PARAM_ASTERISKS`).replace(new RegExp(`:${key}\\?`, 'g'), `:${key}--ESCAPED_PARAM_QUESTION`).replace(new RegExp(`:${key}\\+`, 'g'), `:${key}--ESCAPED_PARAM_PLUS`).replace(new RegExp(`:${key}(?!\\w)`, 'g'), `--ESCAPED_PARAM_COLON${key}`);
+    }
+  }
+
+  value = value.replace(/(:|\*|\?|\+|\(|\)|\{|\})/g, '\\$1').replace(/--ESCAPED_PARAM_PLUS/g, '+').replace(/--ESCAPED_PARAM_COLON/g, ':').replace(/--ESCAPED_PARAM_QUESTION/g, '?').replace(/--ESCAPED_PARAM_ASTERISKS/g, '*'); // the value needs to start with a forward-slash to be compiled
+  // correctly
+
+  return (0, _pathToRegexp).compile(`/${value}`, {
+    validate: false
+  })(params).slice(1);
+}
+
+function prepareDestination(args) {
+  const query = Object.assign({}, args.query);
+  delete query.__nextLocale;
+  delete query.__nextDefaultLocale;
+  let escapedDestination = args.destination;
+
+  for (const param of Object.keys(_objectSpread(_objectSpread({}, args.params), query))) {
+    escapedDestination = escapeSegment(escapedDestination, param);
+  }
+
+  const parsedDestination = (0, _parseUrl).parseUrl(escapedDestination);
+  const destQuery = parsedDestination.query;
+  const destPath = unescapeSegments(`${parsedDestination.pathname}${parsedDestination.hash || ''}`);
+  const destHostname = unescapeSegments(parsedDestination.hostname || '');
+  const destPathParamKeys = [];
+  const destHostnameParamKeys = [];
+  (0, _pathToRegexp).pathToRegexp(destPath, destPathParamKeys);
+  (0, _pathToRegexp).pathToRegexp(destHostname, destHostnameParamKeys);
+  const destParams = [];
+  destPathParamKeys.forEach(key => destParams.push(key.name));
+  destHostnameParamKeys.forEach(key => destParams.push(key.name));
+  const destPathCompiler = (0, _pathToRegexp).compile(destPath, // we don't validate while compiling the destination since we should
+  // have already validated before we got to this point and validating
+  // breaks compiling destinations with named pattern params from the source
+  // e.g. /something:hello(.*) -> /another/:hello is broken with validation
+  // since compile validation is meant for reversing and not for inserting
+  // params from a separate path-regex into another
+  {
+    validate: false
+  });
+  const destHostnameCompiler = (0, _pathToRegexp).compile(destHostname, {
+    validate: false
+  }); // update any params in query values
+
+  for (const [key1, strOrArray] of Object.entries(destQuery)) {
+    // the value needs to start with a forward-slash to be compiled
+    // correctly
+    if (Array.isArray(strOrArray)) {
+      destQuery[key1] = strOrArray.map(value => compileNonPath(unescapeSegments(value), args.params));
+    } else {
+      destQuery[key1] = compileNonPath(unescapeSegments(strOrArray), args.params);
+    }
+  } // add path params to query if it's not a redirect and not
+  // already defined in destination query or path
+
+
+  let paramKeys = Object.keys(args.params).filter(name => name !== 'nextInternalLocale');
+
+  if (args.appendParamsToQuery && !paramKeys.some(key => destParams.includes(key))) {
+    for (const key of paramKeys) {
+      if (!(key in destQuery)) {
+        destQuery[key] = args.params[key];
+      }
+    }
+  }
+
+  let newUrl;
+
+  try {
+    newUrl = destPathCompiler(args.params);
+    const [pathname, hash] = newUrl.split('#');
+    parsedDestination.hostname = destHostnameCompiler(args.params);
+    parsedDestination.pathname = pathname;
+    parsedDestination.hash = `${hash ? '#' : ''}${hash || ''}`;
+    delete parsedDestination.search;
+  } catch (err) {
+    if (err.message.match(/Expected .*? to not repeat, but got an array/)) {
+      throw new Error(`To use a multi-match in the destination you must add \`*\` at the end of the param name to signify it should repeat. https://nextjs.org/docs/messages/invalid-multi-match`);
+    }
+
+    throw err;
+  } // Query merge order lowest priority to highest
+  // 1. initial URL query values
+  // 2. path segment values
+  // 3. destination specified query values
+
+
+  parsedDestination.query = _objectSpread(_objectSpread({}, query), parsedDestination.query);
+  return {
+    newUrl,
+    parsedDestination
+  };
+}
+/**
+ * Ensure only a-zA-Z are used for param names for proper interpolating
+ * with path-to-regexp
+ */
+
+
+function getSafeParamName(paramName) {
+  let newParamName = '';
+
+  for (let i = 0; i < paramName.length; i++) {
+    const charCode = paramName.charCodeAt(i);
+
+    if (charCode > 64 && charCode < 91 || charCode > 96 && charCode < 123 // a-z
+    ) {
+      newParamName += paramName[i];
+    }
+  }
+
+  return newParamName;
+}
+
+function escapeSegment(str, segmentName) {
+  return str.replace(new RegExp(`:${(0, _escapeRegexp).escapeStringRegexp(segmentName)}`, 'g'), `__ESC_COLON_${segmentName}`);
+}
+
+function unescapeSegments(str) {
+  return str.replace(/__ESC_COLON_/gi, ':');
+}
+
+/***/ }),
+
+/***/ 30567:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.searchParamsToUrlQuery = searchParamsToUrlQuery;
+exports.urlQueryToSearchParams = urlQueryToSearchParams;
+exports.assign = assign;
+
+function searchParamsToUrlQuery(searchParams) {
+  const query = {};
+  searchParams.forEach((value, key) => {
+    if (typeof query[key] === 'undefined') {
+      query[key] = value;
+    } else if (Array.isArray(query[key])) {
+      query[key].push(value);
+    } else {
+      query[key] = [query[key], value];
+    }
+  });
+  return query;
+}
+
+function stringifyUrlQueryParam(param) {
+  if (typeof param === 'string' || typeof param === 'number' && !isNaN(param) || typeof param === 'boolean') {
+    return String(param);
+  } else {
+    return '';
+  }
+}
+
+function urlQueryToSearchParams(urlQuery) {
+  const result = new URLSearchParams();
+  Object.entries(urlQuery).forEach(([key, value]) => {
+    if (Array.isArray(value)) {
+      value.forEach(item => result.append(key, stringifyUrlQueryParam(item)));
+    } else {
+      result.set(key, stringifyUrlQueryParam(value));
+    }
+  });
+  return result;
+}
+
+function assign(target, ...searchParamsList) {
+  searchParamsList.forEach(searchParams => {
+    Array.from(searchParams.keys()).forEach(key => target.delete(key));
+    searchParams.forEach((value, key) => target.append(key, value));
+  });
+  return target;
+}
+
+/***/ }),
+
+/***/ 81864:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.getRouteMatcher = getRouteMatcher;
+
+var _utils = __webpack_require__(61716);
+
+function getRouteMatcher(routeRegex) {
+  const {
+    re,
+    groups
+  } = routeRegex;
+  return pathname => {
+    const routeMatch = re.exec(pathname);
+
+    if (!routeMatch) {
+      return false;
+    }
+
+    const decode = param => {
+      try {
+        return decodeURIComponent(param);
+      } catch (_) {
+        throw new _utils.DecodeError('failed to decode param');
+      }
+    };
+
+    const params = {};
+    Object.keys(groups).forEach(slugName => {
+      const g = groups[slugName];
+      const m = routeMatch[g.pos];
+
+      if (m !== undefined) {
+        params[slugName] = ~m.indexOf('/') ? m.split('/').map(entry => decode(entry)) : g.repeat ? [decode(m)] : decode(m);
+      }
+    });
+    return params;
+  };
+}
+
+/***/ }),
+
+/***/ 11672:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.getParametrizedRoute = getParametrizedRoute;
+exports.getRouteRegex = getRouteRegex;
+
+var _escapeRegexp = __webpack_require__(90908);
+
+function parseParameter(param) {
+  const optional = param.startsWith('[') && param.endsWith(']');
+
+  if (optional) {
+    param = param.slice(1, -1);
+  }
+
+  const repeat = param.startsWith('...');
+
+  if (repeat) {
+    param = param.slice(3);
+  }
+
+  return {
+    key: param,
+    repeat,
+    optional
+  };
+}
+
+function getParametrizedRoute(route) {
+  const segments = (route.replace(/\/$/, '') || '/').slice(1).split('/');
+  const groups = {};
+  let groupIndex = 1;
+  const parameterizedRoute = segments.map(segment => {
+    if (segment.startsWith('[') && segment.endsWith(']')) {
+      const {
+        key,
+        optional,
+        repeat
+      } = parseParameter(segment.slice(1, -1));
+      groups[key] = {
+        pos: groupIndex++,
+        repeat,
+        optional
+      };
+      return repeat ? optional ? '(?:/(.+?))?' : '/(.+?)' : '/([^/]+?)';
+    } else {
+      return `/${(0, _escapeRegexp).escapeStringRegexp(segment)}`;
+    }
+  }).join(''); // dead code eliminate for browser since it's only needed
+  // while generating routes-manifest
+
+  if (true) {
+    let routeKeyCharCode = 97;
+    let routeKeyCharLength = 1; // builds a minimal routeKey using only a-z and minimal number of characters
+
+    const getSafeRouteKey = () => {
+      let routeKey = '';
+
+      for (let i = 0; i < routeKeyCharLength; i++) {
+        routeKey += String.fromCharCode(routeKeyCharCode);
+        routeKeyCharCode++;
+
+        if (routeKeyCharCode > 122) {
+          routeKeyCharLength++;
+          routeKeyCharCode = 97;
+        }
+      }
+
+      return routeKey;
+    };
+
+    const routeKeys = {};
+    let namedParameterizedRoute = segments.map(segment => {
+      if (segment.startsWith('[') && segment.endsWith(']')) {
+        const {
+          key,
+          optional,
+          repeat
+        } = parseParameter(segment.slice(1, -1)); // replace any non-word characters since they can break
+        // the named regex
+
+        let cleanedKey = key.replace(/\W/g, '');
+        let invalidKey = false; // check if the key is still invalid and fallback to using a known
+        // safe key
+
+        if (cleanedKey.length === 0 || cleanedKey.length > 30) {
+          invalidKey = true;
+        }
+
+        if (!isNaN(parseInt(cleanedKey.slice(0, 1)))) {
+          invalidKey = true;
+        }
+
+        if (invalidKey) {
+          cleanedKey = getSafeRouteKey();
+        }
+
+        routeKeys[cleanedKey] = key;
+        return repeat ? optional ? `(?:/(?<${cleanedKey}>.+?))?` : `/(?<${cleanedKey}>.+?)` : `/(?<${cleanedKey}>[^/]+?)`;
+      } else {
+        return `/${(0, _escapeRegexp).escapeStringRegexp(segment)}`;
+      }
+    }).join('');
+    return {
+      parameterizedRoute,
+      namedParameterizedRoute,
+      groups,
+      routeKeys
+    };
+  }
+
+  return {
+    parameterizedRoute,
+    groups
+  };
+}
+
+function getRouteRegex(normalizedRoute) {
+  const result = getParametrizedRoute(normalizedRoute);
+
+  if ('routeKeys' in result) {
+    return {
+      re: new RegExp(`^${result.parameterizedRoute}(?:/)?$`),
+      groups: result.groups,
+      routeKeys: result.routeKeys,
+      namedRegex: `^${result.namedParameterizedRoute}(?:/)?$`
+    };
+  }
+
+  return {
+    re: new RegExp(`^${result.parameterizedRoute}(?:/)?$`),
+    groups: result.groups
+  };
+}
+
+/***/ }),
+
+/***/ 66595:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.getRoutingItems = getRoutingItems;
+
+var _getMiddlewareRegex = __webpack_require__(27952);
+
+var _routeMatcher = __webpack_require__(81864);
+
+var _routeRegex = __webpack_require__(11672);
+
+var _sortedRoutes = __webpack_require__(66532);
+
+const MIDDLEWARE_SUFFIX = '/_middleware';
+
+function getRoutingItems(pages, middleware) {
+  // append the suffix so that `getSortedRoutes()` can handle middleware properly
+  const middlewarePages = middleware.map(m => `${m.page}${MIDDLEWARE_SUFFIX}`);
+  const middlewareMap = new Map(middleware.map(m => [m.page, m]));
+  const sortedRoutes = (0, _sortedRoutes).getSortedRoutes([...pages, ...middlewarePages]);
+  return sortedRoutes.map(page => {
+    if (page.endsWith(MIDDLEWARE_SUFFIX)) {
+      const p = page.slice(0, -MIDDLEWARE_SUFFIX.length) || '/';
+      const {
+        ssr
+      } = middlewareMap.get(p);
+      return {
+        match: (0, _routeMatcher).getRouteMatcher((0, _getMiddlewareRegex).getMiddlewareRegex(p, !ssr)),
+        page: p,
+        ssr,
+        isMiddleware: true
+      };
+    } else {
+      return {
+        match: (0, _routeMatcher).getRouteMatcher((0, _routeRegex).getRouteRegex(page)),
+        page
+      };
+    }
+  });
+}
+
+/***/ }),
+
+/***/ 66532:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.getSortedRoutes = getSortedRoutes;
+
+class UrlNode {
+  insert(urlPath) {
+    this._insert(urlPath.split('/').filter(Boolean), [], false);
+  }
+
+  smoosh() {
+    return this._smoosh();
+  }
+
+  _smoosh(prefix = '/') {
+    const childrenPaths = [...this.children.keys()].sort();
+
+    if (this.slugName !== null) {
+      childrenPaths.splice(childrenPaths.indexOf('[]'), 1);
+    }
+
+    if (this.restSlugName !== null) {
+      childrenPaths.splice(childrenPaths.indexOf('[...]'), 1);
+    }
+
+    if (this.optionalRestSlugName !== null) {
+      childrenPaths.splice(childrenPaths.indexOf('[[...]]'), 1);
+    }
+
+    if (this.isMiddleware) {
+      childrenPaths.splice(childrenPaths.indexOf('_middleware'), 1);
+    }
+
+    const routes = childrenPaths.map(c => this.children.get(c)._smoosh(`${prefix}${c}/`)).reduce((prev, curr) => [...prev, ...curr], []);
+
+    if (this.slugName !== null) {
+      routes.push(...this.children.get('[]')._smoosh(`${prefix}[${this.slugName}]/`));
+    }
+
+    if (!this.placeholder) {
+      const r = prefix === '/' ? '/' : prefix.slice(0, -1);
+
+      if (this.optionalRestSlugName != null) {
+        throw new Error(`You cannot define a route with the same specificity as a optional catch-all route ("${r}" and "${r}[[...${this.optionalRestSlugName}]]").`);
+      }
+
+      routes.unshift(r);
+    }
+
+    if (this.isMiddleware) {
+      routes.unshift(...this.children.get('_middleware')._smoosh(`${prefix}_middleware/`));
+    }
+
+    if (this.restSlugName !== null) {
+      routes.push(...this.children.get('[...]')._smoosh(`${prefix}[...${this.restSlugName}]/`));
+    }
+
+    if (this.optionalRestSlugName !== null) {
+      routes.push(...this.children.get('[[...]]')._smoosh(`${prefix}[[...${this.optionalRestSlugName}]]/`));
+    }
+
+    return routes;
+  }
+
+  _insert(urlPaths, slugNames, isCatchAll) {
+    if (urlPaths.length === 0) {
+      this.placeholder = false;
+      return;
+    }
+
+    if (isCatchAll) {
+      throw new Error(`Catch-all must be the last part of the URL.`);
+    } // The next segment in the urlPaths list
+
+
+    let nextSegment = urlPaths[0]; // Check if the segment matches `[something]`
+
+    if (nextSegment.startsWith('[') && nextSegment.endsWith(']')) {
+      // Strip `[` and `]`, leaving only `something`
+      let segmentName = nextSegment.slice(1, -1);
+      let isOptional = false;
+
+      if (segmentName.startsWith('[') && segmentName.endsWith(']')) {
+        // Strip optional `[` and `]`, leaving only `something`
+        segmentName = segmentName.slice(1, -1);
+        isOptional = true;
+      }
+
+      if (segmentName.startsWith('...')) {
+        // Strip `...`, leaving only `something`
+        segmentName = segmentName.substring(3);
+        isCatchAll = true;
+      }
+
+      if (segmentName.startsWith('[') || segmentName.endsWith(']')) {
+        throw new Error(`Segment names may not start or end with extra brackets ('${segmentName}').`);
+      }
+
+      if (segmentName.startsWith('.')) {
+        throw new Error(`Segment names may not start with erroneous periods ('${segmentName}').`);
+      }
+
+      function handleSlug(previousSlug, nextSlug) {
+        if (previousSlug !== null) {
+          // If the specific segment already has a slug but the slug is not `something`
+          // This prevents collisions like:
+          // pages/[post]/index.js
+          // pages/[id]/index.js
+          // Because currently multiple dynamic params on the same segment level are not supported
+          if (previousSlug !== nextSlug) {
+            // TODO: This error seems to be confusing for users, needs an error link, the description can be based on above comment.
+            throw new Error(`You cannot use different slug names for the same dynamic path ('${previousSlug}' !== '${nextSlug}').`);
+          }
+        }
+
+        slugNames.forEach(slug => {
+          if (slug === nextSlug) {
+            throw new Error(`You cannot have the same slug name "${nextSlug}" repeat within a single dynamic path`);
+          }
+
+          if (slug.replace(/\W/g, '') === nextSegment.replace(/\W/g, '')) {
+            throw new Error(`You cannot have the slug names "${slug}" and "${nextSlug}" differ only by non-word symbols within a single dynamic path`);
+          }
+        });
+        slugNames.push(nextSlug);
+      }
+
+      if (isCatchAll) {
+        if (isOptional) {
+          if (this.restSlugName != null) {
+            throw new Error(`You cannot use both an required and optional catch-all route at the same level ("[...${this.restSlugName}]" and "${urlPaths[0]}" ).`);
+          }
+
+          handleSlug(this.optionalRestSlugName, segmentName); // slugName is kept as it can only be one particular slugName
+
+          this.optionalRestSlugName = segmentName; // nextSegment is overwritten to [[...]] so that it can later be sorted specifically
+
+          nextSegment = '[[...]]';
+        } else {
+          if (this.optionalRestSlugName != null) {
+            throw new Error(`You cannot use both an optional and required catch-all route at the same level ("[[...${this.optionalRestSlugName}]]" and "${urlPaths[0]}").`);
+          }
+
+          handleSlug(this.restSlugName, segmentName); // slugName is kept as it can only be one particular slugName
+
+          this.restSlugName = segmentName; // nextSegment is overwritten to [...] so that it can later be sorted specifically
+
+          nextSegment = '[...]';
+        }
+      } else {
+        if (isOptional) {
+          throw new Error(`Optional route parameters are not yet supported ("${urlPaths[0]}").`);
+        }
+
+        handleSlug(this.slugName, segmentName); // slugName is kept as it can only be one particular slugName
+
+        this.slugName = segmentName; // nextSegment is overwritten to [] so that it can later be sorted specifically
+
+        nextSegment = '[]';
+      }
+    } else if (nextSegment === '_middleware' && urlPaths.length === 1) {
+      this.isMiddleware = true;
+    } // If this UrlNode doesn't have the nextSegment yet we create a new child UrlNode
+
+
+    if (!this.children.has(nextSegment)) {
+      this.children.set(nextSegment, new UrlNode());
+    }
+
+    this.children.get(nextSegment)._insert(urlPaths.slice(1), slugNames, isCatchAll);
+  }
+
+  constructor() {
+    this.placeholder = true;
+    this.children = new Map();
+    this.slugName = null;
+    this.restSlugName = null;
+    this.optionalRestSlugName = null;
+    this.isMiddleware = false;
+  }
+
+}
+
+function getSortedRoutes(normalizedPages) {
+  // First the UrlNode is created, and every UrlNode can have only 1 dynamic segment
+  // Eg you can't have pages/[post]/abc.js and pages/[hello]/something-else.js
+  // Only 1 dynamic segment per nesting level
+  // So in the case that is test/integration/dynamic-routing it'll be this:
+  // pages/[post]/comments.js
+  // pages/blog/[post]/comment/[id].js
+  // Both are fine because `pages/[post]` and `pages/blog` are on the same level
+  // So in this case `UrlNode` created here has `this.slugName === 'post'`
+  // And since your PR passed through `slugName` as an array basically it'd including it in too many possibilities
+  // Instead what has to be passed through is the upwards path's dynamic names
+  const root = new UrlNode(); // Here the `root` gets injected multiple paths, and insert will break them up into sublevels
+
+  normalizedPages.forEach(pagePath => root.insert(pagePath)); // Smoosh will then sort those sublevels up to the point where you get the correct route definition priority
+
+  return root.smoosh();
+}
+
+/***/ }),
+
+/***/ 61716:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports.execOnce = execOnce;
+exports.getLocationOrigin = getLocationOrigin;
+exports.getURL = getURL;
+exports.getDisplayName = getDisplayName;
+exports.isResSent = isResSent;
+exports.normalizeRepeatedSlashes = normalizeRepeatedSlashes;
+exports.loadGetInitialProps = loadGetInitialProps;
+exports.ST = exports.SP = exports.warnOnce = void 0;
+
+function execOnce(fn) {
+  let used = false;
+  let result;
+  return (...args) => {
+    if (!used) {
+      used = true;
+      result = fn(...args);
+    }
+
+    return result;
+  };
+}
+
+function getLocationOrigin() {
+  const {
+    protocol,
+    hostname,
+    port
+  } = window.location;
+  return `${protocol}//${hostname}${port ? ':' + port : ''}`;
+}
+
+function getURL() {
+  const {
+    href
+  } = window.location;
+  const origin = getLocationOrigin();
+  return href.substring(origin.length);
+}
+
+function getDisplayName(Component) {
+  return typeof Component === 'string' ? Component : Component.displayName || Component.name || 'Unknown';
+}
+
+function isResSent(res) {
+  return res.finished || res.headersSent;
+}
+
+function normalizeRepeatedSlashes(url) {
+  const urlParts = url.split('?');
+  const urlNoQuery = urlParts[0];
+  return urlNoQuery // first we replace any non-encoded backslashes with forward
+  // then normalize repeated forward slashes
+  .replace(/\\/g, '/').replace(/\/\/+/g, '/') + (urlParts[1] ? `?${urlParts.slice(1).join('?')}` : '');
+}
+
+async function loadGetInitialProps(App, ctx) {
+  if (false) { var ref; } // when called from _app `ctx` is nested in `ctx`
+
+
+  const res = ctx.res || ctx.ctx && ctx.ctx.res;
+
+  if (!App.getInitialProps) {
+    if (ctx.ctx && ctx.Component) {
+      // @ts-ignore pageProps default
+      return {
+        pageProps: await loadGetInitialProps(ctx.Component, ctx.ctx)
+      };
+    }
+
+    return {};
+  }
+
+  const props = await App.getInitialProps(ctx);
+
+  if (res && isResSent(res)) {
+    return props;
+  }
+
+  if (!props) {
+    const message = `"${getDisplayName(App)}.getInitialProps()" should resolve to an object. But found "${props}" instead.`;
+    throw new Error(message);
+  }
+
+  if (false) {}
+
+  return props;
+}
+
+let warnOnce = _ => {};
+
+exports.warnOnce = warnOnce;
+
+if (false) {}
+
+const SP = typeof performance !== 'undefined';
+exports.SP = SP;
+const ST = SP && typeof performance.mark === 'function' && typeof performance.measure === 'function';
+exports.ST = ST;
+
+class DecodeError extends Error {}
+
+exports.DecodeError = DecodeError;
+
+/***/ }),
+
 /***/ 6249:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -23,7 +1435,7 @@ var _url = __webpack_require__(57310);
 var _http = __webpack_require__(13685);
 var _node = __webpack_require__(85005);
 var _utils = __webpack_require__(58992);
-var _utils1 = __webpack_require__(57777);
+var _utils1 = __webpack_require__(61716);
 var _node1 = __webpack_require__(76094);
 function getApiHandler(ctx) {
     const { pageModule , encodedPreviewProps , pageIsDynamic  } = ctx;
@@ -75,17 +1487,17 @@ exports.getUtils = getUtils;
 exports.vercelHeader = void 0;
 var _url = __webpack_require__(57310);
 var _querystring = __webpack_require__(63477);
-var _normalizeLocalePath = __webpack_require__(20852);
-var _pathMatch = _interopRequireDefault(__webpack_require__(5906));
-var _routeRegex = __webpack_require__(16386);
-var _routeMatcher = __webpack_require__(67715);
-var _prepareDestination = __webpack_require__(83803);
+var _normalizeLocalePath = __webpack_require__(6124);
+var _pathMatch = _interopRequireDefault(__webpack_require__(8350));
+var _routeRegex = __webpack_require__(11672);
+var _routeMatcher = __webpack_require__(81864);
+var _prepareDestination = __webpack_require__(8362);
 var _acceptHeader = __webpack_require__(89833);
-var _detectLocaleCookie = __webpack_require__(80034);
-var _detectDomainLocale = __webpack_require__(76804);
+var _detectLocaleCookie = __webpack_require__(3263);
+var _detectDomainLocale = __webpack_require__(75241);
 var _denormalizePagePath = __webpack_require__(64538);
 var _cookie = _interopRequireDefault(__webpack_require__(40722));
-var _constants = __webpack_require__(67409);
+var _constants = __webpack_require__(48461);
 var _requestMeta = __webpack_require__(7476);
 function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : {
@@ -396,1178 +1808,6 @@ function getUtils({ page , i18n , basePath , rewrites , pageIsDynamic  }) {
 }
 
 //# sourceMappingURL=utils.js.map
-
-/***/ }),
-
-/***/ 67409:
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({
-    value: true
-}));
-exports.TRACE_OUTPUT_VERSION = exports.STATIC_STATUS_PAGES = exports.OPTIMIZED_FONT_PROVIDERS = exports.GOOGLE_FONT_PROVIDER = exports.FLIGHT_PROPS_ID = exports.SERVER_PROPS_ID = exports.STATIC_PROPS_ID = exports.PERMANENT_REDIRECT_STATUS = exports.TEMPORARY_REDIRECT_STATUS = exports.MIDDLEWARE_RUNTIME_WEBPACK = exports.MIDDLEWARE_SSR_RUNTIME_WEBPACK = exports.CLIENT_STATIC_FILES_RUNTIME_POLYFILLS_SYMBOL = exports.CLIENT_STATIC_FILES_RUNTIME_WEBPACK = exports.CLIENT_STATIC_FILES_RUNTIME_AMP = exports.CLIENT_STATIC_FILES_RUNTIME_REACT_REFRESH = exports.CLIENT_STATIC_FILES_RUNTIME_MAIN = exports.MIDDLEWARE_REACT_LOADABLE_MANIFEST = exports.MIDDLEWARE_BUILD_MANIFEST = exports.MIDDLEWARE_FLIGHT_MANIFEST = exports.STRING_LITERAL_DROP_BUNDLE = exports.CLIENT_STATIC_FILES_RUNTIME = exports.CLIENT_STATIC_FILES_PATH = exports.CLIENT_PUBLIC_FILES_PATH = exports.BLOCKED_PAGES = exports.BUILD_ID_FILE = exports.CONFIG_FILES = exports.SERVERLESS_DIRECTORY = exports.SERVER_DIRECTORY = exports.FONT_MANIFEST = exports.REACT_LOADABLE_MANIFEST = exports.DEV_MIDDLEWARE_MANIFEST = exports.MIDDLEWARE_MANIFEST = exports.FUNCTIONS_MANIFEST = exports.DEV_CLIENT_PAGES_MANIFEST = exports.SERVER_FILES_MANIFEST = exports.IMAGES_MANIFEST = exports.ROUTES_MANIFEST = exports.PRERENDER_MANIFEST = exports.EXPORT_DETAIL = exports.EXPORT_MARKER = exports.BUILD_MANIFEST = exports.PAGES_MANIFEST = exports.PHASE_TEST = exports.PHASE_DEVELOPMENT_SERVER = exports.PHASE_PRODUCTION_SERVER = exports.PHASE_PRODUCTION_BUILD = exports.PHASE_EXPORT = void 0;
-const PHASE_EXPORT = "phase-export";
-exports.PHASE_EXPORT = PHASE_EXPORT;
-const PHASE_PRODUCTION_BUILD = "phase-production-build";
-exports.PHASE_PRODUCTION_BUILD = PHASE_PRODUCTION_BUILD;
-const PHASE_PRODUCTION_SERVER = "phase-production-server";
-exports.PHASE_PRODUCTION_SERVER = PHASE_PRODUCTION_SERVER;
-const PHASE_DEVELOPMENT_SERVER = "phase-development-server";
-exports.PHASE_DEVELOPMENT_SERVER = PHASE_DEVELOPMENT_SERVER;
-const PHASE_TEST = "phase-test";
-exports.PHASE_TEST = PHASE_TEST;
-const PAGES_MANIFEST = "pages-manifest.json";
-exports.PAGES_MANIFEST = PAGES_MANIFEST;
-const BUILD_MANIFEST = "build-manifest.json";
-exports.BUILD_MANIFEST = BUILD_MANIFEST;
-const EXPORT_MARKER = "export-marker.json";
-exports.EXPORT_MARKER = EXPORT_MARKER;
-const EXPORT_DETAIL = "export-detail.json";
-exports.EXPORT_DETAIL = EXPORT_DETAIL;
-const PRERENDER_MANIFEST = "prerender-manifest.json";
-exports.PRERENDER_MANIFEST = PRERENDER_MANIFEST;
-const ROUTES_MANIFEST = "routes-manifest.json";
-exports.ROUTES_MANIFEST = ROUTES_MANIFEST;
-const IMAGES_MANIFEST = "images-manifest.json";
-exports.IMAGES_MANIFEST = IMAGES_MANIFEST;
-const SERVER_FILES_MANIFEST = "required-server-files.json";
-exports.SERVER_FILES_MANIFEST = SERVER_FILES_MANIFEST;
-const DEV_CLIENT_PAGES_MANIFEST = "_devPagesManifest.json";
-exports.DEV_CLIENT_PAGES_MANIFEST = DEV_CLIENT_PAGES_MANIFEST;
-const FUNCTIONS_MANIFEST = "functions-manifest.json";
-exports.FUNCTIONS_MANIFEST = FUNCTIONS_MANIFEST;
-const MIDDLEWARE_MANIFEST = "middleware-manifest.json";
-exports.MIDDLEWARE_MANIFEST = MIDDLEWARE_MANIFEST;
-const DEV_MIDDLEWARE_MANIFEST = "_devMiddlewareManifest.json";
-exports.DEV_MIDDLEWARE_MANIFEST = DEV_MIDDLEWARE_MANIFEST;
-const REACT_LOADABLE_MANIFEST = "react-loadable-manifest.json";
-exports.REACT_LOADABLE_MANIFEST = REACT_LOADABLE_MANIFEST;
-const FONT_MANIFEST = "font-manifest.json";
-exports.FONT_MANIFEST = FONT_MANIFEST;
-const SERVER_DIRECTORY = "server";
-exports.SERVER_DIRECTORY = SERVER_DIRECTORY;
-const SERVERLESS_DIRECTORY = "serverless";
-exports.SERVERLESS_DIRECTORY = SERVERLESS_DIRECTORY;
-const CONFIG_FILES = [
-    "next.config.js",
-    "next.config.mjs"
-];
-exports.CONFIG_FILES = CONFIG_FILES;
-const BUILD_ID_FILE = "BUILD_ID";
-exports.BUILD_ID_FILE = BUILD_ID_FILE;
-const BLOCKED_PAGES = [
-    "/_document",
-    "/_app",
-    "/_error"
-];
-exports.BLOCKED_PAGES = BLOCKED_PAGES;
-const CLIENT_PUBLIC_FILES_PATH = "public";
-exports.CLIENT_PUBLIC_FILES_PATH = CLIENT_PUBLIC_FILES_PATH;
-const CLIENT_STATIC_FILES_PATH = "static";
-exports.CLIENT_STATIC_FILES_PATH = CLIENT_STATIC_FILES_PATH;
-const CLIENT_STATIC_FILES_RUNTIME = "runtime";
-exports.CLIENT_STATIC_FILES_RUNTIME = CLIENT_STATIC_FILES_RUNTIME;
-const STRING_LITERAL_DROP_BUNDLE = "__NEXT_DROP_CLIENT_FILE__";
-exports.STRING_LITERAL_DROP_BUNDLE = STRING_LITERAL_DROP_BUNDLE;
-const MIDDLEWARE_FLIGHT_MANIFEST = "middleware-flight-manifest";
-exports.MIDDLEWARE_FLIGHT_MANIFEST = MIDDLEWARE_FLIGHT_MANIFEST;
-const MIDDLEWARE_BUILD_MANIFEST = "middleware-build-manifest";
-exports.MIDDLEWARE_BUILD_MANIFEST = MIDDLEWARE_BUILD_MANIFEST;
-const MIDDLEWARE_REACT_LOADABLE_MANIFEST = "middleware-react-loadable-manifest";
-exports.MIDDLEWARE_REACT_LOADABLE_MANIFEST = MIDDLEWARE_REACT_LOADABLE_MANIFEST;
-const CLIENT_STATIC_FILES_RUNTIME_MAIN = `main`;
-exports.CLIENT_STATIC_FILES_RUNTIME_MAIN = CLIENT_STATIC_FILES_RUNTIME_MAIN;
-const CLIENT_STATIC_FILES_RUNTIME_REACT_REFRESH = `react-refresh`;
-exports.CLIENT_STATIC_FILES_RUNTIME_REACT_REFRESH = CLIENT_STATIC_FILES_RUNTIME_REACT_REFRESH;
-const CLIENT_STATIC_FILES_RUNTIME_AMP = `amp`;
-exports.CLIENT_STATIC_FILES_RUNTIME_AMP = CLIENT_STATIC_FILES_RUNTIME_AMP;
-const CLIENT_STATIC_FILES_RUNTIME_WEBPACK = `webpack`;
-exports.CLIENT_STATIC_FILES_RUNTIME_WEBPACK = CLIENT_STATIC_FILES_RUNTIME_WEBPACK;
-const CLIENT_STATIC_FILES_RUNTIME_POLYFILLS_SYMBOL = Symbol(`polyfills`);
-exports.CLIENT_STATIC_FILES_RUNTIME_POLYFILLS_SYMBOL = CLIENT_STATIC_FILES_RUNTIME_POLYFILLS_SYMBOL;
-const MIDDLEWARE_SSR_RUNTIME_WEBPACK = "middleware-ssr-runtime";
-exports.MIDDLEWARE_SSR_RUNTIME_WEBPACK = MIDDLEWARE_SSR_RUNTIME_WEBPACK;
-const MIDDLEWARE_RUNTIME_WEBPACK = "middleware-runtime";
-exports.MIDDLEWARE_RUNTIME_WEBPACK = MIDDLEWARE_RUNTIME_WEBPACK;
-const TEMPORARY_REDIRECT_STATUS = 307;
-exports.TEMPORARY_REDIRECT_STATUS = TEMPORARY_REDIRECT_STATUS;
-const PERMANENT_REDIRECT_STATUS = 308;
-exports.PERMANENT_REDIRECT_STATUS = PERMANENT_REDIRECT_STATUS;
-const STATIC_PROPS_ID = "__N_SSG";
-exports.STATIC_PROPS_ID = STATIC_PROPS_ID;
-const SERVER_PROPS_ID = "__N_SSP";
-exports.SERVER_PROPS_ID = SERVER_PROPS_ID;
-const FLIGHT_PROPS_ID = "__N_RSC";
-exports.FLIGHT_PROPS_ID = FLIGHT_PROPS_ID;
-const GOOGLE_FONT_PROVIDER = "https://fonts.googleapis.com/";
-exports.GOOGLE_FONT_PROVIDER = GOOGLE_FONT_PROVIDER;
-const OPTIMIZED_FONT_PROVIDERS = [
-    {
-        url: GOOGLE_FONT_PROVIDER,
-        preconnect: "https://fonts.gstatic.com"
-    },
-    {
-        url: "https://use.typekit.net",
-        preconnect: "https://use.typekit.net"
-    }, 
-];
-exports.OPTIMIZED_FONT_PROVIDERS = OPTIMIZED_FONT_PROVIDERS;
-const STATIC_STATUS_PAGES = [
-    "/500"
-];
-exports.STATIC_STATUS_PAGES = STATIC_STATUS_PAGES;
-const TRACE_OUTPUT_VERSION = 1;
-exports.TRACE_OUTPUT_VERSION = TRACE_OUTPUT_VERSION; //# sourceMappingURL=constants.js.map
-
-
-/***/ }),
-
-/***/ 75640:
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({
-    value: true
-}));
-exports.escapeStringRegexp = escapeStringRegexp;
-function escapeStringRegexp(str) {
-    return str.replace(/[|\\{}()[\]^$+*?.-]/g, "\\$&");
-} //# sourceMappingURL=escape-regexp.js.map
-
-
-/***/ }),
-
-/***/ 76804:
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({
-    value: true
-}));
-exports.detectDomainLocale = detectDomainLocale;
-function detectDomainLocale(domainItems, hostname, detectedLocale) {
-    let domainItem;
-    if (domainItems) {
-        if (detectedLocale) {
-            detectedLocale = detectedLocale.toLowerCase();
-        }
-        for (const item of domainItems){
-            var ref, ref1;
-            // remove port if present
-            const domainHostname = (ref = item.domain) === null || ref === void 0 ? void 0 : ref.split(":")[0].toLowerCase();
-            if (hostname === domainHostname || detectedLocale === item.defaultLocale.toLowerCase() || ((ref1 = item.locales) === null || ref1 === void 0 ? void 0 : ref1.some((locale)=>locale.toLowerCase() === detectedLocale
-            ))) {
-                domainItem = item;
-                break;
-            }
-        }
-    }
-    return domainItem;
-} //# sourceMappingURL=detect-domain-locale.js.map
-
-
-/***/ }),
-
-/***/ 80034:
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({
-    value: true
-}));
-exports.detectLocaleCookie = detectLocaleCookie;
-function detectLocaleCookie(req, locales) {
-    const { NEXT_LOCALE  } = req.cookies || {};
-    return NEXT_LOCALE ? locales.find((locale)=>NEXT_LOCALE.toLowerCase() === locale.toLowerCase()
-    ) : undefined;
-} //# sourceMappingURL=detect-locale-cookie.js.map
-
-
-/***/ }),
-
-/***/ 20852:
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({
-    value: true
-}));
-exports.normalizeLocalePath = normalizeLocalePath;
-function normalizeLocalePath(pathname, locales) {
-    let detectedLocale;
-    // first item will be empty string from splitting at first char
-    const pathnameParts = pathname.split("/");
-    (locales || []).some((locale)=>{
-        if (pathnameParts[1] && pathnameParts[1].toLowerCase() === locale.toLowerCase()) {
-            detectedLocale = locale;
-            pathnameParts.splice(1, 1);
-            pathname = pathnameParts.join("/") || "/";
-            return true;
-        }
-        return false;
-    });
-    return {
-        pathname,
-        detectedLocale
-    };
-} //# sourceMappingURL=normalize-locale-path.js.map
-
-
-/***/ }),
-
-/***/ 65659:
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({
-    value: true
-}));
-exports.getObjectClassLabel = getObjectClassLabel;
-exports.isPlainObject = isPlainObject;
-function getObjectClassLabel(value) {
-    return Object.prototype.toString.call(value);
-}
-function isPlainObject(value) {
-    if (getObjectClassLabel(value) !== "[object Object]") {
-        return false;
-    }
-    const prototype = Object.getPrototypeOf(value);
-    return prototype === null || prototype === Object.prototype;
-} //# sourceMappingURL=is-plain-object.js.map
-
-
-/***/ }),
-
-/***/ 7963:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({
-    value: true
-}));
-exports.getMiddlewareRegex = getMiddlewareRegex;
-var _routeRegex = __webpack_require__(16386);
-function getMiddlewareRegex(normalizedRoute, catchAll = true) {
-    const result = (0, _routeRegex).getParametrizedRoute(normalizedRoute);
-    let catchAllRegex = catchAll ? "(?!_next).*" : "";
-    let catchAllGroupedRegex = catchAll ? "(?:(/.*)?)" : "";
-    if ("routeKeys" in result) {
-        if (result.parameterizedRoute === "/") {
-            return {
-                groups: {},
-                namedRegex: `^/${catchAllRegex}$`,
-                re: new RegExp(`^/${catchAllRegex}$`),
-                routeKeys: {}
-            };
-        }
-        return {
-            groups: result.groups,
-            namedRegex: `^${result.namedParameterizedRoute}${catchAllGroupedRegex}$`,
-            re: new RegExp(`^${result.parameterizedRoute}${catchAllGroupedRegex}$`),
-            routeKeys: result.routeKeys
-        };
-    }
-    if (result.parameterizedRoute === "/") {
-        return {
-            groups: {},
-            re: new RegExp(`^/${catchAllRegex}$`)
-        };
-    }
-    return {
-        groups: {},
-        re: new RegExp(`^${result.parameterizedRoute}${catchAllGroupedRegex}$`)
-    };
-} //# sourceMappingURL=get-middleware-regex.js.map
-
-
-/***/ }),
-
-/***/ 91960:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({
-    value: true
-}));
-Object.defineProperty(exports, "getMiddlewareRegex", ({
-    enumerable: true,
-    get: function() {
-        return _getMiddlewareRegex.getMiddlewareRegex;
-    }
-}));
-Object.defineProperty(exports, "getRouteMatcher", ({
-    enumerable: true,
-    get: function() {
-        return _routeMatcher.getRouteMatcher;
-    }
-}));
-Object.defineProperty(exports, "getRouteRegex", ({
-    enumerable: true,
-    get: function() {
-        return _routeRegex.getRouteRegex;
-    }
-}));
-Object.defineProperty(exports, "getSortedRoutes", ({
-    enumerable: true,
-    get: function() {
-        return _sortedRoutes.getSortedRoutes;
-    }
-}));
-Object.defineProperty(exports, "isDynamicRoute", ({
-    enumerable: true,
-    get: function() {
-        return _isDynamic.isDynamicRoute;
-    }
-}));
-var _getMiddlewareRegex = __webpack_require__(7963);
-var _routeMatcher = __webpack_require__(67715);
-var _routeRegex = __webpack_require__(16386);
-var _sortedRoutes = __webpack_require__(3566);
-var _isDynamic = __webpack_require__(41562); //# sourceMappingURL=index.js.map
-
-
-/***/ }),
-
-/***/ 41562:
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({
-    value: true
-}));
-exports.isDynamicRoute = isDynamicRoute;
-// Identify /[param]/ in route string
-const TEST_ROUTE = /\/\[[^/]+?\](?=\/|$)/;
-function isDynamicRoute(route) {
-    return TEST_ROUTE.test(route);
-} //# sourceMappingURL=is-dynamic.js.map
-
-
-/***/ }),
-
-/***/ 33505:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({
-    value: true
-}));
-exports.parseRelativeUrl = parseRelativeUrl;
-var _utils = __webpack_require__(57777);
-var _querystring = __webpack_require__(40042);
-function parseRelativeUrl(url, base) {
-    const globalBase = new URL( true ? "http://n" : 0);
-    const resolvedBase = base ? new URL(base, globalBase) : globalBase;
-    const { pathname , searchParams , search , hash , href , origin  } = new URL(url, resolvedBase);
-    if (origin !== globalBase.origin) {
-        throw new Error(`invariant: invalid relative URL, router received ${url}`);
-    }
-    return {
-        pathname,
-        query: (0, _querystring).searchParamsToUrlQuery(searchParams),
-        search,
-        hash,
-        href: href.slice(globalBase.origin.length)
-    };
-} //# sourceMappingURL=parse-relative-url.js.map
-
-
-/***/ }),
-
-/***/ 49539:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({
-    value: true
-}));
-exports.parseUrl = parseUrl;
-var _querystring = __webpack_require__(40042);
-var _parseRelativeUrl = __webpack_require__(33505);
-function parseUrl(url) {
-    if (url.startsWith("/")) {
-        return (0, _parseRelativeUrl).parseRelativeUrl(url);
-    }
-    const parsedURL = new URL(url);
-    return {
-        hash: parsedURL.hash,
-        hostname: parsedURL.hostname,
-        href: parsedURL.href,
-        pathname: parsedURL.pathname,
-        port: parsedURL.port,
-        protocol: parsedURL.protocol,
-        query: (0, _querystring).searchParamsToUrlQuery(parsedURL.searchParams),
-        search: parsedURL.search
-    };
-} //# sourceMappingURL=parse-url.js.map
-
-
-/***/ }),
-
-/***/ 5906:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({
-    value: true
-}));
-exports["default"] = exports.customRouteMatcherOptions = exports.matcherOptions = exports.pathToRegexp = void 0;
-var pathToRegexp = _interopRequireWildcard(__webpack_require__(75229));
-exports.pathToRegexp = pathToRegexp;
-function _interopRequireWildcard(obj) {
-    if (obj && obj.__esModule) {
-        return obj;
-    } else {
-        var newObj = {};
-        if (obj != null) {
-            for(var key in obj){
-                if (Object.prototype.hasOwnProperty.call(obj, key)) {
-                    var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {};
-                    if (desc.get || desc.set) {
-                        Object.defineProperty(newObj, key, desc);
-                    } else {
-                        newObj[key] = obj[key];
-                    }
-                }
-            }
-        }
-        newObj.default = obj;
-        return newObj;
-    }
-}
-const matcherOptions = {
-    sensitive: false,
-    delimiter: "/"
-};
-exports.matcherOptions = matcherOptions;
-const customRouteMatcherOptions = {
-    ...matcherOptions,
-    strict: true
-};
-exports.customRouteMatcherOptions = customRouteMatcherOptions;
-var _default = (customRoute = false)=>{
-    return (path, regexModifier)=>{
-        const keys = [];
-        let matcherRegex = pathToRegexp.pathToRegexp(path, keys, customRoute ? customRouteMatcherOptions : matcherOptions);
-        if (regexModifier) {
-            const regexSource = regexModifier(matcherRegex.source);
-            matcherRegex = new RegExp(regexSource, matcherRegex.flags);
-        }
-        const matcher = pathToRegexp.regexpToFunction(matcherRegex, keys);
-        return (pathname, params)=>{
-            const res = pathname == null ? false : matcher(pathname);
-            if (!res) {
-                return false;
-            }
-            if (customRoute) {
-                for (const key of keys){
-                    // unnamed params should be removed as they
-                    // are not allowed to be used in the destination
-                    if (typeof key.name === "number") {
-                        delete res.params[key.name];
-                    }
-                }
-            }
-            return {
-                ...params,
-                ...res.params
-            };
-        };
-    };
-};
-exports["default"] = _default; //# sourceMappingURL=path-match.js.map
-
-
-/***/ }),
-
-/***/ 83803:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({
-    value: true
-}));
-exports.matchHas = matchHas;
-exports.compileNonPath = compileNonPath;
-exports.prepareDestination = prepareDestination;
-var _pathToRegexp = __webpack_require__(75229);
-var _escapeRegexp = __webpack_require__(75640);
-var _parseUrl = __webpack_require__(49539);
-function matchHas(req, has, query) {
-    const params = {};
-    const allMatch = has.every((hasItem)=>{
-        let value;
-        let key = hasItem.key;
-        switch(hasItem.type){
-            case "header":
-                {
-                    key = key.toLowerCase();
-                    value = req.headers[key];
-                    break;
-                }
-            case "cookie":
-                {
-                    value = req.cookies[hasItem.key];
-                    break;
-                }
-            case "query":
-                {
-                    value = query[key];
-                    break;
-                }
-            case "host":
-                {
-                    const { host  } = (req === null || req === void 0 ? void 0 : req.headers) || {};
-                    // remove port from host if present
-                    const hostname = host === null || host === void 0 ? void 0 : host.split(":")[0].toLowerCase();
-                    value = hostname;
-                    break;
-                }
-            default:
-                {
-                    break;
-                }
-        }
-        if (!hasItem.value && value) {
-            params[getSafeParamName(key)] = value;
-            return true;
-        } else if (value) {
-            const matcher = new RegExp(`^${hasItem.value}$`);
-            const matches = Array.isArray(value) ? value.slice(-1)[0].match(matcher) : value.match(matcher);
-            if (matches) {
-                if (Array.isArray(matches)) {
-                    if (matches.groups) {
-                        Object.keys(matches.groups).forEach((groupKey)=>{
-                            params[groupKey] = matches.groups[groupKey];
-                        });
-                    } else if (hasItem.type === "host" && matches[0]) {
-                        params.host = matches[0];
-                    }
-                }
-                return true;
-            }
-        }
-        return false;
-    });
-    if (allMatch) {
-        return params;
-    }
-    return false;
-}
-function compileNonPath(value, params) {
-    if (!value.includes(":")) {
-        return value;
-    }
-    for (const key of Object.keys(params)){
-        if (value.includes(`:${key}`)) {
-            value = value.replace(new RegExp(`:${key}\\*`, "g"), `:${key}--ESCAPED_PARAM_ASTERISKS`).replace(new RegExp(`:${key}\\?`, "g"), `:${key}--ESCAPED_PARAM_QUESTION`).replace(new RegExp(`:${key}\\+`, "g"), `:${key}--ESCAPED_PARAM_PLUS`).replace(new RegExp(`:${key}(?!\\w)`, "g"), `--ESCAPED_PARAM_COLON${key}`);
-        }
-    }
-    value = value.replace(/(:|\*|\?|\+|\(|\)|\{|\})/g, "\\$1").replace(/--ESCAPED_PARAM_PLUS/g, "+").replace(/--ESCAPED_PARAM_COLON/g, ":").replace(/--ESCAPED_PARAM_QUESTION/g, "?").replace(/--ESCAPED_PARAM_ASTERISKS/g, "*");
-    // the value needs to start with a forward-slash to be compiled
-    // correctly
-    return (0, _pathToRegexp).compile(`/${value}`, {
-        validate: false
-    })(params).slice(1);
-}
-function prepareDestination(args) {
-    const query = Object.assign({}, args.query);
-    delete query.__nextLocale;
-    delete query.__nextDefaultLocale;
-    let escapedDestination = args.destination;
-    for (const param of Object.keys({
-        ...args.params,
-        ...query
-    })){
-        escapedDestination = escapeSegment(escapedDestination, param);
-    }
-    const parsedDestination = (0, _parseUrl).parseUrl(escapedDestination);
-    const destQuery = parsedDestination.query;
-    const destPath = unescapeSegments(`${parsedDestination.pathname}${parsedDestination.hash || ""}`);
-    const destHostname = unescapeSegments(parsedDestination.hostname || "");
-    const destPathParamKeys = [];
-    const destHostnameParamKeys = [];
-    (0, _pathToRegexp).pathToRegexp(destPath, destPathParamKeys);
-    (0, _pathToRegexp).pathToRegexp(destHostname, destHostnameParamKeys);
-    const destParams = [];
-    destPathParamKeys.forEach((key)=>destParams.push(key.name)
-    );
-    destHostnameParamKeys.forEach((key)=>destParams.push(key.name)
-    );
-    const destPathCompiler = (0, _pathToRegexp).compile(destPath, // have already validated before we got to this point and validating
-    // breaks compiling destinations with named pattern params from the source
-    // e.g. /something:hello(.*) -> /another/:hello is broken with validation
-    // since compile validation is meant for reversing and not for inserting
-    // params from a separate path-regex into another
-    {
-        validate: false
-    });
-    const destHostnameCompiler = (0, _pathToRegexp).compile(destHostname, {
-        validate: false
-    });
-    // update any params in query values
-    for (const [key1, strOrArray] of Object.entries(destQuery)){
-        // the value needs to start with a forward-slash to be compiled
-        // correctly
-        if (Array.isArray(strOrArray)) {
-            destQuery[key1] = strOrArray.map((value)=>compileNonPath(unescapeSegments(value), args.params)
-            );
-        } else {
-            destQuery[key1] = compileNonPath(unescapeSegments(strOrArray), args.params);
-        }
-    }
-    // add path params to query if it's not a redirect and not
-    // already defined in destination query or path
-    let paramKeys = Object.keys(args.params).filter((name)=>name !== "nextInternalLocale"
-    );
-    if (args.appendParamsToQuery && !paramKeys.some((key)=>destParams.includes(key)
-    )) {
-        for (const key of paramKeys){
-            if (!(key in destQuery)) {
-                destQuery[key] = args.params[key];
-            }
-        }
-    }
-    let newUrl;
-    try {
-        newUrl = destPathCompiler(args.params);
-        const [pathname, hash] = newUrl.split("#");
-        parsedDestination.hostname = destHostnameCompiler(args.params);
-        parsedDestination.pathname = pathname;
-        parsedDestination.hash = `${hash ? "#" : ""}${hash || ""}`;
-        delete parsedDestination.search;
-    } catch (err) {
-        if (err.message.match(/Expected .*? to not repeat, but got an array/)) {
-            throw new Error(`To use a multi-match in the destination you must add \`*\` at the end of the param name to signify it should repeat. https://nextjs.org/docs/messages/invalid-multi-match`);
-        }
-        throw err;
-    }
-    // Query merge order lowest priority to highest
-    // 1. initial URL query values
-    // 2. path segment values
-    // 3. destination specified query values
-    parsedDestination.query = {
-        ...query,
-        ...parsedDestination.query
-    };
-    return {
-        newUrl,
-        parsedDestination
-    };
-}
-/**
- * Ensure only a-zA-Z are used for param names for proper interpolating
- * with path-to-regexp
- */ function getSafeParamName(paramName) {
-    let newParamName = "";
-    for(let i = 0; i < paramName.length; i++){
-        const charCode = paramName.charCodeAt(i);
-        if (charCode > 64 && charCode < 91 || charCode > 96 && charCode < 123 // a-z
-        ) {
-            newParamName += paramName[i];
-        }
-    }
-    return newParamName;
-}
-function escapeSegment(str, segmentName) {
-    return str.replace(new RegExp(`:${(0, _escapeRegexp).escapeStringRegexp(segmentName)}`, "g"), `__ESC_COLON_${segmentName}`);
-}
-function unescapeSegments(str) {
-    return str.replace(/__ESC_COLON_/gi, ":");
-} //# sourceMappingURL=prepare-destination.js.map
-
-
-/***/ }),
-
-/***/ 40042:
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({
-    value: true
-}));
-exports.searchParamsToUrlQuery = searchParamsToUrlQuery;
-exports.urlQueryToSearchParams = urlQueryToSearchParams;
-exports.assign = assign;
-function searchParamsToUrlQuery(searchParams) {
-    const query = {};
-    searchParams.forEach((value, key)=>{
-        if (typeof query[key] === "undefined") {
-            query[key] = value;
-        } else if (Array.isArray(query[key])) {
-            query[key].push(value);
-        } else {
-            query[key] = [
-                query[key],
-                value
-            ];
-        }
-    });
-    return query;
-}
-function stringifyUrlQueryParam(param) {
-    if (typeof param === "string" || typeof param === "number" && !isNaN(param) || typeof param === "boolean") {
-        return String(param);
-    } else {
-        return "";
-    }
-}
-function urlQueryToSearchParams(urlQuery) {
-    const result = new URLSearchParams();
-    Object.entries(urlQuery).forEach(([key, value])=>{
-        if (Array.isArray(value)) {
-            value.forEach((item)=>result.append(key, stringifyUrlQueryParam(item))
-            );
-        } else {
-            result.set(key, stringifyUrlQueryParam(value));
-        }
-    });
-    return result;
-}
-function assign(target, ...searchParamsList) {
-    searchParamsList.forEach((searchParams)=>{
-        Array.from(searchParams.keys()).forEach((key)=>target.delete(key)
-        );
-        searchParams.forEach((value, key)=>target.append(key, value)
-        );
-    });
-    return target;
-} //# sourceMappingURL=querystring.js.map
-
-
-/***/ }),
-
-/***/ 67715:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({
-    value: true
-}));
-exports.getRouteMatcher = getRouteMatcher;
-var _utils = __webpack_require__(57777);
-function getRouteMatcher(routeRegex) {
-    const { re , groups  } = routeRegex;
-    return (pathname)=>{
-        const routeMatch = re.exec(pathname);
-        if (!routeMatch) {
-            return false;
-        }
-        const decode = (param)=>{
-            try {
-                return decodeURIComponent(param);
-            } catch (_) {
-                throw new _utils.DecodeError("failed to decode param");
-            }
-        };
-        const params = {};
-        Object.keys(groups).forEach((slugName)=>{
-            const g = groups[slugName];
-            const m = routeMatch[g.pos];
-            if (m !== undefined) {
-                params[slugName] = ~m.indexOf("/") ? m.split("/").map((entry)=>decode(entry)
-                ) : g.repeat ? [
-                    decode(m)
-                ] : decode(m);
-            }
-        });
-        return params;
-    };
-} //# sourceMappingURL=route-matcher.js.map
-
-
-/***/ }),
-
-/***/ 16386:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({
-    value: true
-}));
-exports.getParametrizedRoute = getParametrizedRoute;
-exports.getRouteRegex = getRouteRegex;
-var _escapeRegexp = __webpack_require__(75640);
-function parseParameter(param) {
-    const optional = param.startsWith("[") && param.endsWith("]");
-    if (optional) {
-        param = param.slice(1, -1);
-    }
-    const repeat = param.startsWith("...");
-    if (repeat) {
-        param = param.slice(3);
-    }
-    return {
-        key: param,
-        repeat,
-        optional
-    };
-}
-function getParametrizedRoute(route) {
-    const segments = (route.replace(/\/$/, "") || "/").slice(1).split("/");
-    const groups = {};
-    let groupIndex = 1;
-    const parameterizedRoute = segments.map((segment)=>{
-        if (segment.startsWith("[") && segment.endsWith("]")) {
-            const { key , optional , repeat  } = parseParameter(segment.slice(1, -1));
-            groups[key] = {
-                pos: groupIndex++,
-                repeat,
-                optional
-            };
-            return repeat ? optional ? "(?:/(.+?))?" : "/(.+?)" : "/([^/]+?)";
-        } else {
-            return `/${(0, _escapeRegexp).escapeStringRegexp(segment)}`;
-        }
-    }).join("");
-    // dead code eliminate for browser since it's only needed
-    // while generating routes-manifest
-    if (true) {
-        let routeKeyCharCode = 97;
-        let routeKeyCharLength = 1;
-        // builds a minimal routeKey using only a-z and minimal number of characters
-        const getSafeRouteKey = ()=>{
-            let routeKey = "";
-            for(let i = 0; i < routeKeyCharLength; i++){
-                routeKey += String.fromCharCode(routeKeyCharCode);
-                routeKeyCharCode++;
-                if (routeKeyCharCode > 122) {
-                    routeKeyCharLength++;
-                    routeKeyCharCode = 97;
-                }
-            }
-            return routeKey;
-        };
-        const routeKeys = {};
-        let namedParameterizedRoute = segments.map((segment)=>{
-            if (segment.startsWith("[") && segment.endsWith("]")) {
-                const { key , optional , repeat  } = parseParameter(segment.slice(1, -1));
-                // replace any non-word characters since they can break
-                // the named regex
-                let cleanedKey = key.replace(/\W/g, "");
-                let invalidKey = false;
-                // check if the key is still invalid and fallback to using a known
-                // safe key
-                if (cleanedKey.length === 0 || cleanedKey.length > 30) {
-                    invalidKey = true;
-                }
-                if (!isNaN(parseInt(cleanedKey.slice(0, 1)))) {
-                    invalidKey = true;
-                }
-                if (invalidKey) {
-                    cleanedKey = getSafeRouteKey();
-                }
-                routeKeys[cleanedKey] = key;
-                return repeat ? optional ? `(?:/(?<${cleanedKey}>.+?))?` : `/(?<${cleanedKey}>.+?)` : `/(?<${cleanedKey}>[^/]+?)`;
-            } else {
-                return `/${(0, _escapeRegexp).escapeStringRegexp(segment)}`;
-            }
-        }).join("");
-        return {
-            parameterizedRoute,
-            namedParameterizedRoute,
-            groups,
-            routeKeys
-        };
-    }
-    return {
-        parameterizedRoute,
-        groups
-    };
-}
-function getRouteRegex(normalizedRoute) {
-    const result = getParametrizedRoute(normalizedRoute);
-    if ("routeKeys" in result) {
-        return {
-            re: new RegExp(`^${result.parameterizedRoute}(?:/)?$`),
-            groups: result.groups,
-            routeKeys: result.routeKeys,
-            namedRegex: `^${result.namedParameterizedRoute}(?:/)?$`
-        };
-    }
-    return {
-        re: new RegExp(`^${result.parameterizedRoute}(?:/)?$`),
-        groups: result.groups
-    };
-} //# sourceMappingURL=route-regex.js.map
-
-
-/***/ }),
-
-/***/ 3566:
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({
-    value: true
-}));
-exports.getSortedRoutes = getSortedRoutes;
-class UrlNode {
-    insert(urlPath) {
-        this._insert(urlPath.split("/").filter(Boolean), [], false);
-    }
-    smoosh() {
-        return this._smoosh();
-    }
-    _smoosh(prefix = "/") {
-        const childrenPaths = [
-            ...this.children.keys()
-        ].sort();
-        if (this.slugName !== null) {
-            childrenPaths.splice(childrenPaths.indexOf("[]"), 1);
-        }
-        if (this.restSlugName !== null) {
-            childrenPaths.splice(childrenPaths.indexOf("[...]"), 1);
-        }
-        if (this.optionalRestSlugName !== null) {
-            childrenPaths.splice(childrenPaths.indexOf("[[...]]"), 1);
-        }
-        const routes = childrenPaths.map((c)=>this.children.get(c)._smoosh(`${prefix}${c}/`)
-        ).reduce((prev, curr)=>[
-                ...prev,
-                ...curr
-            ]
-        , []);
-        if (this.slugName !== null) {
-            routes.push(...this.children.get("[]")._smoosh(`${prefix}[${this.slugName}]/`));
-        }
-        if (!this.placeholder) {
-            const r = prefix === "/" ? "/" : prefix.slice(0, -1);
-            if (this.optionalRestSlugName != null) {
-                throw new Error(`You cannot define a route with the same specificity as a optional catch-all route ("${r}" and "${r}[[...${this.optionalRestSlugName}]]").`);
-            }
-            routes.unshift(r);
-        }
-        if (this.restSlugName !== null) {
-            routes.push(...this.children.get("[...]")._smoosh(`${prefix}[...${this.restSlugName}]/`));
-        }
-        if (this.optionalRestSlugName !== null) {
-            routes.push(...this.children.get("[[...]]")._smoosh(`${prefix}[[...${this.optionalRestSlugName}]]/`));
-        }
-        return routes;
-    }
-    _insert(urlPaths, slugNames, isCatchAll) {
-        if (urlPaths.length === 0) {
-            this.placeholder = false;
-            return;
-        }
-        if (isCatchAll) {
-            throw new Error(`Catch-all must be the last part of the URL.`);
-        }
-        // The next segment in the urlPaths list
-        let nextSegment = urlPaths[0];
-        // Check if the segment matches `[something]`
-        if (nextSegment.startsWith("[") && nextSegment.endsWith("]")) {
-            // Strip `[` and `]`, leaving only `something`
-            let segmentName = nextSegment.slice(1, -1);
-            let isOptional = false;
-            if (segmentName.startsWith("[") && segmentName.endsWith("]")) {
-                // Strip optional `[` and `]`, leaving only `something`
-                segmentName = segmentName.slice(1, -1);
-                isOptional = true;
-            }
-            if (segmentName.startsWith("...")) {
-                // Strip `...`, leaving only `something`
-                segmentName = segmentName.substring(3);
-                isCatchAll = true;
-            }
-            if (segmentName.startsWith("[") || segmentName.endsWith("]")) {
-                throw new Error(`Segment names may not start or end with extra brackets ('${segmentName}').`);
-            }
-            if (segmentName.startsWith(".")) {
-                throw new Error(`Segment names may not start with erroneous periods ('${segmentName}').`);
-            }
-            function handleSlug(previousSlug, nextSlug) {
-                if (previousSlug !== null) {
-                    // If the specific segment already has a slug but the slug is not `something`
-                    // This prevents collisions like:
-                    // pages/[post]/index.js
-                    // pages/[id]/index.js
-                    // Because currently multiple dynamic params on the same segment level are not supported
-                    if (previousSlug !== nextSlug) {
-                        // TODO: This error seems to be confusing for users, needs an error link, the description can be based on above comment.
-                        throw new Error(`You cannot use different slug names for the same dynamic path ('${previousSlug}' !== '${nextSlug}').`);
-                    }
-                }
-                slugNames.forEach((slug)=>{
-                    if (slug === nextSlug) {
-                        throw new Error(`You cannot have the same slug name "${nextSlug}" repeat within a single dynamic path`);
-                    }
-                    if (slug.replace(/\W/g, "") === nextSegment.replace(/\W/g, "")) {
-                        throw new Error(`You cannot have the slug names "${slug}" and "${nextSlug}" differ only by non-word symbols within a single dynamic path`);
-                    }
-                });
-                slugNames.push(nextSlug);
-            }
-            if (isCatchAll) {
-                if (isOptional) {
-                    if (this.restSlugName != null) {
-                        throw new Error(`You cannot use both an required and optional catch-all route at the same level ("[...${this.restSlugName}]" and "${urlPaths[0]}" ).`);
-                    }
-                    handleSlug(this.optionalRestSlugName, segmentName);
-                    // slugName is kept as it can only be one particular slugName
-                    this.optionalRestSlugName = segmentName;
-                    // nextSegment is overwritten to [[...]] so that it can later be sorted specifically
-                    nextSegment = "[[...]]";
-                } else {
-                    if (this.optionalRestSlugName != null) {
-                        throw new Error(`You cannot use both an optional and required catch-all route at the same level ("[[...${this.optionalRestSlugName}]]" and "${urlPaths[0]}").`);
-                    }
-                    handleSlug(this.restSlugName, segmentName);
-                    // slugName is kept as it can only be one particular slugName
-                    this.restSlugName = segmentName;
-                    // nextSegment is overwritten to [...] so that it can later be sorted specifically
-                    nextSegment = "[...]";
-                }
-            } else {
-                if (isOptional) {
-                    throw new Error(`Optional route parameters are not yet supported ("${urlPaths[0]}").`);
-                }
-                handleSlug(this.slugName, segmentName);
-                // slugName is kept as it can only be one particular slugName
-                this.slugName = segmentName;
-                // nextSegment is overwritten to [] so that it can later be sorted specifically
-                nextSegment = "[]";
-            }
-        }
-        // If this UrlNode doesn't have the nextSegment yet we create a new child UrlNode
-        if (!this.children.has(nextSegment)) {
-            this.children.set(nextSegment, new UrlNode());
-        }
-        this.children.get(nextSegment)._insert(urlPaths.slice(1), slugNames, isCatchAll);
-    }
-    constructor(){
-        this.placeholder = true;
-        this.children = new Map();
-        this.slugName = null;
-        this.restSlugName = null;
-        this.optionalRestSlugName = null;
-    }
-}
-function getSortedRoutes(normalizedPages) {
-    // First the UrlNode is created, and every UrlNode can have only 1 dynamic segment
-    // Eg you can't have pages/[post]/abc.js and pages/[hello]/something-else.js
-    // Only 1 dynamic segment per nesting level
-    // So in the case that is test/integration/dynamic-routing it'll be this:
-    // pages/[post]/comments.js
-    // pages/blog/[post]/comment/[id].js
-    // Both are fine because `pages/[post]` and `pages/blog` are on the same level
-    // So in this case `UrlNode` created here has `this.slugName === 'post'`
-    // And since your PR passed through `slugName` as an array basically it'd including it in too many possibilities
-    // Instead what has to be passed through is the upwards path's dynamic names
-    const root = new UrlNode();
-    // Here the `root` gets injected multiple paths, and insert will break them up into sublevels
-    normalizedPages.forEach((pagePath)=>root.insert(pagePath)
-    );
-    // Smoosh will then sort those sublevels up to the point where you get the correct route definition priority
-    return root.smoosh();
-} //# sourceMappingURL=sorted-routes.js.map
-
-
-/***/ }),
-
-/***/ 57777:
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({
-    value: true
-}));
-exports.execOnce = execOnce;
-exports.getLocationOrigin = getLocationOrigin;
-exports.getURL = getURL;
-exports.getDisplayName = getDisplayName;
-exports.isResSent = isResSent;
-exports.normalizeRepeatedSlashes = normalizeRepeatedSlashes;
-exports.loadGetInitialProps = loadGetInitialProps;
-exports.ST = exports.SP = exports.warnOnce = void 0;
-function execOnce(fn) {
-    let used = false;
-    let result;
-    return (...args)=>{
-        if (!used) {
-            used = true;
-            result = fn(...args);
-        }
-        return result;
-    };
-}
-function getLocationOrigin() {
-    const { protocol , hostname , port  } = window.location;
-    return `${protocol}//${hostname}${port ? ":" + port : ""}`;
-}
-function getURL() {
-    const { href  } = window.location;
-    const origin = getLocationOrigin();
-    return href.substring(origin.length);
-}
-function getDisplayName(Component) {
-    return typeof Component === "string" ? Component : Component.displayName || Component.name || "Unknown";
-}
-function isResSent(res) {
-    return res.finished || res.headersSent;
-}
-function normalizeRepeatedSlashes(url) {
-    const urlParts = url.split("?");
-    const urlNoQuery = urlParts[0];
-    return urlNoQuery // first we replace any non-encoded backslashes with forward
-    // then normalize repeated forward slashes
-    .replace(/\\/g, "/").replace(/\/\/+/g, "/") + (urlParts[1] ? `?${urlParts.slice(1).join("?")}` : "");
-}
-async function loadGetInitialProps(App, ctx) {
-    if (false) { var ref; }
-    // when called from _app `ctx` is nested in `ctx`
-    const res = ctx.res || ctx.ctx && ctx.ctx.res;
-    if (!App.getInitialProps) {
-        if (ctx.ctx && ctx.Component) {
-            // @ts-ignore pageProps default
-            return {
-                pageProps: await loadGetInitialProps(ctx.Component, ctx.ctx)
-            };
-        }
-        return {};
-    }
-    const props = await App.getInitialProps(ctx);
-    if (res && isResSent(res)) {
-        return props;
-    }
-    if (!props) {
-        const message = `"${getDisplayName(App)}.getInitialProps()" should resolve to an object. But found "${props}" instead.`;
-        throw new Error(message);
-    }
-    if (false) {}
-    return props;
-}
-let warnOnce = (_)=>{};
-exports.warnOnce = warnOnce;
-if (false) {}
-const SP = typeof performance !== "undefined";
-exports.SP = SP;
-const ST = SP && typeof performance.mark === "function" && typeof performance.measure === "function";
-exports.ST = ST;
-class DecodeError extends Error {
-}
-exports.DecodeError = DecodeError; //# sourceMappingURL=utils.js.map
-
 
 /***/ }),
 
@@ -2155,7 +2395,7 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports["default"] = isError;
 exports.getProperError = getProperError;
-var _isPlainObject = __webpack_require__(65659);
+var _isPlainObject = __webpack_require__(80078);
 function isError(err) {
     return typeof err === 'object' && err !== null && 'name' in err && 'message' in err;
 }
@@ -2455,7 +2695,7 @@ var _sendPayload = __webpack_require__(25705);
 var _stream = __webpack_require__(12781);
 var _contentType = __webpack_require__(97293);
 var _isError = _interopRequireDefault(__webpack_require__(88331));
-var _utils = __webpack_require__(57777);
+var _utils = __webpack_require__(61716);
 var _interopDefault = __webpack_require__(67554);
 var _index = __webpack_require__(26114);
 var _mockRequest = __webpack_require__(67098);
@@ -2821,7 +3061,7 @@ function getMaxContentLength(responseLimit) {
 Object.defineProperty(exports, "__esModule", ({
     value: true
 }));
-var _constants = __webpack_require__(67409);
+var _constants = __webpack_require__(48461);
 var _apiUtils = __webpack_require__(26114);
 class BaseNextRequest {
     constructor(method, url, body){
@@ -3034,7 +3274,7 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports.normalizePathSep = normalizePathSep;
 exports.denormalizePagePath = denormalizePagePath;
-var _utils = __webpack_require__(91960);
+var _utils = __webpack_require__(95052);
 function normalizePathSep(path) {
     return path.replace(/\\/g, '/');
 }
@@ -3247,7 +3487,7 @@ Object.defineProperty(exports, "setRevalidateHeaders", ({
 }));
 exports.sendRenderResult = sendRenderResult;
 exports.sendEtagResponse = sendEtagResponse;
-var _utils = __webpack_require__(57777);
+var _utils = __webpack_require__(61716);
 var _etag = _interopRequireDefault(__webpack_require__(28008));
 var _fresh = _interopRequireDefault(__webpack_require__(12927));
 var _revalidateHeaders = __webpack_require__(29330);
