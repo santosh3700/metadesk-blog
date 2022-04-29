@@ -9,8 +9,9 @@
 
 module.exports = {
   env: {
-    wordpressApiUrl: "http://13.212.30.117/graphql",
-    // 'https://metadesk.thenwg.xyz/graphql',
+    wordpressApiUrl:
+      //  "http://13.212.30.117/graphql",
+      'https://metadesk.thenwg.xyz/graphql',
     headerMenuName: 'Main menu',
     text: {
       MORE: 'SEE ALL',
@@ -110,7 +111,8 @@ module.exports = {
   },
   images: {
     domains: [
-      'http://13.212.30.117',
+      // 'http://13.212.30.117',
+      'https://metadesk.thenwg.xyz/graphql',
       'https://www.youtube.com',
       'i0.wp.com',
       'secure.gravatar.com',
