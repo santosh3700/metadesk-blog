@@ -1,6 +1,6 @@
 {
   "name": "c1tqr7c-jvezk7a",
-  "hash": "PLPYqPtkC07pp6AdcyeCmAaCabvZhbP9QRQvZ9+lSZg=",
+  "hash": "8Ne3iBBP9+A6DWml4cl3Jp85SufFotHqbgwsaGPzCQ8=",
   "description": "API Lambda@Edge for Next CloudFront distribution",
   "memory": 512,
   "timeout": 10,

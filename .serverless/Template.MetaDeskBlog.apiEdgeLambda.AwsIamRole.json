@@ -2,8 +2,8 @@
   "name": "c1tqr7c-kifut6u",
   "arn": "arn:aws:iam::059393727420:role/c1tqr7c-kifut6u",
   "service": [
-    "lambda.amazonaws.com",
-    "edgelambda.amazonaws.com"
+    "edgelambda.amazonaws.com",
+    "lambda.amazonaws.com"
   ],
   "policy": {
     "Version": "2012-10-17",
