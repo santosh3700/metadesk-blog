@@ -23,8 +23,8 @@ import {
   getAllPostsWithUri,
   getAllPostsForHome,
 } from '../lib/api';
-import Post1st from '../component/post/PostSection/1stpost';
-import Post2nd from '../component/post/PostSection/post2nd';
+//import Post1st from '../component/post/PostSection/1stpost';
+//import Post2nd from '../component/post/PostSection/post2nd';
 // import VideoPost from '../component/post/VideoPost';
 
 //export const config = { amp: 'hybrid' }
@@ -32,7 +32,7 @@ import Post2nd from '../component/post/PostSection/post2nd';
 function OtherPages(props) {
   //console.log("original data = ", props)
 
-  console.log('checkslug', props);
+  //console.log('checkslug', props);
 
   const router = useRouter();
 
@@ -80,9 +80,9 @@ function OtherPages(props) {
 
 
         componentToShow =
-          <Post1st props={props} />
-        // <Post2nd props={props} />
-        //  <Post props={props} />;
+          // <Post1st props={props} />
+          // <Post2nd props={props} />
+          <Post props={props} />;
       }
     } else {
       componentToShow = '<h1>Not Found Page</h1>';

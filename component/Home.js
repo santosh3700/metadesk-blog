@@ -58,7 +58,7 @@ const Home = (props) => {
     subCategoryData,
   } = props;
 
-  console.log('crytodata', cryptoData);
+  //console.log('crytodata', cryptoData);
 
   return (
     <>

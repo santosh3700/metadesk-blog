@@ -1,0 +1,38 @@
+{
+  "name": "c1tqr7c-22pb0u",
+  "arn": "arn:aws:iam::059393727420:role/c1tqr7c-22pb0u",
+  "service": [
+    "lambda.amazonaws.com",
+    "edgelambda.amazonaws.com"
+  ],
+  "policy": {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Resource": "*",
+        "Action": [
+          "logs:CreateLogGroup",
+          "logs:CreateLogStream",
+          "logs:PutLogEvents"
+        ]
+      },
+      {
+        "Effect": "Allow",
+        "Resource": "arn:aws:s3:::c1tqr7c-yg3v4k/*",
+        "Action": [
+          "s3:GetObject",
+          "s3:PutObject"
+        ]
+      },
+      {
+        "Effect": "Allow",
+        "Resource": "arn:aws:sqs:us-east-1:059393727420:c1tqr7c-yg3v4k.fifo",
+        "Action": [
+          "sqs:SendMessage"
+        ]
+      }
+    ]
+  },
+  "region": "us-east-1"
+}

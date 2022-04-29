@@ -35,7 +35,7 @@ const Search = (props) => {
 
   var [totalPost, setTotalPost] = useState(allPosts.edges);
 
-  console.log('serchpost', totalPost);
+  //console.log('serchpost', totalPost);
   // setTotalPost(allPosts);
 
   const searchString = (searchValue) => {

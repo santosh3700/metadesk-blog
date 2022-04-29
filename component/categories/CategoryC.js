@@ -66,7 +66,7 @@ const CategoryC = (props) => {
     });
     //
     setCatagory(tempArr);
-    console.log('checkDtaa', catagory.length);
+    //console.log('checkDtaa', catagory.length);
   };
 
   // color
@@ -164,7 +164,7 @@ const CategoryC = (props) => {
             //   console.log("trisha", value);
             // }}
             onChange={(event) => {
-              console.log('trisha', event.target.value);
+              //console.log('trisha', event.target.value);
               filterMethod(event.target.value);
             }}
           >

@@ -1,0 +1,17 @@
+{
+  "name": "c1tqr7c-trn742d",
+  "hash": "88lEWwe28bqPmA+qliLJrsK2wB+Q4m3h8J8yr8cCq9Q=",
+  "description": "Default Lambda@Edge for Next CloudFront distribution",
+  "memory": 512,
+  "timeout": 10,
+  "code": "/media/santosh/92B43D33B43D1B65/ProjectsNWG/metadesk-blog/.serverless_nextjs/default-lambda",
+  "shims": [],
+  "handler": "index.handler",
+  "runtime": "nodejs14.x",
+  "env": {},
+  "role": {
+    "arn": "arn:aws:iam::059393727420:role/c1tqr7c-22pb0u"
+  },
+  "arn": "arn:aws:lambda:us-east-1:059393727420:function:c1tqr7c-trn742d",
+  "region": "us-east-1"
+}

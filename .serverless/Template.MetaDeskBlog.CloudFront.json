@@ -1,0 +1,133 @@
+{
+  "id": "E1TM74XY75YX5M",
+  "arn": "arn:aws:cloudfront::059393727420:distribution/E1TM74XY75YX5M",
+  "url": "https://d31ub6kiq884ed.cloudfront.net",
+  "region": "us-east-1",
+  "enabled": true,
+  "comment": "",
+  "priceClass": "PriceClass_All",
+  "origins": [
+    {
+      "url": "http://c1tqr7c-yg3v4k.s3.us-east-1.amazonaws.com",
+      "private": true,
+      "pathPatterns": {
+        "_next/static/*": {
+          "minTTL": 0,
+          "defaultTTL": 86400,
+          "maxTTL": 31536000,
+          "forward": {
+            "headers": "none",
+            "cookies": "none",
+            "queryString": false
+          }
+        },
+        "static/*": {
+          "minTTL": 0,
+          "defaultTTL": 86400,
+          "maxTTL": 31536000,
+          "forward": {
+            "headers": "none",
+            "cookies": "none",
+            "queryString": false
+          }
+        },
+        "api/*": {
+          "minTTL": 0,
+          "defaultTTL": 0,
+          "maxTTL": 31536000,
+          "allowedHttpMethods": [
+            "HEAD",
+            "DELETE",
+            "POST",
+            "GET",
+            "OPTIONS",
+            "PUT",
+            "PATCH"
+          ],
+          "forward": {
+            "headers": [
+              "Authorization",
+              "Host"
+            ],
+            "cookies": "all",
+            "queryString": true
+          },
+          "lambda@edge": {
+            "origin-request": "arn:aws:lambda:us-east-1:059393727420:function:c1tqr7c-jvezk7a:1"
+          }
+        },
+        "_next/image*": {
+          "minTTL": 0,
+          "defaultTTL": 60,
+          "maxTTL": 31536000,
+          "allowedHttpMethods": [
+            "HEAD",
+            "DELETE",
+            "POST",
+            "GET",
+            "OPTIONS",
+            "PUT",
+            "PATCH"
+          ],
+          "forward": {
+            "headers": [
+              "Accept"
+            ]
+          },
+          "lambda@edge": {
+            "origin-request": "arn:aws:lambda:us-east-1:059393727420:function:c1tqr7c-ne65zpa:1"
+          }
+        },
+        "_next/data/*": {
+          "minTTL": 0,
+          "defaultTTL": 0,
+          "maxTTL": 31536000,
+          "allowedHttpMethods": [
+            "HEAD",
+            "GET"
+          ],
+          "forward": {
+            "cookies": "all",
+            "headers": [
+              "Authorization",
+              "Host"
+            ],
+            "queryString": true
+          },
+          "lambda@edge": {
+            "origin-request": "arn:aws:lambda:us-east-1:059393727420:function:c1tqr7c-trn742d:1",
+            "origin-response": "arn:aws:lambda:us-east-1:059393727420:function:c1tqr7c-trn742d:1"
+          }
+        }
+      }
+    }
+  ],
+  "errorPages": [],
+  "defaults": {
+    "minTTL": 0,
+    "defaultTTL": 0,
+    "maxTTL": 31536000,
+    "forward": {
+      "headers": [
+        "Authorization",
+        "Host"
+      ],
+      "cookies": "all",
+      "queryString": true
+    },
+    "allowedHttpMethods": [
+      "HEAD",
+      "DELETE",
+      "POST",
+      "GET",
+      "OPTIONS",
+      "PUT",
+      "PATCH"
+    ],
+    "lambda@edge": {
+      "origin-request": "arn:aws:lambda:us-east-1:059393727420:function:c1tqr7c-trn742d:1",
+      "origin-response": "arn:aws:lambda:us-east-1:059393727420:function:c1tqr7c-trn742d:1"
+    },
+    "compress": true
+  }
+}
