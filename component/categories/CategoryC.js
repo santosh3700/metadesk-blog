@@ -100,15 +100,15 @@ const CategoryC = (props) => {
   }
 
   return (
-    <Box px={{ base: '4', lg: '24', xl: '58' }} mb="20" py={'18'}>
+    <Box px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }} mb="65px" py={'18'}>
       <Flex
         justifyContent={'space-between'}
         flexDirection={{ base: 'column', md: 'row' }}
       >
         <Flex alignItems={'baseline'}>
-          <Icon as={FaCircle} boxSize={5} mr="6" color={'#ab20ef'} mb="10px" />
+          <Icon as={FaCircle} boxSize={5} mr="12px" color={'#ab20ef'} mb="10px" />
           <Box>
-            <Heading as="h2" fontSize={'24px'}>
+            <Heading as="h2" fontSize={'24px'} mb={'8px'}>
               {process.env.home.categoryList.CATEGORY_C.NAME}
             </Heading>
             <Text color={subTitleTextColor}>
@@ -198,7 +198,7 @@ const CategoryC = (props) => {
               border='2px solid #166cf8'
               color='#166cf8'
               fontSize={'14px'}
-              lineHeight={'14px'}
+              lineHeight={'1.5'}
             >
               {process.env.text.MORE}
             </Button>
@@ -279,8 +279,8 @@ const CategoryC = (props) => {
                               as="h4"
                               fontSize='24px'
                               noOfLines={2}
-                              lineHeight="24px"
-                              mb={{ base: '12px', md: '37px' }}
+                              lineHeight="1.5"
+                              mb={{ base: '12px', md: '12px' }}
                             >
                               {item.node.title}
                             </Heading>
@@ -320,7 +320,7 @@ const CategoryC = (props) => {
                               color="white"
                               mb={2}
                               fontSize='14px'
-                              lineHeight={'14px'}
+                              lineHeight={'1.5'}
                               rounded={'none'}
                               size="xs"
                               fontWeight={'bold'}
@@ -332,7 +332,7 @@ const CategoryC = (props) => {
                             fontWeight={'bold'}
                             noOfLines={2}
                             fontSize='16px'
-                            lineHeight={'16px'}
+                            lineHeight={'1.5'}
                             paddingRight="2"
                             color={primaryTextColor}
                           >
@@ -387,7 +387,7 @@ const CategoryC = (props) => {
                             color="white"
                             mb={2}
                             fontSize='14px'
-                            lineHeight={'14px'}
+                            lineHeight={'1.5'}
                             rounded={'none'}
                             size="xs"
                             fontWeight={'bold'}
@@ -398,7 +398,7 @@ const CategoryC = (props) => {
                         <Text
                           fontWeight={'bold'}
                           fontSize='14px'
-                          lineHeight={'14px'}
+                          lineHeight={'1.5'}
                           noOfLines={2}
                           paddingRight="2"
                           color={isLightTheme ? 'black' : 'white'}

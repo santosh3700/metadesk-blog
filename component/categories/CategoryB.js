@@ -56,8 +56,8 @@ const CategoryB = (props) => {
   return (
     <>
       <Box
-        px={{ base: '4', lg: '24', xl: '58' }}
-        mb="20"
+        px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }}
+        mb="65px"
         py={'20'}
         bg={isLightTheme ? '#ededed' : '#000000'}
       >
@@ -66,9 +66,9 @@ const CategoryB = (props) => {
           flexDirection={{ base: 'column', md: 'row' }}
         >
           <Flex alignItems={'baseline'}>
-            <Icon as={FaCircle} boxSize={5} mr="6" color={'#ab20ef'} />
+            <Icon as={FaCircle} boxSize={5} mr="12px" color={'#ab20ef'} />
             <Box>
-              <Heading as="h2" fontSize={'24px'} mb="10px">
+              <Heading as="h2" fontSize={'24px'} mb="8px">
                 {process.env.home.categoryList.CATEGORY_B.NAME}
               </Heading>
               <Text color={subTitleTextColor}>
@@ -99,7 +99,7 @@ const CategoryB = (props) => {
                 border='2px solid #166cf8'
                 color='#166cf8'
                 fontSize={'14px'}
-                lineHeight={'14px'}
+                lineHeight={'1.5'}
               >
                 {process.env.text.MORE}
               </Button>
@@ -135,7 +135,7 @@ const CategoryB = (props) => {
                               )}
                             </Box>
                             <Box w={'70%'} px={4} display={'grid'}>
-                              <Text fontWeight={'600'} color={'black'} fontSize="16px" lineHeight={'20px'}>
+                              <Text fontWeight={'600'} color={'black'} fontSize="16px" lineHeight={'1.5'}>
                                 {item.node.title}
                               </Text>
                               <Flex mt="2" alignItems={'center'}>

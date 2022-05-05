@@ -56,8 +56,8 @@ const CategoryF = (props) => {
 
   return (
     <Box
-      px={{ base: '4', lg: '24', xl: '58' }}
-      mb="20"
+      px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }}
+      mb="65px"
       py={'20'}
       bg={!isLightTheme ? 'black' : '#ededed'}
     >
@@ -66,9 +66,9 @@ const CategoryF = (props) => {
         flexDirection={{ base: 'column', md: 'row' }}
       >
         <Flex alignItems={'baseline'}>
-          <Icon as={FaCircle} boxSize={5} mr="6" color={'#ab20ef'} />
+          <Icon as={FaCircle} boxSize={5} mr="12px" color={'#ab20ef'} />
           <Box>
-            <Heading as="h2" fontSize={'24px'} mb="10px" color={primaryTextColor}>
+            <Heading as="h2" fontSize={'24px'} mb="8px" color={primaryTextColor}>
               ACADEMY
             </Heading>
             <Text>The latest entertainment news in the world</Text>
@@ -95,7 +95,7 @@ const CategoryF = (props) => {
               border='2px solid #166cf8'
               color='#166cf8'
               fontSize={'14px'}
-              lineHeight={'14px'}
+              lineHeight={'1.5'}
             >
               {process.env.text.MORE}
             </Button>
@@ -229,7 +229,7 @@ const CategoryF = (props) => {
                         <Text
                           fontWeight={'bold'}
                           noOfLines={3}
-                          lineHeight="initial"
+                          lineHeight="1.5"
                           paddingRight="2"
                           color={primaryTextColor}
                         >

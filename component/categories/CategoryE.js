@@ -44,7 +44,7 @@ const CategoryE = (props) => {
 
   return (
     <>
-      <Box px={{ base: '4', lg: '24', xl: '58' }} mb="20" py={'18'}>
+      <Box px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }} mb="65px" py={'18'}>
         <Grid
           templateColumns={{ md: '9fr 3fr', sm: 'repeat(1, 1fr)' }}
           textColor="white"
@@ -56,9 +56,9 @@ const CategoryE = (props) => {
               flexDirection={{ base: 'column', md: 'row' }}
             >
               <Flex alignItems={'baseline'}>
-                <Icon as={FaCircle} boxSize={5} mr="6" color={'#ab20ef'} />
+                <Icon as={FaCircle} boxSize={5} mr="12px" color={'#ab20ef'} />
                 <Box>
-                  <Heading as="h2" fontSize={'24px'} mb="10px" color={primaryTextColor}>
+                  <Heading as="h2" fontSize={'24px'} mb="8px" color={primaryTextColor}>
                     {process.env.home.categoryList.CATEGORY_E.NAME}
                   </Heading>
                   <Text color={subTitleTextColor}>
@@ -97,7 +97,7 @@ const CategoryE = (props) => {
                                   rounded={'none'}
                                   size="sm"
                                   fontSize={'16px'}
-                                  lineHeight="16px"
+                                  lineHeight="1.5"
                                   fontWeight={'bold'}
                                 >
                                   {tagName}
@@ -116,9 +116,9 @@ const CategoryE = (props) => {
                           </Box>
                           <Text
                             fontWeight={'600'}
-                            my={'4'}
+                            mt={'4'}
                             fontSize="16px"
-                            lineHeight='16px'
+                            lineHeight='1.5'
                             color={primaryTextColor}
                           >
                             {item.node.title}
@@ -221,7 +221,7 @@ const CategoryE = (props) => {
                           {/* </Box> */}
 
                           <Text
-                            lineHeight={'normal'}
+                            lineHeight={'1.5'}
                             fontSize="sm"
                             color={primaryTextColor}
                           >

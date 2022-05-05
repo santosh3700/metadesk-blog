@@ -89,7 +89,7 @@ const CategoryA = (props) => {
 
   return (
     <>
-      <Box px={{ base: '4', lg: '24', xl: '58' }} mb="20">
+      <Box px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }} mb="65px">
         <Grid
           templateColumns={{ md: '12fr ', lg: '9fr 3fr', sm: 'repeat(1, 1fr)' }}
           textColor="white"
@@ -101,9 +101,9 @@ const CategoryA = (props) => {
               flexDirection={{ base: 'column', md: 'row' }}
             >
               <Flex alignItems={'baseline'}>
-                <Icon as={FaCircle} boxSize={5} mr="6" color={'#ab20ef'} />
+                <Icon as={FaCircle} boxSize={5} mr="12px" color={'#ab20ef'} />
                 <Box>
-                  <Heading textStyle="h2" fontSize={'24px'} mb="10px" color={primaryTextColor}>
+                  <Heading textStyle="h2" fontSize={'24px'} mb="8px" color={primaryTextColor}>
                     {process.env.home.categoryList.CATEGORY_A.NAME}
                   </Heading>
                   <Text color={subTitleTextColor}>
@@ -132,7 +132,7 @@ const CategoryA = (props) => {
                     border='2px solid #166cf8'
                     color='#166cf8'
                     fontSize={'14px'}
-                    lineHeight={'14px'}
+                    lineHeight={'1.5'}
                   >
                     {process.env.text.MORE}
                   </Button>
@@ -181,7 +181,7 @@ const CategoryA = (props) => {
                                           padding=' 7px 12px'
                                           mb={2}
                                           fontSize="14px"
-                                          lineHeight={"14px"}
+                                          lineHeight={"1.5"}
                                           rounded={'none'}
                                           size="xs"
                                           fontWeight={'bold'}
@@ -192,13 +192,13 @@ const CategoryA = (props) => {
                                       <Text
                                         fontWeight={'700'}
                                         noOfLines={2}
-                                        lineHeight={'16px'}
+                                        lineHeight={'1.5'}
                                         fontSize={'16px'}
                                         color={isLightTheme ? 'black' : 'white'}
                                       >
                                         {item.title}
                                       </Text>
-                                      <Flex mt="4" alignItems={'center'}>
+                                      <Flex mt="15px" alignItems={'center'}>
                                         <Icon
                                           fontSize="sm"
                                           as={FaRegClock}

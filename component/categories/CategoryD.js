@@ -58,15 +58,15 @@ const CategoryD = (props) => {
 
   return (
     <>
-      <Box px={{ base: '4', lg: '24', xl: '58' }} mb="20" py={'20'} bg={'black'}>
+      <Box px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }} mb="65px" py={'20'} bg={'black'}>
         <Flex
           justifyContent={'space-between'}
           flexDirection={{ base: 'column', md: 'row' }}
         >
           <Flex alignItems={'baseline'}>
-            <Icon as={FaCircle} boxSize={5} mr="6" color={'#ab20ef'} />
+            <Icon as={FaCircle} boxSize={5} mr="12px" color={'#ab20ef'} />
             <Box>
-              <Heading as="h2" fontSize={'24px'} color={'white'} mb="10px">
+              <Heading as="h2" fontSize={'24px'} color={'white'} mb="8px">
                 VIDEO
               </Heading>
               <Text color={'white'}>
@@ -95,7 +95,7 @@ const CategoryD = (props) => {
                 border='2px solid #166cf8'
                 color='#166cf8'
                 fontSize={'14px'}
-                lineHeight={'14px'}
+                lineHeight={'1.5'}
               >
                 {process.env.text.MORE}
               </Button>
@@ -164,11 +164,11 @@ const CategoryD = (props) => {
                       <Heading
                         color={'white'}
                         as="h4"
-                        size={'md'}
+                        fontSize='22px'
+                        noOfLines={2}
+                        lineHeight="1.5"
                         mt={2}
-                        mb={'38px'}
-                        font-size='24px'
-                        line-height='24px'
+                        mb={{ base: '12px', md: '12px' }}
                       >
                         {item.node.title}
                       </Heading>
@@ -243,7 +243,7 @@ const CategoryD = (props) => {
                         <Text
                           fontWeight={'medium'}
                           noOfLines={3}
-                          lineHeight="16px"
+                          lineHeight="1.5"
                           paddingRight="2"
                           color={'white'}
                           fontSize="16px"

@@ -71,7 +71,7 @@ export default function Navbar({ menu }) {
     menuItems && (
       // <Headroom>
       <Box zIndex={'999'} bg={primaryBgColor} className="sticky-header-div">
-        <Box px={{ base: '4', lg: '24', xl: '58' }} borderBottom={{ base: '0', md: '2px solid black' }}>
+        <Box px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }} borderBottom={{ base: '0', md: '2px solid black' }}>
           {/* <Flex
                     color={useColorModeValue('gray.600', 'white')}
                     minH={'60px'}
@@ -162,17 +162,17 @@ export default function Navbar({ menu }) {
               <DeskMultiMenus menus={menuItems} />
             </Flex>
 
-            <Flex>
+            <Flex alignItems={'center'}>
               <Icon
                 as={colorMode == 'dark' ? MoonIcon : SunIcon}
                 onClick={toggleColorMode}
-                boxSize={6}
-                mr={'4'}
+                boxSize={4}
+                mx={'10px'}
               />
               {/* isDarkModeOn ? <SunIcon /> : <MoonIcon /> */}
               {/* <Icon as={FaUser} onClick={onOpen} boxSize={6} mr={'4'} /> */}
               <Link href="/search">
-                <Icon as={FaSearch} boxSize={6} mr={'4'} />
+                <Icon as={FaSearch} boxSize={3} mx={'10px'} />
               </Link>
             </Flex>
           </Stack>

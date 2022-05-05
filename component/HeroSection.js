@@ -64,19 +64,19 @@ const HeroSection = (props) => {
 
   return (
     <>
-      <Box my={{ base: '2', md: '8' }} px={{ base: '4', lg: '24', xl: '58' }}>
+      <Box my={{ base: '2', md: '8' }} px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }}>
         <Box border={'1px solid '} px={2}>
           <Brandlist cryptoData={cryptoData} />
         </Box>
       </Box>
 
-      <Box px={{ base: '4', lg: '24', xl: '58' }} mb="20" mt={'8'}>
+      <Box px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }} mb="65px" mt={'8'}>
         {/* trisha */}
 
         <Grid
           templateColumns={{ md: '6fr 3fr 3fr', sm: 'repeat(1, 1fr)' }}
           textColor="white"
-          gap={3}
+          gap={2}
         >
           <>
             <Carousel
@@ -132,7 +132,7 @@ const HeroSection = (props) => {
                               </Box>
 
                               <Box
-                                p={4}
+                                p={'25px 20px'}
                                 w="100%"
                                 style={{
                                   position: 'absolute',
@@ -146,14 +146,14 @@ const HeroSection = (props) => {
                                   as="h4"
                                   fontSize={{ base: 'sm', md: '2xl' }}
                                   noOfLines={2}
-                                  lineHeight="24px"
-                                  mb={{ base: '12px', md: '37px' }}
+                                  lineHeight="1.5"
+                                  mb={{ base: '12px', md: '12px' }}
                                 >
                                   {item.node.title}
                                 </Heading>
                                 <Flex mt="2" alignItems={'center'}>
-                                  <Icon as={FaRegClock} color={'white'} fontSize="sm" />
-                                  <Text color={'white'} ml={2} fontSize="sm">
+                                  <Icon as={FaRegClock} color={'rgba(255, 255, 255, 0.85)'} fontSize="sm" />
+                                  <Text color={'rgba(255, 255, 255, 0.85)'} ml={2} fontSize="sm">
                                     {format(new Date(item.node.date), 'yyyy-MM-dd')}
                                   </Text>
                                 </Flex>
@@ -189,7 +189,7 @@ const HeroSection = (props) => {
                         bgGradient={'linear-gradient(to bottom, rgb(255 255 255 / 0%), #0f0e0e);'}>
                         <Stack maxW={'2xl'} align={'flex-start'} spacing={6}>
                           <Box
-                            p={4}
+                            p={'25px 20px'}
                             style={{
                               position: 'absolute',
                               left: 0,
@@ -211,7 +211,7 @@ const HeroSection = (props) => {
                           </Box>
 
                           <Box
-                            p={4}
+                            p={'25px 20px'}
                             style={{
                               position: 'absolute',
                               left: 0,
@@ -223,15 +223,15 @@ const HeroSection = (props) => {
                               color={'white'}
                               as="h4"
                               fontSize={{ base: 'sm', md: 'lg' }}
-                              noOfLines={2}
-                              lineHeight="22px"
-                              mb={{ base: '12px', md: '37px' }}
+                              noOfLines={3}
+                              lineHeight="1.5"
+                              mb={{ base: '12px', md: '11px' }}
                             >
                               {item.node.title}
                             </Heading>
                             <Flex mt="2" alignItems={'center'}>
-                              <Icon as={FaRegClock} color={'white'} fontSize="sm" />
-                              <Text color={'white'} ml={2} fontSize="sm">
+                              <Icon as={FaRegClock} color={'rgba(255, 255, 255, 0.85)'} fontSize="sm" />
+                              <Text color={'rgba(255, 255, 255, 0.85)'} ml={2} fontSize="sm">
                                 {format(new Date(item.node.date), 'yyyy-MM-dd')}
                               </Text>
                             </Flex>
@@ -249,7 +249,7 @@ const HeroSection = (props) => {
             <Grid
               templateColumns={{ md: '12fr', sm: 'repeat(1, 1fr)' }}
               textColor="white"
-              gap={3}
+              gap={2}
             >
               {data.edges &&
                 data.edges.slice(6, 8).map((item, index) => {
@@ -274,7 +274,7 @@ const HeroSection = (props) => {
                             bgGradient={'linear-gradient(to bottom, rgb(255 255 255 / 0%), #0f0e0e);'}>
                             <Stack maxW={'2xl'} align={'flex-start'} spacing={6}>
                               <Box
-                                p={4}
+                                p={'25px 20px'}
                                 style={{
                                   position: 'absolute',
                                   left: 0,
@@ -296,7 +296,7 @@ const HeroSection = (props) => {
                               </Box>
 
                               <Box
-                                p={4}
+                                p={'25px 20px'}
                                 style={{
                                   position: 'absolute',
                                   left: 0,
@@ -308,18 +308,18 @@ const HeroSection = (props) => {
                                   color={'white'}
                                   as="h4"
                                   fontSize={{ base: 'sm', md: 'lg' }}
-                                  noOfLines={2}
-                                  lineHeight="22px"
-                                  mb={{ base: '12px', md: '37px' }}
+                                  noOfLines={3}
+                                  lineHeight="1.5"
+                                // mb={{ base: '12px', md: '12px' }}
                                 >
                                   {item.node.title}
                                 </Heading>
-                                <Flex mt="2" alignItems={'center'}>
+                                {/* <Flex mt="2" alignItems={'center'}>
                                   <Icon as={FaRegClock} color={'white'} fontSize="sm" />
                                   <Text color={'white'} ml={2} fontSize="sm">
                                     {format(new Date(item.node.date), 'yyyy-MM-dd')}
                                   </Text>
-                                </Flex>
+                                </Flex> */}
                               </Box>
                             </Stack>
 

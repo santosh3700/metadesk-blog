@@ -85,7 +85,7 @@ const CategoryG = (props) => {
   // console.log('looptitle', postArr);
 
   return (
-    <Box px={{ base: '4', lg: '24', xl: '58' }} mb="20">
+    <Box px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }} mb="65px">
       {postArr && (
         <Grid
           templateColumns={{ md: '12fr ', lg: '9fr 3fr', sm: 'repeat(1, 1fr)' }}
@@ -98,9 +98,9 @@ const CategoryG = (props) => {
               flexDirection={{ base: 'column', md: 'row' }}
             >
               <Flex alignItems={'baseline'}>
-                <Icon as={FaCircle} boxSize={5} mr="6" color={'#ab20ef'} />
+                <Icon as={FaCircle} boxSize={5} mr="12px" color={'#ab20ef'} />
                 <Box>
-                  <Heading as="h2" fontSize={'24px'} mb="10px" color={primaryTextColor}>
+                  <Heading as="h2" fontSize={'24px'} mb="8px" color={primaryTextColor}>
                     {process.env.home.categoryList.CATEGORY_G.NAME}
                   </Heading>
                   <Text color={subTitleTextColor}>
@@ -129,7 +129,7 @@ const CategoryG = (props) => {
                     border='2px solid #166cf8'
                     color='#166cf8'
                     fontSize={'14px'}
-                    lineHeight={'14px'}
+                    lineHeight={'1.5'}
                   >
                     {process.env.text.MORE}
                   </Button>
@@ -182,11 +182,11 @@ const CategoryG = (props) => {
                                       )} */}
                                       <Text
                                         fontSize={'16px'}
-                                        lineHeight='16px'
+                                        lineHeight='1.5'
                                         fontWeight={'bold'}
                                         noOfLines={2}
                                         color={isLightTheme ? 'black' : 'white'}
-                                        mb={'20px'}
+                                      // mb={'12px'}
                                       >
                                         {item.title}
                                       </Text>
