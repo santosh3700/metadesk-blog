@@ -27,6 +27,7 @@ const Item = styled.div`
   display: flex;
   padding: 5px 8px;
   align-items: center;
+  font-Size:14px;
 `;
 
 const Label = styled.span`
@@ -56,7 +57,7 @@ const Arrow = styled.span`
 const DeskMultiMenus = ({ menus }) => {
   const [activeMenus, setActiveMenus] = useState([]);
 
-  const handleMenuClick = (data) => {};
+  const handleMenuClick = (data) => { };
 
   const handleArrowClick = (menuName) => {
     let newActiveMenus = [...activeMenus];
