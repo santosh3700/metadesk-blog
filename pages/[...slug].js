@@ -23,6 +23,7 @@ import {
   getAllPostsWithUri,
   getAllPostsForHome,
 } from '../lib/api';
+import Postfinal from '../component/post/PostSection/Postfinal';
 //import Post1st from '../component/post/PostSection/1stpost';
 //import Post2nd from '../component/post/PostSection/post2nd';
 // import VideoPost from '../component/post/VideoPost';
@@ -80,9 +81,11 @@ function OtherPages(props) {
 
 
         componentToShow =
-          // <Post1st props={props} />
-          // <Post2nd props={props} />
-          <Post props={props} />;
+
+          <Postfinal />
+        // <Post1st props={props} />
+        // <Post2nd props={props} />
+        // <Post props={props} />;
       }
     } else {
       componentToShow = '<h1>Not Found Page</h1>';

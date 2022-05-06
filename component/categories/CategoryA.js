@@ -118,7 +118,7 @@ const CategoryA = (props) => {
                 mt={{ base: '4', md: '0' }}
               >
                 <Flex>
-                  <Icon as={ChevronLeftIcon} boxSize={6} />{' '}
+                  <Icon as={ChevronLeftIcon} boxSize={6} />
                   <Icon as={ChevronRightIcon} boxSize={6} />
                 </Flex>
                 <Link href={process.env.home.categoryList.CATEGORY_A.SLUG}>
