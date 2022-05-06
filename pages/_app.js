@@ -18,6 +18,7 @@ import CustomLoader from '../component/CustomLoader';
 import Navbar from '../component/menu/Navbar';
 import NewsLetter from '../component/NewsLetter';
 import Fonts from '../styles/fonts/Font';
+import Footer from '../component/menu/Footer';
 
 function MyApp({ Component, pageProps, router }) {
   const Router = useRouter();
@@ -75,6 +76,7 @@ function MyApp({ Component, pageProps, router }) {
           {/* <Component {...pageProps} /> */}
         </ScaleFade>
         <NewsLetter />
+        <Footer />
         {/* </Layout> */}
       </ChakraProvider>
     </>

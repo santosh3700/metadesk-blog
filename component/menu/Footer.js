@@ -194,7 +194,7 @@ export default function Footer() {
           py={'4'}
           borderColor={useColorModeValue('gray.200', 'gray.700')}
         >
-          <Text textAlign={'center'}>© 2022 Trisha Templates. </Text>
+          <Text textAlign={'center'}>© 2022 METADESK </Text>
         </Box>
 
         {/* <Box

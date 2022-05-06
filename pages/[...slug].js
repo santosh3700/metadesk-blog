@@ -76,13 +76,7 @@ function OtherPages(props) {
       } else {
         //it means it is a post
 
-
-
-
-
-        componentToShow =
-
-          <Postfinal />
+        componentToShow = <Postfinal props={props} />;
         // <Post1st props={props} />
         // <Post2nd props={props} />
         // <Post props={props} />;
