@@ -61,7 +61,7 @@ const Postfinal = ({ props }) => {
 
   const videoLink = `https://www.youtube.com/embed/${data.youtube.videoId}`;
 
-  const tagName = data?.tags?.edges[0].node.name;
+  const tagName = data?.tags?.edges[0]?.node?.name;
   // console.log('tagcheck', tags);
   if (!imagePath) {
     return 'not found';
@@ -148,7 +148,7 @@ const Postfinal = ({ props }) => {
                   alignContent="center"
                   textAlign={'center'}
 
-                  // px="auto"
+                // px="auto"
                 >
                   {tagName}
                 </Box>
@@ -171,9 +171,8 @@ const Postfinal = ({ props }) => {
                       mr="6px"
                     />
                     <Text pl={'5px'} fontSize={'12px'}>
-                      {`${author.firstName == null ? '' : author.firstName} ${
-                        author.lastName == null ? '' : author.lastName
-                      }`}
+                      {`${author.firstName == null ? '' : author.firstName} ${author.lastName == null ? '' : author.lastName
+                        }`}
                     </Text>
                   </Flex>
                   <Flex alignItems={'center'} mr={'12px'}>
@@ -303,9 +302,8 @@ const Postfinal = ({ props }) => {
                     />
                     <Box textAlign="center">
                       <Text fontSize={'15px'} fontWeight={'600'}>
-                        {`${author.firstName == null ? '' : author.firstName} ${
-                          author.lastName == null ? '' : author.lastName
-                        }`}
+                        {`${author.firstName == null ? '' : author.firstName} ${author.lastName == null ? '' : author.lastName
+                          }`}
                       </Text>
                       <Text my={'8px'} fontSize={'15px'}>
                         A 26-year-old health centre receptionist who enjoys
