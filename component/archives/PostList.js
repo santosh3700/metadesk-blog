@@ -16,18 +16,11 @@ import {
   VStack,
   useColorMode,
   Img,
+  Avatar,
 } from '@chakra-ui/react';
 import { DragHandleIcon } from '@chakra-ui/icons';
 import ArchiveSeo from '../seo/ArchiveSeo';
 import PostItem from './PostItem';
-import {
-  FaWhatsapp,
-  FaCaretRight,
-  FaPastafarianism,
-  FaFacebookF,
-  FaTwitter,
-  FaRegEdit,
-} from 'react-icons/fa';
 import ArchiveHeroSection from './ArchiveHeroSection';
 import { useRouter } from 'next/router';
 import { compareAsc, format } from 'date-fns';
@@ -45,6 +38,7 @@ function PostList({ urlType, urlName, data, slug, section }) {
   const secondaryTextColor = isLightTheme ? 'white' : 'black';
   const primaryBgColor = isLightTheme ? 'white' : 'black';
   const secondaryBgColor = isLightTheme ? 'black' : 'white';
+  const subTitleTextColor = isLightTheme ? 'rgba(34, 34, 34, 0.6)' : 'white';
 
   const tempArr = [1, 2, 3];
   const tempArrTwo = [1, 2, 3, 4];
@@ -66,20 +60,37 @@ function PostList({ urlType, urlName, data, slug, section }) {
   const { sectionAData, sectionBData, sectionCData } = section;
   // console.log('checkcat', sectionAData);
 
+  const gridimg = [1, 2, 3, 4, 5, 6, 7, 8]
+  const slideimg = [1, 2, 3, 4,]
+
   return (
     <>
       <ArchiveSeo data={data} pageType={pageType} pageName={pageName} />
 
-      <Box my={8} px={{ base: '4', lg: '24', xl: '58' }}>
-        <Heading as="h2" size={'lg'}>
+      <Box my={8} px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }}>
+
+        <Flex alignItems={'baseline'}>
+          <Icon as={FaCircle} boxSize={5} mr="12px" color={'#ab20ef'} />
+          <Box>
+            <Heading as="h2" fontSize={'24px'} mb="8px">
+              {typeName}
+            </Heading>
+            <Text color={subTitleTextColor}>
+              The #1 source for good news!
+            </Text>
+          </Box>
+        </Flex>
+
+
+        {/* <Heading as="h2" size={'lg'}>
           {typeName}
-        </Heading>
+        </Heading> */}
 
         <Grid
           templateColumns={{ md: '8fr 4fr', sm: 'repeat(1, 1fr)' }}
           textColor="white"
-          gap={3}
-          my={6}
+          gap={2}
+          my='50px'
         >
 
           {data.edges &&
@@ -91,7 +102,7 @@ function PostList({ urlType, urlName, data, slug, section }) {
                   <Link key={index} href={item.node.slug}>
                     <Flex
                       w={'full'}
-                      h={{ base: '250px', md: '500px' }}
+                      h={{ base: '320px', md: '470px' }}
                       backgroundImage={item.node.featuredImage.node.sourceUrl}
                       backgroundSize={'cover'}
                       backgroundPosition={'center center'}>
@@ -115,7 +126,7 @@ function PostList({ urlType, urlName, data, slug, section }) {
                               <Button
                                 bg={'#fc4a00 '}
                                 color="white"
-                                rounded={'none'}
+                                rounded='5px'
                                 size="xs"
                                 fontWeight={'bold'}
                               >
@@ -125,7 +136,7 @@ function PostList({ urlType, urlName, data, slug, section }) {
                           </Box>
 
                           <Box
-                            p={4}
+                            p='20px'
                             style={{
                               position: 'absolute',
                               left: 0,
@@ -138,14 +149,26 @@ function PostList({ urlType, urlName, data, slug, section }) {
                               as="h4"
                               fontSize={{ base: 'sm', md: 'lg' }}
                               noOfLines={2}
-                              lineHeight="22px"
-                              mb={{ base: '12px', md: '37px' }}
+                              lineHeight="1.5"
+                              mb={{ base: '12px', md: '12px' }}
                             >
                               {item.node.title}
                             </Heading>
                             <Flex mt="2" alignItems={'center'}>
-                              <Icon as={FaRegClock} color={'white'} fontSize="sm" />
-                              <Text color={'white'} ml={2} fontSize="sm">
+                              <Flex alignItems={'center'} mr={'12px'}>
+                                <Avatar
+                                  src='https://bit.ly/dan-abramov'
+                                  h={'30px'}
+                                  w={'30px'}
+                                  mr="6px"
+                                />
+                                <Text pl={'5px'} fontSize={'14px'} color={'white'}>
+                                  Trisha
+                                </Text>
+                              </Flex>
+
+                              <Icon as={FaRegClock} color={'white'} fontSize="12px" />
+                              <Text color={'white'} ml={2} fontSize="12px">
                                 {format(new Date(item.node.date), 'yyyy-MM-dd')}
                               </Text>
                             </Flex>
@@ -163,7 +186,7 @@ function PostList({ urlType, urlName, data, slug, section }) {
             <Grid
               templateColumns={{ md: '12fr', sm: 'repeat(1, 1fr)' }}
               textColor="white"
-              gap={3}
+              gap={2}
             >
               {data.edges &&
                 data.edges.slice(1, 3).map((item, index) => {
@@ -186,7 +209,7 @@ function PostList({ urlType, urlName, data, slug, section }) {
                             w={'full'}
                             justify={'center'}
                             bgGradient={'linear-gradient(to bottom, rgb(255 255 255 / 0%), #0f0e0e);'}>
-                            <Stack maxW={'2xl'} align={'flex-start'} spacing={6}>
+                            <Stack maxW={'2xl'} align={'flex-start'} >
                               <Box
                                 p={4}
                                 style={{
@@ -200,7 +223,7 @@ function PostList({ urlType, urlName, data, slug, section }) {
                                   <Button
                                     bg={'#fc4a00 '}
                                     color="white"
-                                    rounded={'none'}
+                                    rounded='5px'
                                     size="xs"
                                     fontWeight={'bold'}
                                   >
@@ -209,8 +232,20 @@ function PostList({ urlType, urlName, data, slug, section }) {
                                 )}
                               </Box>
 
+
+                              {/* <Box 
+                                style={{
+                                  position: 'absolute',
+                                  right: 10,
+                                  top: '10px',
+                                  color: 'white',
+                                }}
+                              >
+                                <Icon as={FaPlayCircle} boxSize='50px' />
+                              </Box> */}
+
                               <Box
-                                p={4}
+                                p='20px'
                                 style={{
                                   position: 'absolute',
                                   left: 0,
@@ -223,14 +258,14 @@ function PostList({ urlType, urlName, data, slug, section }) {
                                   as="h4"
                                   fontSize={{ base: 'sm', md: 'lg' }}
                                   noOfLines={2}
-                                  lineHeight="22px"
-                                  mb={{ base: '12px', md: '37px' }}
+                                  lineHeight="1.5"
+                                  mb={{ base: '12px', md: '12px' }}
                                 >
                                   {item.node.title}
                                 </Heading>
                                 <Flex mt="2" alignItems={'center'}>
-                                  <Icon as={FaRegClock} color={'white'} fontSize="sm" />
-                                  <Text color={'white'} ml={2} fontSize="sm">
+                                  <Icon as={FaRegClock} color={'white'} fontSize="12px" />
+                                  <Text color={'white'} ml={2} fontSize="12px">
                                     {format(new Date(item.node.date), 'yyyy-MM-dd')}
                                   </Text>
                                 </Flex>
@@ -249,284 +284,129 @@ function PostList({ urlType, urlName, data, slug, section }) {
           </Box>
         </Grid>
 
-
         <Grid
-          templateColumns={{ md: '6fr 6fr', sm: 'repeat(1, 1fr)' }}
-          textColor="white"
-          gap={6}
+          templateColumns={{ md: '9fr 3fr', sm: 'repeat(1, 1fr)' }}
+          gap={10}
           my={20}
+          position={'relative'}
         >
-          {data.edges.slice(3, 4).map((item, index) => {
-            // console.log('catmap', videoId);
-            const author = item?.node?.author.node;
-            // const imagePath = item.node.featuredImage?.node.sourceUrl;
-            const videoId = item.node.youtube.videoId;
-
-            // const imagePath =
-            //   videoId !== null && videoId !== ''
-            //     ? `https://i1.ytimg.com/vi/${videoId}/maxresdefault.jpg`
-            //     : item.node.featuredImage?.node?.sourceUrl;
-            // const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
-
-            return (
-              item &&
-              item.node && (
-                <Link key={index} href={item.node.slug}>
-                  <Box cursor={'pointer'}>
-                    {item?.node?.featuredImage && (
-                      <Img
-                        src={item.node.featuredImage.node.sourceUrl}
-                        alt={item.node.title}
-                      />
-                    )}
-
-                    <Box my={'2'}>
-                      <Heading as={'h2'} size={'lg'} color={primaryTextColor}>
-                        {item.node.title}
-                      </Heading>
-                      {/* <Text mt={'2'} color={primaryTextColor}>
-                    All That We See or Seem is but a Dream Within a Dream
-                    Becomes Her
-                  </Text> */}
-                      <Flex mt="2" alignItems={'center'}>
-                        <Text color={primaryTextColor} fontWeight={'bold'}>
-                          By <b>{`${author.name} `}</b>
-                        </Text>
-                        <Text color={primaryTextColor} ml={4}>
-                          {format(new Date(item.node.date), 'yyyy-MM-dd')}
-                        </Text>
-                      </Flex>
-                    </Box>
-                  </Box>
-                </Link>
-              )
-            );
-          })}
           <Box>
-            {data.edges.slice(4, 7).map((item, index) => {
-              const author = item?.node?.author.node;
-              const imagePath = item.node.featuredImage?.node.sourceUrl;
-              return (
-                item &&
-                item.node && (
-                  <Link key={index} href={item.node.slug}>
-                    <Box cursor={'pointer'}>
-                      <Grid
-                        templateColumns={{
-                          md: '9fr 3fr',
-                          sm: 'repeat(1, 1fr)',
-                        }}
-                        textColor="white"
-                        gap={6}
+            <Grid
+              templateColumns={{ md: '6fr 6fr', sm: 'repeat(1, 1fr)' }}
+              gap={10}
+            >
+
+              {gridimg.map((item, index) => {
+                return (
+                  <Box>
+                    <Box position={'relative'} mb='20px'>
+                      <Img src='https://atbs.bk-ninja.com/ceris_main/wp-content/uploads/2021/08/ceris_1-400x300.jpg' />
+                      <Button
+                        position={'absolute'}
+                        bottom="0px"
+                        bg={'#fc4a00 '}
+                        color="white"
+                        rounded='none'
+                        size="xs"
+                        fontWeight={'bold'}
                       >
-                        <Box>
-                          {/* <Button bg={'#03a9e7'} color='white' mb={2} rounded={'none'} size='xs' fontWeight={'bold'} > BITCOIN</Button> */}
-                          <Heading as="h4" size={'md'} color={primaryTextColor}>
-                            {item.node.title}
-                          </Heading>
-                          {/* <Text mt={'2'} color={primaryTextColor}>
-                          All That We See or Seem is but a Dream Within a Dream
-                          Becomes Her
-                        </Text> */}
-                          <Flex mt="2" alignItems={'center'}>
-                            <Text color={primaryTextColor} fontWeight={'bold'}>
-                              By <b>{`${author.name} `}</b>
-                            </Text>
-                            <Text color={primaryTextColor} ml={4}>
-                              {format(new Date(item.node.date), 'yyyy-MM-dd')}
-                            </Text>
-                          </Flex>
-                        </Box>
-                        <Box>
-                          {item?.node?.featuredImage && (
-                            <Img
-                              h={'100%'}
-                              objectFit={'cover'}
-                              src={item.node.featuredImage.node.sourceUrl}
-                              alt={item.node.title}
-                            />
-                          )}
-                        </Box>
-                      </Grid>
-                      <Box my={6}>
-                        <Divider />
+                        TRAVEL
+                      </Button>
+                      <Box
+                        style={{
+                          position: 'absolute',
+                          right: 15,
+                          top: '15px',
+                          color: 'white',
+                        }}
+                      >
+                        <Icon as={FaPlayCircle} boxSize='50px' />
                       </Box>
                     </Box>
-                  </Link>
-                )
-              );
-            })}
+                    <Heading
+                      as="h3"
+                      fontSize={{ base: 'sm', md: 'lg' }}
+                      noOfLines={2}
+                      lineHeight="1.5"
+                      mb={{ base: '12px', md: '12px' }}>
+                      Adjusting to Your Home is no Different than a New Country
+                    </Heading>
+                    <Text fontSize='15px' mb={{ base: '12px', md: '13px' }} noOfLines={2}
+                    >
+                      Whoever said “It’s not about the destination. It’s the journey” never flew on a long ...
+                    </Text>
+                    <Flex mb={{ base: '12px', md: '12px' }} >
+                      <Text fontWeight='700' fontSize='14px' color='rgba(0, 0, 0, 0.6)' mr={4}>
+                        By Trisha
+                      </Text>
+                      <Flex alignItems={'center'}>
+                        <Icon as={FaRegClock} color={'rgba(0, 0, 0, 0.5)'} fontSize="12px" />
+                        <Text color={'rgba(0, 0, 0, 0.5)'} ml={1} fontSize="12px" >
+                          October 18, 2019
+                        </Text>
+                      </Flex>
+                    </Flex>
+                  </Box>
+                );
+              })}
+
+            </Grid>
+          </Box>
+
+          <Box >
+            <Box mb='55px' position={'sticky'} top={'10px'}>
+              <Flex alignItems={'center'} mb='30px'>
+                <Heading as={'h4'} fontSize='17px' w='-webkit-fill-available' >
+                  Popular News
+                </Heading>
+                <Divider />
+              </Flex>
+
+
+              {slideimg.map((item, index) => {
+                return (
+                  <Flex my='20px' key={item}>
+                    <Img
+                      h='70px' w="70px" mr="15px"
+                      src='https://atbs.bk-ninja.com/ceris_main/wp-content/uploads/2021/08/ceris_12-180x180.jpg' />
+                    <Text>
+                      The Scariest Moment is Always Just Before You Start
+                    </Text>
+                  </Flex>
+                );
+              })}
+
+
+              <Box>
+                <Flex alignItems={'center'} mb='30px'>
+                  <Heading as={'h4'} fontSize='17px' w='-webkit-fill-available' >
+                    Categories
+                  </Heading>
+                  <Divider />
+                </Flex>
+
+                {slideimg.map((item, index) => {
+                  return (
+                    <Box position={'relative'} mt="20px">
+                      <Img src='https://atbs.bk-ninja.com/ceris_main/wp-content/uploads/2020/04/a-photograph-of-a-woman-holding-a-canadian-flag-2961063-min-400x200.jpg' />
+                      <Box textAlign={'center'} position={'absolute'} left={'30%'} right={'30%'} top={'45%'}>
+                        <Button size="xs" rounded={'none'} bg="#4ca80b" color='white' >
+                          LIFESTYLE
+                        </Button>
+                      </Box>
+                    </Box>
+                  );
+                })}
+
+              </Box>
+
+            </Box>
+
+
           </Box>
         </Grid>
 
-        <Divider />
-        <Box py={6}>
-          <Heading as="h2" size={'lg'} color={primaryTextColor}>
-            {process.env.archive.SECTION_A.NAME}
-          </Heading>
-          <Grid
-            templateColumns={{ md: '6fr 6fr', sm: 'repeat(1, 1fr)' }}
-            // textColor="white"
-            gap={6}
-            my={6}
-          >
-            {sectionAData.edges.slice(0, 4).map((item, index) => {
-              const author = item?.node?.author.node;
-              const imagePath = item.node.featuredImage?.node.sourceUrl;
-              return (
-                item &&
-                item.node && (
-                  <Link key={index} href={item.node.slug}>
-                    <Grid
-                      cursor={'pointer'}
-                      templateColumns={{ md: '9fr 3fr', sm: 'repeat(1, 1fr)' }}
-                      // textColor="white"
-                      gap={2}
-                    >
-                      <Box>
-                        <Flex alignItems={'baseline'}>
-                          <Text
-                            fontSize={'3xl'}
-                            fontWeight="bold"
-                            color={'blue'}
-                            mx={2}
-                          >
-                            {index + 1}
-                          </Text>
-                          {/* <Button bg={'#03a9e7'} color='white' mb={2} rounded={'none'} size='xs' fontWeight={'bold'} > BITCOIN</Button> */}
-                          <Box>
-                            <Heading as="h4" size={'md'}>
-                              {item.node.title}
-                            </Heading>
-                            <Flex mt="2" alignItems={'center'}>
-                              <Text>
-                                By <b>{`${author.name} `}</b>
-                              </Text>
-                              <Text ml={4}>
-                                {format(new Date(item.node.date), 'yyyy-MM-dd')}
-                              </Text>{' '}
-                            </Flex>
-                          </Box>
-                        </Flex>
-                      </Box>
-                      <Box>
-                        <Img
-                          h={'100%'}
-                          objectFit={'cover'}
-                          src={imagePath}
-                          alt={item.node.title}
-                        />
-                      </Box>
-                    </Grid>
-                  </Link>
-                )
-              );
-            })}
-          </Grid>
-        </Box>
 
-        <Divider />
-        <Box py={6}>
-          <Grid
-            templateColumns={{ md: '6fr 6fr', sm: 'repeat(1, 1fr)' }}
-            // textColor="white"
-            gap={6}
-            my={6}
-          >
-            <Box>
-              <Heading as="h2" size={'lg'} textAlign={'start'} mb={6}>
-                {process.env.archive.SECTION_B.NAME}
-              </Heading>
-
-              {sectionBData.edges.slice(0, 3).map((item, index) => {
-                const author = item?.node?.author.node;
-                const imagePath = item.node.featuredImage?.node.sourceUrl;
-                return (
-                  item &&
-                  item.node && (
-                    <Link key={index} href={item.node.slug}>
-                      <Box cursor="pointer">
-                        <Grid
-                          templateColumns={{
-                            md: '3fr 9fr',
-                            sm: 'repeat(1, 1fr)',
-                          }}
-                          // textColor="white"
-                          gap={6}
-                        >
-                          <Box>
-                            <Img
-                              h={'100%'}
-                              objectFit={'cover'}
-                              src={imagePath}
-                              alt={item.node.title}
-                            />
-                          </Box>
-
-                          <Box>
-                            {/* <Button bg={'#03a9e7'} color='white' mb={2} rounded={'none'} size='xs' fontWeight={'bold'} > BITCOIN</Button> */}
-                            <Heading as="h4" size={'md'}>
-                              {item.node.title}
-                            </Heading>
-
-                            <Flex mt="2" alignItems={'center'}>
-                              <Text>
-                                By <b>{`${author.name} `}</b>
-                              </Text>
-                              <Text ml={4}>
-                                {format(new Date(item.node.date), 'yyyy-MM-dd')}
-                              </Text>
-                            </Flex>
-                          </Box>
-                        </Grid>
-
-                        <Box my={6}>
-                          <Divider />
-                        </Box>
-                      </Box>
-                    </Link>
-                  )
-                );
-              })}
-            </Box>
-            {sectionCData.edges.slice(0, 1).map((item, index) => {
-              const author = item?.node?.author.node;
-              const imagePath = item.node.featuredImage?.node.sourceUrl;
-              return (
-                item &&
-                item.node && (
-                  <Link key={index} href={item.node.slug}>
-                    <Box cursor={'pointer'}>
-                      <Heading as="h2" size={'lg'} textAlign={'start'} mb={6}>
-                        {process.env.archive.SECTION_C.NAME}
-                      </Heading>
-
-                      <Img src={imagePath} alt={item.node.title} />
-
-                      <Box my={'2'} textAlign={'start'}>
-                        <Heading as={'h2'} size={'lg'}>
-                          {item.node.title}
-                        </Heading>
-                        {/* <Text mt={'2'}>
-                      All That We See or Seem is but a Dream Within a Dream
-                      Becomes Her
-                    </Text> */}
-                        <Flex mt="2" alignItems={'center'}>
-                          <Text>
-                            By <b>{`${author.name} `}</b>
-                          </Text>
-                          <Text ml={4}>
-                            {format(new Date(item.node.date), 'yyyy-MM-dd')}
-                          </Text>
-                        </Flex>
-                      </Box>
-                    </Box>
-                  </Link>
-                )
-              );
-            })}
-          </Grid>
-        </Box>
       </Box>
 
       {/* <ArchiveHeroSection newsData={data.edges} /> */}

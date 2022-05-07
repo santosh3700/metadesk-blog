@@ -72,7 +72,6 @@ const CategoryB = (props) => {
                 {process.env.home.categoryList.CATEGORY_B.NAME}
               </Heading>
               <Text color={subTitleTextColor}>
-                {' '}
                 {process.env.home.categoryList.CATEGORY_B.DESC}
               </Text>
             </Box>

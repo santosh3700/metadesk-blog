@@ -56,8 +56,45 @@ const ListHeader = ({ children }) => {
 export default function Footer() {
   return (
     <>
-      <Divider />
-      <Box>
+
+      <Box px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }} >
+        <Box py='40px'>
+          <Flex alignItems={'center'} justifyContent={'space-between'} flexDirection={{ base: 'column', md: 'row' }}>
+            <Link href="/">
+              <Image
+                objectFit="contain"
+                src="https://wptesting.thenwg.xyz/wp-content/uploads/2022/04/logo-1-4.png"
+                h="59px !important"
+              />
+            </Link>
+            <Flex mt={{ base: '20px', md: '0px' }}>
+              <Icon color={'rgba(0, 0, 0, 0.7)'} as={FaFacebookF} boxSize={4} mr={2} />
+              <Icon color={'rgba(0, 0, 0, 0.7)'} as={FaTwitter} boxSize={4} mr={2} />
+              <Icon color={'rgba(0, 0, 0, 0.7)'} as={FaInstagram} boxSize={4} mr={2} />
+            </Flex>
+          </Flex>
+        </Box>
+        <Divider />
+
+        <Box py='30px'>
+          <Flex justifyContent={'space-between'} flexDirection={{ base: 'column', md: 'row' }}>
+            <Text fontSize='13px' fontWeight='500' textAlign={'center'}>
+              Ceris © 2020. Made with ☕ by Trisha
+            </Text>
+            <Flex mt={{ base: '20px', md: '0px' }} justifyContent={'center'}>
+              <Link href='#' ><Text mx={2} fontSize='13px' fontWeight='500'>Home</Text></Link>
+              <Link href='#' ><Text mx={2} fontSize='13px' fontWeight='500'>About</Text></Link>
+              <Link href='#' ><Text mx={2} fontSize='13px' fontWeight='500'>Contact</Text></Link>
+              <Link href='#' ><Text mx={2} fontSize='13px' fontWeight='500'>Top News</Text></Link>
+            </Flex>
+          </Flex>
+        </Box>
+
+
+      </Box>
+
+
+      {/* <Box>
         <Box>
           <Container as={Stack} maxW={'6xl'} py={10}>
             <SimpleGrid
@@ -197,7 +234,7 @@ export default function Footer() {
           <Text textAlign={'center'}>© 2022 METADESK </Text>
         </Box>
 
-        {/* <Box
+        <Box
                     borderTopWidth={1}
                     borderStyle={'solid'}
                     borderColor={useColorModeValue('gray.200', 'gray.700')}>
@@ -225,8 +262,8 @@ export default function Footer() {
                             </SocialButton>
                         </Stack>
                     </Container>
-                </Box> */}
-      </Box>
+                </Box>  
+      </Box> */}
     </>
   );
 }

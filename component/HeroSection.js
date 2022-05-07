@@ -225,7 +225,7 @@ const HeroSection = (props) => {
                               fontSize={{ base: 'sm', md: 'lg' }}
                               noOfLines={3}
                               lineHeight="1.5"
-                              mb={{ base: '12px', md: '11px' }}
+                              mb={{ base: '12px', md: '12px' }}
                             >
                               {item.node.title}
                             </Heading>
