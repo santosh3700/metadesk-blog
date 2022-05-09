@@ -175,14 +175,7 @@ const Postfinal = ({ props }) => {
                     border="1px solid #888 !important"
                   />
                 </Center>
-                {/* <FacebookShareButton url={post_link}>
-                  <Icon
-                    mt={'10px !important'}
-                    as={FaFacebookSquare}
-                    boxSize={'42px'}
-                    color={'#888'}
-                  />
-                </FacebookShareButton> */}
+
                 <FacebookShareButton url={post_link}>
                   <FacebookIcon
                     size={'42px'}
@@ -205,26 +198,8 @@ const Postfinal = ({ props }) => {
                 <TumblrShareButton url={post_link}>
                   <TumblrIcon size={'42px'} color={'#888'} />
                 </TumblrShareButton>
-
-                {/* <Icon
-                  mt={'10px !important'}
-                  as={FaTwitterSquare}
-                  boxSize={'42px'}
-                  color={'#888'}
-                />
-                <Icon
-                  mt={'10px !important'}
-                  as={FaPinterestSquare}
-                  boxSize={'42px'}
-                  color={'#888'}
-                />
-                <Icon
-                  mt={'10px !important'}
-                  as={FaLinkedin}
-                  boxSize={'42px'}
-                  color={'#888'}
-                /> */}
               </VStack>
+
               <Flex
                 display={{ base: 'block', md: 'none' }}
                 className="mobileShareContainer"
@@ -257,7 +232,7 @@ const Postfinal = ({ props }) => {
                   alignContent="center"
                   textAlign={'center'}
 
-                  // px="auto"
+                // px="auto"
                 >
                   {tagName}
                 </Box>
@@ -266,13 +241,14 @@ const Postfinal = ({ props }) => {
                   color={'black'}
                   as="h2"
                   my={'15px !important'}
-                  fontSize={'28px'}
+                  fontSize={{ base: '24px', md: '28px' }}
                   lineHeight="1.4"
                 >
                   {data.title}
                 </Heading>
-                <Flex alignItems={'center'}>
-                  <Flex alignItems={'center'} mr={'12px'}>
+                <Flex alignItems={{ base: 'left', md: 'center' }} flexDirection={{ base: 'column', md: 'row' }}>
+
+                  <Flex alignItems={'center'} mr={'12px'} mb={{ base: '10px', md: '0px' }}>
                     <Avatar
                       src={author.avatar}
                       h={'30px'}
@@ -280,12 +256,11 @@ const Postfinal = ({ props }) => {
                       mr="6px"
                     />
                     <Text pl={'5px'} fontSize={'12px'}>
-                      {`${author.firstName == null ? '' : author.firstName} ${
-                        author.lastName == null ? '' : author.lastName
-                      }`}
+                      {`${author.firstName == null ? '' : author.firstName} ${author.lastName == null ? '' : author.lastName
+                        }`}
                     </Text>
                   </Flex>
-                  <Flex alignItems={'center'} mr={'12px'}>
+                  <Flex alignItems={'center'} mr={'12px'} mb={{ base: '10px', md: '0px' }}>
                     <Icon
                       as={FaRegClock}
                       boxSize={3}
@@ -299,8 +274,10 @@ const Postfinal = ({ props }) => {
                       {date.toDateString()}
                     </Text>
                   </Flex>
-                  <Flex alignItems={'center'} mr={'12px'}>
-                    <Icon as={FaEye} boxSize={3} color={'rgba(0, 0, 0, 0.5)'} />
+                  <Flex alignItems={'center'} mr={'12px'} >
+                    <Text
+                      fontSize={'12px'}
+                      color={'rgba(0, 0, 0, 0.5)'}> <Icon mr={'5px'} as={FaEye} boxSize={3} color={'rgba(0, 0, 0, 0.5)'} />124563</Text>
                     <Text
                       pl={'5px'}
                       fontSize={'12px'}
@@ -312,152 +289,87 @@ const Postfinal = ({ props }) => {
                 </Flex>
               </Box>
 
-              <Box>
-                <Text mb={'30px'}>
-                  <div
-                    className={`${ClassesPostBody.content} contentBody`}
-                    dangerouslySetInnerHTML={{ __html: data.content }}
-                  />
-                </Text>
-                {/* 
-                <Img
-                  my={'20px'}
-                  src="https://atbs.bk-ninja.com/ceris_main/wp-content/uploads/2020/04/ceris_20-1024x576.jpg"
-                /> */}
 
-                {/* <Heading
-                  color={'black'}
-                  as="h4"
-                  my={'15px !important'}
-                  fontSize={'28px'}
-                  lineHeight="1.4"
-                >
-                  Bring a scarf or jacket.
-                </Heading> */}
+              <Text mb={'30px'} className="postfinaldata">
+                <div
+                  className={`${ClassesPostBody.content} contentBody`}
+                  dangerouslySetInnerHTML={{ __html: data.content }}
+                />
+              </Text>
 
-                {/* <Text my={'20px !important'}>
-                  A scarf especially can act as a blanket or pillow during your
-                  long haul flight. Nowadays its becoming less common to have a
-                  blanket included on your flight, and sometimes the cabin
-                  doesnt even have enough for everyone. The best advice is to
-                  bring something functional just in case because flights can
-                  get quite chilly. A relatively thick, large scarf will almost
-                  always do the job.
-                </Text> */}
 
-                {/* <OrderedList
-                  color={'rgba(0, 0, 0, 0.85) !important'}
-                  my={'28px !important'}
-                >
-                  <ListItem>
-                    Ornare porta viverra. Mollis neque sagittis Etiam. Suscipit.
-                  </ListItem>
-                  <ListItem>
-                    Nec. Feugiat, dictumst parturient mattis tempus sollicitudin
-                    ridiculus Lacus platea rhoncus. Per rutrum molestie.
-                  </ListItem>
-                  <ListItem>
-                    Maecenas massa fermentum nibh sit senectus. Aptent torquent
-                    ipsum placerat consectetuer felis eleifend tellus morbi
-                    senectus nisi dignissim feugiat eget auctor, per accumsan.
-                  </ListItem>
-                </OrderedList> */}
+              {/* share icon for mobile */}
 
-                {/* <Text mb={'30px'}>
-                  Whoever said Its not about the destination. Its the journey
-                  never flew on a long haul flight. Those flights can be
-                  painful, tiresome, jet-lagging, and not to mention absolutely
-                  boring despite whatever Disney movie is playing above you on
-                  the TV screen. As someone who has flown from Europe to the USA
-                  countless times, I’ve picked up some tips and tricks on flying
-                  long haul. Here are my tips.
-                </Text> */}
-
-                {/* <Heading
-                  color={'black'}
-                  as="h4"
-                  my={'15px !important'}
-                  fontSize={'28px'}
-                  lineHeight="1.4"
-                >
-                  Pack a memory foam neck pillow.
-                </Heading>
-
-                <Text my={'20px !important'}>
-                  A scarf especially can act as a blanket or pillow during your
-                  long haul flight. Nowadays its becoming less common to have a
-                  blanket included on your flight, and sometimes the cabin
-                  doesnt even have enough for everyone. The best advice is to
-                  bring something functional just in case because flights can
-                  get quite chilly. A relatively thick, large scarf will almost
-                  always do the job.
-                </Text>
-
-                <Img
-                  my={'20px'}
-                  src="https://atbs.bk-ninja.com/ceris_main/wp-content/uploads/2020/04/ceris_8-1024x683.jpg"
-                /> */}
-
-                <Box px={{ base: '15px', md: '90px' }} py={'35px'}>
-                  <Flex
-                    alignItems={'center'}
-                    flexDirection={{ base: 'column', md: 'row' }}
+              <Box display={{ base: 'block', md: 'none !important' }}>
+                <Flex flexDirection='column'>
+                  <Heading
+                    color={'black'}
+                    as="h4"
+                    mb={'25px !important'}
+                    fontSize={'18px'}
+                    lineHeight="1.2"
                   >
-                    <Avatar
-                      h={'70px'}
-                      w={'70px'}
-                      // src="https://secure.gravatar.com/avatar/662a272c8be177be19f47db7acac0cb9?s=180&d=mm&r=g"
-                      src={author.avatar}
-                      mr={{ base: '0px', md: '30px' }}
-                      mb={{ base: '10px', md: '0px' }}
-                    />
-                    <Box textAlign="center">
-                      <Text fontSize={'15px'} fontWeight={'600'}>
-                        {`${author.firstName == null ? '' : author.firstName} ${
-                          author.lastName == null ? '' : author.lastName
-                        }`}
-                      </Text>
-                      <Text my={'8px'} fontSize={'15px'}>
-                        A 26-year-old health centre receptionist who enjoys
-                        going to the movies, photography and social media.
-                      </Text>
-                      {/* <Flex
-                        justifyContent={{ base: 'center', md: 'flex-start' }}
-                      >
-                        <Icon
-                          as={FaEnvelope}
-                          boxSize={'14px'}
-                          mr="8px"
-                          color={'rgba(34,34,34,0.6)'}
-                        />
-                        <Icon
-                          as={FaTwitter}
-                          boxSize={'14px'}
-                          mr="8px"
-                          color={'rgba(34,34,34,0.6)'}
-                        />
-                        <Icon
-                          as={FaFacebookF}
-                          boxSize={'14px'}
-                          mr="8px"
-                          color={'rgba(34,34,34,0.6)'}
-                        />
-                        <Icon
-                          as={FaYoutube}
-                          boxSize={'14px'}
-                          mr="8px"
-                          color={'rgba(34,34,34,0.6)'}
-                        />
-                      </Flex> */}
-                    </Box>
-                  </Flex>
-                </Box>
+                    SHARE
+                  </Heading>
 
+                  <Flex justifyContent={'space-between'}>
+                    <FacebookShareButton url={post_link}>
+                      <FacebookIcon size={'42px'} color={'#888'} />
+                    </FacebookShareButton>
+                    <TwitterShareButton url={post_link}>
+                      <TwitterIcon size={'42px'} color={'#888'} />
+                    </TwitterShareButton>
+                    <TelegramShareButton url={post_link}>
+                      <TelegramIcon size={'42px'} color={'#888'} />
+                    </TelegramShareButton>
+                    <WhatsappShareButton url={post_link}>
+                      <WhatsappIcon size={'42px'} color={'#888'} />
+                    </WhatsappShareButton>
+                    <LinkedinShareButton edinShareButton url={post_link}>
+                      <LinkedinIcon size={'42px'} color={'#888'} />
+                    </LinkedinShareButton>
+                    <TumblrShareButton url={post_link}>
+                      <TumblrIcon size={'42px'} color={'#888'} />
+                    </TumblrShareButton>
+                  </Flex>
+
+                </Flex>
+
+
+              </Box>
+
+
+              <Box px={{ base: '15px', md: '90px' }} py={'35px'}>
                 <Flex
-                  justifyContent={'space-between'}
+                  alignItems={'center'}
                   flexDirection={{ base: 'column', md: 'row' }}
                 >
-                  {/* <Flex>
+                  <Avatar
+                    h={'70px'}
+                    w={'70px'}
+                    // src="https://secure.gravatar.com/avatar/662a272c8be177be19f47db7acac0cb9?s=180&d=mm&r=g"
+                    src={author.avatar}
+                    mr={{ base: '0px', md: '30px' }}
+                    mb={{ base: '10px', md: '0px' }}
+                  />
+                  <Box textAlign={{ base: 'center', md: "left" }}>
+                    <Text fontSize={'15px'} fontWeight={'600'}>
+                      {`${author.firstName == null ? '' : author.firstName} ${author.lastName == null ? '' : author.lastName
+                        }`}
+                    </Text>
+                    <Text my={'8px'} fontSize={'15px'}>
+                      A 26-year-old health centre receptionist who enjoys
+                      going to the movies, photography and social media.
+                    </Text>
+                  </Box>
+                </Flex>
+              </Box>
+
+              <Flex
+                justifyContent={'space-between'}
+                flexDirection={{ base: 'column', md: 'row' }}
+              >
+                {/* <Flex>
                     <Text
                       m={'4px 6px'}
                       fontSize="13px"
@@ -481,7 +393,7 @@ const Postfinal = ({ props }) => {
                     </Text>
                   </Flex> */}
 
-                  {/* <Flex>
+                {/* <Flex>
                     <Text color={'rgba(34,34,34,0.5)'} mr={'10px'}>
                       <Icon
                         as={FaComment}
@@ -499,59 +411,59 @@ const Postfinal = ({ props }) => {
                       1523
                     </Text>
                   </Flex> */}
-                </Flex>
+              </Flex>
 
-                {prevNextPost !== '' ? (
-                  <Grid
-                    templateColumns={{ md: '6fr 6fr', sm: 'repeat(1, 1fr)' }}
-                    textColor="white"
-                    mt={'10px'}
+              {prevNextPost !== '' ? (
+                <Grid
+                  templateColumns={{ md: '6fr 6fr', sm: 'repeat(1, 1fr)' }}
+                  textColor="white"
+                  mt={'10px'}
+                >
+                  <Box
+                    border="1px solid gray"
+                    py={'30px'}
+                    pr={'40px'}
+                    textAlign="end"
                   >
-                    <Box
-                      border="1px solid gray"
-                      py={'30px'}
-                      pr={'40px'}
-                      textAlign="end"
+                    <Text
+                      color="#222222"
+                      opacity="0.5"
+                      fontWeight="500"
+                      mb={'7px'}
                     >
+                      PREVIOUS
+                    </Text>
+                    <Link href={prevNextPost.previousPost?.slug}>
                       <Text
-                        color="#222222"
-                        opacity="0.5"
-                        fontWeight="500"
-                        mb={'7px'}
+                        cursor={'pointer'}
+                        font-size="18px"
+                        line-height="1.5"
+                        font-weight="600"
                       >
-                        PREVIOUS
+                        {prevNextPost.previousPost?.title}
                       </Text>
-                      <Link href={prevNextPost.previousPost?.slug}>
-                        <Text
-                          cursor={'pointer'}
-                          font-size="18px"
-                          line-height="1.5"
-                          font-weight="600"
-                        >
-                          {prevNextPost.previousPost?.title}
-                        </Text>
-                      </Link>
-                    </Box>
-                    <Box border="1px solid gray" py={'30px'} pl={'40px'}>
-                      <Text
-                        color="#222222"
-                        opacity="0.5"
-                        fontWeight="500"
-                        mb={'7px'}
-                      >
-                        NEXT
+                    </Link>
+                  </Box>
+                  <Box border="1px solid gray" py={'30px'} pl={'40px'}>
+                    <Text
+                      color="#222222"
+                      opacity="0.5"
+                      fontWeight="500"
+                      mb={'7px'}
+                    >
+                      NEXT
+                    </Text>
+                    <Link href={prevNextPost.previousPost.slug}>
+                      <Text cursor={'pointer'}>
+                        {prevNextPost.nextPost.title}
                       </Text>
-                      <Link href={prevNextPost.previousPost.slug}>
-                        <Text cursor={'pointer'}>
-                          {prevNextPost.nextPost.title}
-                        </Text>
-                      </Link>
-                    </Box>
-                  </Grid>
-                ) : (
-                  <div></div>
-                )}
-              </Box>
+                    </Link>
+                  </Box>
+                </Grid>
+              ) : (
+                <div></div>
+              )}
+
             </Box>
           </Grid>
         </Box>

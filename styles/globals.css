@@ -50,7 +50,28 @@ color: rgba(0, 0, 0, 0.85)   ;
   position: sticky;
   top: 0;
 }
+
+.postfinaldata p .block {
+  line-height: 1.4;
+  font-size:18px !important ;
+}
+
 }
 
  
+.postfinaldata p {
+margin-top: 20px;
+margin-bottom: 20px;
+font-size: 16px;
+line-height: 1.7;
+}
  
+.postfinaldata p .block {
+  line-height: 1.4;
+  font-size:24px !important ;
+}
+
+.postfinaldata  img{
+  padding-top: 20px;
+padding-bottom: 20px;
+}
