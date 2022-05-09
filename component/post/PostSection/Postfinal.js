@@ -18,7 +18,7 @@ import {
   useColorMode,
 } from '@chakra-ui/react';
 import Image from 'next/image';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   FaFacebookSquare,
   FaEye,
@@ -38,6 +38,25 @@ import ClassesPostBody from '../../../styles/post-body.module.css';
 import Trending from '../Trending';
 import { compareAsc, format } from 'date-fns';
 import Link from 'next/link';
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  TelegramShareButton,
+  LinkedinShareButton,
+  TumblrShareButton,
+  WhatsappShareButton,
+} from 'react-share';
+
+import {
+  FacebookIcon,
+  LinkedinIcon,
+  TelegramIcon,
+  TumblrIcon,
+  TwitterIcon,
+  WhatsappIcon,
+} from 'react-share';
+import { RWebShare } from 'react-web-share';
+import { FaShareAlt } from 'react-icons/fa';
 
 const Postfinal = ({ props }) => {
   // start here
@@ -60,9 +79,59 @@ const Postfinal = ({ props }) => {
   const videoUrl = `https://www.youtube.com/watch?v=${data.youtube.videoId}`;
 
   const videoLink = `https://www.youtube.com/embed/${data.youtube.videoId}`;
+  const postTitle = props.data?.post?.title;
+
+  const [prevNextPost, setPrevNextPost] = useState('');
 
   const tagName = data?.tags?.edges[0]?.node?.name;
-  // console.log('tagcheck', tags);
+  var prevPostObj = [];
+  var nextPageObj = [];
+  // console.log('postcheck', props.data.posts.edges);
+  props.data.posts.edges.map((item, index) => {
+    // console.log('postcheck', item.node.title);
+    if (item.node.title == postTitle) {
+      console.log('postcheck', props.data.post);
+      prevPostObj = {
+        id: index - 1,
+        title: props.data.posts.edges[index - 1].node?.title,
+        slug: props.data.posts.edges[index - 1].node?.uri,
+        image:
+          props.data.posts.edges[index - 1].node.featuredImage?.node?.sourceUrl,
+      };
+      nextPageObj = {
+        id: index + 1,
+        title: props.data.posts.edges[index + 1].node?.title,
+        slug: props.data.posts.edges[index + 1].node?.uri,
+        image:
+          props.data.posts.edges[index + 1].node?.featuredImage?.node
+            ?.sourceUrl,
+      };
+      // setPrevNextPost({
+      //   previousPost: {
+      //     id: props.data.posts.edges[index - 1],
+      //     title: props.data.posts.edges[index - 1].node.title,
+      //   },
+      //   nextPost: {
+      //     id: props.data.posts.edges[index + 1],
+      //     title: props.data.posts.edges[index + 1].node.title,
+      //   },
+      // });
+    }
+  });
+
+  // share
+
+  const post_link = props.data.post.seo.canonical;
+  const post_title = data.title;
+
+  useEffect(() => {
+    setPrevNextPost({
+      previousPost: prevPostObj,
+      nextPost: nextPageObj,
+    });
+  }, []);
+  console.log('checkprevnext', prevNextPost);
+
   if (!imagePath) {
     return 'not found';
   }
@@ -106,13 +175,38 @@ const Postfinal = ({ props }) => {
                     border="1px solid #888 !important"
                   />
                 </Center>
-                <Icon
-                  mt={'10px !important'}
-                  as={FaFacebookSquare}
-                  boxSize={'42px'}
-                  color={'#888'}
-                />
-                <Icon
+                {/* <FacebookShareButton url={post_link}>
+                  <Icon
+                    mt={'10px !important'}
+                    as={FaFacebookSquare}
+                    boxSize={'42px'}
+                    color={'#888'}
+                  />
+                </FacebookShareButton> */}
+                <FacebookShareButton url={post_link}>
+                  <FacebookIcon
+                    size={'42px'}
+                    color={'#888'}
+                    mt={'10px !important'}
+                  />
+                </FacebookShareButton>
+                <TwitterShareButton url={post_link}>
+                  <TwitterIcon size={'42px'} color={'#888'} />
+                </TwitterShareButton>
+                <TelegramShareButton url={post_link}>
+                  <TelegramIcon size={'42px'} color={'#888'} />
+                </TelegramShareButton>
+                <WhatsappShareButton url={post_link}>
+                  <WhatsappIcon size={'42px'} color={'#888'} />
+                </WhatsappShareButton>
+                <LinkedinShareButton edinShareButton url={post_link}>
+                  <LinkedinIcon size={'42px'} color={'#888'} />
+                </LinkedinShareButton>
+                <TumblrShareButton url={post_link}>
+                  <TumblrIcon size={'42px'} color={'#888'} />
+                </TumblrShareButton>
+
+                {/* <Icon
                   mt={'10px !important'}
                   as={FaTwitterSquare}
                   boxSize={'42px'}
@@ -129,8 +223,23 @@ const Postfinal = ({ props }) => {
                   as={FaLinkedin}
                   boxSize={'42px'}
                   color={'#888'}
-                />
+                /> */}
               </VStack>
+              <Flex
+                display={{ base: 'block', md: 'none' }}
+                className="mobileShareContainer"
+              >
+                <RWebShare
+                  data={{
+                    text: post_title,
+                    url: post_link,
+                    title: 'Share this news to',
+                  }}
+                  onClick={() => console.log('shared successfully!')}
+                >
+                  <FaShareAlt size={30} />
+                </RWebShare>
+              </Flex>
             </Box>
 
             <Box>
@@ -148,7 +257,7 @@ const Postfinal = ({ props }) => {
                   alignContent="center"
                   textAlign={'center'}
 
-                // px="auto"
+                  // px="auto"
                 >
                   {tagName}
                 </Box>
@@ -171,8 +280,9 @@ const Postfinal = ({ props }) => {
                       mr="6px"
                     />
                     <Text pl={'5px'} fontSize={'12px'}>
-                      {`${author.firstName == null ? '' : author.firstName} ${author.lastName == null ? '' : author.lastName
-                        }`}
+                      {`${author.firstName == null ? '' : author.firstName} ${
+                        author.lastName == null ? '' : author.lastName
+                      }`}
                     </Text>
                   </Flex>
                   <Flex alignItems={'center'} mr={'12px'}>
@@ -296,14 +406,16 @@ const Postfinal = ({ props }) => {
                     <Avatar
                       h={'70px'}
                       w={'70px'}
-                      src="https://secure.gravatar.com/avatar/662a272c8be177be19f47db7acac0cb9?s=180&d=mm&r=g"
+                      // src="https://secure.gravatar.com/avatar/662a272c8be177be19f47db7acac0cb9?s=180&d=mm&r=g"
+                      src={author.avatar}
                       mr={{ base: '0px', md: '30px' }}
                       mb={{ base: '10px', md: '0px' }}
                     />
                     <Box textAlign="center">
                       <Text fontSize={'15px'} fontWeight={'600'}>
-                        {`${author.firstName == null ? '' : author.firstName} ${author.lastName == null ? '' : author.lastName
-                          }`}
+                        {`${author.firstName == null ? '' : author.firstName} ${
+                          author.lastName == null ? '' : author.lastName
+                        }`}
                       </Text>
                       <Text my={'8px'} fontSize={'15px'}>
                         A 26-year-old health centre receptionist who enjoys
@@ -389,44 +501,56 @@ const Postfinal = ({ props }) => {
                   </Flex> */}
                 </Flex>
 
-                <Grid
-                  templateColumns={{ md: '6fr 6fr', sm: 'repeat(1, 1fr)' }}
-                  textColor="white"
-                  mt={'10px'}
-                >
-                  <Box
-                    border="1px solid gray"
-                    py={'30px'}
-                    pr={'40px'}
-                    textAlign="end"
+                {prevNextPost !== '' ? (
+                  <Grid
+                    templateColumns={{ md: '6fr 6fr', sm: 'repeat(1, 1fr)' }}
+                    textColor="white"
+                    mt={'10px'}
                   >
-                    <Text
-                      color="#222222"
-                      opacity="0.5"
-                      fontWeight="500"
-                      mb={'7px'}
+                    <Box
+                      border="1px solid gray"
+                      py={'30px'}
+                      pr={'40px'}
+                      textAlign="end"
                     >
-                      PREVIOUS
-                    </Text>
-                    <Text font-size="18px" line-height="1.5" font-weight="600">
-                      The Two Most Important Tools to Reconnect With Your
-                      Partner
-                    </Text>
-                  </Box>
-                  <Box border="1px solid gray" py={'30px'} pl={'40px'}>
-                    <Text
-                      color="#222222"
-                      opacity="0.5"
-                      fontWeight="500"
-                      mb={'7px'}
-                    >
-                      NEXT
-                    </Text>
-                    <Text>
-                      The Next Big Thing in Fashion? Not Washing Your Clothes.
-                    </Text>
-                  </Box>
-                </Grid>
+                      <Text
+                        color="#222222"
+                        opacity="0.5"
+                        fontWeight="500"
+                        mb={'7px'}
+                      >
+                        PREVIOUS
+                      </Text>
+                      <Link href={prevNextPost.previousPost?.slug}>
+                        <Text
+                          cursor={'pointer'}
+                          font-size="18px"
+                          line-height="1.5"
+                          font-weight="600"
+                        >
+                          {prevNextPost.previousPost?.title}
+                        </Text>
+                      </Link>
+                    </Box>
+                    <Box border="1px solid gray" py={'30px'} pl={'40px'}>
+                      <Text
+                        color="#222222"
+                        opacity="0.5"
+                        fontWeight="500"
+                        mb={'7px'}
+                      >
+                        NEXT
+                      </Text>
+                      <Link href={prevNextPost.previousPost.slug}>
+                        <Text cursor={'pointer'}>
+                          {prevNextPost.nextPost.title}
+                        </Text>
+                      </Link>
+                    </Box>
+                  </Grid>
+                ) : (
+                  <div></div>
+                )}
               </Box>
             </Box>
           </Grid>
