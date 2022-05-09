@@ -153,7 +153,8 @@ function PostList({
                             <Heading
                               color={'white'}
                               as="h4"
-                              fontSize={{ base: 'sm', md: 'lg' }}
+                              fontWeight={'700'}
+                              fontSize={{ base: '18px', md: '31px' }}
                               noOfLines={2}
                               lineHeight="1.5"
                               mb={{ base: '12px', md: '12px' }}
@@ -273,7 +274,7 @@ function PostList({
                                 <Heading
                                   color={'white'}
                                   as="h4"
-                                  fontSize={{ base: 'sm', md: 'lg' }}
+                                  fontSize={{ base: '16px', md: '21px' }}
                                   noOfLines={2}
                                   lineHeight="1.5"
                                   mb={{ base: '12px', md: '12px' }}
