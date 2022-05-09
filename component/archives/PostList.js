@@ -84,7 +84,7 @@ function PostList({ urlType, urlName, data, slug, section, allData }) {
           templateColumns={{ md: '8fr 4fr', sm: 'repeat(1, 1fr)' }}
           textColor="white"
           gap={2}
-          my="50px"
+          my={{ base: "30px", md: "50px" }}
         >
           {data.edges &&
             data.edges.slice(0, 1).map((item, index) => {
@@ -300,7 +300,7 @@ function PostList({ urlType, urlName, data, slug, section, allData }) {
         <Grid
           templateColumns={{ md: '9fr 3fr', sm: 'repeat(1, 1fr)' }}
           gap={10}
-          my={20}
+          my={{ base: '50px', md: '60px' }}
           position={'relative'}
         >
           <Box>
@@ -390,7 +390,7 @@ function PostList({ urlType, urlName, data, slug, section, allData }) {
           </Box>
 
           <Box>
-            <Box mb="55px" position={'sticky'} top={'10px'}>
+            <Box position={'sticky'} top={'10px'}>
               <Flex alignItems={'center'} mb="30px">
                 <Heading as={'h4'} fontSize="17px" w="-webkit-fill-available">
                   Popular News
@@ -409,9 +409,15 @@ function PostList({ urlType, urlName, data, slug, section, allData }) {
                   }
                   return (
                     <Link href={item.node.slug} key={index}>
-                      <Flex my="20px" key={item}>
-                        <Img h="70px" w="70px" mr="15px" src={imagePath} />
-                        <Text>{item.node.title}</Text>
+                      <Flex my="20px" key={item} position={'relative'}>
+                        <Img h="70px" w="70px" mr="15px" src={imagePath} objectFit={'cover'} />
+                        <Text noOfLines={3} fontSize='15px' lineHeight={1.5}>{item.node.title}</Text>
+                        <Box position={'absolute'} top={'-8px'} left={'-8px'}
+                          bg={'blue'} rounded={'full'} w="16px" h='17px'>
+                          <Text color="white" textAlign={'center'} fontSize={'xs'} >
+                            1
+                          </Text>
+                        </Box>
                       </Flex>
                     </Link>
                   );
