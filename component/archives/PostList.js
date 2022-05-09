@@ -28,9 +28,7 @@ import Link from 'next/link';
 import { FaRegClock, FaCircle, FaPlayCircle, FaFacebook } from 'react-icons/fa';
 // import ReactPlayer from 'react-player';
 
-function PostList({ urlType, urlName, data, slug, section }) {
-
-
+function PostList({ urlType, urlName, data, slug, section, allData }) {
   // theming
   const { colorMode, toggleColorMode } = useColorMode();
   const isLightTheme = colorMode == 'light' ? true : false;
@@ -58,29 +56,25 @@ function PostList({ urlType, urlName, data, slug, section }) {
   const breadcrumb = router.asPath.split('/');
 
   const { sectionAData, sectionBData, sectionCData } = section;
-  // console.log('checkcat', sectionAData);
+  console.log('checkcat', allData);
 
-  const gridimg = [1, 2, 3, 4, 5, 6, 7, 8]
-  const slideimg = [1, 2, 3, 4,]
+  const gridimg = [1, 2, 3, 4, 5, 6, 7, 8];
+  const slideimg = [1, 2, 3, 4];
 
   return (
     <>
       <ArchiveSeo data={data} pageType={pageType} pageName={pageName} />
 
       <Box my={8} px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }}>
-
         <Flex alignItems={'baseline'}>
           <Icon as={FaCircle} boxSize={5} mr="12px" color={'#ab20ef'} />
           <Box>
             <Heading as="h2" fontSize={'24px'} mb="8px">
               {typeName}
             </Heading>
-            <Text color={subTitleTextColor}>
-              The #1 source for good news!
-            </Text>
+            <Text color={subTitleTextColor}>The #1 source for good news!</Text>
           </Box>
         </Flex>
-
 
         {/* <Heading as="h2" size={'lg'}>
           {typeName}
@@ -90,12 +84,13 @@ function PostList({ urlType, urlName, data, slug, section }) {
           templateColumns={{ md: '8fr 4fr', sm: 'repeat(1, 1fr)' }}
           textColor="white"
           gap={2}
-          my='50px'
+          my="50px"
         >
-
           {data.edges &&
             data.edges.slice(0, 1).map((item, index) => {
+              const author = item?.node?.author.node;
               const tagName = item?.node?.tags?.edges[0]?.node?.name;
+              console.log('checkauthor', item?.node?.author);
               return (
                 item &&
                 item.node && (
@@ -105,13 +100,16 @@ function PostList({ urlType, urlName, data, slug, section }) {
                       h={{ base: '320px', md: '470px' }}
                       backgroundImage={item.node.featuredImage.node.sourceUrl}
                       backgroundSize={'cover'}
-                      backgroundPosition={'center center'}>
-
+                      backgroundPosition={'center center'}
+                    >
                       <VStack
                         style={{ position: 'relative' }}
                         w={'full'}
                         justify={'center'}
-                        bgGradient={'linear-gradient(to bottom, rgb(255 255 255 / 0%), #0f0e0e);'}>
+                        bgGradient={
+                          'linear-gradient(to bottom, rgb(255 255 255 / 0%), #0f0e0e);'
+                        }
+                      >
                         <Stack maxW={'2xl'} align={'flex-start'} spacing={6}>
                           <Box
                             p={4}
@@ -126,7 +124,7 @@ function PostList({ urlType, urlName, data, slug, section }) {
                               <Button
                                 bg={'#fc4a00 '}
                                 color="white"
-                                rounded='5px'
+                                rounded="5px"
                                 size="xs"
                                 fontWeight={'bold'}
                               >
@@ -136,7 +134,7 @@ function PostList({ urlType, urlName, data, slug, section }) {
                           </Box>
 
                           <Box
-                            p='20px'
+                            p="20px"
                             style={{
                               position: 'absolute',
                               left: 0,
@@ -157,24 +155,31 @@ function PostList({ urlType, urlName, data, slug, section }) {
                             <Flex mt="2" alignItems={'center'}>
                               <Flex alignItems={'center'} mr={'12px'}>
                                 <Avatar
-                                  src='https://bit.ly/dan-abramov'
+                                  src="https://bit.ly/dan-abramov"
                                   h={'30px'}
                                   w={'30px'}
                                   mr="6px"
                                 />
-                                <Text pl={'5px'} fontSize={'14px'} color={'white'}>
-                                  Trisha
+                                <Text
+                                  pl={'5px'}
+                                  fontSize={'14px'}
+                                  color={'white'}
+                                >
+                                  {`${author.name} `}
                                 </Text>
                               </Flex>
 
-                              <Icon as={FaRegClock} color={'white'} fontSize="12px" />
+                              <Icon
+                                as={FaRegClock}
+                                color={'white'}
+                                fontSize="12px"
+                              />
                               <Text color={'white'} ml={2} fontSize="12px">
                                 {format(new Date(item.node.date), 'yyyy-MM-dd')}
                               </Text>
                             </Flex>
                           </Box>
                         </Stack>
-
                       </VStack>
                     </Flex>
                   </Link>
@@ -196,20 +201,25 @@ function PostList({ urlType, urlName, data, slug, section }) {
                     item &&
                     item.node && (
                       <Link key={index} href={item.node.slug}>
-
                         <Flex
+                          cursor={'pointer'}
                           w={'full'}
                           h={{ base: '250px', md: '100%' }}
-                          backgroundImage={item.node.featuredImage.node.sourceUrl}
+                          backgroundImage={
+                            item.node.featuredImage.node.sourceUrl
+                          }
                           backgroundSize={'cover'}
-                          backgroundPosition={'center center'}>
-
+                          backgroundPosition={'center center'}
+                        >
                           <VStack
                             style={{ position: 'relative' }}
                             w={'full'}
                             justify={'center'}
-                            bgGradient={'linear-gradient(to bottom, rgb(255 255 255 / 0%), #0f0e0e);'}>
-                            <Stack maxW={'2xl'} align={'flex-start'} >
+                            bgGradient={
+                              'linear-gradient(to bottom, rgb(255 255 255 / 0%), #0f0e0e);'
+                            }
+                          >
+                            <Stack maxW={'2xl'} align={'flex-start'}>
                               <Box
                                 p={4}
                                 style={{
@@ -223,7 +233,7 @@ function PostList({ urlType, urlName, data, slug, section }) {
                                   <Button
                                     bg={'#fc4a00 '}
                                     color="white"
-                                    rounded='5px'
+                                    rounded="5px"
                                     size="xs"
                                     fontWeight={'bold'}
                                   >
@@ -231,7 +241,6 @@ function PostList({ urlType, urlName, data, slug, section }) {
                                   </Button>
                                 )}
                               </Box>
-
 
                               {/* <Box 
                                 style={{
@@ -245,7 +254,7 @@ function PostList({ urlType, urlName, data, slug, section }) {
                               </Box> */}
 
                               <Box
-                                p='20px'
+                                p="20px"
                                 style={{
                                   position: 'absolute',
                                   left: 0,
@@ -264,18 +273,22 @@ function PostList({ urlType, urlName, data, slug, section }) {
                                   {item.node.title}
                                 </Heading>
                                 <Flex mt="2" alignItems={'center'}>
-                                  <Icon as={FaRegClock} color={'white'} fontSize="12px" />
+                                  <Icon
+                                    as={FaRegClock}
+                                    color={'white'}
+                                    fontSize="12px"
+                                  />
                                   <Text color={'white'} ml={2} fontSize="12px">
-                                    {format(new Date(item.node.date), 'yyyy-MM-dd')}
+                                    {format(
+                                      new Date(item.node.date),
+                                      'yyyy-MM-dd'
+                                    )}
                                   </Text>
                                 </Flex>
                               </Box>
                             </Stack>
-
                           </VStack>
                         </Flex>
-
-
                       </Link>
                     )
                   );
@@ -295,91 +308,118 @@ function PostList({ urlType, urlName, data, slug, section }) {
               templateColumns={{ md: '6fr 6fr', sm: 'repeat(1, 1fr)' }}
               gap={10}
             >
-
-              {gridimg.map((item, index) => {
-                return (
-                  <Box>
-                    <Box position={'relative'} mb='20px'>
-                      <Img src='https://atbs.bk-ninja.com/ceris_main/wp-content/uploads/2021/08/ceris_1-400x300.jpg' />
-                      <Button
-                        position={'absolute'}
-                        bottom="0px"
-                        bg={'#fc4a00 '}
-                        color="white"
-                        rounded='none'
-                        size="xs"
-                        fontWeight={'bold'}
-                      >
-                        TRAVEL
-                      </Button>
-                      <Box
-                        style={{
-                          position: 'absolute',
-                          right: 15,
-                          top: '15px',
-                          color: 'white',
-                        }}
-                      >
-                        <Icon as={FaPlayCircle} boxSize='50px' />
-                      </Box>
-                    </Box>
-                    <Heading
-                      as="h3"
-                      fontSize={{ base: 'sm', md: 'lg' }}
-                      noOfLines={2}
-                      lineHeight="1.5"
-                      mb={{ base: '12px', md: '12px' }}>
-                      Adjusting to Your Home is no Different than a New Country
-                    </Heading>
-                    <Text fontSize='15px' mb={{ base: '12px', md: '13px' }} noOfLines={2}
-                    >
-                      Whoever said “It’s not about the destination. It’s the journey” never flew on a long ...
-                    </Text>
-                    <Flex mb={{ base: '12px', md: '12px' }} >
-                      <Text fontWeight='700' fontSize='14px' color='rgba(0, 0, 0, 0.6)' mr={4}>
-                        By Trisha
-                      </Text>
-                      <Flex alignItems={'center'}>
-                        <Icon as={FaRegClock} color={'rgba(0, 0, 0, 0.5)'} fontSize="12px" />
-                        <Text color={'rgba(0, 0, 0, 0.5)'} ml={1} fontSize="12px" >
-                          October 18, 2019
+              {data.edges &&
+                data.edges.slice(4, 12).map((item, index) => {
+                  const tagName = item?.node?.tags?.edges[0]?.node?.name;
+                  const author = item?.node?.author?.node;
+                  return (
+                    <Link key={index} href={item.node.slug}>
+                      <Box cursor={'pointer'}>
+                        <Box position={'relative'} mb="20px">
+                          <Img src={item.node.featuredImage.node.sourceUrl} />
+                          {tagName && (
+                            <Button
+                              position={'absolute'}
+                              bottom="0px"
+                              bg={'#fc4a00 '}
+                              color="white"
+                              rounded="none"
+                              size="xs"
+                              fontWeight={'bold'}
+                            >
+                              {tagName}
+                            </Button>
+                          )}
+                          <Box
+                            style={{
+                              position: 'absolute',
+                              right: 15,
+                              top: '15px',
+                              color: 'white',
+                            }}
+                          >
+                            <Icon as={FaPlayCircle} boxSize="50px" />
+                          </Box>
+                        </Box>
+                        <Heading
+                          as="h3"
+                          fontSize={{ base: 'sm', md: 'lg' }}
+                          noOfLines={2}
+                          lineHeight="1.5"
+                          mb={{ base: '12px', md: '12px' }}
+                        >
+                          {item.node.title}
+                        </Heading>
+                        <Text
+                          fontSize="15px"
+                          mb={{ base: '12px', md: '13px' }}
+                          noOfLines={2}
+                        >
+                          Whoever said “It’s not about the destination. It’s the
+                          journey” never flew on a long ...
                         </Text>
-                      </Flex>
-                    </Flex>
-                  </Box>
-                );
-              })}
-
+                        <Flex mb={{ base: '12px', md: '12px' }}>
+                          <Text
+                            fontWeight="700"
+                            fontSize="14px"
+                            color="rgba(0, 0, 0, 0.6)"
+                            mr={4}
+                          >
+                            By {author.name}
+                          </Text>
+                          <Flex alignItems={'center'}>
+                            <Icon
+                              as={FaRegClock}
+                              color={'rgba(0, 0, 0, 0.5)'}
+                              fontSize="12px"
+                            />
+                            <Text
+                              color={'rgba(0, 0, 0, 0.5)'}
+                              ml={1}
+                              fontSize="12px"
+                            >
+                              {format(new Date(item.node.date), 'yyyy-MM-dd')}
+                            </Text>
+                          </Flex>
+                        </Flex>
+                      </Box>
+                    </Link>
+                  );
+                })}
             </Grid>
           </Box>
 
-          <Box >
-            <Box mb='55px' position={'sticky'} top={'10px'}>
-              <Flex alignItems={'center'} mb='30px'>
-                <Heading as={'h4'} fontSize='17px' w='-webkit-fill-available' >
+          <Box>
+            <Box mb="55px" position={'sticky'} top={'10px'}>
+              <Flex alignItems={'center'} mb="30px">
+                <Heading as={'h4'} fontSize="17px" w="-webkit-fill-available">
                   Popular News
                 </Heading>
                 <Divider />
               </Flex>
 
+              {allData.trending.edges &&
+                allData.trending.edges.map((item, index) => {
+                  const author = item.node.author;
+                  const imagePath = item.node.featuredImage?.node.sourceUrl;
+                  //  console.log('checktrending', item.node.slug);
 
-              {slideimg.map((item, index) => {
-                return (
-                  <Flex my='20px' key={item}>
-                    <Img
-                      h='70px' w="70px" mr="15px"
-                      src='https://atbs.bk-ninja.com/ceris_main/wp-content/uploads/2021/08/ceris_12-180x180.jpg' />
-                    <Text>
-                      The Scariest Moment is Always Just Before You Start
-                    </Text>
-                  </Flex>
-                );
-              })}
-
+                  if (!imagePath) {
+                    return 'not found';
+                  }
+                  return (
+                    <Link href={item.node.slug} key={index}>
+                      <Flex my="20px" key={item}>
+                        <Img h="70px" w="70px" mr="15px" src={imagePath} />
+                        <Text>{item.node.title}</Text>
+                      </Flex>
+                    </Link>
+                  );
+                })}
 
               <Box>
-                <Flex alignItems={'center'} mb='30px'>
-                  <Heading as={'h4'} fontSize='17px' w='-webkit-fill-available' >
+                <Flex alignItems={'center'} mb="30px">
+                  <Heading as={'h4'} fontSize="17px" w="-webkit-fill-available">
                     Categories
                   </Heading>
                   <Divider />
@@ -387,26 +427,31 @@ function PostList({ urlType, urlName, data, slug, section }) {
 
                 {slideimg.map((item, index) => {
                   return (
-                    <Box position={'relative'} mt="20px">
-                      <Img src='https://atbs.bk-ninja.com/ceris_main/wp-content/uploads/2020/04/a-photograph-of-a-woman-holding-a-canadian-flag-2961063-min-400x200.jpg' />
-                      <Box textAlign={'center'} position={'absolute'} left={'30%'} right={'30%'} top={'45%'}>
-                        <Button size="xs" rounded={'none'} bg="#4ca80b" color='white' >
+                    <Box position={'relative'} mt="20px" cursor={'pointer'}>
+                      <Img src="https://atbs.bk-ninja.com/ceris_main/wp-content/uploads/2020/04/a-photograph-of-a-woman-holding-a-canadian-flag-2961063-min-400x200.jpg" />
+                      <Box
+                        textAlign={'center'}
+                        position={'absolute'}
+                        left={'30%'}
+                        right={'30%'}
+                        top={'45%'}
+                      >
+                        <Button
+                          size="xs"
+                          rounded={'none'}
+                          bg="#4ca80b"
+                          color="white"
+                        >
                           LIFESTYLE
                         </Button>
                       </Box>
                     </Box>
                   );
                 })}
-
               </Box>
-
             </Box>
-
-
           </Box>
         </Grid>
-
-
       </Box>
 
       {/* <ArchiveHeroSection newsData={data.edges} /> */}

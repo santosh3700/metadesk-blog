@@ -65,6 +65,7 @@ function OtherPages(props) {
             data={props.data}
             slug={props.slug}
             section={props.section}
+            allData={props}
           />
         );
       } else if (pageType === 'page') {
