@@ -22,6 +22,7 @@ import {
   getPostDetailsByUri,
   getAllPostsWithUri,
   getAllPostsForHome,
+  getAllCategory,
 } from '../lib/api';
 import Postfinal from '../component/post/PostSection/Postfinal';
 //import Post1st from '../component/post/PostSection/1stpost';
@@ -66,6 +67,7 @@ function OtherPages(props) {
             slug={props.slug}
             section={props.section}
             allData={props}
+            allCategoryData={props.allCategoryData}
           />
         );
       } else if (pageType === 'page') {
@@ -105,6 +107,7 @@ export async function getStaticProps(context) {
   const { slug } = params;
   const urlType = slug[0];
 
+  const allCategoryData = await getAllCategory();
   const postList = await getAllPostsForHome();
   var trendingData = await getCateogryRecentPostbyName(
     'categoryName',
@@ -181,6 +184,7 @@ export async function getStaticProps(context) {
       pageType: pageType,
       slug: slug,
       section: { sectionAData, sectionBData, sectionCData },
+      allCategoryData: allCategoryData,
     },
     revalidate: 30, //30 minutes
   };

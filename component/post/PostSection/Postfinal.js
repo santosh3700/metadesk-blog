@@ -232,7 +232,7 @@ const Postfinal = ({ props }) => {
                   alignContent="center"
                   textAlign={'center'}
 
-                // px="auto"
+                  // px="auto"
                 >
                   {tagName}
                 </Box>
@@ -246,9 +246,15 @@ const Postfinal = ({ props }) => {
                 >
                   {data.title}
                 </Heading>
-                <Flex alignItems={{ base: 'left', md: 'center' }} flexDirection={{ base: 'column', md: 'row' }}>
-
-                  <Flex alignItems={'center'} mr={'12px'} mb={{ base: '10px', md: '0px' }}>
+                <Flex
+                  alignItems={{ base: 'left', md: 'center' }}
+                  flexDirection={{ base: 'column', md: 'row' }}
+                >
+                  <Flex
+                    alignItems={'center'}
+                    mr={'12px'}
+                    mb={{ base: '10px', md: '0px' }}
+                  >
                     <Avatar
                       src={author.avatar}
                       h={'30px'}
@@ -256,11 +262,16 @@ const Postfinal = ({ props }) => {
                       mr="6px"
                     />
                     <Text pl={'5px'} fontSize={'12px'}>
-                      {`${author.firstName == null ? '' : author.firstName} ${author.lastName == null ? '' : author.lastName
-                        }`}
+                      {`${author.firstName == null ? '' : author.firstName} ${
+                        author.lastName == null ? '' : author.lastName
+                      }`}
                     </Text>
                   </Flex>
-                  <Flex alignItems={'center'} mr={'12px'} mb={{ base: '10px', md: '0px' }}>
+                  <Flex
+                    alignItems={'center'}
+                    mr={'12px'}
+                    mb={{ base: '10px', md: '0px' }}
+                  >
                     <Icon
                       as={FaRegClock}
                       boxSize={3}
@@ -274,10 +285,17 @@ const Postfinal = ({ props }) => {
                       {date.toDateString()}
                     </Text>
                   </Flex>
-                  <Flex alignItems={'center'} mr={'12px'} >
-                    <Text
-                      fontSize={'12px'}
-                      color={'rgba(0, 0, 0, 0.5)'}> <Icon mr={'5px'} as={FaEye} boxSize={3} color={'rgba(0, 0, 0, 0.5)'} />124563</Text>
+                  <Flex alignItems={'center'} mr={'12px'}>
+                    <Text fontSize={'12px'} color={'rgba(0, 0, 0, 0.5)'}>
+                      {' '}
+                      <Icon
+                        mr={'5px'}
+                        as={FaEye}
+                        boxSize={3}
+                        color={'rgba(0, 0, 0, 0.5)'}
+                      />
+                      124563
+                    </Text>
                     <Text
                       pl={'5px'}
                       fontSize={'12px'}
@@ -289,7 +307,6 @@ const Postfinal = ({ props }) => {
                 </Flex>
               </Box>
 
-
               <Text mb={'30px'} className="postfinaldata">
                 <div
                   className={`${ClassesPostBody.content} contentBody`}
@@ -297,11 +314,10 @@ const Postfinal = ({ props }) => {
                 />
               </Text>
 
-
               {/* share icon for mobile */}
 
               <Box display={{ base: 'block', md: 'none !important' }}>
-                <Flex flexDirection='column'>
+                <Flex flexDirection="column">
                   <Heading
                     color={'black'}
                     as="h4"
@@ -332,12 +348,8 @@ const Postfinal = ({ props }) => {
                       <TumblrIcon size={'42px'} color={'#888'} />
                     </TumblrShareButton>
                   </Flex>
-
                 </Flex>
-
-
               </Box>
-
 
               <Box px={{ base: '15px', md: '90px' }} py={'35px'}>
                 <Flex
@@ -352,14 +364,15 @@ const Postfinal = ({ props }) => {
                     mr={{ base: '0px', md: '30px' }}
                     mb={{ base: '10px', md: '0px' }}
                   />
-                  <Box textAlign={{ base: 'center', md: "left" }}>
+                  <Box textAlign={{ base: 'center', md: 'left' }}>
                     <Text fontSize={'15px'} fontWeight={'600'}>
-                      {`${author.firstName == null ? '' : author.firstName} ${author.lastName == null ? '' : author.lastName
-                        }`}
+                      {`${author.firstName == null ? '' : author.firstName} ${
+                        author.lastName == null ? '' : author.lastName
+                      }`}
                     </Text>
                     <Text my={'8px'} fontSize={'15px'}>
-                      A 26-year-old health centre receptionist who enjoys
-                      going to the movies, photography and social media.
+                      A 26-year-old health centre receptionist who enjoys going
+                      to the movies, photography and social media.
                     </Text>
                   </Box>
                 </Flex>
@@ -463,7 +476,6 @@ const Postfinal = ({ props }) => {
               ) : (
                 <div></div>
               )}
-
             </Box>
           </Grid>
         </Box>
@@ -502,7 +514,7 @@ const Postfinal = ({ props }) => {
               const imagePath = item.node.featuredImage?.node.sourceUrl;
               const tags = item.node?.tags?.edges[0].node.name;
               // item.node?.tags?.edges[0];
-              // console.log('checktrending', item.node?.tags?.edges[0].node.name);
+              console.log('checktrending', author);
 
               if (!imagePath) {
                 return 'not found';
@@ -574,7 +586,8 @@ const Postfinal = ({ props }) => {
                               <Flex alignItems={'center'}>
                                 <Flex alignItems={'center'} mr={'12px'}>
                                   <Avatar
-                                    src="https://bit.ly/dan-abramov"
+                                    // src="https://bit.ly/dan-abramov"
+                                    src={author.node?.avatar?.url}
                                     h={'30px'}
                                     w={'30px'}
                                     mr="6px"

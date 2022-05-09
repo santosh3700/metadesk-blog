@@ -63,7 +63,7 @@ export default function Navbar({ menu }) {
   } = useDisclosure();
 
   const menuItems = menu?.menuItems?.edges;
-  // console.log('menucheck=', menuItems);
+  console.log('menucheck=', menuItems);
   if (menuItems === null || menuItems === undefined) {
     return <div></div>;
   }
@@ -71,7 +71,10 @@ export default function Navbar({ menu }) {
     menuItems && (
       // <Headroom>
       <Box zIndex={'999'} bg={primaryBgColor} className="sticky-header-div">
-        <Box px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }} borderBottom={{ base: '0', md: '2px solid black' }}>
+        <Box
+          px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }}
+          borderBottom={{ base: '0', md: '2px solid black' }}
+        >
           {/* <Flex
                     color={useColorModeValue('gray.600', 'white')}
                     minH={'60px'}

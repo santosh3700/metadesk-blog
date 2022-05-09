@@ -104,6 +104,7 @@ export async function getStaticProps({ preview = false }) {
   //   'categoryName',
   //   process.env.home.heroSection.NAME
   // );
+
   const sideBarData = await getCateogryRecentPostbyName(
     'categoryName',
     process.env.home.categoryList.SIDEBAR.SIDEBAR_NAME

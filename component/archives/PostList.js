@@ -28,7 +28,15 @@ import Link from 'next/link';
 import { FaRegClock, FaCircle, FaPlayCircle, FaFacebook } from 'react-icons/fa';
 // import ReactPlayer from 'react-player';
 
-function PostList({ urlType, urlName, data, slug, section, allData }) {
+function PostList({
+  urlType,
+  urlName,
+  data,
+  slug,
+  section,
+  allData,
+  allCategoryData,
+}) {
   // theming
   const { colorMode, toggleColorMode } = useColorMode();
   const isLightTheme = colorMode == 'light' ? true : false;
@@ -56,7 +64,7 @@ function PostList({ urlType, urlName, data, slug, section, allData }) {
   const breadcrumb = router.asPath.split('/');
 
   const { sectionAData, sectionBData, sectionCData } = section;
-  console.log('checkcat', allData);
+  console.log('checkcat', allCategoryData);
 
   const gridimg = [1, 2, 3, 4, 5, 6, 7, 8];
   const slideimg = [1, 2, 3, 4];
@@ -84,7 +92,7 @@ function PostList({ urlType, urlName, data, slug, section, allData }) {
           templateColumns={{ md: '8fr 4fr', sm: 'repeat(1, 1fr)' }}
           textColor="white"
           gap={2}
-          my={{ base: "30px", md: "50px" }}
+          my={{ base: '30px', md: '50px' }}
         >
           {data.edges &&
             data.edges.slice(0, 1).map((item, index) => {
@@ -94,7 +102,7 @@ function PostList({ urlType, urlName, data, slug, section, allData }) {
               return (
                 item &&
                 item.node && (
-                  <Link key={index} href={item.node.slug}>
+                  <Link key={index} href={item.node?.slug}>
                     <Flex
                       w={'full'}
                       h={{ base: '320px', md: '470px' }}
@@ -408,13 +416,37 @@ function PostList({ urlType, urlName, data, slug, section, allData }) {
                     return 'not found';
                   }
                   return (
-                    <Link href={item.node.slug} key={index}>
-                      <Flex my="20px" key={item} position={'relative'}>
-                        <Img h="70px" w="70px" mr="15px" src={imagePath} objectFit={'cover'} />
-                        <Text noOfLines={3} fontSize='15px' lineHeight={1.5}>{item.node.title}</Text>
-                        <Box position={'absolute'} top={'-8px'} left={'-8px'}
-                          bg={'blue'} rounded={'full'} w="16px" h='17px'>
-                          <Text color="white" textAlign={'center'} fontSize={'xs'} >
+                    <Link href={item.node?.slug} key={index}>
+                      <Flex
+                        my="20px"
+                        key={item}
+                        position={'relative'}
+                        cursor={'pointer'}
+                      >
+                        <Img
+                          h="70px"
+                          w="70px"
+                          mr="15px"
+                          src={imagePath}
+                          objectFit={'cover'}
+                        />
+                        <Text noOfLines={3} fontSize="15px" lineHeight={1.5}>
+                          {item.node.title}
+                        </Text>
+                        <Box
+                          position={'absolute'}
+                          top={'-8px'}
+                          left={'-8px'}
+                          bg={'blue'}
+                          rounded={'full'}
+                          w="16px"
+                          h="17px"
+                        >
+                          <Text
+                            color="white"
+                            textAlign={'center'}
+                            fontSize={'xs'}
+                          >
                             1
                           </Text>
                         </Box>
@@ -431,29 +463,40 @@ function PostList({ urlType, urlName, data, slug, section, allData }) {
                   <Divider />
                 </Flex>
 
-                {slideimg.map((item, index) => {
-                  return (
-                    <Box position={'relative'} mt="20px" cursor={'pointer'}>
-                      <Img src="https://atbs.bk-ninja.com/ceris_main/wp-content/uploads/2020/04/a-photograph-of-a-woman-holding-a-canadian-flag-2961063-min-400x200.jpg" />
-                      <Box
-                        textAlign={'center'}
-                        position={'absolute'}
-                        left={'30%'}
-                        right={'30%'}
-                        top={'45%'}
-                      >
-                        <Button
-                          size="xs"
-                          rounded={'none'}
-                          bg="#4ca80b"
-                          color="white"
-                        >
-                          LIFESTYLE
-                        </Button>
-                      </Box>
-                    </Box>
-                  );
-                })}
+                {allCategoryData.categories?.edges
+                  ?.slice(0, 4)
+                  .map((item, index) => {
+                    const demoImage = [
+                      'http://metadesk.thenwg.xyz/wp-content/uploads/2022/04/steven-soderbergh-gID_4.jpg-300x169.webp',
+                      'http://metadesk.thenwg.xyz/wp-content/uploads/2022/04/bitcoin-el-salvador-gID_4.jpeg-300x169.webp',
+                      'http://metadesk.thenwg.xyz/wp-content/uploads/2022/04/solana-opensea-nft-gID_1.png-300x169.webp',
+                      'http://metadesk.thenwg.xyz/wp-content/uploads/2022/04/fdic-crypto-risk-gID_2.png-300x169.webp',
+                    ];
+                    console.log('checkslug', item.node.uri);
+                    return (
+                      <Link key={index} href={item.node?.uri}>
+                        <Box position={'relative'} mt="20px" cursor={'pointer'}>
+                          <Img src={demoImage[index]} />
+                          <Box
+                            textAlign={'center'}
+                            position={'absolute'}
+                            left={'30%'}
+                            right={'30%'}
+                            top={'45%'}
+                          >
+                            <Button
+                              size="xs"
+                              rounded={'none'}
+                              bg="#4ca80b"
+                              color="white"
+                            >
+                              {item.node.name}
+                            </Button>
+                          </Box>
+                        </Box>
+                      </Link>
+                    );
+                  })}
               </Box>
             </Box>
           </Box>
