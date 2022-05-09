@@ -81,7 +81,10 @@ const Postfinal = ({ props }) => {
   const videoLink = `https://www.youtube.com/embed/${data.youtube.videoId}`;
   const postTitle = props.data?.post?.title;
 
-  const [prevNextPost, setPrevNextPost] = useState('');
+  const [prevNextPost, setPrevNextPost] = useState({
+    previousPost: '',
+    nextPost: '',
+  });
 
   const tagName = data?.tags?.edges[0]?.node?.name;
   var prevPostObj = [];
@@ -90,20 +93,21 @@ const Postfinal = ({ props }) => {
   props.data.posts.edges.map((item, index) => {
     // console.log('postcheck', item.node.title);
     if (item.node.title == postTitle) {
-      console.log('postcheck', props.data.post);
+      console.log('postcheck', prevNextPost);
       prevPostObj = {
         id: index - 1,
-        title: props.data.posts.edges[index - 1].node?.title,
-        slug: props.data.posts.edges[index - 1].node?.uri,
+        title: props.data.posts.edges[index - 1]?.node?.title,
+        slug: props.data.posts.edges[index - 1]?.node?.uri,
         image:
-          props.data.posts.edges[index - 1].node.featuredImage?.node?.sourceUrl,
+          props.data.posts.edges[index - 1]?.node?.featuredImage?.node
+            ?.sourceUrl,
       };
       nextPageObj = {
         id: index + 1,
-        title: props.data.posts.edges[index + 1].node?.title,
-        slug: props.data.posts.edges[index + 1].node?.uri,
+        title: props.data.posts.edges[index + 1]?.node?.title,
+        slug: props.data.posts.edges[index + 1]?.node?.uri,
         image:
-          props.data.posts.edges[index + 1].node?.featuredImage?.node
+          props.data.posts.edges[index + 1]?.node?.featuredImage?.node
             ?.sourceUrl,
       };
       // setPrevNextPost({
@@ -426,55 +430,64 @@ const Postfinal = ({ props }) => {
                   </Flex> */}
               </Flex>
 
-              {prevNextPost !== '' ? (
+              {prevNextPost.previousPost !== '' &&
+              prevNextPost.nextPost !== '' ? (
                 <Grid
                   templateColumns={{ md: '6fr 6fr', sm: 'repeat(1, 1fr)' }}
                   textColor="white"
                   mt={'10px'}
                 >
-                  <Box
-                    border="1px solid gray"
-                    py={'30px'}
-                    pr={'40px'}
-                    textAlign="end"
-                  >
-                    <Text
-                      color="#222222"
-                      opacity="0.5"
-                      fontWeight="500"
-                      mb={'7px'}
+                  {prevNextPost.previousPost.slug !== undefined ? (
+                    <Box
+                      border="1px solid gray"
+                      py={'30px'}
+                      pr={'40px'}
+                      textAlign="end"
                     >
-                      PREVIOUS
-                    </Text>
-                    <Link href={prevNextPost.previousPost?.slug}>
                       <Text
-                        cursor={'pointer'}
-                        font-size="18px"
-                        line-height="1.5"
-                        font-weight="600"
+                        color="#222222"
+                        opacity="0.5"
+                        fontWeight="500"
+                        mb={'7px'}
                       >
-                        {prevNextPost.previousPost?.title}
+                        PREVIOUS
                       </Text>
-                    </Link>
-                  </Box>
-                  <Box border="1px solid gray" py={'30px'} pl={'40px'}>
-                    <Text
-                      color="#222222"
-                      opacity="0.5"
-                      fontWeight="500"
-                      mb={'7px'}
-                    >
-                      NEXT
-                    </Text>
-                    <Link href={prevNextPost.previousPost.slug}>
-                      <Text cursor={'pointer'}>
-                        {prevNextPost.nextPost.title}
+                      <Link href={prevNextPost.previousPost?.slug}>
+                        <Text
+                          cursor={'pointer'}
+                          font-size="18px"
+                          line-height="1.5"
+                          font-weight="600"
+                        >
+                          {prevNextPost.previousPost?.title}
+                        </Text>
+                      </Link>
+                    </Box>
+                  ) : (
+                    <div></div>
+                  )}
+                  {prevNextPost.nextPost.slug !== undefined ? (
+                    <Box border="1px solid gray" py={'30px'} pl={'40px'}>
+                      <Text
+                        color="#222222"
+                        opacity="0.5"
+                        fontWeight="500"
+                        mb={'7px'}
+                      >
+                        NEXT
                       </Text>
-                    </Link>
-                  </Box>
+                      <Link href={prevNextPost.nextPost?.slug}>
+                        <Text cursor={'pointer'}>
+                          {prevNextPost.nextPost?.title}
+                        </Text>
+                      </Link>
+                    </Box>
+                  ) : (
+                    <div></div>
+                  )}
                 </Grid>
               ) : (
-                <div></div>
+                <div>ok</div>
               )}
             </Box>
           </Grid>
