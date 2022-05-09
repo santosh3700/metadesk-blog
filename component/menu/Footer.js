@@ -79,7 +79,7 @@ export default function Footer() {
         <Box py='30px'>
           <Flex justifyContent={'space-between'} flexDirection={{ base: 'column', md: 'row' }}>
             <Text fontSize='13px' fontWeight='500' textAlign={'center'}>
-              Ceris © 2020. Made with ☕ by Trisha
+              Ceris © 2020. Made with ☕ by Metadesk
             </Text>
             <Flex mt={{ base: '20px', md: '0px' }} justifyContent={'center'}>
               <Link href='#' ><Text mx={2} fontSize='13px' fontWeight='500'>Home</Text></Link>
