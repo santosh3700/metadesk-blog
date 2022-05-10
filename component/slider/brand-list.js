@@ -7,12 +7,21 @@ import {
   Img,
   Stack,
   Text,
+  useColorMode,
 } from '@chakra-ui/react';
 import React from 'react';
 import Carousel from 'react-multi-carousel';
 const BrandList = (props) => {
   // const primaryTextColor = isLightTheme ? 'black' : 'white';
   // const secondaryTextColor = isLightTheme ? 'white' : 'black';
+
+  // theme
+  const { colorMode, toggleColorMode } = useColorMode();
+  const isLightTheme = colorMode == 'light' ? true : false;
+  const primaryTextColor = isLightTheme ? 'black' : 'white';
+  const secondaryTextColor = isLightTheme ? 'white' : 'black';
+  const primaryBgColor = isLightTheme ? 'white' : 'black';
+  const secondaryBgColor = isLightTheme ? 'black' : 'white';
 
   // const brand = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   const { cryptoData } = props;
@@ -63,10 +72,16 @@ const BrandList = (props) => {
                   />
                 </Flex>
                 <Box mx={'2'} w={'40%'}>
-                  <Text fontWeight={'semibold'} fontSize="sm">
+                  <Text
+                    fontWeight={'semibold'}
+                    fontSize="sm"
+                    color={primaryTextColor}
+                  >
                     {item.name}
                   </Text>
-                  <Text fontSize={'xs'}>{item.symbol.toUpperCase()}(24h)</Text>
+                  <Text fontSize={'xs'} color={primaryTextColor}>
+                    {item.symbol.toUpperCase()}(24h)
+                  </Text>
                 </Box>
                 <Flex w={'25%'} mx={'2'} alignItems={'center'}>
                   <Img
@@ -77,7 +92,7 @@ const BrandList = (props) => {
                   />
                 </Flex>
                 <Flex mx={'2'} w={'25%'} alignItems={'center'}>
-                  <Heading as={'h6'} size="xs">
+                  <Heading as={'h6'} size="xs" color={primaryTextColor}>
                     ${item.current_price}
                   </Heading>
                   {/* <Text fontSize={'xs'}>+1.73%</Text> */}

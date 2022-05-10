@@ -14,7 +14,7 @@ import {
   Stack,
   Text,
   useColorMode,
-  VStack
+  VStack,
 } from '@chakra-ui/react';
 import Head from 'next/head';
 import { FaRegClock, FaCircle, FaPlayCircle, FaFacebook } from 'react-icons/fa';
@@ -59,18 +59,22 @@ const HeroSection = (props) => {
 
   // console.log('herosection', data);
 
-
-
-
   return (
     <>
-      <Box my={{ base: '2', md: '8' }} px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }}>
+      <Box
+        my={{ base: '2', md: '8' }}
+        px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }}
+      >
         <Box border={'1px solid '} px={2}>
           <Brandlist cryptoData={cryptoData} />
         </Box>
       </Box>
 
-      <Box px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }} mb="65px" mt={'8'}>
+      <Box
+        px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }}
+        mb="65px"
+        mt={'8'}
+      >
         {/* trisha */}
 
         <Grid
@@ -92,24 +96,33 @@ const HeroSection = (props) => {
               {data.edges &&
                 data.edges.slice(0, 5).map((item, index) => {
                   const tagName = item?.node?.tags?.edges[0]?.node?.name;
-                  {/* console.log('checktaghero', item); */ }
+                  {
+                    /* console.log('checktaghero', item); */
+                  }
                   return (
                     <Link key={index} href={item.node.slug}>
                       <Box cursor="pointer" style={{ position: 'relative' }}>
                         <Flex
                           w={'full'}
                           h={{ base: '320px', md: '470px' }}
-                          backgroundImage={item.node.featuredImage.node.sourceUrl}
+                          backgroundImage={
+                            item.node.featuredImage.node.sourceUrl
+                          }
                           backgroundSize={'cover'}
-                          backgroundPosition={'center center'}>
-
+                          backgroundPosition={'center center'}
+                        >
                           <VStack
                             w={'full'}
                             justify={'center'}
-                            bgGradient={'linear-gradient(to bottom, rgb(255 255 255 / 0%), #0f0e0e)'}>
-
-                            <Stack maxW={'2xl'} align={'flex-start'} spacing={6}>
-
+                            bgGradient={
+                              'linear-gradient(to bottom, rgb(255 255 255 / 0%), #0f0e0e)'
+                            }
+                          >
+                            <Stack
+                              maxW={'2xl'}
+                              align={'flex-start'}
+                              spacing={6}
+                            >
                               <Box
                                 p={4}
                                 style={{
@@ -152,14 +165,24 @@ const HeroSection = (props) => {
                                   {item.node.title}
                                 </Heading>
                                 <Flex mt="2" alignItems={'center'}>
-                                  <Icon as={FaRegClock} color={'rgba(255, 255, 255, 0.85)'} fontSize="sm" />
-                                  <Text color={'rgba(255, 255, 255, 0.85)'} ml={2} fontSize="sm">
-                                    {format(new Date(item.node.date), 'yyyy-MM-dd')}
+                                  <Icon
+                                    as={FaRegClock}
+                                    color={'rgba(255, 255, 255, 0.85)'}
+                                    fontSize="sm"
+                                  />
+                                  <Text
+                                    color={'rgba(255, 255, 255, 0.85)'}
+                                    ml={2}
+                                    fontSize="sm"
+                                  >
+                                    {format(
+                                      new Date(item.node.date),
+                                      'yyyy-MM-dd'
+                                    )}
                                   </Text>
                                 </Flex>
                               </Box>
                             </Stack>
-
                           </VStack>
                         </Flex>
                       </Box>
@@ -180,13 +203,16 @@ const HeroSection = (props) => {
                       h={{ base: '250px', md: '100%' }}
                       backgroundImage={item.node.featuredImage.node.sourceUrl}
                       backgroundSize={'cover'}
-                      backgroundPosition={'center center'}>
-
+                      backgroundPosition={'center center'}
+                    >
                       <VStack
                         style={{ position: 'relative' }}
                         w={'full'}
                         justify={'center'}
-                        bgGradient={'linear-gradient(to bottom, rgb(255 255 255 / 0%), #0f0e0e);'}>
+                        bgGradient={
+                          'linear-gradient(to bottom, rgb(255 255 255 / 0%), #0f0e0e);'
+                        }
+                      >
                         <Stack maxW={'2xl'} align={'flex-start'} spacing={6}>
                           <Box
                             p={'25px 20px'}
@@ -230,14 +256,21 @@ const HeroSection = (props) => {
                               {item.node.title}
                             </Heading>
                             <Flex mt="2" alignItems={'center'}>
-                              <Icon as={FaRegClock} color={'rgba(255, 255, 255, 0.85)'} fontSize="sm" />
-                              <Text color={'rgba(255, 255, 255, 0.85)'} ml={2} fontSize="sm">
+                              <Icon
+                                as={FaRegClock}
+                                color={'rgba(255, 255, 255, 0.85)'}
+                                fontSize="sm"
+                              />
+                              <Text
+                                color={'rgba(255, 255, 255, 0.85)'}
+                                ml={2}
+                                fontSize="sm"
+                              >
                                 {format(new Date(item.node.date), 'yyyy-MM-dd')}
                               </Text>
                             </Flex>
                           </Box>
                         </Stack>
-
                       </VStack>
                     </Flex>
                   </Link>
@@ -259,20 +292,28 @@ const HeroSection = (props) => {
                     item &&
                     item.node && (
                       <Link key={index} href={item.node.slug}>
-
                         <Flex
                           w={'full'}
                           h={{ base: '250px', md: '100%' }}
-                          backgroundImage={item.node.featuredImage.node.sourceUrl}
+                          backgroundImage={
+                            item.node.featuredImage.node.sourceUrl
+                          }
                           backgroundSize={'cover'}
-                          backgroundPosition={'center center'}>
-
+                          backgroundPosition={'center center'}
+                        >
                           <VStack
                             style={{ position: 'relative' }}
                             w={'full'}
                             justify={'center'}
-                            bgGradient={'linear-gradient(to bottom, rgb(255 255 255 / 0%), #0f0e0e);'}>
-                            <Stack maxW={'2xl'} align={'flex-start'} spacing={6}>
+                            bgGradient={
+                              'linear-gradient(to bottom, rgb(255 255 255 / 0%), #0f0e0e);'
+                            }
+                          >
+                            <Stack
+                              maxW={'2xl'}
+                              align={'flex-start'}
+                              spacing={6}
+                            >
                               <Box
                                 p={'25px 20px'}
                                 style={{
@@ -284,7 +325,7 @@ const HeroSection = (props) => {
                               >
                                 {tagName && (
                                   <Button
-                                    bg={index == 0 ? "#dd03eb" : "#ecbd02"}
+                                    bg={index == 0 ? '#dd03eb' : '#ecbd02'}
                                     color="white"
                                     rounded={'none'}
                                     size="xs"
@@ -310,7 +351,7 @@ const HeroSection = (props) => {
                                   fontSize={{ base: 'sm', md: 'lg' }}
                                   noOfLines={3}
                                   lineHeight="1.5"
-                                // mb={{ base: '12px', md: '12px' }}
+                                  // mb={{ base: '12px', md: '12px' }}
                                 >
                                   {item.node.title}
                                 </Heading>
@@ -322,11 +363,8 @@ const HeroSection = (props) => {
                                 </Flex> */}
                               </Box>
                             </Stack>
-
                           </VStack>
                         </Flex>
-
-
                       </Link>
                     )
                   );

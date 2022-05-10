@@ -68,10 +68,17 @@ const CategoryF = (props) => {
         <Flex alignItems={'baseline'}>
           <Icon as={FaCircle} boxSize={5} mr="12px" color={'#ab20ef'} />
           <Box>
-            <Heading as="h2" fontSize={'24px'} mb="8px" color={primaryTextColor}>
+            <Heading
+              as="h2"
+              fontSize={'24px'}
+              mb="8px"
+              color={primaryTextColor}
+            >
               ACADEMY
             </Heading>
-            <Text>The latest entertainment news in the world</Text>
+            <Text color={primaryTextColor}>
+              The latest entertainment news in the world
+            </Text>
           </Box>
         </Flex>
         <Box
@@ -91,9 +98,9 @@ const CategoryF = (props) => {
               rounded={'none'}
               size="sm"
               fontWeight={'bold'}
-              padding='6px 13px'
-              border='2px solid #166cf8'
-              color='#166cf8'
+              padding="6px 13px"
+              border="2px solid #166cf8"
+              color="#166cf8"
               fontSize={'14px'}
               lineHeight={'1.5'}
             >
@@ -237,7 +244,11 @@ const CategoryF = (props) => {
                           {/* {process.env.headerMenuName} */}
                         </Text>
                         <Flex mt="2" alignItems={'center'}>
-                          <Icon as={FaRegClock} color={primaryTextColor} fontSize={'sm'} />
+                          <Icon
+                            as={FaRegClock}
+                            color={primaryTextColor}
+                            fontSize={'sm'}
+                          />
                           <Text ml={2} color={primaryTextColor} fontSize={'sm'}>
                             {format(new Date(item.node.date), 'yyyy-MM-dd')}
                           </Text>
