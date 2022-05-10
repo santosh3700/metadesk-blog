@@ -157,7 +157,8 @@ const HeroSection = (props) => {
                                 <Heading
                                   color={'white'}
                                   as="h4"
-                                  fontSize={{ base: 'sm', md: '2xl' }}
+                                  fontWeight='500'
+                                  fontSize={{ base: '18px', md: '2xl' }}
                                   noOfLines={2}
                                   lineHeight="1.5"
                                   mb={{ base: '12px', md: '12px' }}
@@ -248,7 +249,8 @@ const HeroSection = (props) => {
                             <Heading
                               color={'white'}
                               as="h4"
-                              fontSize={{ base: 'sm', md: 'lg' }}
+                              fontSize={{ base: '16px', md: 'lg' }}
+                              fontWeight='500'
                               noOfLines={3}
                               lineHeight="1.5"
                               mb={{ base: '12px', md: '12px' }}
@@ -348,10 +350,11 @@ const HeroSection = (props) => {
                                 <Heading
                                   color={'white'}
                                   as="h4"
-                                  fontSize={{ base: 'sm', md: 'lg' }}
+                                  fontSize={{ base: '16px', md: 'lg' }}
+                                  fontWeight='500'
                                   noOfLines={3}
                                   lineHeight="1.5"
-                                  // mb={{ base: '12px', md: '12px' }}
+                                // mb={{ base: '12px', md: '12px' }}
                                 >
                                   {item.node.title}
                                 </Heading>

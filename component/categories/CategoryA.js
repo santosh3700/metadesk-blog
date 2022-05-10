@@ -198,7 +198,7 @@ const CategoryA = (props) => {
                                       >
                                         {item.title}
                                       </Text>
-                                      <Flex mt="15px" alignItems={'center'}>
+                                      <Flex mt="7px" alignItems={'center'}>
                                         <Icon
                                           fontSize="sm"
                                           as={FaRegClock}
@@ -215,7 +215,7 @@ const CategoryA = (props) => {
                                     <Box w={'30%'} ml={2}>
                                       {item.featuredImage && (
                                         <Img
-                                          h={'100%'}
+                                          h={{ base: '100px', md: '100%' }}
                                           objectFit={'cover'}
                                           src={item.featuredImage}
                                           alt={item.title}

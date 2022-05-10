@@ -206,7 +206,7 @@ const CategoryG = (props) => {
                                     <Box w={'30%'}>
                                       {item.featuredImage && (
                                         <Img
-                                          h={'100%'}
+                                          h={{ base: '100px', md: '100%' }}
                                           objectFit={'cover'}
                                           src={item.featuredImage}
                                           alt={item.title}

@@ -134,7 +134,7 @@ const CategoryB = (props) => {
                               )}
                             </Box>
                             <Box w={'70%'} px={4} display={'grid'}>
-                              <Text fontWeight={'600'} color={'black'} fontSize="16px" lineHeight={'1.5'}>
+                              <Text fontWeight={'700'} color={'black'} fontSize="16px" lineHeight={'1.5'}>
                                 {item.node.title}
                               </Text>
                               <Flex mt="2" alignItems={'center'}>

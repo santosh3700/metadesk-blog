@@ -213,7 +213,7 @@ const CategoryF = (props) => {
                     <Flex py="4" w={'100%'}>
                       <Box w={'40%'}>
                         <Img
-                          h={'100%'}
+                          h={{ base: '100px', md: '100%' }}
                           objectFit={'cover'}
                           src={item.node.featuredImage.node.sourceUrl}
                           alt={item.node.title}

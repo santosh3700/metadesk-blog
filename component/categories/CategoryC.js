@@ -329,7 +329,7 @@ const CategoryC = (props) => {
                             </Button>
                           )}
                           <Text
-                            fontWeight={'bold'}
+                            fontWeight={'700'}
                             noOfLines={2}
                             fontSize='16px'
                             lineHeight={'1.5'}
@@ -341,12 +341,12 @@ const CategoryC = (props) => {
                           <Flex mt="2" alignItems={'center'}>
                             <Icon
                               as={FaRegClock}
-                              color={primaryTextColor}
+                              color={'rgba(34, 34, 34, 0.6)'}
                               fontSize={'sm'}
                             />
                             <Text
                               ml={2}
-                              color={primaryTextColor}
+                              color={'rgba(34, 34, 34, 0.6)'}
                               fontSize={'sm'}
                             >
                               {format(new Date(item.node.date), 'yyyy-MM-dd')}
@@ -356,7 +356,7 @@ const CategoryC = (props) => {
                         {item.node.featuredImage && (
                           <Box w={'30%'}>
                             <Img
-                              h={'100%'}
+                              h={{ base: '100px', md: '100%' }}
                               objectFit={'cover'}
                               src={item.node.featuredImage.node.sourceUrl}
                               alt={item.node.title}
@@ -396,7 +396,7 @@ const CategoryC = (props) => {
                           </Button>
                         )}
                         <Text
-                          fontWeight={'bold'}
+                          fontWeight={'700'}
                           fontSize='14px'
                           lineHeight={'1.5'}
                           noOfLines={2}
@@ -406,8 +406,8 @@ const CategoryC = (props) => {
                           {item.node.title}
                         </Text>
                         <Flex mt="2" alignItems={'center'}>
-                          <Icon as={FaRegClock} fontSize={'sm'} />
-                          <Text ml={2} fontSize={'sm'}>
+                          <Icon as={FaRegClock} fontSize={'sm'} color={'rgba(34, 34, 34, 0.6)'} />
+                          <Text ml={2} fontSize={'sm'} color={'rgba(34, 34, 34, 0.6)'}>
                             {format(new Date(item.node.date), 'yyyy-MM-dd')}
                           </Text>{' '}
                         </Flex>
