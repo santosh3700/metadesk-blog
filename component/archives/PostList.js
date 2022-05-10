@@ -408,7 +408,7 @@ function PostList({
               </Flex>
 
               {allData.trending.edges &&
-                allData.trending.edges.map((item, index) => {
+                allData.trending.edges?.slice(0, 4).map((item, index) => {
                   const author = item.node.author;
                   const imagePath = item.node.featuredImage?.node.sourceUrl;
                   //  console.log('checktrending', item.node.slug);
