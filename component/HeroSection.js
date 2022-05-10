@@ -98,7 +98,7 @@ const HeroSection = (props) => {
                       <Box cursor="pointer" style={{ position: 'relative' }}>
                         <Flex
                           w={'full'}
-                          h={{ base: '250px', md: '470px' }}
+                          h={{ base: '320px', md: '470px' }}
                           backgroundImage={item.node.featuredImage.node.sourceUrl}
                           backgroundSize={'cover'}
                           backgroundPosition={'center center'}>
