@@ -16,6 +16,10 @@ import {
   Text,
   VStack,
   useColorMode,
+  FormControl,
+  Input,
+  Textarea,
+  Checkbox,
 } from '@chakra-ui/react';
 import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
@@ -255,7 +259,7 @@ const Postfinal = ({ props }) => {
                         alignContent="center"
                         textAlign={'center'}
 
-                        // px="auto"
+                      // px="auto"
                       >
                         {tagName}
                       </Box>
@@ -269,6 +273,8 @@ const Postfinal = ({ props }) => {
                       >
                         {data.title}
                       </Heading>
+
+
                       <Flex
                         alignItems={{ base: 'left', md: 'center' }}
                         flexDirection={{ base: 'column', md: 'row' }}
@@ -289,11 +295,9 @@ const Postfinal = ({ props }) => {
                             fontSize={'12px'}
                             color={primaryTextColor}
                           >
-                            {`${
-                              author.firstName == null ? '' : author.firstName
-                            } ${
-                              author.lastName == null ? '' : author.lastName
-                            }`}
+                            {`${author.firstName == null ? '' : author.firstName
+                              } ${author.lastName == null ? '' : author.lastName
+                              }`}
                           </Text>
                         </Flex>
                         <Flex
@@ -318,7 +322,6 @@ const Postfinal = ({ props }) => {
                         </Flex>
                         <Flex alignItems={'center'} mr={'12px'}>
                           <Text fontSize={'12px'} color={'rgba(0, 0, 0, 0.5)'}>
-                            {' '}
                             <Icon
                               mr={'5px'}
                               as={FaEye}
@@ -355,7 +358,7 @@ const Postfinal = ({ props }) => {
                       <div
                         className={
                           (`${ClassesPostBody.content} contentBody`,
-                          'lightThemeWpContent')
+                            'lightThemeWpContent')
                         }
                         dangerouslySetInnerHTML={{ __html: data.content }}
                       />
@@ -432,11 +435,9 @@ const Postfinal = ({ props }) => {
                         />
                         <Box textAlign={{ base: 'center', md: 'left' }}>
                           <Text fontSize={'15px'} fontWeight={'600'}>
-                            {`${
-                              author.firstName == null ? '' : author.firstName
-                            } ${
-                              author.lastName == null ? '' : author.lastName
-                            }`}
+                            {`${author.firstName == null ? '' : author.firstName
+                              } ${author.lastName == null ? '' : author.lastName
+                              }`}
                           </Text>
                           <Text my={'8px'} fontSize={'15px'}>
                             A 26-year-old health centre receptionist who enjoys
@@ -448,54 +449,56 @@ const Postfinal = ({ props }) => {
 
                     <Flex
                       justifyContent={'space-between'}
-                      flexDirection={{ base: 'column', md: 'row' }}
+                    // flexDirection={{ base: 'column', md: 'row' }}
                     >
-                      {/* <Flex>
-                    <Text
-                      m={'4px 6px'}
-                      fontSize="13px"
-                      color={'rgba(34,34,34,0.5)'}
-                    >
-                      #Fashion
-                    </Text>
-                    <Text
-                      m={'4px 6px'}
-                      fontSize="13px"
-                      color={'rgba(34,34,34,0.5)'}
-                    >
-                      #Style
-                    </Text>
-                    <Text
-                      m={'4px 6px'}
-                      fontSize="13px"
-                      color={'rgba(34,34,34,0.5)'}
-                    >
-                      #Trend
-                    </Text>
-                  </Flex> */}
+                      <Flex flexDirection={{ base: 'column', md: 'row' }}>
+                        <Flex>
+                          <Text
+                            m={'4px 6px'}
+                            fontSize="13px"
+                            color={'rgba(34,34,34,0.5)'}
+                          >
+                            #Fashion
+                          </Text>
+                          <Text
+                            m={'4px 6px'}
+                            fontSize="13px"
+                            color={'rgba(34,34,34,0.5)'}
+                          >
+                            #Style
+                          </Text>
+                        </Flex>
+                        <Text
+                          m={'4px 6px'}
+                          fontSize="13px"
+                          color={'rgba(34,34,34,0.5)'}
+                        >
+                          #Trend
+                        </Text>
+                      </Flex>
 
-                      {/* <Flex>
-                    <Text color={'rgba(34,34,34,0.5)'} mr={'10px'}>
-                      <Icon
-                        as={FaComment}
-                        color={'rgba(34,34,34,0.5)'}
-                        mr={'5px'}
-                      />{' '}
-                      0
-                    </Text>
-                    <Text color={'rgba(34,34,34,0.5)'} mr={'10px'}>
-                      <Icon
-                        as={FaEye}
-                        color={'rgba(34,34,34,0.5)'}
-                        mr={'5px'}
-                      />{' '}
-                      1523
-                    </Text>
-                  </Flex> */}
+                      <Flex  >
+                        <Text color={'rgba(34,34,34,0.5)'} mr={'10px'}>
+                          <Icon
+                            as={FaComment}
+                            color={'rgba(34,34,34,0.5)'}
+                            mr={'5px'}
+                          />{' '}
+                          0
+                        </Text>
+                        <Text color={'rgba(34,34,34,0.5)'} mr={'10px'}>
+                          <Icon
+                            as={FaEye}
+                            color={'rgba(34,34,34,0.5)'}
+                            mr={'5px'}
+                          />{' '}
+                          1523
+                        </Text>
+                      </Flex>
                     </Flex>
 
                     {prevNextPost.previousPost !== '' &&
-                    prevNextPost.nextPost !== '' ? (
+                      prevNextPost.nextPost !== '' ? (
                       <Grid
                         templateColumns={{
                           md: '6fr 6fr',
@@ -719,6 +722,30 @@ const Postfinal = ({ props }) => {
                   })}
               </Grid>
             </Box>
+            <Box py={{ base: '40px', md: '60px' }}
+              px={{ base: '15px', lg: '235px' }}>
+
+              <Heading as="h3" fontSize={'22px'} mb={'15px'} lineHeight="1.2">
+                LEAVE A REPLY
+              </Heading>
+              <Text fontSize={'15px'} mb='30px'>
+                Your email address will not be published. Required fields are marked *
+              </Text>
+              <FormControl isRequired>
+                <Flex flexDirection={{ base: 'column', md: 'row' }}>
+                  <Input type='text' placeholder="Name *" mr={{ base: '0px', md: '15px' }} mb={{ base: '35px', md: '0px' }} size='sm' />
+                  <Input type='email' placeholder="Email *" ml={{ base: '0px', md: '15px' }} size='sm' />
+                </Flex>
+                <Textarea placeholder='Your Comment ' my='35px' size='sm' h="204px" />
+                <Checkbox alignItems={'flex-start'} opacity={'0.8'}>Save my name, email, and website in this browser for the next time I comment.</Checkbox>
+                <Box mt='15px' textAlign={'end'}>
+                  <Button rounded={'full'} bg="blue" color={'white'} _hover={{ bg: 'blue', color: 'white' }}> Post Comment</Button>
+                </Box>
+              </FormControl>
+
+
+            </Box>
+
             <Box position="fixed" alignSelf={'end'}>
               <div>
                 {/* <CircularProgress
