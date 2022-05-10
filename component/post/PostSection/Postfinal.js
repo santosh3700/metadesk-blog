@@ -63,9 +63,9 @@ const Postfinal = ({ props }) => {
   // theming
   const { colorMode, toggleColorMode } = useColorMode();
   const isLightTheme = colorMode == 'light' ? true : false;
-  const primaryTextColor = isLightTheme ? 'black' : 'white';
-  const secondaryTextColor = isLightTheme ? 'white' : 'black';
-  const primaryBgColor = isLightTheme ? 'white' : 'black';
+  const primaryTextColor = isLightTheme ? '#888' : 'white';
+  const secondaryTextColor = !isLightTheme ? 'white' : 'rgba(0, 0, 0, 0.5)';
+  const primaryBgColor = isLightTheme ? 'white' : '#222222';
   const secondaryBgColor = isLightTheme ? 'black' : 'white';
 
   // store data
@@ -162,7 +162,7 @@ const Postfinal = ({ props }) => {
             rounded={4}
             px={{ base: '15px', lg: '40px' }}
             py={{ base: '15px', lg: '40px' }}
-            bg={'white'}
+            bg={primaryBgColor}
             templateColumns={{ md: '2fr 10fr ', sm: 'repeat(1, 1fr)' }}
             textColor="white"
             gap={4}
@@ -170,7 +170,7 @@ const Postfinal = ({ props }) => {
           >
             <Box display={{ base: 'none', md: 'block' }}>
               <VStack position={'sticky'} top="70px" bottom="20px">
-                <Text color={'#888'} fontSize={'13px'} mb={'15px'}>
+                <Text color={primaryTextColor} fontSize={'13px'} mb={'15px'}>
                   SHARE
                 </Text>
                 <Center height="50px" mt={'0px !important'}>
@@ -183,24 +183,24 @@ const Postfinal = ({ props }) => {
                 <FacebookShareButton url={post_link}>
                   <FacebookIcon
                     size={'42px'}
-                    color={'#888'}
+                    color={primaryTextColor}
                     mt={'10px !important'}
                   />
                 </FacebookShareButton>
                 <TwitterShareButton url={post_link}>
-                  <TwitterIcon size={'42px'} color={'#888'} />
+                  <TwitterIcon size={'42px'} color={primaryTextColor} />
                 </TwitterShareButton>
                 <TelegramShareButton url={post_link}>
-                  <TelegramIcon size={'42px'} color={'#888'} />
+                  <TelegramIcon size={'42px'} color={primaryTextColor} />
                 </TelegramShareButton>
                 <WhatsappShareButton url={post_link}>
-                  <WhatsappIcon size={'42px'} color={'#888'} />
+                  <WhatsappIcon size={'42px'} color={primaryTextColor} />
                 </WhatsappShareButton>
                 <LinkedinShareButton edinShareButton url={post_link}>
-                  <LinkedinIcon size={'42px'} color={'#888'} />
+                  <LinkedinIcon size={'42px'} color={primaryTextColor} />
                 </LinkedinShareButton>
                 <TumblrShareButton url={post_link}>
-                  <TumblrIcon size={'42px'} color={'#888'} />
+                  <TumblrIcon size={'42px'} color={primaryTextColor} />
                 </TumblrShareButton>
               </VStack>
 
@@ -231,7 +231,7 @@ const Postfinal = ({ props }) => {
                   textDecoration="none"
                   rounded={'5px'}
                   fontSize={'13px'}
-                  color={'white'}
+                  color={primaryTextColor}
                   size={'xs'}
                   alignContent="center"
                   textAlign={'center'}
@@ -242,7 +242,7 @@ const Postfinal = ({ props }) => {
                 </Box>
 
                 <Heading
-                  color={'black'}
+                  color={primaryTextColor}
                   as="h2"
                   my={'15px !important'}
                   fontSize={{ base: '24px', md: '28px' }}
@@ -265,7 +265,7 @@ const Postfinal = ({ props }) => {
                       w={'30px'}
                       mr="6px"
                     />
-                    <Text pl={'5px'} fontSize={'12px'}>
+                    <Text pl={'5px'} fontSize={'12px'} color={primaryTextColor}>
                       {`${author.firstName == null ? '' : author.firstName} ${
                         author.lastName == null ? '' : author.lastName
                       }`}
@@ -279,12 +279,14 @@ const Postfinal = ({ props }) => {
                     <Icon
                       as={FaRegClock}
                       boxSize={3}
-                      color={'rgba(0, 0, 0, 0.5)'}
+                      // color={'rgba(0, 0, 0, 0.5)'}
+                      color={secondaryTextColor}
                     />
                     <Text
                       pl={'5px'}
                       fontSize={'12px'}
-                      color={'rgba(0, 0, 0, 0.5)'}
+                      // color={'rgba(0, 0, 0, 0.5)'}
+                      color={secondaryTextColor}
                     >
                       {date.toDateString()}
                     </Text>
@@ -296,14 +298,16 @@ const Postfinal = ({ props }) => {
                         mr={'5px'}
                         as={FaEye}
                         boxSize={3}
-                        color={'rgba(0, 0, 0, 0.5)'}
+                        // color={'rgba(0, 0, 0, 0.5)'}
+                        color={secondaryTextColor}
                       />
                       124563
                     </Text>
                     <Text
                       pl={'5px'}
                       fontSize={'12px'}
-                      color={'rgba(0, 0, 0, 0.5)'}
+                      // color={'rgba(0, 0, 0, 0.5)'}
+                      color={secondaryTextColor}
                     >
                       0 views
                     </Text>
@@ -311,9 +315,23 @@ const Postfinal = ({ props }) => {
                 </Flex>
               </Box>
 
-              <Text mb={'30px'} className="postfinaldata">
+              <Text
+                mb={'30px'}
+                className={'postfinaldata'}
+                // className={'lightThemeWpContent'}
+                // color={'red'}
+                // textColor="white"
+                // colorScheme={'purple'}
+                // as={'p'}
+                style={{
+                  color: isLightTheme ? 'black' : 'white',
+                }}
+              >
                 <div
-                  className={`${ClassesPostBody.content} contentBody`}
+                  className={
+                    (`${ClassesPostBody.content} contentBody`,
+                    'lightThemeWpContent')
+                  }
                   dangerouslySetInnerHTML={{ __html: data.content }}
                 />
               </Text>
@@ -323,7 +341,8 @@ const Postfinal = ({ props }) => {
               <Box display={{ base: 'block', md: 'none !important' }}>
                 <Flex flexDirection="column">
                   <Heading
-                    color={'black'}
+                    // color={'black'}
+                    color={primaryTextColor}
                     as="h4"
                     mb={'25px !important'}
                     fontSize={'18px'}
@@ -334,22 +353,22 @@ const Postfinal = ({ props }) => {
 
                   <Flex justifyContent={'space-between'}>
                     <FacebookShareButton url={post_link}>
-                      <FacebookIcon size={'42px'} color={'#888'} />
+                      <FacebookIcon size={'42px'} color={primaryTextColor} />
                     </FacebookShareButton>
                     <TwitterShareButton url={post_link}>
-                      <TwitterIcon size={'42px'} color={'#888'} />
+                      <TwitterIcon size={'42px'} color={primaryTextColor} />
                     </TwitterShareButton>
                     <TelegramShareButton url={post_link}>
-                      <TelegramIcon size={'42px'} color={'#888'} />
+                      <TelegramIcon size={'42px'} color={primaryTextColor} />
                     </TelegramShareButton>
                     <WhatsappShareButton url={post_link}>
-                      <WhatsappIcon size={'42px'} color={'#888'} />
+                      <WhatsappIcon size={'42px'} color={primaryTextColor} />
                     </WhatsappShareButton>
                     <LinkedinShareButton edinShareButton url={post_link}>
-                      <LinkedinIcon size={'42px'} color={'#888'} />
+                      <LinkedinIcon size={'42px'} color={primaryTextColor} />
                     </LinkedinShareButton>
                     <TumblrShareButton url={post_link}>
-                      <TumblrIcon size={'42px'} color={'#888'} />
+                      <TumblrIcon size={'42px'} color={primaryTextColor} />
                     </TumblrShareButton>
                   </Flex>
                 </Flex>
@@ -434,7 +453,8 @@ const Postfinal = ({ props }) => {
               prevNextPost.nextPost !== '' ? (
                 <Grid
                   templateColumns={{ md: '6fr 6fr', sm: 'repeat(1, 1fr)' }}
-                  textColor="white"
+                  // textColor="white"
+                  color={primaryTextColor}
                   mt={'10px'}
                 >
                   {prevNextPost.previousPost.slug !== undefined ? (
@@ -445,7 +465,7 @@ const Postfinal = ({ props }) => {
                       textAlign="end"
                     >
                       <Text
-                        color="#222222"
+                        color={primaryTextColor}
                         opacity="0.5"
                         fontWeight="500"
                         mb={'7px'}
@@ -469,7 +489,8 @@ const Postfinal = ({ props }) => {
                   {prevNextPost.nextPost.slug !== undefined ? (
                     <Box border="1px solid gray" py={'30px'} pl={'40px'}>
                       <Text
-                        color="#222222"
+                        // color="#222222"
+                        color={primaryTextColor}
                         opacity="0.5"
                         fontWeight="500"
                         mb={'7px'}
@@ -497,7 +518,7 @@ const Postfinal = ({ props }) => {
       <Box
         py={{ base: '40px', md: '80px' }}
         px={{ base: '15px', lg: '120px' }}
-        bg="#fafafa"
+        bg={isLightTheme ? '#fafafa' : 'blackAlpha.400'}
       >
         <Flex alignItems={'baseline'}>
           <Icon
@@ -517,7 +538,7 @@ const Postfinal = ({ props }) => {
 
         <Grid
           templateColumns={{ md: '4fr 4fr 4fr', sm: 'repeat(1, 1fr)' }}
-          textColor="white"
+          textColor={primaryBgColor}
           gap={8}
           my={6}
         >
