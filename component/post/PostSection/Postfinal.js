@@ -321,7 +321,7 @@ const Postfinal = ({ props }) => {
                           </Text>
                         </Flex>
                         <Flex alignItems={'center'} mr={'12px'}>
-                          <Text fontSize={'12px'} color={'rgba(0, 0, 0, 0.5)'}>
+                          <Text fontSize={'12px'} >
                             <Icon
                               mr={'5px'}
                               as={FaEye}
@@ -329,7 +329,7 @@ const Postfinal = ({ props }) => {
                               // color={'rgba(0, 0, 0, 0.5)'}
                               color={secondaryTextColor}
                             />
-                            124563
+
                           </Text>
                           <Text
                             pl={'5px'}
@@ -434,12 +434,12 @@ const Postfinal = ({ props }) => {
                           mb={{ base: '10px', md: '0px' }}
                         />
                         <Box textAlign={{ base: 'center', md: 'left' }}>
-                          <Text fontSize={'15px'} fontWeight={'600'}>
+                          <Text fontSize={'15px'} fontWeight={'600'} color={primaryTextColor}>
                             {`${author.firstName == null ? '' : author.firstName
                               } ${author.lastName == null ? '' : author.lastName
                               }`}
                           </Text>
-                          <Text my={'8px'} fontSize={'15px'}>
+                          <Text my={'8px'} fontSize={'15px'} color={primaryTextColor}>
                             A 26-year-old health centre receptionist who enjoys
                             going to the movies, photography and social media.
                           </Text>
@@ -452,18 +452,30 @@ const Postfinal = ({ props }) => {
                     // flexDirection={{ base: 'column', md: 'row' }}
                     >
                       <Flex flexDirection={{ base: 'column', md: 'row' }}>
-                        <Flex>
+                        <Flex>{data?.tags?.edges.map((item, index) => {
+                          return <Text
+                            m={'4px 6px'}
+                            fontSize="13px"
+                            // color={'rgba(34,34,34,0.5)'}
+                            color={secondaryTextColor}
+                          >#{item.node.name}</Text>
+
+
+                        })}</Flex>
+                        {/* <Flex>
                           <Text
                             m={'4px 6px'}
                             fontSize="13px"
-                            color={'rgba(34,34,34,0.5)'}
+                            // color={'rgba(34,34,34,0.5)'}
+                            color={secondaryTextColor}
                           >
                             #Fashion
                           </Text>
                           <Text
                             m={'4px 6px'}
                             fontSize="13px"
-                            color={'rgba(34,34,34,0.5)'}
+                            // color={'rgba(34,34,34,0.5)'}
+                            color={secondaryTextColor}
                           >
                             #Style
                           </Text>
@@ -471,10 +483,11 @@ const Postfinal = ({ props }) => {
                         <Text
                           m={'4px 6px'}
                           fontSize="13px"
-                          color={'rgba(34,34,34,0.5)'}
+                          // color={'rgba(34,34,34,0.5)'}
+                          color={secondaryTextColor}
                         >
                           #Trend
-                        </Text>
+                        </Text> */}
                       </Flex>
 
                       <Flex  >
@@ -492,7 +505,7 @@ const Postfinal = ({ props }) => {
                             color={'rgba(34,34,34,0.5)'}
                             mr={'5px'}
                           />{' '}
-                          1523
+                          0
                         </Text>
                       </Flex>
                     </Flex>

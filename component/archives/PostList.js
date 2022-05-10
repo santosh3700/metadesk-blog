@@ -371,7 +371,7 @@ function PostList({
                           <Text
                             fontWeight="700"
                             fontSize="14px"
-                            color="rgba(0, 0, 0, 0.6)"
+                            color={primaryTextColor}
                             mr={4}
                           >
                             By {author.name}
@@ -379,11 +379,13 @@ function PostList({
                           <Flex alignItems={'center'}>
                             <Icon
                               as={FaRegClock}
-                              color={'rgba(0, 0, 0, 0.5)'}
+                              // color={'rgba(0, 0, 0, 0.5)'}
+                              color={primaryTextColor}
                               fontSize="12px"
                             />
                             <Text
-                              color={'rgba(0, 0, 0, 0.5)'}
+                              // color={'rgba(0, 0, 0, 0.5)'}
+                              color={primaryTextColor}
                               ml={1}
                               fontSize="12px"
                             >
