@@ -105,7 +105,7 @@ export default function Navbar({ menu }) {
             textColor="white"
             gap={4}
             py={{ base: '6', md: '12' }}
-            display={{ base: 'none', md: 'block' }}
+            display={{ base: 'none', lg: 'block' }}
           >
             <Box>
               <Link href="/">
@@ -126,26 +126,9 @@ export default function Navbar({ menu }) {
             py={4}
             alignItems={'center'}
           >
-            <Flex
-              flex={{ base: 0, md: 'auto' }}
-              ml={{ base: -2 }}
-              display={{ base: 'flex', lg: 'none' }}
-            >
-              <IconButton
-                onClick={onOpendrawer}
-                icon={
-                  isOpen ? (
-                    <CloseIcon w={3} h={3} />
-                  ) : (
-                    <HamburgerIcon w={5} h={5} />
-                  )
-                }
-                variant={'ghost'}
-                aria-label={'Toggle Navigation'}
-              />
-            </Flex>
 
-            <Box display={{ base: 'block', md: 'none' }}>
+
+            <Box display={{ base: 'block', lg: 'none' }}>
               <Link href="/">
                 <Image
                   color={'red'}
@@ -169,15 +152,38 @@ export default function Navbar({ menu }) {
               <Icon
                 as={colorMode == 'dark' ? MoonIcon : SunIcon}
                 onClick={toggleColorMode}
-                boxSize={4}
+                boxSize={{ base: '4', lg: '3' }}
                 mx={'10px'}
               />
               {/* isDarkModeOn ? <SunIcon /> : <MoonIcon /> */}
               {/* <Icon as={FaUser} onClick={onOpen} boxSize={6} mr={'4'} /> */}
               <Link href="/search">
-                <Icon as={FaSearch} boxSize={3} mx={'10px'} />
+                <Icon as={FaSearch} boxSize={{ base: '4', lg: '3' }} mx={'10px'} />
               </Link>
+
+              <Flex
+                flex={{ base: 0, md: 'auto' }}
+                // ml={{ base: 1 }}
+                display={{ base: 'flex', lg: 'none' }}
+              >
+                <IconButton
+                  onClick={onOpendrawer}
+                  icon={
+                    isOpen ? (
+                      <CloseIcon w={3} h={3} />
+                    ) : (
+                      <HamburgerIcon boxSize={6} />
+                    )
+                  }
+                  variant={'ghost'}
+                  aria-label={'Toggle Navigation'}
+                />
+              </Flex>
+
             </Flex>
+
+
+
           </Stack>
 
           <Modal isOpen={isOpen} onClose={onClose}>
