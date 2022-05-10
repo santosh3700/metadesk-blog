@@ -82,10 +82,10 @@ export default function Footer() {
               Ceris © 2020. Made with ☕ by Metadesk
             </Text>
             <Flex mt={{ base: '20px', md: '0px' }} justifyContent={'center'}>
-              <Link href='#' ><Text mx={2} fontSize='13px' fontWeight='500'>Home</Text></Link>
-              <Link href='#' ><Text mx={2} fontSize='13px' fontWeight='500'>About</Text></Link>
-              <Link href='#' ><Text mx={2} fontSize='13px' fontWeight='500'>Contact</Text></Link>
-              <Link href='#' ><Text mx={2} fontSize='13px' fontWeight='500'>Top News</Text></Link>
+              <Link href='/' ><Text mx={2} fontSize='13px' fontWeight='500' cursor={'pointer'}>Home</Text></Link>
+              <Link href='/' ><Text mx={2} fontSize='13px' fontWeight='500' cursor={'pointer'}>About</Text></Link>
+              <Link href='/contact' ><Text mx={2} fontSize='13px' fontWeight='500' cursor={'pointer'}>Contact</Text></Link>
+              <Link href='/category/top-news' ><Text mx={2} fontSize='13px' fontWeight='500' cursor={'pointer'}>Top News</Text></Link>
             </Flex>
           </Flex>
         </Box>
