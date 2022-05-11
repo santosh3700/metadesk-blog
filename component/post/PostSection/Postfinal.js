@@ -31,6 +31,7 @@ import {
   FaYoutube,
   FaTwitterSquare,
   FaFacebookF,
+  FaInstagram,
   FaComment,
   FaPinterestSquare,
   FaRegClock,
@@ -163,7 +164,7 @@ const Postfinal = ({ props }) => {
         onChange={(percentage, entry) => console.log('Percentage:', percentage)}
       >
         {({ percentage, ref, entry }) => (
-          <Stack ref={ref}>
+          <Stack ref={ref} px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }}>
             <Box>
               <Img
                 src={imagePath}
@@ -376,7 +377,7 @@ const Postfinal = ({ props }) => {
                           fontSize={'18px'}
                           lineHeight="1.2"
                         >
-                          SHARE
+                          Share
                         </Heading>
 
                         <Flex justifyContent={'space-between'}>
@@ -443,6 +444,13 @@ const Postfinal = ({ props }) => {
                             A 26-year-old health centre receptionist who enjoys
                             going to the movies, photography and social media.
                           </Text>
+
+                          <Flex justifyContent={{ base: 'center', md: 'left' }}>
+                            <Icon color={'rgba(0, 0, 0, 0.7)'} as={FaFacebookF} boxSize={4} mr={2} />
+                            <Icon color={'rgba(0, 0, 0, 0.7)'} as={FaTwitter} boxSize={4} mr={2} />
+                            <Icon color={'rgba(0, 0, 0, 0.7)'} as={FaInstagram} boxSize={4} mr={2} />
+                          </Flex>
+
                         </Box>
                       </Flex>
                     </Box>
@@ -523,25 +531,28 @@ const Postfinal = ({ props }) => {
                       >
                         {prevNextPost.previousPost.slug !== undefined ? (
                           <Box
-                            border="1px solid gray"
+                            borderTop="1px solid gray"
+                            borderBottom="1px solid gray"
+                            // borderRight={{ base: "0px solid gray", md: "1px solid gray" }}
                             py={'30px'}
-                            pr={'40px'}
-                            textAlign="end"
+                            pr={{ base: "0px", md: '40px' }}
+                            textAlign={{ base: "left", md: "end" }}
                           >
                             <Text
                               color={primaryTextColor}
                               opacity="0.5"
                               fontWeight="500"
                               mb={'7px'}
+                              fontSize="13px"
                             >
                               PREVIOUS
                             </Text>
                             <Link href={prevNextPost.previousPost?.slug}>
                               <Text
                                 cursor={'pointer'}
-                                font-size="18px"
-                                line-height="1.5"
-                                font-weight="600"
+                                fontSize="18px"
+                                lineHeight="1.5"
+                                fontWeight="600"
                               >
                                 {prevNextPost.previousPost?.title}
                               </Text>
@@ -551,18 +562,28 @@ const Postfinal = ({ props }) => {
                           <div></div>
                         )}
                         {prevNextPost.nextPost.slug !== undefined ? (
-                          <Box border="1px solid gray" py={'30px'} pl={'40px'}>
+                          <Box
+                            borderTop={{ base: "0px solid gray", md: "1px solid gray" }}
+                            borderBottom="1px solid gray"
+                            borderLeft={{ base: "0px solid gray", md: "1px solid gray" }}
+                            py={'30px'} pl={{ base: "0px", md: '40px' }}
+                            textAlign={{ base: "end", md: "left" }}
+                          >
                             <Text
                               // color="#222222"
                               color={primaryTextColor}
                               opacity="0.5"
                               fontWeight="500"
                               mb={'7px'}
+                              fontSize="13px"
                             >
                               NEXT
                             </Text>
                             <Link href={prevNextPost.nextPost?.slug}>
-                              <Text cursor={'pointer'}>
+                              <Text cursor={'pointer'}
+                                fontSize="18px"
+                                lineHeight="1.5"
+                                fontWeight="600">
                                 {prevNextPost.nextPost?.title}
                               </Text>
                             </Link>
@@ -678,7 +699,7 @@ const Postfinal = ({ props }) => {
                                     <Heading
                                       color={'white'}
                                       as="h4"
-                                      fontSize="22px"
+                                      fontSize="20px"
                                       noOfLines={2}
                                       lineHeight="1.5"
                                       mb={{ base: '12px', md: '12px' }}
@@ -750,9 +771,12 @@ const Postfinal = ({ props }) => {
                   <Input type='email' placeholder="Email *" ml={{ base: '0px', md: '15px' }} size='sm' />
                 </Flex>
                 <Textarea placeholder='Your Comment ' my='35px' size='sm' h="204px" />
-                <Checkbox alignItems={'flex-start'} opacity={'0.8'}>Save my name, email, and website in this browser for the next time I comment.</Checkbox>
+                <Checkbox alignItems={'flex-start'} opacity={'0.8'} fontSize="15px !important">Save my name, email, and website in this browser for the next time I comment.</Checkbox>
                 <Box mt='15px' textAlign={'end'}>
-                  <Button rounded={'full'} bg="blue" color={'white'} _hover={{ bg: 'blue', color: 'white' }}> Post Comment</Button>
+                  <Button fontSize={'14px'} fontWeight="500" borderRadius={'20px'}
+                    bg="#3545EE" color={'white'} _hover={{ bg: '#3545EE', color: 'white' }}
+                  >
+                    Post Comment</Button>
                 </Box>
               </FormControl>
 

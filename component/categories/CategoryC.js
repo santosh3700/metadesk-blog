@@ -397,7 +397,7 @@ const CategoryC = (props) => {
                         )}
                         <Text
                           fontWeight={'700'}
-                          fontSize='14px'
+                          fontSize='16px'
                           lineHeight={'1.5'}
                           noOfLines={2}
                           paddingRight="2"

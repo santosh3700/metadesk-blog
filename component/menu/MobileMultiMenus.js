@@ -8,13 +8,14 @@ const UL = styled.ul`
 
 const LI = styled.li``;
 const Item = styled.div`
+${'' /* border-left:2px solid blue; */}
   font-weight: 600;
   display: flex;
   justify-content: space-between;
-  font-size: 13px;
-  padding: 5px 8px;
+  font-size: 14px;
+  padding: 12px 30px;
   color: #3e485d;
-  padding-left: ${(props) => `${props.dept * 8}px`};
+  ${'' /* padding-left: ${(props) => `${props.dept * 8}px`}; */}
   align-items: center;
 `;
 const Label = styled.span`
@@ -52,7 +53,7 @@ const MobileMultiMenus = ({ menus, state, actions, libraries }) => {
 
   const toggleDrawer = useContext(DrawerToggle);
 
-  const handleMenuClick = (data) => {};
+  const handleMenuClick = (data) => { };
 
   const handleArrowClick = (menuName) => {
     let newActiveMenus = [...activeMenus];

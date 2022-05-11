@@ -323,7 +323,7 @@ function PostList({
                   const author = item?.node?.author?.node;
                   return (
                     <Link key={index} href={item.node.slug}>
-                      <Box cursor={'pointer'}>
+                      <Box cursor={'pointer'} >
                         <Box position={'relative'} mb="20px">
                           <Img src={item.node.featuredImage.node.sourceUrl} />
                           {tagName && (
@@ -352,7 +352,7 @@ function PostList({
                         </Box>
                         <Heading
                           as="h3"
-                          fontSize={{ base: 'sm', md: 'lg' }}
+                          fontSize={{ base: '19', md: 'lg' }}
                           noOfLines={2}
                           lineHeight="1.5"
                           mb={{ base: '12px', md: '12px' }}
@@ -458,7 +458,7 @@ function PostList({
                   );
                 })}
 
-              <Box>
+              <Box mt={'55px'}>
                 <Flex alignItems={'center'} mb="30px">
                   <Heading as={'h4'} fontSize="17px" w="-webkit-fill-available">
                     Categories
@@ -479,7 +479,7 @@ function PostList({
                     return (
                       <Link key={index} href={item.node?.uri}>
                         <Box position={'relative'} mt="20px" cursor={'pointer'}>
-                          <Img src={demoImage[index]} />
+                          <Img src={demoImage[index]} w="100%" h={{ base: '130px', md: 'auto' }} objectFit={'cover'} />
                           <Box
                             textAlign={'center'}
                             position={'absolute'}
