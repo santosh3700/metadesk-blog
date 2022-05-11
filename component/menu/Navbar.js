@@ -73,7 +73,7 @@ export default function Navbar({ menu }) {
       <Box zIndex={'999'} bg={primaryBgColor} className="sticky-header-div">
         <Box
           px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }}
-          borderBottom={{ base: '0', md: '2px solid black' }}
+          borderBottom={'1px solid rgb(0 0 0 / 7%)'}
         >
           {/* <Flex
                     color={useColorModeValue('gray.600', 'white')}
@@ -206,7 +206,7 @@ export default function Navbar({ menu }) {
             />
           </Collapse>
         </Box>
-      </Box>
+      </Box >
       // </Headroom>
     )
   );
