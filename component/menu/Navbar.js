@@ -207,7 +207,7 @@ export default function Navbar({ menu }) {
             />
           </Collapse>
         </Box>
-      </Box >
+      </Box>
       // </Headroom>
     )
   );

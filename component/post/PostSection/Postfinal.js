@@ -37,6 +37,7 @@ import {
   FaRegClock,
   FaEnvelope,
   FaTwitter,
+  FaStar
 } from 'react-icons/fa';
 import PostSeo from '../../seo/PostSeo';
 import ClassesPostBody from '../../../styles/post-body.module.css';
@@ -65,6 +66,7 @@ import { FaShareAlt } from 'react-icons/fa';
 import { useScrollPercentage } from 'react-scroll-percentage';
 import { ScrollPercentage } from 'react-scroll-percentage';
 import { CircularProgress, CircularProgressLabel } from '@chakra-ui/react';
+import { CloseIcon } from '@chakra-ui/icons';
 
 const Postfinal = ({ props }) => {
   // start here
@@ -166,7 +168,40 @@ const Postfinal = ({ props }) => {
         {/* px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }} */}
         {({ percentage, ref, entry }) => (
           <Stack ref={ref}>
+
             <Box>
+
+              {/* popup */}
+              <Box p='25px' w="275px" boxShadow='0 2px 7px rgb(0 0 0 / 10%)' display={{ base: 'none', md: 'block' }} >
+
+                <Flex justifyContent={'end'}>
+                  <Icon as={CloseIcon} boxSize={2} color={'#777'} fontSize="11px" />
+                </Flex>
+
+                <Text fontWeight='400'
+                  fontSize='13px'
+                  fontStyle='italic'
+                  color='#999'
+                  letterSpacing='0.5px' >
+                  Next Article:
+                </Text>
+                <Heading as='h3' fontWeight='600'
+                  fontSize='16px'
+                  margin='8px 0 10px 0'
+                  cursor='pointer' >
+                  The Two Most Important Tools to Reconnect With Your Partner
+                </Heading>
+                <Flex>
+                  <Text mr={'10px'} fontSize="11px">
+                    <Icon as={FaRegClock} boxSize={2} color={'#777'} mr={1} /> October 18, 2019
+                  </Text>
+                  <Text fontSize="11px">
+                    <Icon as={FaStar} boxSize={2} color={'#777'} fontSize="11px" /> 7 min read
+                  </Text>
+                </Flex>
+              </Box>
+              {/* popup */}
+
               <Img
                 src={imagePath}
                 h={{ base: '280px', md: '480px' }}
