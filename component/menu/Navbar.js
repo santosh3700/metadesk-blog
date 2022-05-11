@@ -73,7 +73,8 @@ export default function Navbar({ menu }) {
       <Box zIndex={'999'} bg={primaryBgColor} className="sticky-header-div">
         <Box
           px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }}
-          borderBottom={'1px solid rgb(0 0 0 / 7%)'}
+          // borderBottom={'1px solid rgb(0 0 0 / 7%)'}
+          boxShadow=" 0px 3px 2px 0px rgb(0 0 0 / 3%), 0 1px 0 0 rgb(0 0 0 / 4%), 0 -1px 0 0 rgb(0 0 0 / 4%)"
         >
           {/* <Flex
                     color={useColorModeValue('gray.600', 'white')}
