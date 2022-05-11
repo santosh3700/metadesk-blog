@@ -131,10 +131,9 @@ export default function Navbar({ menu }) {
             <Box display={{ base: 'block', lg: 'none' }}>
               <Link href="/">
                 <Image
-                  color={'red'}
                   objectFit="contain"
                   src="https://wptesting.thenwg.xyz/wp-content/uploads/2022/04/logo-1-4.png"
-                  width="100% !important"
+                  // width="100% !important"
                   height="34px !important"
                 />
               </Link>
