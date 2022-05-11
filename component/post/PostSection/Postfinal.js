@@ -175,18 +175,19 @@ const Postfinal = ({ props }) => {
                 objectPosition="center"
               />
               <Box
-                mx={{ md: '0px', lg: '235px' }}
+                mx={{ md: '0px', lg: '230px', '2xl': '465px' }}
                 position={'relative'}
                 bottom={{ base: '40px', md: '80px' }}
               >
                 <Grid
                   rounded={4}
-                  px={{ base: '15px', lg: '40px' }}
+                  pr={{ base: '15px', lg: '40px' }}
+                  pl={{ base: '15px', lg: '40px', '2xl': '15px' }}
                   py={{ base: '15px', lg: '40px' }}
                   bg={primaryBgColor}
-                  templateColumns={{ md: '2fr 10fr ', sm: 'repeat(1, 1fr)' }}
+                  templateColumns={{ md: '1fr 11fr ', sm: 'repeat(1, 1fr)' }}
                   textColor="white"
-                  gap={4}
+                  gap={8}
                   position={'relative'}
                 >
                   <Box display={{ base: 'none', md: 'block' }}>
@@ -262,7 +263,7 @@ const Postfinal = ({ props }) => {
                         alignContent="center"
                         textAlign={'center'}
 
-                        // px="auto"
+                      // px="auto"
                       >
                         {tagName}
                       </Box>
@@ -298,11 +299,9 @@ const Postfinal = ({ props }) => {
                             // color={primaryTextColor}
                             color={'#777'}
                           >
-                            {`${
-                              author.firstName == null ? '' : author.firstName
-                            } ${
-                              author.lastName == null ? '' : author.lastName
-                            }`}
+                            {`${author.firstName == null ? '' : author.firstName
+                              } ${author.lastName == null ? '' : author.lastName
+                              }`}
                           </Text>
                         </Flex>
                         <Flex
@@ -366,7 +365,7 @@ const Postfinal = ({ props }) => {
                       <div
                         className={
                           (`${ClassesPostBody.content} contentBody`,
-                          'lightThemeWpContent')
+                            'lightThemeWpContent')
                         }
                         dangerouslySetInnerHTML={{ __html: data.content }}
                       />
@@ -447,11 +446,9 @@ const Postfinal = ({ props }) => {
                             fontWeight={'600'}
                             color={primaryTextColor}
                           >
-                            {`${
-                              author.firstName == null ? '' : author.firstName
-                            } ${
-                              author.lastName == null ? '' : author.lastName
-                            }`}
+                            {`${author.firstName == null ? '' : author.firstName
+                              } ${author.lastName == null ? '' : author.lastName
+                              }`}
                           </Text>
                           <Text
                             my={'8px'}
@@ -488,7 +485,7 @@ const Postfinal = ({ props }) => {
 
                     <Flex
                       justifyContent={'space-between'}
-                      // flexDirection={{ base: 'column', md: 'row' }}
+                    // flexDirection={{ base: 'column', md: 'row' }}
                     >
                       <Flex flexDirection={{ base: 'column', md: 'row' }}>
                         <Flex>
@@ -554,7 +551,7 @@ const Postfinal = ({ props }) => {
                     </Flex>
 
                     {prevNextPost.previousPost !== '' &&
-                    prevNextPost.nextPost !== '' ? (
+                      prevNextPost.nextPost !== '' ? (
                       <Grid
                         templateColumns={{
                           md: '6fr 6fr',
@@ -644,8 +641,9 @@ const Postfinal = ({ props }) => {
               </Box>
             </Box>
             <Box
+              // mx={{ md: '0px', lg: '230px', '2xl': '465px' }}
               py={{ base: '40px', md: '80px' }}
-              px={{ base: '15px', lg: '120px' }}
+              px={{ base: '15px', lg: '120px', '2xl': '370px' }}
               bg={isLightTheme ? '#fafafa' : 'blackAlpha.400'}
             >
               <Flex alignItems={'baseline'}>
@@ -802,7 +800,7 @@ const Postfinal = ({ props }) => {
             </Box>
             <Box
               py={{ base: '40px', md: '60px' }}
-              px={{ base: '15px', lg: '235px' }}
+              px={{ base: '15px', lg: '235px', '2xl': '470px' }}
             >
               <Heading as="h3" fontSize={'22px'} mb={'15px'} lineHeight="1.2">
                 LEAVE A REPLY
