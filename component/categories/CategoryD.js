@@ -50,7 +50,7 @@ const CategoryD = (props) => {
     },
   };
 
-  console.log('checkcategoryd', props.data);
+  // console.log('checkcategoryd', props.data);
 
   const { data } = props;
 
@@ -58,7 +58,12 @@ const CategoryD = (props) => {
 
   return (
     <>
-      <Box px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }} mb="65px" py={'20'} bg={'black'}>
+      <Box
+        px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }}
+        mb="65px"
+        py={'20'}
+        bg={'black'}
+      >
         <Flex
           justifyContent={'space-between'}
           flexDirection={{ base: 'column', md: 'row' }}
@@ -91,9 +96,9 @@ const CategoryD = (props) => {
                 rounded={'none'}
                 size="sm"
                 fontWeight={'bold'}
-                padding='6px 13px'
-                border='2px solid #166cf8'
-                color='#166cf8'
+                padding="6px 13px"
+                border="2px solid #166cf8"
+                color="#166cf8"
                 fontSize={'14px'}
                 lineHeight={'1.5'}
               >
@@ -113,7 +118,9 @@ const CategoryD = (props) => {
                 const featuredImage =
                   videoId &&
                   `https://i1.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
-                {/* console.log('catD', tagName); */ }
+                {
+                  /* console.log('catD', tagName); */
+                }
                 return (
                   <Link key={index} href={item.node.slug}>
                     <Box
@@ -130,15 +137,17 @@ const CategoryD = (props) => {
                           color: 'white',
                         }}
                       >
-                        {tagName && <Button
-                          bg={'#91b7e7'}
-                          color="white"
-                          rounded={'none'}
-                          size="xs"
-                          fontWeight={'bold'}
-                        >
-                          {tagName}
-                        </Button>}
+                        {tagName && (
+                          <Button
+                            bg={'#91b7e7'}
+                            color="white"
+                            rounded={'none'}
+                            size="xs"
+                            fontWeight={'bold'}
+                          >
+                            {tagName}
+                          </Button>
+                        )}
                       </Box>
 
                       <Box
@@ -164,7 +173,7 @@ const CategoryD = (props) => {
                       <Heading
                         color={'white'}
                         as="h4"
-                        fontSize='22px'
+                        fontSize="22px"
                         noOfLines={2}
                         lineHeight="1.5"
                         mt={2}

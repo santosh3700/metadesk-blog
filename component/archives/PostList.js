@@ -64,7 +64,7 @@ function PostList({
   const breadcrumb = router.asPath.split('/');
 
   const { sectionAData, sectionBData, sectionCData } = section;
-  console.log('checkcat', allCategoryData);
+  // console.log('checkcat', allCategoryData);
 
   const gridimg = [1, 2, 3, 4, 5, 6, 7, 8];
   const slideimg = [1, 2, 3, 4];
@@ -98,7 +98,7 @@ function PostList({
             data.edges.slice(0, 1).map((item, index) => {
               const author = item?.node?.author.node;
               const tagName = item?.node?.tags?.edges[0]?.node?.name;
-              console.log('checkauthor', item?.node?.author);
+              // console.log('checkauthor', item?.node?.author);
               return (
                 item &&
                 item.node && (
@@ -323,7 +323,7 @@ function PostList({
                   const author = item?.node?.author?.node;
                   return (
                     <Link key={index} href={item.node.slug}>
-                      <Box cursor={'pointer'} >
+                      <Box cursor={'pointer'}>
                         <Box position={'relative'} mb="20px">
                           <Img src={item.node.featuredImage.node.sourceUrl} />
                           {tagName && (
@@ -450,7 +450,7 @@ function PostList({
                             textAlign={'center'}
                             fontSize={'xs'}
                           >
-                            1
+                            {index + 1}
                           </Text>
                         </Box>
                       </Flex>
@@ -475,11 +475,16 @@ function PostList({
                       'http://metadesk.thenwg.xyz/wp-content/uploads/2022/04/solana-opensea-nft-gID_1.png-300x169.webp',
                       'http://metadesk.thenwg.xyz/wp-content/uploads/2022/04/fdic-crypto-risk-gID_2.png-300x169.webp',
                     ];
-                    console.log('checkslug', item.node.uri);
+                    // console.log('checkslug', item.node.uri);
                     return (
                       <Link key={index} href={item.node?.uri}>
                         <Box position={'relative'} mt="20px" cursor={'pointer'}>
-                          <Img src={demoImage[index]} w="100%" h={{ base: '130px', md: 'auto' }} objectFit={'cover'} />
+                          <Img
+                            src={demoImage[index]}
+                            w="100%"
+                            h={{ base: '130px', md: 'auto' }}
+                            objectFit={'cover'}
+                          />
                           <Box
                             textAlign={'center'}
                             position={'absolute'}

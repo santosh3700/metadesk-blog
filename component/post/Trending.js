@@ -56,7 +56,7 @@ const Trending = ({ props }) => {
           trending.edges.map((item, index) => {
             const author = item.node.author;
             const imagePath = item.node.featuredImage?.node.sourceUrl;
-            console.log('checktrending', item.node.slug);
+            // console.log('checktrending', item.node.slug);
 
             if (!imagePath) {
               return 'not found';

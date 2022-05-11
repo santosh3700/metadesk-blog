@@ -71,7 +71,7 @@ const Postfinal = ({ props }) => {
   // theming
   const { colorMode, toggleColorMode } = useColorMode();
   const isLightTheme = colorMode == 'light' ? true : false;
-  const primaryTextColor = isLightTheme ? '#888' : 'white';
+  const primaryTextColor = isLightTheme ? '#222222' : 'white';
   const secondaryTextColor = !isLightTheme ? 'white' : 'rgba(0, 0, 0, 0.5)';
   const primaryBgColor = isLightTheme ? 'white' : '#222222';
   const secondaryBgColor = isLightTheme ? 'black' : 'white';
@@ -105,7 +105,7 @@ const Postfinal = ({ props }) => {
   props.data.posts.edges.map((item, index) => {
     // console.log('postcheck', item.node.title);
     if (item.node.title == postTitle) {
-      console.log('postcheck', prevNextPost);
+      // console.log('postcheck', prevNextPost);
       prevPostObj = {
         id: index - 1,
         title: props.data.posts.edges[index - 1]?.node?.title,
@@ -146,7 +146,7 @@ const Postfinal = ({ props }) => {
       nextPost: nextPageObj,
     });
   }, []);
-  console.log('checkprevnext', prevNextPost);
+  // console.log('checkprevnext', prevNextPost);
 
   if (!imagePath) {
     return 'not found';
@@ -163,8 +163,9 @@ const Postfinal = ({ props }) => {
         as="div"
         onChange={(percentage, entry) => console.log('Percentage:', percentage)}
       >
+        {/* px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }} */}
         {({ percentage, ref, entry }) => (
-          <Stack ref={ref} px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }}>
+          <Stack ref={ref}>
             <Box>
               <Img
                 src={imagePath}
@@ -255,12 +256,13 @@ const Postfinal = ({ props }) => {
                         textDecoration="none"
                         rounded={'5px'}
                         fontSize={'13px'}
-                        color={primaryTextColor}
+                        // color={primaryTextColor}
+                        color="white"
                         size={'xs'}
                         alignContent="center"
                         textAlign={'center'}
 
-                      // px="auto"
+                        // px="auto"
                       >
                         {tagName}
                       </Box>
@@ -274,7 +276,6 @@ const Postfinal = ({ props }) => {
                       >
                         {data.title}
                       </Heading>
-
 
                       <Flex
                         alignItems={{ base: 'left', md: 'center' }}
@@ -294,11 +295,14 @@ const Postfinal = ({ props }) => {
                           <Text
                             pl={'5px'}
                             fontSize={'12px'}
-                            color={primaryTextColor}
+                            // color={primaryTextColor}
+                            color={'#777'}
                           >
-                            {`${author.firstName == null ? '' : author.firstName
-                              } ${author.lastName == null ? '' : author.lastName
-                              }`}
+                            {`${
+                              author.firstName == null ? '' : author.firstName
+                            } ${
+                              author.lastName == null ? '' : author.lastName
+                            }`}
                           </Text>
                         </Flex>
                         <Flex
@@ -310,33 +314,36 @@ const Postfinal = ({ props }) => {
                             as={FaRegClock}
                             boxSize={3}
                             // color={'rgba(0, 0, 0, 0.5)'}
-                            color={secondaryTextColor}
+                            // color={secondaryTextColor}
+                            color={'#777'}
                           />
                           <Text
                             pl={'5px'}
                             fontSize={'12px'}
                             // color={'rgba(0, 0, 0, 0.5)'}
-                            color={secondaryTextColor}
+                            // color={secondaryTextColor}
+                            color={'#777'}
                           >
                             {date.toDateString()}
                           </Text>
                         </Flex>
                         <Flex alignItems={'center'} mr={'12px'}>
-                          <Text fontSize={'12px'} >
+                          <Text fontSize={'12px'}>
                             <Icon
                               mr={'5px'}
                               as={FaEye}
                               boxSize={3}
                               // color={'rgba(0, 0, 0, 0.5)'}
-                              color={secondaryTextColor}
+                              // color={secondaryTextColor}
+                              color={'#777'}
                             />
-
                           </Text>
                           <Text
                             pl={'5px'}
                             fontSize={'12px'}
                             // color={'rgba(0, 0, 0, 0.5)'}
-                            color={secondaryTextColor}
+                            // color={secondaryTextColor}
+                            color={'#777'}
                           >
                             0 views
                           </Text>
@@ -359,7 +366,7 @@ const Postfinal = ({ props }) => {
                       <div
                         className={
                           (`${ClassesPostBody.content} contentBody`,
-                            'lightThemeWpContent')
+                          'lightThemeWpContent')
                         }
                         dangerouslySetInnerHTML={{ __html: data.content }}
                       />
@@ -435,41 +442,69 @@ const Postfinal = ({ props }) => {
                           mb={{ base: '10px', md: '0px' }}
                         />
                         <Box textAlign={{ base: 'center', md: 'left' }}>
-                          <Text fontSize={'15px'} fontWeight={'600'} color={primaryTextColor}>
-                            {`${author.firstName == null ? '' : author.firstName
-                              } ${author.lastName == null ? '' : author.lastName
-                              }`}
+                          <Text
+                            fontSize={'15px'}
+                            fontWeight={'600'}
+                            color={primaryTextColor}
+                          >
+                            {`${
+                              author.firstName == null ? '' : author.firstName
+                            } ${
+                              author.lastName == null ? '' : author.lastName
+                            }`}
                           </Text>
-                          <Text my={'8px'} fontSize={'15px'} color={primaryTextColor}>
+                          <Text
+                            my={'8px'}
+                            fontSize={'15px'}
+                            color={primaryTextColor}
+                          >
                             A 26-year-old health centre receptionist who enjoys
                             going to the movies, photography and social media.
                           </Text>
 
                           <Flex justifyContent={{ base: 'center', md: 'left' }}>
-                            <Icon color={'rgba(0, 0, 0, 0.7)'} as={FaFacebookF} boxSize={4} mr={2} />
-                            <Icon color={'rgba(0, 0, 0, 0.7)'} as={FaTwitter} boxSize={4} mr={2} />
-                            <Icon color={'rgba(0, 0, 0, 0.7)'} as={FaInstagram} boxSize={4} mr={2} />
+                            <Icon
+                              color={'rgba(0, 0, 0, 0.7)'}
+                              as={FaFacebookF}
+                              boxSize={4}
+                              mr={2}
+                            />
+                            <Icon
+                              color={'rgba(0, 0, 0, 0.7)'}
+                              as={FaTwitter}
+                              boxSize={4}
+                              mr={2}
+                            />
+                            <Icon
+                              color={'rgba(0, 0, 0, 0.7)'}
+                              as={FaInstagram}
+                              boxSize={4}
+                              mr={2}
+                            />
                           </Flex>
-
                         </Box>
                       </Flex>
                     </Box>
 
                     <Flex
                       justifyContent={'space-between'}
-                    // flexDirection={{ base: 'column', md: 'row' }}
+                      // flexDirection={{ base: 'column', md: 'row' }}
                     >
                       <Flex flexDirection={{ base: 'column', md: 'row' }}>
-                        <Flex>{data?.tags?.edges.map((item, index) => {
-                          return <Text
-                            m={'4px 6px'}
-                            fontSize="13px"
-                            // color={'rgba(34,34,34,0.5)'}
-                            color={secondaryTextColor}
-                          >#{item.node.name}</Text>
-
-
-                        })}</Flex>
+                        <Flex>
+                          {data?.tags?.edges.map((item, index) => {
+                            return (
+                              <Text
+                                m={'4px 6px'}
+                                fontSize="13px"
+                                // color={'rgba(34,34,34,0.5)'}
+                                color={secondaryTextColor}
+                              >
+                                #{item.node.name}
+                              </Text>
+                            );
+                          })}
+                        </Flex>
                         {/* <Flex>
                           <Text
                             m={'4px 6px'}
@@ -498,7 +533,7 @@ const Postfinal = ({ props }) => {
                         </Text> */}
                       </Flex>
 
-                      <Flex  >
+                      <Flex>
                         <Text color={'rgba(34,34,34,0.5)'} mr={'10px'}>
                           <Icon
                             as={FaComment}
@@ -519,7 +554,7 @@ const Postfinal = ({ props }) => {
                     </Flex>
 
                     {prevNextPost.previousPost !== '' &&
-                      prevNextPost.nextPost !== '' ? (
+                    prevNextPost.nextPost !== '' ? (
                       <Grid
                         templateColumns={{
                           md: '6fr 6fr',
@@ -535,8 +570,8 @@ const Postfinal = ({ props }) => {
                             borderBottom="1px solid gray"
                             // borderRight={{ base: "0px solid gray", md: "1px solid gray" }}
                             py={'30px'}
-                            pr={{ base: "0px", md: '40px' }}
-                            textAlign={{ base: "left", md: "end" }}
+                            pr={{ base: '0px', md: '40px' }}
+                            textAlign={{ base: 'left', md: 'end' }}
                           >
                             <Text
                               color={primaryTextColor}
@@ -563,11 +598,18 @@ const Postfinal = ({ props }) => {
                         )}
                         {prevNextPost.nextPost.slug !== undefined ? (
                           <Box
-                            borderTop={{ base: "0px solid gray", md: "1px solid gray" }}
+                            borderTop={{
+                              base: '0px solid gray',
+                              md: '1px solid gray',
+                            }}
                             borderBottom="1px solid gray"
-                            borderLeft={{ base: "0px solid gray", md: "1px solid gray" }}
-                            py={'30px'} pl={{ base: "0px", md: '40px' }}
-                            textAlign={{ base: "end", md: "left" }}
+                            borderLeft={{
+                              base: '0px solid gray',
+                              md: '1px solid gray',
+                            }}
+                            py={'30px'}
+                            pl={{ base: '0px', md: '40px' }}
+                            textAlign={{ base: 'end', md: 'left' }}
                           >
                             <Text
                               // color="#222222"
@@ -580,10 +622,12 @@ const Postfinal = ({ props }) => {
                               NEXT
                             </Text>
                             <Link href={prevNextPost.nextPost?.slug}>
-                              <Text cursor={'pointer'}
+                              <Text
+                                cursor={'pointer'}
                                 fontSize="18px"
                                 lineHeight="1.5"
-                                fontWeight="600">
+                                fontWeight="600"
+                              >
                                 {prevNextPost.nextPost?.title}
                               </Text>
                             </Link>
@@ -632,7 +676,7 @@ const Postfinal = ({ props }) => {
                     const imagePath = item.node.featuredImage?.node.sourceUrl;
                     const tags = item.node?.tags?.edges[0].node.name;
                     // item.node?.tags?.edges[0];
-                    console.log('checktrending', author);
+                    // console.log('checktrending', author);
 
                     if (!imagePath) {
                       return 'not found';
@@ -756,36 +800,65 @@ const Postfinal = ({ props }) => {
                   })}
               </Grid>
             </Box>
-            <Box py={{ base: '40px', md: '60px' }}
-              px={{ base: '15px', lg: '235px' }}>
-
+            <Box
+              py={{ base: '40px', md: '60px' }}
+              px={{ base: '15px', lg: '235px' }}
+            >
               <Heading as="h3" fontSize={'22px'} mb={'15px'} lineHeight="1.2">
                 LEAVE A REPLY
               </Heading>
-              <Text fontSize={'15px'} mb='30px'>
-                Your email address will not be published. Required fields are marked *
+              <Text fontSize={'15px'} mb="30px">
+                Your email address will not be published. Required fields are
+                marked *
               </Text>
               <FormControl isRequired>
                 <Flex flexDirection={{ base: 'column', md: 'row' }}>
-                  <Input type='text' placeholder="Name *" mr={{ base: '0px', md: '15px' }} mb={{ base: '35px', md: '0px' }} size='sm' />
-                  <Input type='email' placeholder="Email *" ml={{ base: '0px', md: '15px' }} size='sm' />
+                  <Input
+                    type="text"
+                    placeholder="Name *"
+                    mr={{ base: '0px', md: '15px' }}
+                    mb={{ base: '35px', md: '0px' }}
+                    size="sm"
+                  />
+                  <Input
+                    type="email"
+                    placeholder="Email *"
+                    ml={{ base: '0px', md: '15px' }}
+                    size="sm"
+                  />
                 </Flex>
-                <Textarea placeholder='Your Comment ' my='35px' size='sm' h="204px" />
-                <Checkbox alignItems={'flex-start'} opacity={'0.8'} fontSize="15px !important">Save my name, email, and website in this browser for the next time I comment.</Checkbox>
-                <Box mt='15px' textAlign={'end'}>
-                  <Button fontSize={'14px'} fontWeight="500" borderRadius={'20px'}
-                    bg="#3545EE" color={'white'} _hover={{ bg: '#3545EE', color: 'white' }}
+                <Textarea
+                  placeholder="Your Comment "
+                  my="35px"
+                  size="sm"
+                  h="204px"
+                />
+                <Checkbox
+                  alignItems={'flex-start'}
+                  opacity={'0.8'}
+                  fontSize="15px !important"
+                >
+                  Save my name, email, and website in this browser for the next
+                  time I comment.
+                </Checkbox>
+                <Box mt="15px" textAlign={'end'}>
+                  <Button
+                    fontSize={'14px'}
+                    fontWeight="500"
+                    borderRadius={'20px'}
+                    bg="#3545EE"
+                    color={'white'}
+                    _hover={{ bg: '#3545EE', color: 'white' }}
                   >
-                    Post Comment</Button>
+                    Post Comment
+                  </Button>
                 </Box>
               </FormControl>
-
-
             </Box>
-
-            <Box position="fixed" alignSelf={'end'}>
-              <div>
-                {/* <CircularProgress
+            <Box display={{ base: 'none', md: 'contents' }}>
+              <Box position="fixed" alignSelf={'end'}>
+                <div>
+                  {/* <CircularProgress
                     value={40}
                     color="green.400"
                     thickness="4px"
@@ -795,25 +868,25 @@ const Postfinal = ({ props }) => {
                       {percentage.toPrecision(1)}
                     </CircularProgressLabel>
                   </CircularProgress> */}
-                {/* <CircularProgress value={59} size="100px" thickness="4px" />
-                 */}
-                <CircularProgress
-                  mr={10}
-                  value={percentage * 100}
-                  color="#3545ee"
-                  size="80px"
-                  thickness="2px"
-                >
-                  <CircularProgressLabel>
-                    {Math.round(percentage * 100) == 9
-                      ? '0'
-                      : Math.round(percentage * 100)}
-                    %
-                  </CircularProgressLabel>
-                </CircularProgress>
-              </div>
+                  {/* <CircularProgress value={59} size="100px" thickness="4px" />
+                   */}
+                  <CircularProgress
+                    mr={10}
+                    value={percentage * 100}
+                    color="#3545ee"
+                    size="80px"
+                    thickness="2px"
+                  >
+                    <CircularProgressLabel>
+                      {Math.round(percentage * 100) == 9
+                        ? '0'
+                        : Math.round(percentage * 100)}
+                      %
+                    </CircularProgressLabel>
+                  </CircularProgress>
+                </div>
+              </Box>
             </Box>
-            ;
           </Stack>
           // <div ref={ref}>
           //   <h2>{`Percentage scrolled: ${percentage.toPrecision(2)}%.`}</h2>
