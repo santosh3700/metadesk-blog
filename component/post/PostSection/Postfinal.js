@@ -299,7 +299,7 @@ const Postfinal = ({ props }) => {
                         alignContent="center"
                         textAlign={'center'}
 
-                        // px="auto"
+                      // px="auto"
                       >
                         {tagName}
                       </Box>
@@ -335,11 +335,9 @@ const Postfinal = ({ props }) => {
                             // color={primaryTextColor}
                             color={'#777'}
                           >
-                            {`${
-                              author.firstName == null ? '' : author.firstName
-                            } ${
-                              author.lastName == null ? '' : author.lastName
-                            }`}
+                            {`${author.firstName == null ? '' : author.firstName
+                              } ${author.lastName == null ? '' : author.lastName
+                              }`}
                           </Text>
                         </Flex>
                         <Flex
@@ -403,7 +401,7 @@ const Postfinal = ({ props }) => {
                       <div
                         className={
                           (`${ClassesPostBody.content} contentBody`,
-                          'lightThemeWpContent')
+                            'lightThemeWpContent')
                         }
                         dangerouslySetInnerHTML={{ __html: data.content }}
                       />
@@ -484,11 +482,9 @@ const Postfinal = ({ props }) => {
                             fontWeight={'600'}
                             color={primaryTextColor}
                           >
-                            {`${
-                              author.firstName == null ? '' : author.firstName
-                            } ${
-                              author.lastName == null ? '' : author.lastName
-                            }`}
+                            {`${author.firstName == null ? '' : author.firstName
+                              } ${author.lastName == null ? '' : author.lastName
+                              }`}
                           </Text>
                           <Text
                             my={'8px'}
@@ -525,7 +521,7 @@ const Postfinal = ({ props }) => {
 
                     <Flex
                       justifyContent={'space-between'}
-                      // flexDirection={{ base: 'column', md: 'row' }}
+                    // flexDirection={{ base: 'column', md: 'row' }}
                     >
                       <Flex flexDirection={{ base: 'column', md: 'row' }}>
                         <Flex>
@@ -591,7 +587,7 @@ const Postfinal = ({ props }) => {
                     </Flex>
 
                     {prevNextPost.previousPost !== '' &&
-                    prevNextPost.nextPost !== '' ? (
+                      prevNextPost.nextPost !== '' ? (
                       <Grid
                         templateColumns={{
                           md: '6fr 6fr',
@@ -958,12 +954,12 @@ const Postfinal = ({ props }) => {
                 <Slide direction="bottom" style={{ zIndex: 10 }}>
                   <Box
                     position="fixed"
-                    bottom={'100px'}
+                    bottom={'40px'}
                     alignSelf={'start'}
-                    left={'20px'}
+                    left={'40px'}
                     p="25px"
                     w="275px"
-                    boxShadow="0 2px 7px rgb(0 0 0 / 10%)"
+                    boxShadow="-1px 2px 12px rgb(0 0 0 / 10%)"
                     display={{ base: 'none', md: 'block' }}
                     bg="white"
                     shadow={'md'}
@@ -991,6 +987,7 @@ const Postfinal = ({ props }) => {
                     <Link href={prevNextPost.nextPost.slug}>
                       <Heading
                         as="h3"
+                        lineHeight={'1.5'}
                         fontWeight="600"
                         fontSize="16px"
                         margin="8px 0 10px 0"
