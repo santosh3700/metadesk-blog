@@ -1,4 +1,5 @@
 import '../styles/globals.css';
+import React, { useState, useEffect } from 'react';
 import {
   ChakraProvider,
   CSSReset,
@@ -10,7 +11,6 @@ import {
   Stack,
   Box,
 } from '@chakra-ui/react';
-import { useEffect, useState } from 'react';
 import Layout from '../component/layout';
 import 'react-multi-carousel/lib/styles.css';
 import customTheme from '../styles/theme';
@@ -23,11 +23,15 @@ import NewsLetter from '../component/NewsLetter';
 import Fonts from '../styles/fonts/Font';
 import Footer from '../component/menu/Footer';
 import { AiOutlineArrowUp } from 'react-icons/ai';
+import { useScrollDirection } from 'react-use-scroll-direction';
 
 function MyApp({ Component, pageProps, router }) {
   const Router = useRouter();
 
   const [loading, setLoading] = useState(false);
+  const [direction, setDirection] = React.useState(String);
+  const { isScrollingUp, isScrollingDown } = useScrollDirection();
+  var [position, setPosition] = useState();
 
   useEffect(() => {
     const jssStyles = document.querySelector('#jss-server-side');
@@ -35,6 +39,12 @@ function MyApp({ Component, pageProps, router }) {
       jssStyles.parentElement.removeChild(jssStyles);
     }
   }, []);
+
+  useEffect(() => {
+    setPosition(window.pageYOffset);
+    isScrollingDown && setDirection('down');
+    isScrollingUp && setDirection('up');
+  }, [isScrollingDown, isScrollingUp]);
 
   useEffect(() => {
     const start = () => {
@@ -53,7 +63,7 @@ function MyApp({ Component, pageProps, router }) {
     };
   }, []);
 
-  //console.log('chakapppae', pageProps.menu);
+  console.log('chakapppae', position);
 
   return (
     <>
@@ -79,23 +89,24 @@ function MyApp({ Component, pageProps, router }) {
           <Stack>
             {!loading ? <Component {...pageProps} /> : <CustomLoader />}
 
-            <Box display={{ base: 'none', md: 'contents' }}>
-              <Box position="fixed" bottom={'100px'} alignSelf={'end'}>
-                <div>
-                  <Button
-                    w={'50px'}
-                    h={'50px'}
-                    mx={30}
-                    onClick={() => {
-                      setTimeout(() => {
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                      }, 0);
-                    }}
-                  >
-                    <AiOutlineArrowUp style={{ fontSize: '30px' }} />
-                  </Button>
+            {position > 500 ? (
+              <Box display={{ base: 'none', md: 'contents' }}>
+                <Box position="fixed" bottom={'30px'} alignSelf={'end'}>
+                  <div>
+                    <Button
+                      w={'50px'}
+                      h={'50px'}
+                      mx={30}
+                      onClick={() => {
+                        setTimeout(() => {
+                          window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }, 0);
+                      }}
+                    >
+                      <AiOutlineArrowUp style={{ fontSize: '30px' }} />
+                    </Button>
 
-                  {/* <CircularProgress
+                    {/* <CircularProgress
                     mr={10}
                     value={percentage * 100}
                     color="#3545ee"
@@ -109,9 +120,12 @@ function MyApp({ Component, pageProps, router }) {
                       %
                     </CircularProgressLabel>
                   </CircularProgress> */}
-                </div>
+                  </div>
+                </Box>
               </Box>
-            </Box>
+            ) : (
+              <div></div>
+            )}
           </Stack>
 
           {/* <Component {...pageProps} /> */}

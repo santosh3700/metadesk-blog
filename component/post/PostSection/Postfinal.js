@@ -114,13 +114,15 @@ const Postfinal = ({ props }) => {
   // }, []);
   const [direction, setDirection] = React.useState(String);
   const { isScrollingUp, isScrollingDown } = useScrollDirection();
+  var [position, setPosition] = useState();
 
   useEffect(() => {
+    setPosition(window.pageYOffset);
     isScrollingDown && setDirection('down');
     isScrollingUp && setDirection('up');
   }, [isScrollingDown, isScrollingUp]);
 
-  console.log('checkdirection', direction);
+  console.log('checkdirection', position);
 
   const tagName = data?.tags?.edges[0]?.node?.name;
   var prevPostObj = [];
