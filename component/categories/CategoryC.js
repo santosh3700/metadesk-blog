@@ -414,7 +414,7 @@ const CategoryC = (props) => {
                       </Box>
                       <Box w={'30%'}>
                         <Img
-                          h={'100%'}
+                          h={{ base: '100px', md: '100%' }}
                           objectFit={'cover'}
                           src={item.node.featuredImage.node.sourceUrl}
                           alt={item.node.title}
