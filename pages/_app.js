@@ -6,6 +6,9 @@ import {
   // theme,
   // ThemeProvider,
   ScaleFade,
+  Button,
+  Stack,
+  Box,
 } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import Layout from '../component/layout';
@@ -19,6 +22,7 @@ import Navbar from '../component/menu/Navbar';
 import NewsLetter from '../component/NewsLetter';
 import Fonts from '../styles/fonts/Font';
 import Footer from '../component/menu/Footer';
+import { AiOutlineArrowUp } from 'react-icons/ai';
 
 function MyApp({ Component, pageProps, router }) {
   const Router = useRouter();
@@ -71,7 +75,44 @@ function MyApp({ Component, pageProps, router }) {
         >
           {/* <ColorModeScript initialColorMode="default"></ColorModeScript> */}
           <CSSReset />
-          {!loading ? <Component {...pageProps} /> : <CustomLoader />}
+
+          <Stack>
+            {!loading ? <Component {...pageProps} /> : <CustomLoader />}
+
+            <Box display={{ base: 'none', md: 'contents' }}>
+              <Box position="fixed" bottom={'100px'} alignSelf={'end'}>
+                <div>
+                  <Button
+                    w={'50px'}
+                    h={'50px'}
+                    mx={30}
+                    onClick={() => {
+                      setTimeout(() => {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      }, 0);
+                    }}
+                  >
+                    <AiOutlineArrowUp style={{ fontSize: '30px' }} />
+                  </Button>
+
+                  {/* <CircularProgress
+                    mr={10}
+                    value={percentage * 100}
+                    color="#3545ee"
+                    size="80px"
+                    thickness="2px"
+                  >
+                    <CircularProgressLabel>
+                      {Math.round(percentage * 100) == 9
+                        ? '0'
+                        : Math.round(percentage * 100)}
+                      %
+                    </CircularProgressLabel>
+                  </CircularProgress> */}
+                </div>
+              </Box>
+            </Box>
+          </Stack>
 
           {/* <Component {...pageProps} /> */}
         </ScaleFade>

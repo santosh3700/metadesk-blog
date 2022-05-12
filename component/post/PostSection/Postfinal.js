@@ -37,7 +37,7 @@ import {
   FaRegClock,
   FaEnvelope,
   FaTwitter,
-  FaStar
+  FaStar,
 } from 'react-icons/fa';
 import PostSeo from '../../seo/PostSeo';
 import ClassesPostBody from '../../../styles/post-body.module.css';
@@ -67,6 +67,10 @@ import { useScrollPercentage } from 'react-scroll-percentage';
 import { ScrollPercentage } from 'react-scroll-percentage';
 import { CircularProgress, CircularProgressLabel } from '@chakra-ui/react';
 import { CloseIcon } from '@chakra-ui/icons';
+import { parseComment } from '../../../lib/api';
+import { useToast } from '@chakra-ui/react';
+import { useScrollDirection } from 'react-use-scroll-direction';
+import { Fade, ScaleFade, Slide, SlideFade } from '@chakra-ui/react';
 
 const Postfinal = ({ props }) => {
   // start here
@@ -89,6 +93,7 @@ const Postfinal = ({ props }) => {
   const videoUrl = `https://www.youtube.com/watch?v=${data.youtube.videoId}`;
   const videoLink = `https://www.youtube.com/embed/${data.youtube.videoId}`;
   const postTitle = props.data?.post?.title;
+  const toast = useToast();
 
   const [ref, percentage] = useScrollPercentage({
     /* Optional options */
@@ -99,11 +104,28 @@ const Postfinal = ({ props }) => {
     previousPost: '',
     nextPost: '',
   });
+  // const [enableNextPopup, setEnableNextPopup] = useState(false);
+
+  // useEffect(() => {
+
+  //   // return () => {
+
+  //   // };
+  // }, []);
+  const [direction, setDirection] = React.useState(String);
+  const { isScrollingUp, isScrollingDown } = useScrollDirection();
+
+  useEffect(() => {
+    isScrollingDown && setDirection('down');
+    isScrollingUp && setDirection('up');
+  }, [isScrollingDown, isScrollingUp]);
+
+  console.log('checkdirection', direction);
 
   const tagName = data?.tags?.edges[0]?.node?.name;
   var prevPostObj = [];
   var nextPageObj = [];
-  // console.log('postcheck', props.data.posts.edges);
+  console.log('postcheck', props.data.posts.edges[0].node);
   props.data.posts.edges.map((item, index) => {
     // console.log('postcheck', item.node.title);
     if (item.node.title == postTitle) {
@@ -115,6 +137,7 @@ const Postfinal = ({ props }) => {
         image:
           props.data.posts.edges[index - 1]?.node?.featuredImage?.node
             ?.sourceUrl,
+        date: props.data.posts.edges[index - 1]?.node?.date,
       };
       nextPageObj = {
         id: index + 1,
@@ -123,6 +146,7 @@ const Postfinal = ({ props }) => {
         image:
           props.data.posts.edges[index + 1]?.node?.featuredImage?.node
             ?.sourceUrl,
+        date: props.data.posts.edges[index + 1]?.node?.date,
       };
       // setPrevNextPost({
       //   previousPost: {
@@ -150,6 +174,14 @@ const Postfinal = ({ props }) => {
   }, []);
   // console.log('checkprevnext', prevNextPost);
 
+  // start
+
+  const [name, setName] = useState();
+  const [email, setEmail] = useState();
+  const [comment, setComment] = useState();
+
+  //
+
   if (!imagePath) {
     return 'not found';
   }
@@ -168,40 +200,7 @@ const Postfinal = ({ props }) => {
         {/* px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }} */}
         {({ percentage, ref, entry }) => (
           <Stack ref={ref}>
-
             <Box>
-
-              {/* popup */}
-              <Box p='25px' w="275px" boxShadow='0 2px 7px rgb(0 0 0 / 10%)' display={{ base: 'none', md: 'block' }} >
-
-                <Flex justifyContent={'end'}>
-                  <Icon as={CloseIcon} boxSize={2} color={'#777'} fontSize="11px" />
-                </Flex>
-
-                <Text fontWeight='400'
-                  fontSize='13px'
-                  fontStyle='italic'
-                  color='#999'
-                  letterSpacing='0.5px' >
-                  Next Article:
-                </Text>
-                <Heading as='h3' fontWeight='600'
-                  fontSize='16px'
-                  margin='8px 0 10px 0'
-                  cursor='pointer' >
-                  The Two Most Important Tools to Reconnect With Your Partner
-                </Heading>
-                <Flex>
-                  <Text mr={'10px'} fontSize="11px">
-                    <Icon as={FaRegClock} boxSize={2} color={'#777'} mr={1} /> October 18, 2019
-                  </Text>
-                  <Text fontSize="11px">
-                    <Icon as={FaStar} boxSize={2} color={'#777'} fontSize="11px" /> 7 min read
-                  </Text>
-                </Flex>
-              </Box>
-              {/* popup */}
-
               <Img
                 src={imagePath}
                 h={{ base: '280px', md: '480px' }}
@@ -298,7 +297,7 @@ const Postfinal = ({ props }) => {
                         alignContent="center"
                         textAlign={'center'}
 
-                      // px="auto"
+                        // px="auto"
                       >
                         {tagName}
                       </Box>
@@ -334,9 +333,11 @@ const Postfinal = ({ props }) => {
                             // color={primaryTextColor}
                             color={'#777'}
                           >
-                            {`${author.firstName == null ? '' : author.firstName
-                              } ${author.lastName == null ? '' : author.lastName
-                              }`}
+                            {`${
+                              author.firstName == null ? '' : author.firstName
+                            } ${
+                              author.lastName == null ? '' : author.lastName
+                            }`}
                           </Text>
                         </Flex>
                         <Flex
@@ -400,7 +401,7 @@ const Postfinal = ({ props }) => {
                       <div
                         className={
                           (`${ClassesPostBody.content} contentBody`,
-                            'lightThemeWpContent')
+                          'lightThemeWpContent')
                         }
                         dangerouslySetInnerHTML={{ __html: data.content }}
                       />
@@ -481,9 +482,11 @@ const Postfinal = ({ props }) => {
                             fontWeight={'600'}
                             color={primaryTextColor}
                           >
-                            {`${author.firstName == null ? '' : author.firstName
-                              } ${author.lastName == null ? '' : author.lastName
-                              }`}
+                            {`${
+                              author.firstName == null ? '' : author.firstName
+                            } ${
+                              author.lastName == null ? '' : author.lastName
+                            }`}
                           </Text>
                           <Text
                             my={'8px'}
@@ -520,7 +523,7 @@ const Postfinal = ({ props }) => {
 
                     <Flex
                       justifyContent={'space-between'}
-                    // flexDirection={{ base: 'column', md: 'row' }}
+                      // flexDirection={{ base: 'column', md: 'row' }}
                     >
                       <Flex flexDirection={{ base: 'column', md: 'row' }}>
                         <Flex>
@@ -586,7 +589,7 @@ const Postfinal = ({ props }) => {
                     </Flex>
 
                     {prevNextPost.previousPost !== '' &&
-                      prevNextPost.nextPost !== '' ? (
+                    prevNextPost.nextPost !== '' ? (
                       <Grid
                         templateColumns={{
                           md: '6fr 6fr',
@@ -852,12 +855,14 @@ const Postfinal = ({ props }) => {
                     mr={{ base: '0px', md: '15px' }}
                     mb={{ base: '35px', md: '0px' }}
                     size="sm"
+                    onChange={(e) => setName(e.target.value)}
                   />
                   <Input
                     type="email"
                     placeholder="Email *"
                     ml={{ base: '0px', md: '15px' }}
                     size="sm"
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </Flex>
                 <Textarea
@@ -865,6 +870,7 @@ const Postfinal = ({ props }) => {
                   my="35px"
                   size="sm"
                   h="204px"
+                  onChange={(e) => setComment(e.target.value)}
                 />
                 <Checkbox
                   alignItems={'flex-start'}
@@ -882,6 +888,29 @@ const Postfinal = ({ props }) => {
                     bg="#3545EE"
                     color={'white'}
                     _hover={{ bg: '#3545EE', color: 'white' }}
+                    onClick={async () => {
+                      await parseComment(props.data.post.id, comment, name)
+                        .then((val) => {
+                          console.log('checkerrora', val);
+                          toast({
+                            title: 'Successfull !.',
+                            description: val,
+                            status: 'success',
+                            duration: 4000,
+                            isClosable: true,
+                          });
+                        })
+                        .catch((err) => {
+                          console.log('checkerror', err.message);
+                          toast({
+                            title: 'Attention!',
+                            description: err.message,
+                            status: 'error',
+                            duration: 4000,
+                            isClosable: true,
+                          });
+                        });
+                    }}
                   >
                     Post Comment
                   </Button>
@@ -920,7 +949,90 @@ const Postfinal = ({ props }) => {
                 </div>
               </Box>
             </Box>
+
+            {/* popup */}
+            {direction === 'down' ? (
+              prevNextPost.nextPost.slug !== undefined ? (
+                <Slide direction="bottom" style={{ zIndex: 10 }}>
+                  <Box
+                    position="fixed"
+                    bottom={'100px'}
+                    alignSelf={'start'}
+                    left={'20px'}
+                    p="25px"
+                    w="275px"
+                    boxShadow="0 2px 7px rgb(0 0 0 / 10%)"
+                    display={{ base: 'none', md: 'block' }}
+                    bg="white"
+                    shadow={'md'}
+                    rounded="md"
+                  >
+                    <Flex justifyContent={'end'}>
+                      <Icon
+                        as={CloseIcon}
+                        boxSize={2}
+                        color={'#777'}
+                        fontSize="11px"
+                      />
+                    </Flex>
+
+                    <Text
+                      fontWeight="400"
+                      fontSize="13px"
+                      fontStyle="italic"
+                      color="#999"
+                      letterSpacing="0.5px"
+                    >
+                      Next Article:
+                    </Text>
+
+                    <Link href={prevNextPost.nextPost.slug}>
+                      <Heading
+                        as="h3"
+                        fontWeight="600"
+                        fontSize="16px"
+                        margin="8px 0 10px 0"
+                        cursor="pointer"
+                        color={'black'}
+                      >
+                        {prevNextPost.nextPost?.title}
+                      </Heading>
+                    </Link>
+
+                    <Flex>
+                      <Text mr={'10px'} fontSize="11px" color={'#777'}>
+                        <Icon
+                          as={FaRegClock}
+                          boxSize={2}
+                          color={'#777'}
+                          mr={1}
+                        />
+                        {format(
+                          new Date(prevNextPost.nextPost?.date),
+                          'yyyy-MM-dd'
+                        )}
+                      </Text>
+                      <Text fontSize="11px" color={'#777'}>
+                        <Icon
+                          as={FaStar}
+                          boxSize={2}
+                          color={'#777'}
+                          fontSize="11px"
+                        />{' '}
+                        7 min read
+                      </Text>
+                    </Flex>
+                  </Box>
+                </Slide>
+              ) : (
+                <div></div>
+              )
+            ) : (
+              <div></div>
+            )}
+            {/* popup */}
           </Stack>
+
           // <div ref={ref}>
           //   <h2>{`Percentage scrolled: ${percentage.toPrecision(2)}%.`}</h2>
           // </div>
