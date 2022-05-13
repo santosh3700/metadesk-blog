@@ -261,9 +261,9 @@ const Postfinal = ({ props }) => {
                       <LinkedinShareButton edinShareButton url={post_link}>
                         <LinkedinIcon size={'42px'} color={primaryTextColor} />
                       </LinkedinShareButton>
-                      <TumblrShareButton url={post_link}>
+                      {/* <TumblrShareButton url={post_link}>
                         <TumblrIcon size={'42px'} color={primaryTextColor} />
-                      </TumblrShareButton>
+                      </TumblrShareButton> */}
                     </VStack>
 
                     <Flex
