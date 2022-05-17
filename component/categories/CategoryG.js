@@ -25,10 +25,10 @@ const CategoryG = (props) => {
   // theming
   const { colorMode, toggleColorMode } = useColorMode();
   const isLightTheme = colorMode == 'light' ? true : false;
-  const primaryTextColor = isLightTheme ? 'black' : 'white';
-  const secondaryTextColor = isLightTheme ? 'white' : 'black';
-  const primaryBgColor = isLightTheme ? 'white' : 'black';
-  const secondaryBgColor = isLightTheme ? 'black' : 'white';
+  const primaryTextColor = isLightTheme ? 'rgba(0, 0, 0, 0.85)' : 'white';
+  const secondaryTextColor = isLightTheme ? 'white' : 'rgba(0, 0, 0, 0.85)';
+  const primaryBgColor = isLightTheme ? 'white' : 'rgba(0, 0, 0, 0.85)';
+  const secondaryBgColor = isLightTheme ? 'rgba(0, 0, 0, 0.85)' : 'white';
   const subTitleTextColor = isLightTheme ? 'rgba(34, 34, 34, 0.6)' : 'white';
 
   // responsiveness of carousel
@@ -85,7 +85,11 @@ const CategoryG = (props) => {
   // console.log('looptitle', postArr);
 
   return (
-    <Box px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }} mb="65px" py={{ base: '50px', md: '20' }}>
+    <Box
+      px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }}
+      mb="65px"
+      py={{ base: '50px', md: '20' }}
+    >
       {postArr && (
         <Grid
           templateColumns={{ md: '12fr ', lg: '9fr 3fr', sm: 'repeat(1, 1fr)' }}
@@ -100,7 +104,12 @@ const CategoryG = (props) => {
               <Flex alignItems={'baseline'}>
                 <Icon as={FaCircle} boxSize={5} mr="12px" color={'#ab20ef'} />
                 <Box>
-                  <Heading as="h2" fontSize={'24px'} mb="8px" color={primaryTextColor}>
+                  <Heading
+                    as="h2"
+                    fontSize={'24px'}
+                    mb="8px"
+                    color={primaryTextColor}
+                  >
                     {process.env.home.categoryList.CATEGORY_G.NAME}
                   </Heading>
                   <Text color={subTitleTextColor}>
@@ -125,9 +134,9 @@ const CategoryG = (props) => {
                     rounded={'none'}
                     size="sm"
                     fontWeight={'bold'}
-                    padding='6px 13px'
-                    border='2px solid #166cf8'
-                    color='#166cf8'
+                    padding="6px 13px"
+                    border="2px solid #166cf8"
+                    color="#166cf8"
                     fontSize={'14px'}
                     lineHeight={'1.5'}
                   >
@@ -150,7 +159,6 @@ const CategoryG = (props) => {
                         key={index}
                         templateColumns={{ md: '12fr', sm: 'repeat(1, 1fr)' }}
                         textColor="white"
-
                       >
                         {/* <Box px="4" borderRight={'1px solid #b3b3b3'}> */}
                         {post &&
@@ -182,20 +190,29 @@ const CategoryG = (props) => {
                                       )} */}
                                       <Text
                                         fontSize={'16px'}
-                                        lineHeight='1.5'
+                                        lineHeight="1.5"
                                         fontWeight={'bold'}
                                         noOfLines={2}
-                                        color={isLightTheme ? 'black' : 'white'}
-                                      // mb={'12px'}
+                                        color={
+                                          isLightTheme
+                                            ? 'rgba(0, 0, 0, 0.85)'
+                                            : 'white'
+                                        }
+                                        // mb={'12px'}
                                       >
                                         {item.title}
                                       </Text>
                                       <Flex mt="2" alignItems={'center'}>
                                         <Icon
                                           as={FaRegClock}
-                                          color={primaryTextColor} fontSize={'sm'}
+                                          color={primaryTextColor}
+                                          fontSize={'sm'}
                                         />
-                                        <Text ml={2} color={primaryTextColor} fontSize={'sm'}>
+                                        <Text
+                                          ml={2}
+                                          color={primaryTextColor}
+                                          fontSize={'sm'}
+                                        >
                                           {format(
                                             new Date(item.date),
                                             'yyyy-MM-dd'
@@ -225,7 +242,7 @@ const CategoryG = (props) => {
               </Carousel>
             </Grid>
           </Box>
-          <Box h={{ base: '100px', lg: "100%" }} bg="#ededed"></Box>
+          <Box h={{ base: '100px', lg: '100%' }} bg="#ededed"></Box>
         </Grid>
       )}
     </Box>

@@ -49,10 +49,10 @@ const HeroSection = (props) => {
   // theme
   const { colorMode, toggleColorMode } = useColorMode();
   const isLightTheme = colorMode == 'light' ? true : false;
-  const primaryTextColor = isLightTheme ? 'black' : 'white';
-  const secondaryTextColor = isLightTheme ? 'white' : 'black';
-  const primaryBgColor = isLightTheme ? 'white' : 'black';
-  const secondaryBgColor = isLightTheme ? 'black' : 'white';
+  const primaryTextColor = isLightTheme ? 'rgba(0, 0, 0, 0.85)' : 'white';
+  const secondaryTextColor = isLightTheme ? 'white' : 'rgba(0, 0, 0, 0.85)';
+  const primaryBgColor = isLightTheme ? 'white' : 'rgba(0, 0, 0, 0.85)';
+  const secondaryBgColor = isLightTheme ? 'rgba(0, 0, 0, 0.85)' : 'white';
 
   // store data
   const { data, cryptoData } = props;
@@ -135,7 +135,7 @@ const HeroSection = (props) => {
                                   <Button
                                     color="white"
                                     bg="#03a9e7"
-                                    borderRadius='5px'
+                                    borderRadius="5px"
                                     size="xs"
                                     fontWeight={'bold'}
                                   >
@@ -157,7 +157,7 @@ const HeroSection = (props) => {
                                 <Heading
                                   color={'white'}
                                   as="h4"
-                                  fontWeight='700'
+                                  fontWeight="700"
                                   fontSize={{ base: '19px', md: '2xl' }}
                                   noOfLines={2}
                                   lineHeight="1.5"
@@ -228,7 +228,7 @@ const HeroSection = (props) => {
                               <Button
                                 bg={'#fb7c00'}
                                 color="white"
-                                borderRadius='5px'
+                                borderRadius="5px"
                                 size="xs"
                                 fontWeight={'bold'}
                               >
@@ -250,7 +250,7 @@ const HeroSection = (props) => {
                               color={'white'}
                               as="h4"
                               fontSize={{ base: '17px', md: 'lg' }}
-                              fontWeight='700'
+                              fontWeight="700"
                               noOfLines={3}
                               lineHeight="1.5"
                               mb={{ base: '12px', md: '12px' }}
@@ -329,7 +329,7 @@ const HeroSection = (props) => {
                                   <Button
                                     bg={index == 0 ? '#dd03eb' : '#ecbd02'}
                                     color="white"
-                                    borderRadius='5px'
+                                    borderRadius="5px"
                                     size="xs"
                                     fontWeight={'bold'}
                                   >
@@ -351,10 +351,10 @@ const HeroSection = (props) => {
                                   color={'white'}
                                   as="h4"
                                   fontSize={{ base: '17px', md: 'lg' }}
-                                  fontWeight='700'
+                                  fontWeight="700"
                                   noOfLines={3}
                                   lineHeight="1.5"
-                                // mb={{ base: '12px', md: '12px' }}
+                                  // mb={{ base: '12px', md: '12px' }}
                                 >
                                   {item.node.title}
                                 </Heading>

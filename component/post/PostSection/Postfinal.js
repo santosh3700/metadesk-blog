@@ -80,7 +80,7 @@ const Postfinal = ({ props }) => {
   const primaryTextColor = isLightTheme ? '#222222' : 'white';
   const secondaryTextColor = !isLightTheme ? 'white' : 'rgba(0, 0, 0, 0.5)';
   const primaryBgColor = isLightTheme ? 'white' : '#222222';
-  const secondaryBgColor = isLightTheme ? 'black' : 'white';
+  const secondaryBgColor = isLightTheme ? 'rgba(0, 0, 0, 0.85)' : 'white';
 
   // store data
   const data = props.data.post;
@@ -270,26 +270,27 @@ const Postfinal = ({ props }) => {
                           border="1px solid #888 !important"
                         />
                       </Center>
-
+                      <Box h="1px"></Box>
                       <FacebookShareButton url={post_link}>
-                        <FacebookIcon
-                          size={'42px'}
-                          color={primaryTextColor}
-                          mt={'10px !important'}
-                        />
+                        <FacebookIcon size={'42px'} color={primaryTextColor} />
                       </FacebookShareButton>
+                      <Box h="1px"></Box>
                       <TwitterShareButton url={post_link}>
                         <TwitterIcon size={'42px'} color={primaryTextColor} />
                       </TwitterShareButton>
+                      <Box h="1px"></Box>
                       <TelegramShareButton url={post_link}>
                         <TelegramIcon size={'42px'} color={primaryTextColor} />
                       </TelegramShareButton>
+                      <Box h="1px"></Box>
                       <WhatsappShareButton url={post_link}>
                         <WhatsappIcon size={'42px'} color={primaryTextColor} />
-                      </WhatsappShareButton>
+                      </WhatsappShareButton>{' '}
+                      <Box h="1px"></Box>
                       <LinkedinShareButton edinShareButton url={post_link}>
                         <LinkedinIcon size={'42px'} color={primaryTextColor} />
                       </LinkedinShareButton>
+                      <Box h="1px"></Box>
                       {/* <TumblrShareButton url={post_link}>
                         <TumblrIcon size={'42px'} color={primaryTextColor} />
                       </TumblrShareButton> */}
@@ -425,7 +426,7 @@ const Postfinal = ({ props }) => {
                       // colorScheme={'purple'}
                       // as={'p'}
                       style={{
-                        color: isLightTheme ? 'black' : 'white',
+                        color: isLightTheme ? 'rgba(0, 0, 0, 0.85)' : 'white',
                       }}
                     >
                       <div

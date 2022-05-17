@@ -41,10 +41,10 @@ const CategoryF = (props) => {
   // theming
   const { colorMode, toggleColorMode } = useColorMode();
   const isLightTheme = colorMode == 'light' ? true : false;
-  const primaryTextColor = isLightTheme ? 'black' : 'white';
-  const secondaryTextColor = isLightTheme ? 'white' : 'black';
-  const primaryBgColor = isLightTheme ? 'white' : 'black';
-  const secondaryBgColor = isLightTheme ? 'black' : 'white';
+  const primaryTextColor = isLightTheme ? 'rgba(0, 0, 0, 0.85)' : 'white';
+  const secondaryTextColor = isLightTheme ? 'white' : 'rgba(0, 0, 0, 0.85)';
+  const primaryBgColor = isLightTheme ? 'white' : 'rgba(0, 0, 0, 0.85)';
+  const secondaryBgColor = isLightTheme ? 'rgba(0, 0, 0, 0.85)' : 'white';
   const subTitleTextColor = isLightTheme ? 'rgba(34, 34, 34, 0.6)' : 'white';
 
   // store data
@@ -59,7 +59,7 @@ const CategoryF = (props) => {
       px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }}
       mb="65px"
       py={{ base: '50px', md: '20' }}
-      bg={!isLightTheme ? 'black' : '#ededed'}
+      bg={!isLightTheme ? 'rgba(0, 0, 0, 0.85)' : '#ededed'}
     >
       <Flex
         justifyContent={'space-between'}

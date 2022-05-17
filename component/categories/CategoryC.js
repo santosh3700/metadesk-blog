@@ -27,10 +27,10 @@ const CategoryC = (props) => {
   // theming
   const { colorMode, toggleColorMode } = useColorMode();
   const isLightTheme = colorMode == 'light' ? true : false;
-  const primaryTextColor = isLightTheme ? 'black' : 'white';
-  const secondaryTextColor = isLightTheme ? 'white' : 'black';
-  const primaryBgColor = isLightTheme ? 'white' : 'black';
-  const secondaryBgColor = isLightTheme ? 'black' : 'white';
+  const primaryTextColor = isLightTheme ? 'rgba(0, 0, 0, 0.85)' : 'white';
+  const secondaryTextColor = isLightTheme ? 'white' : 'rgba(0, 0, 0, 0.85)';
+  const primaryBgColor = isLightTheme ? 'white' : 'rgba(0, 0, 0, 0.85)';
+  const secondaryBgColor = isLightTheme ? 'rgba(0, 0, 0, 0.85)' : 'white';
   const subTitleTextColor = isLightTheme ? 'rgba(34, 34, 34, 0.6)' : 'white';
 
   // store data
@@ -71,42 +71,56 @@ const CategoryC = (props) => {
 
   // color
 
-
   const switchColor = (index) => {
     switch (index) {
-      case 0: "#fb7c00 "
+      case 0:
+        '#fb7c00 ';
 
         break;
-      case 1: "#fb7c00 "
+      case 1:
+        '#fb7c00 ';
 
         break;
-      case 2: "#fb7c00 "
+      case 2:
+        '#fb7c00 ';
 
         break;
-      case 3: "#fb7c00 "
+      case 3:
+        '#fb7c00 ';
 
         break;
-      case 4: "#fb7c00 "
+      case 4:
+        '#fb7c00 ';
 
         break;
-      case 4: "#fb7c00 "
+      case 4:
+        '#fb7c00 ';
 
         break;
 
       default:
         break;
     }
-
-  }
+  };
 
   return (
-    <Box px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }} mb="65px" py={{ base: '50px', md: '20' }}>
+    <Box
+      px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }}
+      mb="65px"
+      py={{ base: '50px', md: '20' }}
+    >
       <Flex
         justifyContent={'space-between'}
         flexDirection={{ base: 'column', md: 'row' }}
       >
         <Flex alignItems={'baseline'}>
-          <Icon as={FaCircle} boxSize={5} mr="12px" color={'#ab20ef'} mb="10px" />
+          <Icon
+            as={FaCircle}
+            boxSize={5}
+            mr="12px"
+            color={'#ab20ef'}
+            mb="10px"
+          />
           <Box>
             <Heading as="h2" fontSize={'24px'} mb={'8px'}>
               {process.env.home.categoryList.CATEGORY_C.NAME}
@@ -175,11 +189,11 @@ const CategoryC = (props) => {
                   <option
                     key={index}
                     value={item.node.name}
-                  // onClick={() => {
-                  //   console.log("trisha", value);
-                  //   filterMethod(value);
-                  //   // filterMethod();
-                  // }}
+                    // onClick={() => {
+                    //   console.log("trisha", value);
+                    //   filterMethod(value);
+                    //   // filterMethod();
+                    // }}
                   >
                     {item.node.name}
                   </option>
@@ -194,9 +208,9 @@ const CategoryC = (props) => {
               rounded={'none'}
               size="sm"
               fontWeight={'bold'}
-              padding='6px 13px'
-              border='2px solid #166cf8'
-              color='#166cf8'
+              padding="6px 13px"
+              border="2px solid #166cf8"
+              color="#166cf8"
               fontSize={'14px'}
               lineHeight={'1.5'}
             >
@@ -229,7 +243,11 @@ const CategoryC = (props) => {
                   <Box cursor="pointer" style={{ position: 'relative' }}>
                     <Flex
                       w={'full'}
-                      h={catagory.length == 1 ? { base: '250px', md: '450px' } : { base: '250px', md: '100%' }}
+                      h={
+                        catagory.length == 1
+                          ? { base: '250px', md: '450px' }
+                          : { base: '250px', md: '100%' }
+                      }
                       backgroundImage={item.node.featuredImage.node.sourceUrl}
                       backgroundSize={'cover'}
                       backgroundPosition={'center center'}
@@ -253,7 +271,13 @@ const CategoryC = (props) => {
                             {tagName && (
                               <Button
                                 color="white"
-                                bg={index == 0 ? "#fb7c00" : index == 1 ? "#dd03eb" : "#fb7c00"}
+                                bg={
+                                  index == 0
+                                    ? '#fb7c00'
+                                    : index == 1
+                                    ? '#dd03eb'
+                                    : '#fb7c00'
+                                }
                                 // bg={switchColor}
                                 rounded={'none'}
                                 size="xs"
@@ -277,7 +301,7 @@ const CategoryC = (props) => {
                             <Heading
                               color={'white'}
                               as="h4"
-                              fontSize='24px'
+                              fontSize="24px"
                               noOfLines={2}
                               lineHeight="1.5"
                               mb={{ base: '12px', md: '12px' }}
@@ -316,10 +340,16 @@ const CategoryC = (props) => {
                           {tagName && (
                             <Button
                               // bg={'#03a9e7'}
-                              bg={index == 0 ? "#fb7c00" : index == 1 ? "#dd03eb" : "#fb7c00"}
+                              bg={
+                                index == 0
+                                  ? '#fb7c00'
+                                  : index == 1
+                                  ? '#dd03eb'
+                                  : '#fb7c00'
+                              }
                               color="white"
                               mb={2}
-                              fontSize='14px'
+                              fontSize="14px"
                               lineHeight={'1.5'}
                               rounded={'none'}
                               size="xs"
@@ -331,7 +361,7 @@ const CategoryC = (props) => {
                           <Text
                             fontWeight={'700'}
                             noOfLines={2}
-                            fontSize='16px'
+                            fontSize="16px"
                             lineHeight={'1.5'}
                             paddingRight="2"
                             color={primaryTextColor}
@@ -383,10 +413,12 @@ const CategoryC = (props) => {
                       <Box w={'70%'}>
                         {tagName && (
                           <Button
-                            bg={index == 0 || index == 1 ? "#fb7c00" : '#ecbd02'}
+                            bg={
+                              index == 0 || index == 1 ? '#fb7c00' : '#ecbd02'
+                            }
                             color="white"
                             mb={2}
-                            fontSize='14px'
+                            fontSize="14px"
                             lineHeight={'1.5'}
                             rounded={'none'}
                             size="xs"
@@ -397,17 +429,25 @@ const CategoryC = (props) => {
                         )}
                         <Text
                           fontWeight={'700'}
-                          fontSize='16px'
+                          fontSize="16px"
                           lineHeight={'1.5'}
                           noOfLines={2}
                           paddingRight="2"
-                          color={isLightTheme ? 'black' : 'white'}
+                          color={isLightTheme ? 'rgba(0, 0, 0, 0.85)' : 'white'}
                         >
                           {item.node.title}
                         </Text>
                         <Flex mt="2" alignItems={'center'}>
-                          <Icon as={FaRegClock} fontSize={'sm'} color={'rgba(34, 34, 34, 0.6)'} />
-                          <Text ml={2} fontSize={'sm'} color={'rgba(34, 34, 34, 0.6)'}>
+                          <Icon
+                            as={FaRegClock}
+                            fontSize={'sm'}
+                            color={'rgba(34, 34, 34, 0.6)'}
+                          />
+                          <Text
+                            ml={2}
+                            fontSize={'sm'}
+                            color={'rgba(34, 34, 34, 0.6)'}
+                          >
                             {format(new Date(item.node.date), 'yyyy-MM-dd')}
                           </Text>{' '}
                         </Flex>

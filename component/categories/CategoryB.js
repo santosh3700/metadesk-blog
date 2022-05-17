@@ -42,10 +42,10 @@ const CategoryB = (props) => {
   // theming
   const { colorMode, toggleColorMode } = useColorMode();
   const isLightTheme = colorMode == 'light' ? true : false;
-  const primaryTextColor = isLightTheme ? 'black' : 'white';
-  const secondaryTextColor = isLightTheme ? 'white' : 'black';
-  const primaryBgColor = isLightTheme ? 'white' : 'black';
-  const secondaryBgColor = isLightTheme ? 'black' : 'white';
+  const primaryTextColor = isLightTheme ? 'rgba(0, 0, 0, 0.85)' : 'white';
+  const secondaryTextColor = isLightTheme ? 'white' : 'rgba(0, 0, 0, 0.85)';
+  const primaryBgColor = isLightTheme ? 'white' : 'rgba(0, 0, 0, 0.85)';
+  const secondaryBgColor = isLightTheme ? 'rgba(0, 0, 0, 0.85)' : 'white';
   const subTitleTextColor = isLightTheme ? 'rgba(34, 34, 34, 0.6)' : 'white';
 
   // store data
@@ -94,9 +94,9 @@ const CategoryB = (props) => {
                 rounded={'none'}
                 size="sm"
                 fontWeight={'bold'}
-                padding='6px 13px'
-                border='2px solid #166cf8'
-                color='#166cf8'
+                padding="6px 13px"
+                border="2px solid #166cf8"
+                color="#166cf8"
                 fontSize={'14px'}
                 lineHeight={'1.5'}
               >
@@ -134,7 +134,12 @@ const CategoryB = (props) => {
                               )}
                             </Box>
                             <Box w={'70%'} px={4} display={'grid'}>
-                              <Text fontWeight={'700'} color={'black'} fontSize="16px" lineHeight={'1.5'}>
+                              <Text
+                                fontWeight={'700'}
+                                color={'rgba(0, 0, 0, 0.85)'}
+                                fontSize="16px"
+                                lineHeight={'1.5'}
+                              >
                                 {item.node.title}
                               </Text>
                               <Flex mt="2" alignItems={'center'}>
@@ -143,10 +148,7 @@ const CategoryB = (props) => {
                                   color={subTitleTextColor}
                                   fontSize="sm"
                                 />
-                                <Text
-                                  ml={2}
-                                  color={subTitleTextColor}
-                                >
+                                <Text ml={2} color={subTitleTextColor}>
                                   {format(
                                     new Date(item.node.date),
                                     'yyyy-MM-dd'

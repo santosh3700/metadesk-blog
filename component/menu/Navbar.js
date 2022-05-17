@@ -41,7 +41,16 @@ import {
 import { createContext } from 'react';
 import MobileMultiMenus from './MobileMultiMenus';
 import DeskMultiMenus from './DeskMultiMenus';
-import { FaBell, FaRegMoon, FaUser, FaMoon, FaSearch, FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa';
+import {
+  FaBell,
+  FaRegMoon,
+  FaUser,
+  FaMoon,
+  FaSearch,
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+} from 'react-icons/fa';
 import { SunIcon, MoonIcon } from '@chakra-ui/icons';
 import Headroom from 'react-headroom';
 import Link from 'next/link';
@@ -51,10 +60,10 @@ export default function Navbar({ menu }) {
   // theming
   const { colorMode, toggleColorMode } = useColorMode();
   const isLightTheme = colorMode == 'light' ? true : false;
-  const primaryTextColor = isLightTheme ? 'black' : 'white';
-  const secondaryTextColor = isLightTheme ? 'white' : 'black';
-  const primaryBgColor = isLightTheme ? 'white' : 'black';
-  const secondaryBgColor = isLightTheme ? 'black' : 'white';
+  const primaryTextColor = isLightTheme ? 'rgba(0, 0, 0, 0.85)' : 'white';
+  const secondaryTextColor = isLightTheme ? 'white' : 'rgba(0, 0, 0, 0.85)';
+  const primaryBgColor = isLightTheme ? 'white' : 'rgba(0, 0, 0, 0.85)';
+  const secondaryBgColor = isLightTheme ? 'rgba(0, 0, 0, 0.85)' : 'white';
 
   const {
     isOpen: isOpendrawer,
@@ -127,8 +136,6 @@ export default function Navbar({ menu }) {
             py={4}
             alignItems={'center'}
           >
-
-
             <Box display={{ base: 'block', lg: 'none' }}>
               <Link href="/">
                 <Image
@@ -158,7 +165,11 @@ export default function Navbar({ menu }) {
               {/* isDarkModeOn ? <SunIcon /> : <MoonIcon /> */}
               {/* <Icon as={FaUser} onClick={onOpen} boxSize={6} mr={'4'} /> */}
               <Link href="/search">
-                <Icon as={FaSearch} boxSize={{ base: '4', lg: '3' }} mx={'10px'} />
+                <Icon
+                  as={FaSearch}
+                  boxSize={{ base: '4', lg: '3' }}
+                  mx={'10px'}
+                />
               </Link>
 
               <Flex
@@ -179,11 +190,7 @@ export default function Navbar({ menu }) {
                   aria-label={'Toggle Navigation'}
                 />
               </Flex>
-
             </Flex>
-
-
-
           </Stack>
 
           <Modal isOpen={isOpen} onClose={onClose}>
@@ -235,8 +242,8 @@ export const MobileNav = ({
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader borderBottomWidth="1px" py='20px' pl='20px' pr="50px">
-            <Box >
+          <DrawerHeader borderBottomWidth="1px" py="20px" pl="20px" pr="50px">
+            <Box>
               <Link href="/">
                 <Image
                   color={'red'}
@@ -244,21 +251,35 @@ export const MobileNav = ({
                   src="https://wptesting.thenwg.xyz/wp-content/uploads/2022/04/logo-1-4.png"
                   // width="100% !important"
                   height="50px !important"
-                  mb='20px'
+                  mb="20px"
                 />
               </Link>
-              <Flex >
-                <Icon color={'rgba(0, 0, 0, 0.7)'} as={FaFacebookF} boxSize={4} mx={2} />
-                <Icon color={'rgba(0, 0, 0, 0.7)'} as={FaTwitter} boxSize={4} mx={2} />
-                <Icon color={'rgba(0, 0, 0, 0.7)'} as={FaInstagram} boxSize={4} mx={2} />
+              <Flex>
+                <Icon
+                  color={'rgba(0, 0, 0, 0.7)'}
+                  as={FaFacebookF}
+                  boxSize={4}
+                  mx={2}
+                />
+                <Icon
+                  color={'rgba(0, 0, 0, 0.7)'}
+                  as={FaTwitter}
+                  boxSize={4}
+                  mx={2}
+                />
+                <Icon
+                  color={'rgba(0, 0, 0, 0.7)'}
+                  as={FaInstagram}
+                  boxSize={4}
+                  mx={2}
+                />
               </Flex>
             </Box>
           </DrawerHeader>
 
-          <DrawerBody py='20px' px='0px'>
+          <DrawerBody py="20px" px="0px">
             <Stack
               bg={useColorModeValue('white', 'white')}
-
               display={{ lg: 'none' }}
             >
               <MobileMultiMenus menus={menuItems} />

@@ -8,7 +8,7 @@ const UL = styled.ul`
 
 const LI = styled.li``;
 const Item = styled.div`
-${'' /* border-left:2px solid blue; */}
+  ${'' /* border-left:2px solid blue; */}
   font-weight: 600;
   display: flex;
   justify-content: space-between;
@@ -53,7 +53,7 @@ const MobileMultiMenus = ({ menus, state, actions, libraries }) => {
 
   const toggleDrawer = useContext(DrawerToggle);
 
-  const handleMenuClick = (data) => { };
+  const handleMenuClick = (data) => {};
 
   const handleArrowClick = (menuName) => {
     let newActiveMenus = [...activeMenus];

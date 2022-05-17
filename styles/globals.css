@@ -18,7 +18,9 @@ a {
 
 
 
-
+.postfinaldata p strong {
+  font-size: 16px;
+}
 .bulletslider .react-multi-carousel-dot-list{
     justify-content: flex-end !important;
 }

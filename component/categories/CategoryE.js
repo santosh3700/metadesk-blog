@@ -25,10 +25,10 @@ const CategoryE = (props) => {
   // theming
   const { colorMode, toggleColorMode } = useColorMode();
   const isLightTheme = colorMode == 'light' ? true : false;
-  const primaryTextColor = isLightTheme ? 'black' : 'white';
-  const secondaryTextColor = isLightTheme ? 'white' : 'black';
-  const primaryBgColor = isLightTheme ? 'white' : 'black';
-  const secondaryBgColor = isLightTheme ? 'black' : 'white';
+  const primaryTextColor = isLightTheme ? 'rgba(0, 0, 0, 0.85)' : 'white';
+  const secondaryTextColor = isLightTheme ? 'white' : 'rgba(0, 0, 0, 0.85)';
+  const primaryBgColor = isLightTheme ? 'white' : 'rgba(0, 0, 0, 0.85)';
+  const secondaryBgColor = isLightTheme ? 'rgba(0, 0, 0, 0.85)' : 'white';
   const subTitleTextColor = isLightTheme ? 'rgba(34, 34, 34, 0.6)' : 'white';
 
   // store data
@@ -44,7 +44,11 @@ const CategoryE = (props) => {
 
   return (
     <>
-      <Box px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }} mb="65px" py={{ base: '50px', md: '20' }}>
+      <Box
+        px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }}
+        mb="65px"
+        py={{ base: '50px', md: '20' }}
+      >
         <Grid
           templateColumns={{ md: '9fr 3fr', sm: 'repeat(1, 1fr)' }}
           textColor="white"
@@ -58,7 +62,12 @@ const CategoryE = (props) => {
               <Flex alignItems={'baseline'}>
                 <Icon as={FaCircle} boxSize={5} mr="12px" color={'#ab20ef'} />
                 <Box>
-                  <Heading as="h2" fontSize={'24px'} mb="8px" color={primaryTextColor}>
+                  <Heading
+                    as="h2"
+                    fontSize={'24px'}
+                    mb="8px"
+                    color={primaryTextColor}
+                  >
                     {process.env.home.categoryList.CATEGORY_E.NAME}
                   </Heading>
                   <Text color={subTitleTextColor}>
@@ -118,7 +127,7 @@ const CategoryE = (props) => {
                             fontWeight={'600'}
                             mt={'4'}
                             fontSize="16px"
-                            lineHeight='1.5'
+                            lineHeight="1.5"
                             color={primaryTextColor}
                           >
                             {item.node.title}
@@ -167,7 +176,10 @@ const CategoryE = (props) => {
                           color={'white'}
                           mr={4}
                         />
-                        <Divider orientation="vertical" borderColor={'1px solid gray'} />
+                        <Divider
+                          orientation="vertical"
+                          borderColor={'1px solid gray'}
+                        />
                       </Stack>
                       <Flex justifyContent={'space-around'} w={'100%'}>
                         <Text color={'white'}>0</Text>

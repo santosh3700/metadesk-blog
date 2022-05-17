@@ -56,10 +56,13 @@ const ListHeader = ({ children }) => {
 export default function Footer() {
   return (
     <>
-
-      <Box px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }} >
-        <Box py='40px'>
-          <Flex alignItems={'center'} justifyContent={'space-between'} flexDirection={{ base: 'column', md: 'row' }}>
+      <Box px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }}>
+        <Box py="40px">
+          <Flex
+            alignItems={'center'}
+            justifyContent={'space-between'}
+            flexDirection={{ base: 'column', md: 'row' }}
+          >
             <Link href="/">
               <Image
                 objectFit="contain"
@@ -68,31 +71,82 @@ export default function Footer() {
               />
             </Link>
             <Flex mt={{ base: '20px', md: '0px' }}>
-              <Icon color={'rgba(0, 0, 0, 0.7)'} as={FaFacebookF} boxSize={4} mr={2} />
-              <Icon color={'rgba(0, 0, 0, 0.7)'} as={FaTwitter} boxSize={4} mr={2} />
-              <Icon color={'rgba(0, 0, 0, 0.7)'} as={FaInstagram} boxSize={4} mr={2} />
+              <Icon
+                color={'rgba(0, 0, 0, 0.7)'}
+                as={FaFacebookF}
+                boxSize={4}
+                mr={2}
+              />
+              <Icon
+                color={'rgba(0, 0, 0, 0.7)'}
+                as={FaTwitter}
+                boxSize={4}
+                mr={2}
+              />
+              <Icon
+                color={'rgba(0, 0, 0, 0.7)'}
+                as={FaInstagram}
+                boxSize={4}
+                mr={2}
+              />
             </Flex>
           </Flex>
         </Box>
         <Divider />
 
-        <Box py='30px'>
-          <Flex justifyContent={'space-between'} flexDirection={{ base: 'column', md: 'row' }}>
-            <Text fontSize='13px' fontWeight='500' textAlign={'center'}>
+        <Box py="30px">
+          <Flex
+            justifyContent={'space-between'}
+            flexDirection={{ base: 'column', md: 'row' }}
+          >
+            <Text fontSize="13px" fontWeight="500" textAlign={'center'}>
               Ceris © 2020. Made with ☕ by Metadesk
             </Text>
             <Flex mt={{ base: '20px', md: '0px' }} justifyContent={'center'}>
-              <Link href='/' ><Text mx={2} fontSize='13px' fontWeight='500' cursor={'pointer'}>Home</Text></Link>
-              <Link href='/' ><Text mx={2} fontSize='13px' fontWeight='500' cursor={'pointer'}>About</Text></Link>
-              <Link href='/contact' ><Text mx={2} fontSize='13px' fontWeight='500' cursor={'pointer'}>Contact</Text></Link>
-              <Link href='/category/top-news' ><Text mx={2} fontSize='13px' fontWeight='500' cursor={'pointer'}>Top News</Text></Link>
+              <Link href="/">
+                <Text
+                  mx={2}
+                  fontSize="13px"
+                  fontWeight="500"
+                  cursor={'pointer'}
+                >
+                  Home
+                </Text>
+              </Link>
+              <Link href="/">
+                <Text
+                  mx={2}
+                  fontSize="13px"
+                  fontWeight="500"
+                  cursor={'pointer'}
+                >
+                  About
+                </Text>
+              </Link>
+              <Link href="/contact">
+                <Text
+                  mx={2}
+                  fontSize="13px"
+                  fontWeight="500"
+                  cursor={'pointer'}
+                >
+                  Contact
+                </Text>
+              </Link>
+              <Link href="/category/top-news">
+                <Text
+                  mx={2}
+                  fontSize="13px"
+                  fontWeight="500"
+                  cursor={'pointer'}
+                >
+                  Top News
+                </Text>
+              </Link>
             </Flex>
           </Flex>
         </Box>
-
-
       </Box>
-
 
       {/* <Box>
         <Box>
