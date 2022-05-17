@@ -85,7 +85,7 @@ const CategoryG = (props) => {
   // console.log('looptitle', postArr);
 
   return (
-    <Box px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }} mb="65px">
+    <Box px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }} mb="65px" py={{ base: '50px', md: '20' }}>
       {postArr && (
         <Grid
           templateColumns={{ md: '12fr ', lg: '9fr 3fr', sm: 'repeat(1, 1fr)' }}

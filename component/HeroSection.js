@@ -106,7 +106,7 @@ const HeroSection = (props) => {
                           w={'full'}
                           h={{ base: '320px', md: '470px' }}
                           backgroundImage={
-                            item.node.featuredImage.node.sourceUrl
+                            item.node?.featuredImage?.node?.sourceUrl
                           }
                           backgroundSize={'cover'}
                           backgroundPosition={'center center'}

@@ -61,7 +61,7 @@ const CategoryD = (props) => {
       <Box
         px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }}
         mb="65px"
-        py={'20'}
+        py={{ base: '50px', md: '20' }}
         bg={'black'}
       >
         <Flex

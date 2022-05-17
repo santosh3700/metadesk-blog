@@ -89,7 +89,7 @@ const CategoryA = (props) => {
 
   return (
     <>
-      <Box px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }} mb="65px">
+      <Box py={{ base: '50px', md: '20' }} px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }} mb="65px">
         <Grid
           templateColumns={{ md: '12fr ', lg: '9fr 3fr', sm: 'repeat(1, 1fr)' }}
           textColor="white"

@@ -100,7 +100,7 @@ const CategoryC = (props) => {
   }
 
   return (
-    <Box px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }} mb="65px" py={'18'}>
+    <Box px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }} mb="65px" py={{ base: '50px', md: '20' }}>
       <Flex
         justifyContent={'space-between'}
         flexDirection={{ base: 'column', md: 'row' }}
