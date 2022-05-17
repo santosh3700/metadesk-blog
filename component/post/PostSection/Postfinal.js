@@ -193,25 +193,54 @@ const Postfinal = ({ props }) => {
   return (
     <>
       <PostSeo data={data} />
-      <ScrollPercentage
-        position="fixed"
-        alignSelf={'end'}
-        as="div"
-        onChange={(percentage, entry) => console.log('Percentage:', percentage)}
-      >
-        {/* px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }} */}
-        {({ percentage, ref, entry }) => (
-          <Stack ref={ref}>
-            <Box>
-              <Img
-                src={imagePath}
-                h={{ base: '280px', md: '480px' }}
-                w={'100%'}
-                objectFit={'cover'}
-                objectPosition="center"
-              />
+      <Box>
+        <Img
+          src={imagePath}
+          h={{ base: '280px', md: '480px' }}
+          w={'100%'}
+          objectFit={'cover'}
+          objectPosition="center"
+        />
+        <ScrollPercentage
+          position="fixed"
+          alignSelf={'end'}
+          as="div"
+          onChange={(percentage, entry) =>
+            console.log('Percentage:', percentage)
+          }
+        >
+          {/* px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }} */}
+          {({ percentage, ref, entry }) => (
+            <Stack ref={ref}>
+              <Box display={{ base: 'none', md: 'contents' }}>
+                <Box
+                  position="sticky"
+                  alignSelf={'end'}
+                  right="-50px"
+                  top="0px"
+                >
+                  <div>
+                    <CircularProgress
+                      mr={10}
+                      mt={20}
+                      value={percentage * 100}
+                      color="#3545ee"
+                      size="60px"
+                      thickness="2px"
+                    >
+                      <CircularProgressLabel>
+                        {Math.round(percentage * 100) == 9
+                          ? '0'
+                          : Math.round(percentage * 100)}
+                        %
+                      </CircularProgressLabel>
+                    </CircularProgress>
+                  </div>
+                </Box>
+              </Box>
+
               <Box
-                mx={{ md: '0px', lg: '230px', '2xl': '465px' }}
+                px={{ md: '0px', lg: '230px', '2xl': '465px' }}
                 position={'relative'}
                 bottom={{ base: '40px', md: '80px' }}
               >
@@ -299,7 +328,7 @@ const Postfinal = ({ props }) => {
                         alignContent="center"
                         textAlign={'center'}
 
-                      // px="auto"
+                        // px="auto"
                       >
                         {tagName}
                       </Box>
@@ -335,9 +364,11 @@ const Postfinal = ({ props }) => {
                             // color={primaryTextColor}
                             color={'#777'}
                           >
-                            {`${author.firstName == null ? '' : author.firstName
-                              } ${author.lastName == null ? '' : author.lastName
-                              }`}
+                            {`${
+                              author.firstName == null ? '' : author.firstName
+                            } ${
+                              author.lastName == null ? '' : author.lastName
+                            }`}
                           </Text>
                         </Flex>
                         <Flex
@@ -385,7 +416,6 @@ const Postfinal = ({ props }) => {
                         </Flex>
                       </Flex>
                     </Box>
-
                     <Text
                       mb={'30px'}
                       className={'postfinaldata'}
@@ -401,12 +431,11 @@ const Postfinal = ({ props }) => {
                       <div
                         className={
                           (`${ClassesPostBody.content} contentBody`,
-                            'lightThemeWpContent')
+                          'lightThemeWpContent')
                         }
                         dangerouslySetInnerHTML={{ __html: data.content }}
                       />
                     </Text>
-
                     {/* share icon for mobile */}
 
                     <Box display={{ base: 'block', md: 'none !important' }}>
@@ -482,9 +511,11 @@ const Postfinal = ({ props }) => {
                             fontWeight={'600'}
                             color={primaryTextColor}
                           >
-                            {`${author.firstName == null ? '' : author.firstName
-                              } ${author.lastName == null ? '' : author.lastName
-                              }`}
+                            {`${
+                              author.firstName == null ? '' : author.firstName
+                            } ${
+                              author.lastName == null ? '' : author.lastName
+                            }`}
                           </Text>
                           <Text
                             my={'8px'}
@@ -521,7 +552,7 @@ const Postfinal = ({ props }) => {
 
                     <Flex
                       justifyContent={'space-between'}
-                    // flexDirection={{ base: 'column', md: 'row' }}
+                      // flexDirection={{ base: 'column', md: 'row' }}
                     >
                       <Flex flexDirection={{ base: 'column', md: 'row' }}>
                         <Flex>
@@ -587,7 +618,7 @@ const Postfinal = ({ props }) => {
                     </Flex>
 
                     {prevNextPost.previousPost !== '' &&
-                      prevNextPost.nextPost !== '' ? (
+                    prevNextPost.nextPost !== '' ? (
                       <Grid
                         templateColumns={{
                           md: '6fr 6fr',
@@ -675,368 +706,320 @@ const Postfinal = ({ props }) => {
                   </Box>
                 </Grid>
               </Box>
-            </Box>
-            <Box
-              // mx={{ md: '0px', lg: '230px', '2xl': '465px' }}
-              py={{ base: '40px', md: '80px' }}
-              px={{ base: '15px', lg: '120px', '2xl': '370px' }}
-              bg={isLightTheme ? '#fafafa' : 'blackAlpha.400'}
-            >
-              <Flex alignItems={'baseline'}>
-                <Icon
-                  as={FaCircle}
-                  boxSize={5}
-                  mr="12px"
-                  color={'#ab20ef'}
-                  mb="10px"
-                />
+            </Stack>
 
-                <Heading as="h4" fontSize={'22px'} mb={'8px'}>
-                  YOU MAY ALSO LIKE
-                </Heading>
+            // <div ref={ref}>
+            //   <h2>{`Percentage scrolled: ${percentage.toPrecision(2)}%.`}</h2>
+            // </div>
+          )}
+        </ScrollPercentage>
+      </Box>
+      <Box
+        // mx={{ md: '0px', lg: '230px', '2xl': '465px' }}
+        py={{ base: '40px', md: '80px' }}
+        px={{ base: '15px', lg: '120px', '2xl': '370px' }}
+        bg={isLightTheme ? '#fafafa' : 'blackAlpha.400'}
+      >
+        <Flex alignItems={'baseline'}>
+          <Icon
+            as={FaCircle}
+            boxSize={5}
+            mr="12px"
+            color={'#ab20ef'}
+            mb="10px"
+          />
+
+          <Heading as="h4" fontSize={'22px'} mb={'8px'}>
+            YOU MAY ALSO LIKE
+          </Heading>
+        </Flex>
+
+        {/* <Trending props={props} /> */}
+
+        <Grid
+          templateColumns={{ md: '4fr 4fr 4fr', sm: 'repeat(1, 1fr)' }}
+          textColor={primaryBgColor}
+          gap={8}
+          my={6}
+        >
+          {props.trending.edges &&
+            props.trending.edges.slice(0, 3).map((item, index) => {
+              const author = item.node.author;
+              const imagePath = item.node.featuredImage?.node.sourceUrl;
+              const tags = item.node?.tags?.edges[0].node.name;
+              // item.node?.tags?.edges[0];
+              // console.log('checktrending', author);
+
+              if (!imagePath) {
+                return 'not found';
+              }
+              return (
+                item &&
+                item.node && (
+                  <Link href={item.node.slug} key={index}>
+                    <Box cursor="pointer" style={{ position: 'relative' }}>
+                      <Flex
+                        w={'full'}
+                        h={{ base: '320px', lg: '420px' }}
+                        backgroundImage={imagePath}
+                        backgroundSize={'cover'}
+                        backgroundPosition={'center center'}
+                      >
+                        <VStack
+                          w={'full'}
+                          justify={'center'}
+                          bgGradient={
+                            'linear-gradient(to bottom, rgb(255 255 255 / 0%), #0f0e0e);'
+                          }
+                        >
+                          <Stack maxW={'2xl'} align={'flex-start'} spacing={6}>
+                            <Box
+                              p={4}
+                              style={{
+                                position: 'absolute',
+                                left: 0,
+                                top: '10px',
+                              }}
+                            >
+                              <Button
+                                color="white"
+                                // bg={index == 0 ? "#fb7c00" : index == 1 ? "#dd03eb" : "#fb7c00"}
+                                // bg={switchColor}
+                                bg={'#fc4a00 !important'}
+                                rounded={'5px'}
+                                size="xs"
+                                fontWeight={'bold'}
+                              >
+                                {tags}
+                                {/* {tagName} */}
+                              </Button>
+                            </Box>
+
+                            <Box
+                              p={4}
+                              w="100%"
+                              style={{
+                                position: 'absolute',
+                                left: 0,
+                                bottom: 0,
+                                color: 'white',
+                              }}
+                            >
+                              <Heading
+                                color={'white'}
+                                as="h4"
+                                fontSize="20px"
+                                noOfLines={2}
+                                lineHeight="1.5"
+                                mb={{ base: '12px', md: '12px' }}
+                              >
+                                {item.node.title}
+                                {/* {item.node.title} */}
+                              </Heading>
+
+                              <Flex alignItems={'center'}>
+                                <Flex alignItems={'center'} mr={'12px'}>
+                                  <Avatar
+                                    // src="https://bit.ly/dan-abramov"
+                                    src={author.node?.avatar?.url}
+                                    h={'30px'}
+                                    w={'30px'}
+                                    mr="6px"
+                                  />
+                                  <Text
+                                    pl={'5px'}
+                                    fontSize={'14px'}
+                                    color="rgba(255, 255, 255, 0.85) !important"
+                                  >
+                                    {author.node.name}
+                                  </Text>
+                                </Flex>
+                                <Flex alignItems={'center'}>
+                                  <Icon
+                                    as={FaRegClock}
+                                    color={'rgba(255, 255, 255, 0.85)'}
+                                    fontSize={'12px'}
+                                  />
+                                  <Text
+                                    color={
+                                      'rgba(255, 255, 255, 0.85) !important'
+                                    }
+                                    ml={2}
+                                    fontSize={'12px'}
+                                  >
+                                    {format(
+                                      new Date(item.node.date),
+                                      'yyyy-MM-dd'
+                                    )}
+                                  </Text>
+                                </Flex>
+                              </Flex>
+                            </Box>
+                          </Stack>
+                        </VStack>
+                      </Flex>
+                    </Box>
+                  </Link>
+                )
+              );
+            })}
+        </Grid>
+      </Box>
+      <Box
+        py={{ base: '40px', md: '60px' }}
+        px={{ base: '15px', lg: '235px', '2xl': '470px' }}
+      >
+        <Heading as="h3" fontSize={'22px'} mb={'15px'} lineHeight="1.2">
+          LEAVE A REPLY
+        </Heading>
+        <Text fontSize={'15px'} mb="30px">
+          Your email address will not be published. Required fields are marked *
+        </Text>
+        <FormControl isRequired>
+          <Flex flexDirection={{ base: 'column', md: 'row' }}>
+            <Input
+              type="text"
+              placeholder="Name *"
+              mr={{ base: '0px', md: '15px' }}
+              mb={{ base: '35px', md: '0px' }}
+              size="sm"
+              onChange={(e) => setName(e.target.value)}
+            />
+            <Input
+              type="email"
+              placeholder="Email *"
+              ml={{ base: '0px', md: '15px' }}
+              size="sm"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </Flex>
+          <Textarea
+            placeholder="Your Comment "
+            my="35px"
+            size="sm"
+            h="204px"
+            onChange={(e) => setComment(e.target.value)}
+          />
+          <Checkbox
+            alignItems={'flex-start'}
+            opacity={'0.8'}
+            fontSize="15px !important"
+          >
+            Save my name, email, and website in this browser for the next time I
+            comment.
+          </Checkbox>
+          <Box mt="15px" textAlign={'end'}>
+            <Button
+              fontSize={'14px'}
+              fontWeight="500"
+              borderRadius={'20px'}
+              bg="#3545EE"
+              color={'white'}
+              _hover={{ bg: '#3545EE', color: 'white' }}
+              onClick={async () => {
+                await parseComment(props.data.post.id, comment, name)
+                  .then((val) => {
+                    console.log('checkerrora', val);
+                    toast({
+                      title: 'Successfull !.',
+                      description: val,
+                      status: 'success',
+                      duration: 4000,
+                      isClosable: true,
+                    });
+                  })
+                  .catch((err) => {
+                    console.log('checkerror', err.message);
+                    toast({
+                      title: 'Attention!',
+                      description: err.message,
+                      status: 'error',
+                      duration: 4000,
+                      isClosable: true,
+                    });
+                  });
+              }}
+            >
+              Post Comment
+            </Button>
+          </Box>
+        </FormControl>
+      </Box>
+
+      {/* popup */}
+      {direction === 'down' ? (
+        prevNextPost.nextPost.slug !== undefined ? (
+          <Slide direction="bottom" style={{ zIndex: 10 }}>
+            <Box
+              position="fixed"
+              bottom={'40px'}
+              alignSelf={'start'}
+              left={'40px'}
+              p="25px"
+              w="275px"
+              boxShadow="-1px 2px 12px rgb(0 0 0 / 10%)"
+              display={{ base: 'none', md: 'block' }}
+              bg="white"
+              shadow={'md'}
+              rounded="md"
+            >
+              <Flex justifyContent={'end'}>
+                <Icon
+                  as={CloseIcon}
+                  boxSize={2}
+                  color={'#777'}
+                  fontSize="11px"
+                />
               </Flex>
 
-              {/* <Trending props={props} /> */}
-
-              <Grid
-                templateColumns={{ md: '4fr 4fr 4fr', sm: 'repeat(1, 1fr)' }}
-                textColor={primaryBgColor}
-                gap={8}
-                my={6}
+              <Text
+                fontWeight="400"
+                fontSize="13px"
+                fontStyle="italic"
+                color="#999"
+                letterSpacing="0.5px"
               >
-                {props.trending.edges &&
-                  props.trending.edges.slice(0, 3).map((item, index) => {
-                    const author = item.node.author;
-                    const imagePath = item.node.featuredImage?.node.sourceUrl;
-                    const tags = item.node?.tags?.edges[0].node.name;
-                    // item.node?.tags?.edges[0];
-                    // console.log('checktrending', author);
-
-                    if (!imagePath) {
-                      return 'not found';
-                    }
-                    return (
-                      item &&
-                      item.node && (
-                        <Link href={item.node.slug} key={index}>
-                          <Box
-                            cursor="pointer"
-                            style={{ position: 'relative' }}
-                          >
-                            <Flex
-                              w={'full'}
-                              h={{ base: '320px', lg: '420px' }}
-                              backgroundImage={imagePath}
-                              backgroundSize={'cover'}
-                              backgroundPosition={'center center'}
-                            >
-                              <VStack
-                                w={'full'}
-                                justify={'center'}
-                                bgGradient={
-                                  'linear-gradient(to bottom, rgb(255 255 255 / 0%), #0f0e0e);'
-                                }
-                              >
-                                <Stack
-                                  maxW={'2xl'}
-                                  align={'flex-start'}
-                                  spacing={6}
-                                >
-                                  <Box
-                                    p={4}
-                                    style={{
-                                      position: 'absolute',
-                                      left: 0,
-                                      top: '10px',
-                                    }}
-                                  >
-                                    <Button
-                                      color="white"
-                                      // bg={index == 0 ? "#fb7c00" : index == 1 ? "#dd03eb" : "#fb7c00"}
-                                      // bg={switchColor}
-                                      bg={'#fc4a00 !important'}
-                                      rounded={'5px'}
-                                      size="xs"
-                                      fontWeight={'bold'}
-                                    >
-                                      {tags}
-                                      {/* {tagName} */}
-                                    </Button>
-                                  </Box>
-
-                                  <Box
-                                    p={4}
-                                    w="100%"
-                                    style={{
-                                      position: 'absolute',
-                                      left: 0,
-                                      bottom: 0,
-                                      color: 'white',
-                                    }}
-                                  >
-                                    <Heading
-                                      color={'white'}
-                                      as="h4"
-                                      fontSize="20px"
-                                      noOfLines={2}
-                                      lineHeight="1.5"
-                                      mb={{ base: '12px', md: '12px' }}
-                                    >
-                                      {item.node.title}
-                                      {/* {item.node.title} */}
-                                    </Heading>
-
-                                    <Flex alignItems={'center'}>
-                                      <Flex alignItems={'center'} mr={'12px'}>
-                                        <Avatar
-                                          // src="https://bit.ly/dan-abramov"
-                                          src={author.node?.avatar?.url}
-                                          h={'30px'}
-                                          w={'30px'}
-                                          mr="6px"
-                                        />
-                                        <Text
-                                          pl={'5px'}
-                                          fontSize={'14px'}
-                                          color="rgba(255, 255, 255, 0.85) !important"
-                                        >
-                                          {author.node.name}
-                                        </Text>
-                                      </Flex>
-                                      <Flex alignItems={'center'}>
-                                        <Icon
-                                          as={FaRegClock}
-                                          color={'rgba(255, 255, 255, 0.85)'}
-                                          fontSize={'12px'}
-                                        />
-                                        <Text
-                                          color={
-                                            'rgba(255, 255, 255, 0.85) !important'
-                                          }
-                                          ml={2}
-                                          fontSize={'12px'}
-                                        >
-                                          {format(
-                                            new Date(item.node.date),
-                                            'yyyy-MM-dd'
-                                          )}
-                                        </Text>
-                                      </Flex>
-                                    </Flex>
-                                  </Box>
-                                </Stack>
-                              </VStack>
-                            </Flex>
-                          </Box>
-                        </Link>
-                      )
-                    );
-                  })}
-              </Grid>
-            </Box>
-            <Box
-              py={{ base: '40px', md: '60px' }}
-              px={{ base: '15px', lg: '235px', '2xl': '470px' }}
-            >
-              <Heading as="h3" fontSize={'22px'} mb={'15px'} lineHeight="1.2">
-                LEAVE A REPLY
-              </Heading>
-              <Text fontSize={'15px'} mb="30px">
-                Your email address will not be published. Required fields are
-                marked *
+                Next Article:
               </Text>
-              <FormControl isRequired>
-                <Flex flexDirection={{ base: 'column', md: 'row' }}>
-                  <Input
-                    type="text"
-                    placeholder="Name *"
-                    mr={{ base: '0px', md: '15px' }}
-                    mb={{ base: '35px', md: '0px' }}
-                    size="sm"
-                    onChange={(e) => setName(e.target.value)}
-                  />
-                  <Input
-                    type="email"
-                    placeholder="Email *"
-                    ml={{ base: '0px', md: '15px' }}
-                    size="sm"
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                </Flex>
-                <Textarea
-                  placeholder="Your Comment "
-                  my="35px"
-                  size="sm"
-                  h="204px"
-                  onChange={(e) => setComment(e.target.value)}
-                />
-                <Checkbox
-                  alignItems={'flex-start'}
-                  opacity={'0.8'}
-                  fontSize="15px !important"
+
+              <Link href={prevNextPost.nextPost.slug}>
+                <Heading
+                  as="h3"
+                  lineHeight={'1.5'}
+                  fontWeight="600"
+                  fontSize="16px"
+                  margin="8px 0 10px 0"
+                  cursor="pointer"
+                  color={'black'}
                 >
-                  Save my name, email, and website in this browser for the next
-                  time I comment.
-                </Checkbox>
-                <Box mt="15px" textAlign={'end'}>
-                  <Button
-                    fontSize={'14px'}
-                    fontWeight="500"
-                    borderRadius={'20px'}
-                    bg="#3545EE"
-                    color={'white'}
-                    _hover={{ bg: '#3545EE', color: 'white' }}
-                    onClick={async () => {
-                      await parseComment(props.data.post.id, comment, name)
-                        .then((val) => {
-                          console.log('checkerrora', val);
-                          toast({
-                            title: 'Successfull !.',
-                            description: val,
-                            status: 'success',
-                            duration: 4000,
-                            isClosable: true,
-                          });
-                        })
-                        .catch((err) => {
-                          console.log('checkerror', err.message);
-                          toast({
-                            title: 'Attention!',
-                            description: err.message,
-                            status: 'error',
-                            duration: 4000,
-                            isClosable: true,
-                          });
-                        });
-                    }}
-                  >
-                    Post Comment
-                  </Button>
-                </Box>
-              </FormControl>
+                  {prevNextPost.nextPost?.title}
+                </Heading>
+              </Link>
+
+              <Flex>
+                <Text mr={'10px'} fontSize="11px" color={'#777'}>
+                  <Icon as={FaRegClock} boxSize={2} color={'#777'} mr={1} />
+                  {format(new Date(prevNextPost.nextPost?.date), 'yyyy-MM-dd')}
+                </Text>
+                <Text fontSize="11px" color={'#777'}>
+                  <Icon
+                    as={FaStar}
+                    boxSize={2}
+                    color={'#777'}
+                    fontSize="11px"
+                  />{' '}
+                  7 min read
+                </Text>
+              </Flex>
             </Box>
-            <Box display={{ base: 'none', md: 'contents' }}>
-              <Box position="fixed" alignSelf={'end'}>
-                <div>
-                  {/* <CircularProgress
-                    value={40}
-                    color="green.400"
-                    thickness="4px"
-                    size="80px"
-                  >
-                    <CircularProgressLabel>
-                      {percentage.toPrecision(1)}
-                    </CircularProgressLabel>
-                  </CircularProgress> */}
-                  {/* <CircularProgress value={59} size="100px" thickness="4px" />
-                   */}
-                  <CircularProgress
-                    mr={10}
-                    value={percentage * 100}
-                    color="#3545ee"
-                    size="80px"
-                    thickness="2px"
-                  >
-                    <CircularProgressLabel>
-                      {Math.round(percentage * 100) == 9
-                        ? '0'
-                        : Math.round(percentage * 100)}
-                      %
-                    </CircularProgressLabel>
-                  </CircularProgress>
-                </div>
-              </Box>
-            </Box>
-
-            {/* popup */}
-            {direction === 'down' ? (
-              prevNextPost.nextPost.slug !== undefined ? (
-                <Slide direction="bottom" style={{ zIndex: 10 }}>
-                  <Box
-                    position="fixed"
-                    bottom={'40px'}
-                    alignSelf={'start'}
-                    left={'40px'}
-                    p="25px"
-                    w="275px"
-                    boxShadow="-1px 2px 12px rgb(0 0 0 / 10%)"
-                    display={{ base: 'none', md: 'block' }}
-                    bg="white"
-                    shadow={'md'}
-                    rounded="md"
-                  >
-                    <Flex justifyContent={'end'}>
-                      <Icon
-                        as={CloseIcon}
-                        boxSize={2}
-                        color={'#777'}
-                        fontSize="11px"
-                      />
-                    </Flex>
-
-                    <Text
-                      fontWeight="400"
-                      fontSize="13px"
-                      fontStyle="italic"
-                      color="#999"
-                      letterSpacing="0.5px"
-                    >
-                      Next Article:
-                    </Text>
-
-                    <Link href={prevNextPost.nextPost.slug}>
-                      <Heading
-                        as="h3"
-                        lineHeight={'1.5'}
-                        fontWeight="600"
-                        fontSize="16px"
-                        margin="8px 0 10px 0"
-                        cursor="pointer"
-                        color={'black'}
-                      >
-                        {prevNextPost.nextPost?.title}
-                      </Heading>
-                    </Link>
-
-                    <Flex>
-                      <Text mr={'10px'} fontSize="11px" color={'#777'}>
-                        <Icon
-                          as={FaRegClock}
-                          boxSize={2}
-                          color={'#777'}
-                          mr={1}
-                        />
-                        {format(
-                          new Date(prevNextPost.nextPost?.date),
-                          'yyyy-MM-dd'
-                        )}
-                      </Text>
-                      <Text fontSize="11px" color={'#777'}>
-                        <Icon
-                          as={FaStar}
-                          boxSize={2}
-                          color={'#777'}
-                          fontSize="11px"
-                        />{' '}
-                        7 min read
-                      </Text>
-                    </Flex>
-                  </Box>
-                </Slide>
-              ) : (
-                <div></div>
-              )
-            ) : (
-              <div></div>
-            )}
-            {/* popup */}
-          </Stack>
-
-          // <div ref={ref}>
-          //   <h2>{`Percentage scrolled: ${percentage.toPrecision(2)}%.`}</h2>
-          // </div>
-        )}
-      </ScrollPercentage>
+          </Slide>
+        ) : (
+          <div></div>
+        )
+      ) : (
+        <div></div>
+      )}
+      {/* popup */}
     </>
   );
 };
