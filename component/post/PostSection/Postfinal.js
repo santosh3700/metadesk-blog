@@ -62,7 +62,7 @@ import {
   WhatsappIcon,
 } from 'react-share';
 import { RWebShare } from 'react-web-share';
-import { FaShareAlt } from 'react-icons/fa';
+import { FaShareAlt, FaTelegramPlane, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa';
 import { useScrollPercentage } from 'react-scroll-percentage';
 import { ScrollPercentage } from 'react-scroll-percentage';
 import { CircularProgress, CircularProgressLabel } from '@chakra-ui/react';
@@ -225,6 +225,7 @@ const Postfinal = ({ props }) => {
               >
                 <Box display={{ base: 'none', md: 'contents' }}>
                   <Box
+                    zIndex={'9999'}
                     position="fixed"
                     alignSelf={'end'}
                     right="50px"
@@ -238,6 +239,7 @@ const Postfinal = ({ props }) => {
                         color="#3545ee"
                         size="60px"
                         thickness="2px"
+                        zIndex={'9999'}
                       >
                         <CircularProgressLabel>
                           {Math.round(percentage * 100) == 9
@@ -276,30 +278,71 @@ const Postfinal = ({ props }) => {
                           border="1px solid #888 !important"
                         />
                       </Center>
+
+                      {/* Square Icon */}
+
+                      {/* <Box h="1px"></Box>
+                      <Box borderRadius={'5px'} px={"3"} pt={'3'} pb={'1'} color="gray" _hover={{ bg: "blue", color: "white" }} border={"1px solid lightgray"}>
+                        <Icon as={FaFacebookF} boxSize={4} />
+                      </Box>
+                      <Box h="1px"></Box>
+                      <Box borderRadius={'5px'} px={"3"} pt={'3'} pb={'1'} color="gray" _hover={{ bg: "blue", color: "white" }} border={"1px solid lightgray"}>
+                        <Icon as={FaTwitter} boxSize={4} />
+                      </Box>
+                      <Box h="1px"></Box>
+                      <Box borderRadius={'5px'} px={"3"} pt={'3'} pb={'1'} color="gray" _hover={{ bg: "blue", color: "white" }} border={"1px solid lightgray"}>
+                        <Icon as={FaTelegramPlane} boxSize={4} />
+                      </Box>
+                      <Box h="1px"></Box>
+                      <Box borderRadius={'5px'} px={"3"} pt={'3'} pb={'1'} color="gray" _hover={{ bg: "blue", color: "white" }} border={"1px solid lightgray"}>
+                        <Icon as={FaWhatsapp} boxSize={4} />
+                      </Box>
+                      <Box h="1px"></Box>
+                      <Box borderRadius={'5px'} px={"3"} pt={'3'} pb={'1'} color="gray" _hover={{ bg: "blue", color: "white" }} border={"1px solid lightgray"}>
+                        <Icon as={FaLinkedinIn} boxSize={4} />
+                      </Box> */}
+
+
+                      {/* Square Icon */}
+
+
                       <Box h="1px"></Box>
                       <FacebookShareButton url={post_link}>
-                        <FacebookIcon size={'42px'} color={primaryTextColor} />
+                        {/* <FacebookIcon size={'42px'} color={primaryTextColor} /> */}
+                        <Box borderRadius={'5px'} px={"3"} pt={'3'} pb={'1'} color="gray" _hover={{ bg: "blue", color: "white" }} border={"1px solid lightgray"}>
+                          <Icon as={FaFacebookF} boxSize={4} />
+                        </Box>
                       </FacebookShareButton>
                       <Box h="1px"></Box>
                       <TwitterShareButton url={post_link}>
-                        <TwitterIcon size={'42px'} color={primaryTextColor} />
+                        {/* <TwitterIcon size={'42px'} color={primaryTextColor} /> */}
+                        <Box borderRadius={'5px'} px={"3"} pt={'3'} pb={'1'} color="gray" _hover={{ bg: "blue", color: "white" }} border={"1px solid lightgray"}>
+                          <Icon as={FaTwitter} boxSize={4} />
+                        </Box>
                       </TwitterShareButton>
                       <Box h="1px"></Box>
                       <TelegramShareButton url={post_link}>
-                        <TelegramIcon size={'42px'} color={primaryTextColor} />
+                        {/* <TelegramIcon size={'42px'} color={primaryTextColor} /> */}
+                        <Box borderRadius={'5px'} px={"3"} pt={'3'} pb={'1'} color="gray" _hover={{ bg: "blue", color: "white" }} border={"1px solid lightgray"}>
+                          <Icon as={FaTelegramPlane} boxSize={4} />
+                        </Box>
                       </TelegramShareButton>
                       <Box h="1px"></Box>
                       <WhatsappShareButton url={post_link}>
-                        <WhatsappIcon size={'42px'} color={primaryTextColor} />
+                        {/* <WhatsappIcon size={'42px'} color={primaryTextColor} /> */}
+                        <Box borderRadius={'5px'} px={"3"} pt={'3'} pb={'1'} color="gray" _hover={{ bg: "blue", color: "white" }} border={"1px solid lightgray"}>
+                          <Icon as={FaWhatsapp} boxSize={4} />
+                        </Box>
                       </WhatsappShareButton>{' '}
                       <Box h="1px"></Box>
                       <LinkedinShareButton edinShareButton url={post_link}>
-                        <LinkedinIcon size={'42px'} color={primaryTextColor} />
+                        {/* <LinkedinIcon size={'42px'} color={primaryTextColor} /> */}
+                        <Box borderRadius={'5px'} px={"3"} pt={'3'} pb={'1'} color="gray" _hover={{ bg: "blue", color: "white" }} border={"1px solid lightgray"}>
+                          <Icon as={FaLinkedinIn} boxSize={4} />
+                        </Box>
                       </LinkedinShareButton>
                       <Box h="1px"></Box>
-                      {/* <TumblrShareButton url={post_link}>
-                        <TumblrIcon size={'42px'} color={primaryTextColor} />
-                      </TumblrShareButton> */}
+
                     </VStack>
 
                     <Flex
@@ -456,43 +499,86 @@ const Postfinal = ({ props }) => {
                           Share
                         </Heading>
 
-                        <Flex justifyContent={'space-between'}>
+                        <Flex justifyContent={'center'} >
+
+                          {/* 
+                          <Box borderRadius={'5px'} px={"3"} pt={'3'} pb={'1'} color="gray" _hover={{ bg: "blue", color: "white" }} border={"1px solid lightgray"}>
+                            <Icon as={FaFacebookF} boxSize={4} />
+                          </Box>
+                          <Box w="15px"></Box>
+                          <Box borderRadius={'5px'} px={"3"} pt={'3'} pb={'1'} color="gray" _hover={{ bg: "blue", color: "white" }} border={"1px solid lightgray"}>
+                            <Icon as={FaTwitter} boxSize={4} />
+                          </Box>
+                          <Box w="15px"></Box>
+                          <Box borderRadius={'5px'} px={"3"} pt={'3'} pb={'1'} color="gray" _hover={{ bg: "blue", color: "white" }} border={"1px solid lightgray"}>
+                            <Icon as={FaTelegramPlane} boxSize={4} />
+                          </Box>
+                          <Box w="15px"></Box>
+                          <Box borderRadius={'5px'} px={"3"} pt={'3'} pb={'1'} color="gray" _hover={{ bg: "blue", color: "white" }} border={"1px solid lightgray"}>
+                            <Icon as={FaWhatsapp} boxSize={4} />
+                          </Box>
+                          <Box w="15px"></Box>
+                          <Box borderRadius={'5px'} px={"3"} pt={'3'} pb={'1'} color="gray" _hover={{ bg: "blue", color: "white" }} border={"1px solid lightgray"}>
+                            <Icon as={FaLinkedinIn} boxSize={4} />
+                          </Box> */}
+
+
+
                           <FacebookShareButton url={post_link}>
-                            <FacebookIcon
+                            {/* <FacebookIcon
                               size={'42px'}
                               color={primaryTextColor}
-                            />
+                            /> */}
+
+                            <Box borderRadius={'5px'} px={"3"} pt={'3'} pb={'1'} color="gray" _hover={{ bg: "blue", color: "white" }} border={"1px solid lightgray"}>
+                              <Icon as={FaFacebookF} boxSize={4} />
+                            </Box>
                           </FacebookShareButton>
+                          <Box w="15px"></Box>
+
                           <TwitterShareButton url={post_link}>
-                            <TwitterIcon
+                            {/* <TwitterIcon
                               size={'42px'}
                               color={primaryTextColor}
-                            />
+                            /> */}
+                            <Box borderRadius={'5px'} px={"3"} pt={'3'} pb={'1'} color="gray" _hover={{ bg: "blue", color: "white" }} border={"1px solid lightgray"}>
+                              <Icon as={FaTwitter} boxSize={4} />
+                            </Box>
                           </TwitterShareButton>
+                          <Box w="15px"></Box>
+
                           <TelegramShareButton url={post_link}>
-                            <TelegramIcon
+                            {/* <TelegramIcon
                               size={'42px'}
                               color={primaryTextColor}
-                            />
+                            /> */}
+                            <Box borderRadius={'5px'} px={"3"} pt={'3'} pb={'1'} color="gray" _hover={{ bg: "blue", color: "white" }} border={"1px solid lightgray"}>
+                              <Icon as={FaTelegramPlane} boxSize={4} />
+                            </Box>
                           </TelegramShareButton>
+                          <Box w="15px"></Box>
+
                           <WhatsappShareButton url={post_link}>
-                            <WhatsappIcon
+                            {/* <WhatsappIcon
                               size={'42px'}
                               color={primaryTextColor}
-                            />
+                            /> */}
+                            <Box borderRadius={'5px'} px={"3"} pt={'3'} pb={'1'} color="gray" _hover={{ bg: "blue", color: "white" }} border={"1px solid lightgray"}>
+                              <Icon as={FaWhatsapp} boxSize={4} />
+                            </Box>
                           </WhatsappShareButton>
+                          <Box w="15px"></Box>
+
                           <LinkedinShareButton edinShareButton url={post_link}>
-                            <LinkedinIcon
+                            {/* <LinkedinIcon
                               size={'42px'}
                               color={primaryTextColor}
-                            />
+                            /> */}
+                            <Box borderRadius={'5px'} px={"3"} pt={'3'} pb={'1'} color="gray" _hover={{ bg: "blue", color: "white" }} border={"1px solid lightgray"}>
+                              <Icon as={FaLinkedinIn} boxSize={4} />
+                            </Box>
                           </LinkedinShareButton>
-                          <TumblrShareButton url={post_link}>
-                            <TumblrIcon
-                              size={'42px'}
-                              color={primaryTextColor}
-                            />
-                          </TumblrShareButton>
+
                         </Flex>
                       </Flex>
                     </Box>
