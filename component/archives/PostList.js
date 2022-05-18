@@ -328,11 +328,14 @@ function PostList({
                           <Img src={item.node.featuredImage.node.sourceUrl} />
                           {tagName && (
                             <Button
-                              position={'absolute'}
-                              bottom="0px"
+                              style={{
+                                position: 'absolute',
+                                left: '16px',
+                                top: '16px',
+                                borderRadius: '5px',
+                              }}
                               bg={'#fc4a00 '}
                               color="white"
-                              rounded="none"
                               size="xs"
                               fontWeight={'bold'}
                             >

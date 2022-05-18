@@ -213,52 +213,56 @@ const Postfinal = ({ props }) => {
         >
           {/* px={{ base: '4', lg: '24', xl: '40', '2xl': '80' }} */}
           {({ percentage, ref, entry }) => (
-            <Stack ref={ref}>
-              <Box display={{ base: 'none', md: 'contents' }}>
-                <Box
-                  position="sticky"
-                  alignSelf={'end'}
-                  right="-50px"
-                  top="0px"
-                >
-                  <div>
-                    <CircularProgress
-                      mr={10}
-                      mt={20}
-                      value={percentage * 100}
-                      color="#3545ee"
-                      size="60px"
-                      thickness="2px"
-                    >
-                      <CircularProgressLabel>
-                        {Math.round(percentage * 100) == 9
-                          ? '0'
-                          : Math.round(percentage * 100)}
-                        %
-                      </CircularProgressLabel>
-                    </CircularProgress>
-                  </div>
-                </Box>
-              </Box>
+            <Stack ref={ref} >
+
 
               <Box
-                px={{ md: '0px', lg: '230px', '2xl': '465px' }}
+                mx={{ md: '60px', lg: '165px', 'xl': '235px' }}
                 position={'relative'}
-                bottom={{ base: '40px', md: '80px' }}
+                bottom={{ base: '40px', md: '140px' }}
+                borderRadius="8px"
+                bg={primaryBgColor}
               >
+                <Box display={{ base: 'none', md: 'contents' }}>
+                  <Box
+                    position="fixed"
+                    alignSelf={'end'}
+                    right="50px"
+                    top="0px"
+                  >
+                    <div>
+                      <CircularProgress
+                        mr={10}
+                        mt={20}
+                        value={percentage * 100}
+                        color="#3545ee"
+                        size="60px"
+                        thickness="2px"
+                      >
+                        <CircularProgressLabel>
+                          {Math.round(percentage * 100) == 9
+                            ? '0'
+                            : Math.round(percentage * 100)}
+                          %
+                        </CircularProgressLabel>
+                      </CircularProgress>
+                    </div>
+                  </Box>
+                </Box>
+
                 <Grid
                   rounded={4}
-                  pr={{ base: '15px', lg: '40px' }}
-                  pl={{ base: '15px', lg: '40px', '2xl': '15px' }}
-                  py={{ base: '15px', lg: '40px' }}
-                  bg={primaryBgColor}
+                  pr={{ base: '15px', lg: '15px' }}
+                  pl={{ base: '15px', lg: '15px', '2xl': '15px' }}
+                  pt={{ base: '15px', lg: '40px' }}
                   templateColumns={{ md: '1fr 11fr ', sm: 'repeat(1, 1fr)' }}
                   textColor="white"
-                  gap={8}
+                  gap={10}
                   position={'relative'}
+
                 >
                   <Box display={{ base: 'none', md: 'block' }}>
-                    <VStack position={'sticky'} top="70px" bottom="20px">
+                    <VStack position={'sticky'} top="70px" >
                       <Text
                         color={primaryTextColor}
                         fontSize={'13px'}
@@ -331,7 +335,7 @@ const Postfinal = ({ props }) => {
                         alignContent="center"
                         textAlign={'center'}
 
-                        // px="auto"
+                      // px="auto"
                       >
                         {tagName}
                       </Box>
@@ -367,11 +371,9 @@ const Postfinal = ({ props }) => {
                             // color={primaryTextColor}
                             color={'#777'}
                           >
-                            {`${
-                              author.firstName == null ? '' : author.firstName
-                            } ${
-                              author.lastName == null ? '' : author.lastName
-                            }`}
+                            {`${author.firstName == null ? '' : author.firstName
+                              } ${author.lastName == null ? '' : author.lastName
+                              }`}
                           </Text>
                         </Flex>
                         <Flex
@@ -434,7 +436,7 @@ const Postfinal = ({ props }) => {
                       <div
                         className={
                           (`${ClassesPostBody.content} contentBody`,
-                          'lightThemeWpContent')
+                            'lightThemeWpContent')
                         }
                         dangerouslySetInnerHTML={{ __html: data.content }}
                       />
@@ -514,11 +516,9 @@ const Postfinal = ({ props }) => {
                             fontWeight={'600'}
                             color={primaryTextColor}
                           >
-                            {`${
-                              author.firstName == null ? '' : author.firstName
-                            } ${
-                              author.lastName == null ? '' : author.lastName
-                            }`}
+                            {`${author.firstName == null ? '' : author.firstName
+                              } ${author.lastName == null ? '' : author.lastName
+                              }`}
                           </Text>
                           <Text
                             my={'8px'}
@@ -555,7 +555,7 @@ const Postfinal = ({ props }) => {
 
                     <Flex
                       justifyContent={'space-between'}
-                      // flexDirection={{ base: 'column', md: 'row' }}
+                    // flexDirection={{ base: 'column', md: 'row' }}
                     >
                       <Flex flexDirection={{ base: 'column', md: 'row' }}>
                         <Flex>
@@ -621,7 +621,7 @@ const Postfinal = ({ props }) => {
                     </Flex>
 
                     {prevNextPost.previousPost !== '' &&
-                    prevNextPost.nextPost !== '' ? (
+                      prevNextPost.nextPost !== '' ? (
                       <Grid
                         templateColumns={{
                           md: '6fr 6fr',
