@@ -114,7 +114,9 @@ const Postfinal = ({ props }) => {
   // }, []);
   const [direction, setDirection] = React.useState(String);
   const { isScrollingUp, isScrollingDown } = useScrollDirection();
+
   var [position, setPosition] = useState();
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
     setPosition(window.pageYOffset);
@@ -948,72 +950,83 @@ const Postfinal = ({ props }) => {
       </Box>
 
       {/* popup */}
-      {direction === 'down' ? (
-        prevNextPost.nextPost.slug !== undefined ? (
-          <Slide direction="bottom" style={{ zIndex: 10 }}>
-            <Box
-              position="fixed"
-              bottom={'40px'}
-              alignSelf={'start'}
-              left={'40px'}
-              p="25px"
-              w="275px"
-              boxShadow="-1px 2px 12px rgb(0 0 0 / 10%)"
-              display={{ base: 'none', md: 'block' }}
-              bg="white"
-              shadow={'md'}
-              rounded="md"
-            >
-              <Flex justifyContent={'end'}>
-                <Icon
-                  as={CloseIcon}
-                  boxSize={2}
-                  color={'#777'}
-                  fontSize="11px"
-                />
-              </Flex>
-
-              <Text
-                fontWeight="400"
-                fontSize="13px"
-                fontStyle="italic"
-                color="#999"
-                letterSpacing="0.5px"
+      {isVisible ? (
+        direction === 'down' ? (
+          prevNextPost.nextPost.slug !== undefined ? (
+            <Slide direction="bottom" style={{ zIndex: 10 }}>
+              <Box
+                position="fixed"
+                bottom={'40px'}
+                alignSelf={'start'}
+                left={'40px'}
+                p="25px"
+                w="275px"
+                boxShadow="-1px 2px 12px rgb(0 0 0 / 10%)"
+                display={{ base: 'none', md: 'block' }}
+                bg="white"
+                shadow={'md'}
+                rounded="md"
               >
-                Next Article:
-              </Text>
-
-              <Link href={prevNextPost.nextPost.slug}>
-                <Heading
-                  as="h3"
-                  lineHeight={'1.5'}
-                  fontWeight="600"
-                  fontSize="16px"
-                  margin="8px 0 10px 0"
-                  cursor="pointer"
-                  color={'black'}
-                >
-                  {prevNextPost.nextPost?.title}
-                </Heading>
-              </Link>
-
-              <Flex>
-                <Text mr={'10px'} fontSize="11px" color={'#777'}>
-                  <Icon as={FaRegClock} boxSize={2} color={'#777'} mr={1} />
-                  {format(new Date(prevNextPost.nextPost?.date), 'yyyy-MM-dd')}
-                </Text>
-                <Text fontSize="11px" color={'#777'}>
+                <Flex justifyContent={'end'}>
                   <Icon
-                    as={FaStar}
+                    as={CloseIcon}
                     boxSize={2}
                     color={'#777'}
                     fontSize="11px"
-                  />{' '}
-                  7 min read
+                    cursor={'pointer'}
+                    onClick={() => {
+                      setIsVisible(!isVisible);
+                    }}
+                  />
+                </Flex>
+
+                <Text
+                  fontWeight="400"
+                  fontSize="13px"
+                  fontStyle="italic"
+                  color="#999"
+                  letterSpacing="0.5px"
+                >
+                  Next Article:
                 </Text>
-              </Flex>
-            </Box>
-          </Slide>
+
+                <Link href={prevNextPost.nextPost.slug}>
+                  <Heading
+                    as="h3"
+                    lineHeight={'1.5'}
+                    fontWeight="600"
+                    fontSize="16px"
+                    margin="8px 0 10px 0"
+                    cursor="pointer"
+                    color={'black'}
+                  >
+                    {prevNextPost.nextPost?.title}
+                  </Heading>
+                </Link>
+
+                <Flex>
+                  <Text mr={'10px'} fontSize="11px" color={'#777'}>
+                    <Icon as={FaRegClock} boxSize={2} color={'#777'} mr={1} />
+                    {format(
+                      new Date(prevNextPost.nextPost?.date),
+                      'yyyy-MM-dd'
+                    )}
+                  </Text>
+                  <Text fontSize="11px" color={'#777'}>
+                    <Icon
+                      as={FaStar}
+                      boxSize={2}
+                      color={'#777'}
+                      fontSize="11px"
+                    />
+                    7 min read
+                  </Text>
+                </Flex>
+              </Box>
+            </Slide>
+          ) : (
+            <div></div>
+          )
         ) : (
           <div></div>
         )
