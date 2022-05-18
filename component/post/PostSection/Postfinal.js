@@ -219,7 +219,7 @@ const Postfinal = ({ props }) => {
               <Box
                 mx={{ md: '60px', lg: '165px', 'xl': '235px' }}
                 position={'relative'}
-                bottom={{ base: '40px', md: '140px' }}
+                bottom={{ base: '40px', md: '100px' }}
                 borderRadius="8px"
                 bg={primaryBgColor}
               >
